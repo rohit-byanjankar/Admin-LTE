@@ -17,8 +17,25 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function(){
+    Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('categories', 'CategoriesController');
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('tags', 'TagsController');
+    
+    Route::resource('posts', 'PostsController');
+    
+    Route::get('trashed-posts', 'PostsController@trashed')->name('trashed-posts.index');
+    
+    Route::put('restore-post/{post}', 'PostsController@restore')->name('restore-posts');
+});
 
-Route::resource('posts', 'PostsController');
+Route::middleware(['auth','admin'])->group(function(){
+    Route::get('users', 'UsersController@index')->name('users.index');
+    Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
+    Route::post('users/{user}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin');
+    Route::put('users/profile', 'UsersController@update')->name('users.update-profile');
+
+
+});
+
