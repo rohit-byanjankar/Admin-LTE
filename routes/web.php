@@ -39,3 +39,6 @@ Route::middleware(['auth','admin'])->group(function(){
 
 });
 
+//REGISTER
+Route::get('register','RegisterController@show');
+Route::post('register','RegisterController@register');

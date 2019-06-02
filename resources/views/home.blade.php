@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-12">
+            <div class="card" style="margin: 250px 400px;">
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
@@ -13,7 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     You are logged in!
                 </div>
             </div>
@@ -21,3 +20,8 @@
     </div>
 </div>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="/css/admin_costom.css">
+@endsection
+
