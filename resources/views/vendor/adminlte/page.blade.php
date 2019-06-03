@@ -105,6 +105,7 @@
         </aside>
         @endif
         @can('update', App\Post::class)
+        @endcan
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

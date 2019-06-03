@@ -20,7 +20,7 @@
 </div>
 @endsection
 
-@section('css')
+<!-- @section('css')
     <link rel="stylesheet" href="/css/admin_costom.css">
-@endsection
+@endsection -->
 
