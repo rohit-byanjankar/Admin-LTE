@@ -9,6 +9,7 @@ use App\Post;
 use Illuminate\Support\Facades\Storage;
 use App\Category;
 use App\Tag;
+use Auth;
 
 class PostsController extends Controller
 {
@@ -45,13 +46,18 @@ class PostsController extends Controller
             'content'=> $request->content, 
             'image'=>   $image_name,
             'published_at'=> $request->published_at,
-            'category_id'=> $request->category
+            'category_id'=> $request->category,
+            'user_id' => auth::user()->id,
         ]);
 
         if($request->tags)  //attaching tag 
         {
             $post->tags()->attach($request->tags);
         }
+
+        
+        
+        
 
         session()->flash('sucs','Post Created Successfully');
 
