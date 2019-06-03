@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RolePermission;
 use Illuminate\Http\Request;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
@@ -154,5 +155,9 @@ class PostsController extends Controller
         $post->restore();
         session()->flash('sucs','Post Restored Successfully.');
         return redirect()->back();
+    }
+
+    public function getPolicies(){
+        return view('rolePermission.permission');
     }
 }

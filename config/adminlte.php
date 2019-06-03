@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE ksdfkdsfkjlsdf 2',
+    'title' => 'Comminity Media',
 
     'title_prefix' => '',
 
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'green',
+    'skin' => 'blue',
 
     /*
     |--------------------------------------------------------------------------
@@ -136,6 +136,11 @@ return [
             'text' => 'Tag',
             'url'  => '/tags',
             'icon' => 'tag',
+        ],
+        [
+            'text' => 'Permission',
+            'url'  => '/rolePermission',
+            'icon' => 'lock',
         ],
         [
             'text' => 'Category',
