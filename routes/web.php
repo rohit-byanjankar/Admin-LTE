@@ -24,10 +24,13 @@ Route::middleware('auth')->group(function(){
     Route::resource('tags', 'TagsController');
     
     Route::resource('posts', 'PostsController');
+    Route::get('rolePermission','PostsController@getPolicies');
     
     Route::get('trashed-posts', 'PostsController@trashed')->name('trashed-posts.index');
     
     Route::put('restore-post/{post}', 'PostsController@restore')->name('restore-posts');
+
+    Route::post('role-permission-save', 'PostsController@checkPermissionPost')->name('permission-post');
 });
 
 Route::middleware(['auth','admin'])->group(function(){

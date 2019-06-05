@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
 use Illuminate\Http\Request;
+use DB;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
@@ -161,4 +163,23 @@ class PostsController extends Controller
         session()->flash('sucs','Post Restored Successfully.');
         return redirect()->back();
     }
+
+    public function getPolicies(){
+       $role= Permission::all();
+        $models=["App\Post","App\Tag"];
+        $permissions=[];
+        foreach($models as $modelname){
+            $m=new $modelname;
+            $permission=$m->getPermissions();
+            $permissions[$modelname]=$permission;
+        }
+        return view('rolePermission.permission',compact('permissions'))->with('roles',$role);
+    }
+
+
+    public function checkPermissionPost(Request $r){
+        dd($r->all());
+    }
+
 }
+
