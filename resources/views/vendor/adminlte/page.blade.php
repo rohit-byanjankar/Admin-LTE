@@ -57,27 +57,36 @@
                 <div class="navbar-custom-menu">
                    
 
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav"> 
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
                   
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
-                                    <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                                    <i class="fa fa-fw fa-power-off"></i> Logout
                                 </a>
                             @else
-                                <a href="#"
-                                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                                >
-                                    <div class="pull-left mr-2"><p> {{ Auth::user()->name }} </p></div> 
-                                    {{  Auth::user()->image}}
-                                    <i class="fa fa-fw fa-power-off"></i> {{ trans('adminlte::adminlte.log_out') }}
+                                
+                                <li class="dropdown">
+                                    
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->image)}}" class="img-circle" width= 28px height=20px /> {{ Auth::user()->name }}
+                                    <span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                    <li><a href="{{ route('users.edit-profile') }} ">My Profile</a></li>
+                                    <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
+                                    </ul>
+                                </li>
+                                   
                                 </a>
+
+
                                 <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
                                     @if(config('adminlte.logout_method'))
                                         {{ method_field(config('adminlte.logout_method')) }}
                                     @endif
                                     {{ csrf_field() }}
                                 </form>
+
+
                             @endif
                         </li>
                     </ul>
@@ -104,8 +113,8 @@
             <!-- /.sidebar -->
         </aside>
         @endif
-        @can('update', App\Post::class)
-        @endcan
+
+       
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -131,8 +140,15 @@
             @endif
         </div>
         <!-- /.content-wrapper -->
-
+        <footer class="main-footer">
+       
+            <div class="text-center">
+                 <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved.
+            </div>
+            
+         </footer>
     </div>
+    
     <!-- ./wrapper -->
 @stop
 

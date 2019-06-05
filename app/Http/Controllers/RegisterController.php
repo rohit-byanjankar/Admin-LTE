@@ -14,12 +14,23 @@ class RegisterController extends Controller
     public function register(Request $request){
         $email = $request->input('email');
         $password = bcrypt($request->input('password'));
-        $name = $request->input('name');
+        $uname = $request->input('name');
+       
+            $image = $request->file('image');
+            $name = time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('/uploads/');
+            $image-> move($destinationPath,$name);
+            $img = '/uploads/'.$name;
+        
+
+        
 
         $user = user::create([
             'email'=>$email,
             'password'=>$password,
-            'name'=>$name
+            'name'=>$uname,
+            'image' => $img,
+            
         ]);
 
         auth()->login($user);

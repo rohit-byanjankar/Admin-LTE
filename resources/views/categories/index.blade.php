@@ -16,7 +16,7 @@
 
     <div class="card card-body">
     @if($categories->count()>0)
-        <table class="table">
+        <table class="table" id="category">
             <thead>
                 <th>
                     Name
@@ -94,6 +94,13 @@
 
         $('#deleteModal').modal('show')
     }
+
+    
+            
+     $(function () {
+        $("#category").DataTable();
+     });
+
 
 </script>
 @endsection

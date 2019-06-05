@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="card mt-1" style="margin:auto; width:400px;">
-        <form class="card-body" action='/register'  method="post">
+        <form class="card-body" action='/register'  method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="d-flex justify-content-center nav nav-tabs">
                 <span class="nav-item"><a href="/login" class="nav-link">Log In</a></span>
@@ -21,6 +21,11 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" name="email" placeholder="Email" id="email">
                 <p id="p2" class='text-danger small'></p>
+            </div>
+
+            <div class="mt-1">
+                <label for="email">Profile Picture:</label>
+                <input type="file" class="form-control" name="image" placeholder="image" id="image" required>
             </div>
 
             <div class="row mt-1">

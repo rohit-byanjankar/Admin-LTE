@@ -23,16 +23,17 @@ class PostPolicy
     }
 
   
-    public function update(User $user)
+    public function update(User $user, Post $post)
     {
-        return false;
+        return $user->id == $post->user_id;
     }
 
    
     public function delete(User $user, Post $post)
     {
-        //
+        return $user->id == $post->user_id;
     }
+    
 
   
     public function restore(User $user, Post $post)
@@ -44,5 +45,12 @@ class PostPolicy
     public function forceDelete(User $user, Post $post)
     {
         //
+    }
+
+    public function permission(User $user, Post $post)
+    {
+        return true;
+
+
     }
 }

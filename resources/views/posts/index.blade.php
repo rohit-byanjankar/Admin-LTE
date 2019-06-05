@@ -3,18 +3,19 @@
 @section('content')
 
         <div class="d-flex justify-content-end">
+           
             <a href="{{ route('posts.create')}}" class="btn btn-success float-right ">
-                Add Posts
+                 Add Posts
             </a>
         </div>
 
         <div class="card card-default">
             <div class="card card-header">
-                POSTS
+                 
             </div>
             <div class="card card-body">
                 @if($posts->count()>0)
-                <table class="table">
+                <table class="table" id="post">
                      <thead>
                         <th>
                              Title
@@ -63,12 +64,16 @@
                                     
                                 </td>
                                 @else
+                               @can('update', $post)
                                 <td>
                                     <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"> Edit </a>
                                 </td>
+                                @endcan
                                @endif
                                
                                 <td>
+                                @can('delete', $post)
+                                
                                    <form action="{{ route('posts.destroy', $post->id) }}" method="post">
                                        @csrf
                                        @method('DELETE')
@@ -77,6 +82,7 @@
                                             
                                         </button>
                                    </form>
+                                @endcan                                    
                                 </td>
                                 
                             </tr>
@@ -86,10 +92,18 @@
                  </table>
                 @else
                 <h3 class="text-center">
-                    No Posts available
+                    No Trash Yet
                 </h3>
                 @endif
             </div>
         </div>
 
+@endsection
+
+@section('scripts')
+<script>
+ $(function () {
+$("#post").DataTable();
+});
+</script>
 @endsection

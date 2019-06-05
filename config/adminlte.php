@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE ksdfkdsfkjlsdf 2',
+    'title' => 'Community Media',
 
     'title_prefix' => '',
 
@@ -127,77 +127,44 @@ return [
             'url'  => '/users',
             'icon' => 'user',
         ],
+       
         [
-            'text' => 'Posts',
-            'url'  => '/posts',
-            'icon' => 'file',
-        ],
-        [
-            'text' => 'Tag',
-            'url'  => '/tags',
-            'icon' => 'tag',
-        ],
-        [
-            'text' => 'Category',
-            'url'  => '/categories',
-            'icon' => 'file',
-        ],
-        [
-            'text' => 'Trash',
-            'url'  => '/trashed-posts',
-            'icon' => 'trash',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => 'Articles',
+            'icon'    => 'files-o',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Level One',
-                    'url'     => '#',
+                    'text' => 'Posts',
+                    'url'  => '/posts',
+                    'icon' => 'file',
                     'submenu' => [
                         [
-                            'text' => 'Level Two',
-                            'url'  => '#',
+                            'text' => 'Posts',
+                            'url'  => '/posts',
+                            'icon' => 'file',
                         ],
                         [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                            'text' => 'Trashed-Posts',
+                            'url'=> '/trashed-posts',
+                            'icon' => 'trash',
+                        ]
+                    ]
+                ],
+
+                [
+                    'text' => 'Category',
+                    'url'  => '/categories',
+                    'icon' => 'file',
                 ],
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
+                    'text' => 'Tag',
+                     'url'  => '/tags',
+                     'icon' => 'tag',
+                ]
+
             ],
         ],
-        'LABELS',
-        [
-            'text'       => 'Important',
-            'icon_color' => 'red',
-        ],
-        [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
-        ],
+
+       
     ],
 
     /*

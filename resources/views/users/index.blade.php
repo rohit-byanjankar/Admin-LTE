@@ -10,7 +10,7 @@
             </div>
             <div class="card card-body">
                 @if($users->count()>0)
-                <table class="table">
+                <table class="table" id="aa">
                      <thead>
                         <th>
                              Name
@@ -79,4 +79,15 @@
             </div>
         </div>
 
+       
 @endsection
+
+@section('scripts')
+<script>
+    $(function () {
+    $("#aa").DataTable();
+    });
+</script>
+@endsection
+
+

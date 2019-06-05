@@ -73,11 +73,11 @@ class PostsController extends Controller
   
     public function edit(Post $post)
     {
-        $this->authorize('update',$post);
+        $this->authorize('update', $post);
         return view('posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
-      
+
 
     public function update(UpdatePostRequest $request, Post $post)
     {
@@ -122,26 +122,32 @@ class PostsController extends Controller
 
     public function destroy($id)
     {
-        $post= Post::withTrashed()->where('id', $id)->firstOrFail();
+        
+       
+         $post= Post::withTrashed()->where('id', $id)->firstOrFail();
         
 
-        if($post->trashed())
-        {
-            Storage::delete($post->image);
-           
-            $post->forceDelete();
-        }
-        else{
-            $post->delete();
-        }
-
-        session()->flash('sucs','Post deleted Successfully');
-
-        return redirect(route('posts.index'));
+            if($post->trashed())
+            {
+                Storage::delete($post->image);
+               
+                $post->forceDelete();
+            }
+            else{
+                $post->delete();
+            }
+    
+            session()->flash('sucs','Post deleted Successfully');
+    
+            return redirect(route('posts.index'));
+     }
+          
+       
+         
+      
         
 
-    }
-
+    
     public function trashed() //display a list of all trashed posts
     {
         $trashed = Post::onlyTrashed()->get();

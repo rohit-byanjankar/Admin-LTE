@@ -5,8 +5,8 @@
 
 
 <div class="card card-default">
-    <div class="card card-header">
-        tags
+    <div class="card card-header text-left text-bold mt-1">
+        <h1>Tags</h1>
         <div class="d-flex justify-content-end">
             <a href="{{ route('tags.create')}}" class="btn btn-success float-right ">
                 Add tag
@@ -16,7 +16,7 @@
 
     <div class="card card-body">
         @if($tags->count()>0)
-        <table class="table">
+        <table class="table" id="tag">
             <thead>
                 <th>
                     Name
@@ -95,5 +95,14 @@
         $('#deleteModal').modal('show')
     }
 
+        $(function () {
+        $("#tag").DataTable();
+        });
+
+
+ 
 </script>
+
 @endsection
+
+
