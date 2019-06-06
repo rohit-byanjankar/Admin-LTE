@@ -41,11 +41,11 @@ class PostsController extends Controller
 
        $image_name  =  Storage::disk('public')->put('/uploads', $image); //storing image to storage
 
-
+       $contents = strip_tags($request->content);
         $post=Post::create([       //storing to database
             'title'=> $request->title,
             'description'=> $request->description,
-            'content'=> $request->content, 
+            'content'=> $contents, 
             'image'=>   $image_name,
             'published_at'=> $request->published_at,
             'category_id'=> $request->category,
@@ -67,15 +67,15 @@ class PostsController extends Controller
     }
 
    
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return view('posts.show')->with('post' ,$post);
     }
 
   
     public function edit(Post $post)
     {
-        $this->authorize('update', $post);
+       
         return view('posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
@@ -109,7 +109,8 @@ class PostsController extends Controller
               //updating to database
             $post->title = $request->title;
             $post->description = $request->description;
-            $post->content = $request->content;
+            $contents = strip_tags($request->content);
+            $post->content = $contents;
             
             $post->published_at = $request->published_at;
             $post->save();
@@ -134,14 +135,16 @@ class PostsController extends Controller
                 Storage::delete($post->image);
                
                 $post->forceDelete();
+                return redirect(route('trashed-posts.index'));
             }
             else{
                 $post->delete();
+                return redirect(route('posts.index'));
             }
     
             session()->flash('sucs','Post deleted Successfully');
     
-            return redirect(route('posts.index'));
+           
      }
           
        

@@ -5,6 +5,7 @@ namespace App\Policies;
 use App\User;
 use App\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use App\Permission;
 
 class PostPolicy
 {
@@ -25,7 +26,13 @@ class PostPolicy
   
     public function update(User $user, Post $post)
     {
-        return $user->id == $post->user_id;
+        if($user->id == $post->user_id )
+        {
+            return true; 
+        }
+       
+        
+        
     }
 
    
