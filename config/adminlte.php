@@ -126,6 +126,10 @@ return [
             'text' => 'Users',
             'url'  => '/users',
             'icon' => 'user',
+        ],[
+            'text' => 'Permission',
+            'url'  => '/rolePermission',
+            'icon' => 'lock',
         ],
        
         [
