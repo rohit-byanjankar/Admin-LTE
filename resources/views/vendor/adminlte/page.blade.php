@@ -67,15 +67,13 @@
                             @else
                                 
                                 <li class="dropdown">
-                                    
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->image)}}" class="img-circle" width= 28px height=20px /> {{ Auth::user()->name }}
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
-                                    <li><a href="{{ route('users.edit-profile') }} ">My Profile</a></li>
-                                    <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-fw fa-power-off"></i>Logout</a></li>
+                                        <li><a href="{{ route('users.edit-profile') }} "><i class="fa fa-user-circle"> My Profile</i></a></li>
+                                    <li><a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i>Logout</a></li>
                                     </ul>
                                 </li>
-                                   
                                 </a>
 
 

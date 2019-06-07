@@ -22,7 +22,6 @@
                     </tbody>
                      <input type="hidden" value="{{$role->role}}" name="roleID">
                      <input type="hidden" value="{{$role->model}}" name="model">
-
         </form>
                     @endforeach
                 </table>

@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('tags', 'TagsController');
     
     Route::resource('posts', 'PostsController');
+    Route::resource('roles', 'RolesController');
     Route::get('rolePermission','PermissionController@selectRole');
     Route::post('rolePermission/{role}','PermissionController@getPermission');
 
