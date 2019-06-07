@@ -24,8 +24,9 @@ Route::middleware('auth')->group(function(){
     Route::resource('tags', 'TagsController');
     
     Route::resource('posts', 'PostsController');
-    Route::get('rolePermission','PostsController@getPolicies');
-    
+    Route::get('rolePermission','PermissionController@selectRole');
+    Route::post('rolePermission/{role}','PermissionController@getPermission');
+
     Route::get('trashed-posts', 'PostsController@trashed')->name('trashed-posts.index');
     
     Route::put('restore-post/{post}', 'PostsController@restore')->name('restore-posts');

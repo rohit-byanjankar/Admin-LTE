@@ -146,13 +146,7 @@ class PostsController extends Controller
     
            
      }
-          
-       
-         
-      
-        
 
-    
     public function trashed() //display a list of all trashed posts
     {
         $trashed = Post::onlyTrashed()->get();
@@ -166,23 +160,5 @@ class PostsController extends Controller
         session()->flash('sucs','Post Restored Successfully.');
         return redirect()->back();
     }
-
-    public function getPolicies(){
-       $role= Permission::all();
-        $models=["App\Post","App\Tag"];
-        $permissions=[];
-        foreach($models as $modelname){
-            $m=new $modelname;
-            $permission=$m->getPermissions();
-            $permissions[$modelname]=$permission;
-        }
-        return view('rolePermission.permission',compact('permissions'))->with('roles',$role);
-    }
-
-
-    public function checkPermissionPost(Request $r){
-        dd($r->all());
-    }
-
 }
 
