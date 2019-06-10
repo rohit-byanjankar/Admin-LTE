@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function(){
     
     Route::put('restore-post/{post}', 'PostsController@restore')->name('restore-posts');
 
-    Route::post('role-permission-save', 'PostsController@checkPermissionPost')->name('permission-post');
+    Route::post('role-permission-save', 'PermissionController@checkPermissionPost')->name('permission-post');
 });
 
 Route::middleware(['auth','admin'])->group(function(){

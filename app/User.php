@@ -52,6 +52,11 @@ class User extends Authenticatable
     {
         return ["delete", "update", "create", "insert", "view"];
     }
+
+     public function getPermissions()
+    {
+        return ["delete", "update", "create", "insert", "view"];
+    }
 }
 
 

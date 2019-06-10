@@ -19,27 +19,39 @@
     }
         }
     @endphp
-    <div class="container">
-        <form action="{{url('role-permission-save')}}" method="post">
+  
+        <form class="col-md-12" style="overflow: hidden;" action="{{url('role-permission-save')}}" method="post">
             {{csrf_field()}}
                 <h2 class="text-bold text-light-blue">Permission for {{$roleName}}</h2>
+
+                @php
+                        $index=0;
+                @endphp
             @foreach($permissions as $model=>$permission)
-                <h2 class="text-bold">{{$model}}</h2>
+
+            <div class="col-md-4">
+                <div class="box-header">
+                <h2 class="box-title text-bold">{{$model}}</h2>
+                </div>
+                <div class="box-body">
+                    
                 @foreach($permission as $permission_granted)
                     <div class="checkbox">
-                        <label><input type="checkbox" value="{{$permission_granted}}" name="checked[]"
-                {{$model==$modelName && Helper::check($permission_granted,$roleName,$modelName,$permission_array)== true ? 'checked':''}}
+                        <label><input type="checkbox" value="{{$index++}}" name="checked[]"
+                {{Helper::check($permission_granted,$roleName,$model,$permission_array)== true ? 'checked':''}}
                             >{{$permission_granted}}</label>
                         <input type="hidden" value="{{$roleName}}" name="role[]" >
                         <input type="hidden" value="{{$permission_granted}}" name="permission_granted[]" >
                         <input type="hidden" value="{{$model}}" name="model[]" >
                     </div>
                         @endforeach
-                @endforeach
-
-    <input type="submit" value="Save">
+                    </div>
+            </div>
+            @endforeach
+            <div class="col-md-12">
+                <input type="submit" class="col-md-2 pull-right" value="Save">
+            </div>
         </form>
-    </div>
 @endsection
 
 

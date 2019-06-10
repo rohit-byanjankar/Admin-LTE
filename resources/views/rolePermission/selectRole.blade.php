@@ -16,12 +16,11 @@
             @csrf
                     <tbody>
                     <tr>
-                        <td>{{$role->role}}</td>
+                        <td>{{$role->name}}</td>
                        <td><button class="btn btn-facebook">View Permission</button></td>
                     </tr>
                     </tbody>
-                     <input type="hidden" value="{{$role->role}}" name="roleID">
-                     <input type="hidden" value="{{$role->model}}" name="model">
+                     <input type="hidden" value="{{$role->name}}" name="roleID">
         </form>
                     @endforeach
                 </table>
