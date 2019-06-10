@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="card mt-1" style="margin:auto; width:400px;">
-        <form class="card-body" action='/register'  method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{url('register')}}"  method="post" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="d-flex justify-content-center nav nav-tabs">
-                <span class="nav-item"><a href="/login" class="nav-link">Log In</a></span>
+                <span class="nav-item"><a href="{{url('login')}}" class="nav-link">Log In</a></span>
                 <span class="nav-item "><a href="#" class="nav-link active">Sign Up</a></span>
             </div>
 
