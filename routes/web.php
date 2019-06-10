@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('posts', 'PostsController');
     Route::resource('roles', 'RolesController');
     Route::get('rolePermission','PermissionController@selectRole');
-    Route::post('rolePermission/{role}','PermissionController@getPermission');
+    Route::get('rolePermission/{role}','PermissionController@getPermission');
 
     Route::get('trashed-posts', 'PostsController@trashed')->name('trashed-posts.index');
     

@@ -17,9 +17,9 @@ class PermissionController extends Controller
         return view('rolePermission.selectRole',compact('roles'));
     }
 
-    public function getPermission(Request $request){
+    public function getPermission($roleID){
         
-        $roleName=$request->input('roleID');
+        $roleName=$roleID;
         $roles=Permission::where("role",$roleName)->get();
         $models=config("adminlte.models"); //["App\Post","App\Tag","App\Category","App\User"];
         
@@ -34,6 +34,20 @@ class PermissionController extends Controller
     }
 
     public function checkPermissionPost(Request $r){
-        dd($r->all());
+        $checked=$r->checked;
+        $roles=$r->role;
+        $permissions=$r->permission_granted;
+        $models=$r->model;
+        $inputArray=[];
+        $allPermissions=Permission::where("role",$roles[0])->delete();
+        if($checked){
+                foreach($checked as $index){
+            $inputArray=["role"=>$roles[$index],"permission_granted"=>$permissions[$index],"model"=>$models[$index]];
+
+            Permission::create($inputArray);
+            }
+        }
+
+        return redirect()->back()->with("success","Successfully Updated permissions");
     }
 }
