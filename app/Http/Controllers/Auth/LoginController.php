@@ -68,8 +68,9 @@ class LoginController extends Controller
             $role = Auth::user()->role; //get the role of the user who just login
             
             
-            $permission = Permission::where('role',$role)->get('permission_granted'); //get the permission of the role which the login user belongs to
-            // dd($permission); 
+            $permission = Permission::where('role',$role)->select('model','permission_granted')->get(); //get the permission of the role which the logged in user belongs to
+            $p = $permission->toArray();
+             dd($p); 
             Auth::user()->setPermissions($permission);
 
             return $this->sendLoginResponse($request);

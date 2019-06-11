@@ -7,7 +7,7 @@ use App\Permission;
 use App\Category;
 use App\Tag;
 use App\User;
-use App\Role;
+
 
 use Illuminate\Http\Request;
 

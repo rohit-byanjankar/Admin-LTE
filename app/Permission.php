@@ -10,15 +10,13 @@ class Permission extends Model
         'role', 'permission_granted', 'model'
     ];
 
-     public function getPermissions()
+    public function getPermissions()
     {
-        return ["delete", "update", "create", "view"];
+        return ["delete", "update", "create", "insert", "view"];
     }
 
-    public function setPermissions()
-    {
-       
-    }
+   
+  
 
-    
+     
 }
