@@ -14,4 +14,11 @@ class Permission extends Model
     {
         return ["delete", "update", "create", "view"];
     }
+
+    public function setPermissions()
+    {
+       
+    }
+
+    
 }

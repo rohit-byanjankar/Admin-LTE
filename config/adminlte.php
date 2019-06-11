@@ -110,7 +110,7 @@ return [
     'menu' => [
         'VIEW ARTICLES',
         [
-            'text'    => 'Articles',
+            'text' => 'Articles',
             'icon'    => 'files-o',
             'submenu' => [
                 [

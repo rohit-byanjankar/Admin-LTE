@@ -40,7 +40,7 @@ class CategoriesController extends Controller
             'name'=> $request->name  // the first name is column in database and second name is form name
           ]);
 
-          session()-> flash('success','Category added successfully');
+          session()-> flash('sucs','Category added successfully');
 
           return redirect(route('categories.index'));
     }
@@ -70,7 +70,7 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        session()-> flash('success','Category Updated Successfully');
+        session()-> flash('sucs','Category Updated Successfully');
         return redirect(route('categories.index'));
     }
 
@@ -84,7 +84,7 @@ class CategoriesController extends Controller
         }
         $category->delete();
 
-        session()-> flash('success', 'Deleted Successfully');
+        session()-> flash('sucs', 'Deleted Successfully');
 
         return redirect(route('categories.index'));
     }
