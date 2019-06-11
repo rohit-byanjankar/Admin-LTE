@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function(){
     Route::resource('tags', 'TagsController');
     
     Route::resource('posts', 'PostsController');
+    Route::resource('roles', 'RolesController');
     Route::get('rolePermission','PermissionController@selectRole');
     Route::post('rolePermission/{role}','PermissionController@getPermission');
 
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function(){
     
     Route::put('restore-post/{post}', 'PostsController@restore')->name('restore-posts');
 
-    Route::post('role-permission-save', 'PostsController@checkPermissionPost')->name('permission-post');
+    Route::post('role-permission-save', 'PermissionController@checkPermissionPost')->name('permission-post');
 });
 
 Route::middleware(['auth','admin'])->group(function(){

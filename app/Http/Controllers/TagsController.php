@@ -40,7 +40,7 @@ class TagsController extends Controller
             'name'=> $request->name  // the first name is column in database and second name is form name
           ]);
 
-          session()-> flash('success','Tag added successfully');
+          session()-> flash('sucs','Tag added successfully');
 
           return redirect(route('tags.index'));
     }
@@ -70,7 +70,7 @@ class TagsController extends Controller
 
         $tag->save();
 
-        session()-> flash('success','Tag Updated Successfully');
+        session()-> flash('sucs','Tag Updated Successfully');
         return redirect(route('tags.index'));
     }
 

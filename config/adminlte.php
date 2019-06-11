@@ -126,11 +126,13 @@ return [
             'text' => 'Users',
             'url'  => '/users',
             'icon' => 'user',
-        ],[
+        ],
+        [
             'text' => 'Permission',
             'url'  => '/rolePermission',
             'icon' => 'lock',
         ],
+        
        
         [
             'text'    => 'Articles',
@@ -166,6 +168,12 @@ return [
                 ]
 
             ],
+        ],
+
+        [
+            'text' => 'Roles',
+            'url'  => '/roles',
+            'icon' => 'lock',
         ],
 
        

@@ -71,6 +71,16 @@
                                 @endcan
                                @endif
                                
+                               <td>
+                                    <form action="{{ route('posts.show', $post->id) }}" method="get">
+                                        @csrf
+                                        
+                                        <button type="submit" class="btn btn-success btn-sm"> 
+                                            View Post
+                                                
+                                            </button>
+                                    </form>
+                                </td>
                                 <td>
                                 @can('delete', $post)
                                 
@@ -78,12 +88,16 @@
                                        @csrf
                                        @method('DELETE')
                                        <button type="submit" class="btn btn-danger btn-sm"> 
-                                           {{ $post->trashed() ? 'DELETE' : 'TRASH' }}
+                                        {{ $post->trashed() ? 'DELETE' : 'TRASH' }}
                                             
                                         </button>
                                    </form>
-                                @endcan                                    
+                                @endcan       
+                                
+                                
                                 </td>
+                           
+                                
                                 
                             </tr>
                         @endforeach
@@ -92,7 +106,7 @@
                  </table>
                 @else
                 <h3 class="text-center">
-                    No Trash Yet
+                    Nothing to show..
                 </h3>
                 @endif
             </div>

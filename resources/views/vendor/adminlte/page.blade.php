@@ -15,12 +15,35 @@
 
 @section('body')
     <div class="wrapper">
+     
 
         <!-- Main Header -->
         <header class="main-header">
             @if(config('adminlte.layout') == 'top-nav')
+             
             <nav class="navbar navbar-static-top">
+           
                 <div class="container">
+                <main class="py-4">
+            
+            @auth
+            <div class="container">
+               @if(session()->has('sucs'))
+                     <div class="alert alert-success text-center">
+                         {{ session()->get('sucs')}}
+                     </div>
+ 
+                 @endif
+                 @if(session()->has('err'))
+                     <div class="alert alert-danger text-center">
+                         {{ session()->get('err')}}
+                     </div>
+ 
+                 @endif
+            </div>
+           @endauth
+     </main>            
+               
                     <div class="navbar-header">
                         <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
                             {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
@@ -129,6 +152,25 @@
 
             <!-- Main content -->
             <section class="content">
+          
+            
+            @auth
+            <div class="container col-md-12">
+               @if(session()->has('sucs'))
+                     <div class="alert alert-success text-center">
+                         {{ session()->get('sucs')}}
+                     </div>
+ 
+                 @endif
+                 @if(session()->has('err'))
+                     <div class="alert alert-danger text-center">
+                         {{ session()->get('err')}}
+                     </div>
+ 
+                 @endif
+            </div>
+           @endauth
+              
 
                 @yield('content')
 

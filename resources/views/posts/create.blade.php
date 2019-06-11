@@ -32,7 +32,6 @@
                     <input id="content" type="hidden" name="content" value="{{ isset($post) ? $post->content : ''}}">
                     <trix-editor input="content"></trix-editor>
 
-                    </textarea>
                 </div>
                 @if(isset($post))
                     <div class="form-group">
