@@ -38,6 +38,6 @@ class Post extends Model
 
     public function getPermissions()
     {
-        return ["delete", "update", "create", "insert", "view"];
+        return ["delete", "update", "create","view"];
     }
 } 

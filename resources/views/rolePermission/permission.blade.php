@@ -19,22 +19,18 @@
     }
         }
     @endphp
-  
-        <form class="col-md-12" style="overflow: hidden;" action="{{url('role-permission-save')}}" method="post">
+        <form action="{{url('role-permission-save')}}" method="post">
             {{csrf_field()}}
                 <h2 class="text-bold text-light-blue">Permission for {{$roleName}}</h2>
-
                 @php
                         $index=0;
                 @endphp
             @foreach($permissions as $model=>$permission)
-
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="box-header">
-                <h2 class="box-title text-bold">{{$model}}</h2>
+                    <h2 class="box-title text-bold">{{$model}}</h2>
                 </div>
                 <div class="box-body">
-                    
                 @foreach($permission as $permission_granted)
                     <div class="checkbox">
                         <label><input type="checkbox" value="{{$index++}}" name="checked[]"
@@ -48,8 +44,8 @@
                     </div>
             </div>
             @endforeach
-            <div class="col-md-12">
-                <input type="submit" class="col-md-2 pull-right" value="Save">
+            <div class="">
+                <button class="btn btn-facebook text-success">Update Permissions</button>
             </div>
         </form>
 @endsection
