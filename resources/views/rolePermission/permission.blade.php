@@ -9,7 +9,7 @@
         $role=$permission->role;
         if(!isset($permission_array[$role])){
             $permission_array[$role]=[];
-        }
+        }       
         $model=$permission->model;
         if(!isset($permission_array[$role][$model])){
             $permission_array[$role][$model]=[];
