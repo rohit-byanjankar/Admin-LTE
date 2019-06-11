@@ -110,32 +110,7 @@ return [
     'menu' => [
         'MAIN NAVIGATION',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 2,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Users',
-            'url'  => '/users',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Permission',
-            'url'  => '/rolePermission',
-            'icon' => 'lock',
-        ],
-        
-       
-        [
-            'text'    => 'Articles',
+            'text' => 'Articles',
             'icon'    => 'files-o',
             'submenu' => [
                 [
@@ -159,26 +134,41 @@ return [
                 [
                     'text' => 'Category',
                     'url'  => '/categories',
-                    'icon' => 'file',
+                    'icon' => 'list',
                 ],
                 [
                     'text' => 'Tag',
-                     'url'  => '/tags',
-                     'icon' => 'tag',
-                ]
+                    'url'  => '/tags',
+                    'icon' => 'tag',
+                ],
 
             ],
         ],
+        'ACCOUNT SETTINGS',
+        [
+            'text' => 'Users',
+            'url'  => '/users',
+            'icon' => 'user',
+        ],[
+            'text' => 'Permission',
+            'url'  => '/rolePermission',
+            'icon' => 'lock',
+        ],
+       
 
         [
             'text' => 'Roles',
             'url'  => '/roles',
-            'icon' => 'lock',
-        ],
-
-       
+            'icon' => 'odnoklassniki',
+        ]
     ],
 
+    'models' => [
+                "App\Post",
+                "App\Tag",
+                "App\Category",
+                "App\User"
+                ],
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

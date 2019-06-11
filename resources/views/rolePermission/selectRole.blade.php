@@ -12,17 +12,15 @@
                     </tr>
                     </thead>
                     @foreach($roles as $role)
-        <form action="{{url('rolePermission/'.$role->role)}}" method="post">
+        <form action="{{url('rolePermission/'.$role->name)}}" method="get">
             @csrf
                     <tbody>
                     <tr>
-                        <td>{{$role->role}}</td>
+                        <td>{{$role->name}}</td>
                        <td><button class="btn btn-facebook">View Permission</button></td>
                     </tr>
                     </tbody>
-                     <input type="hidden" value="{{$role->role}}" name="roleID">
-                     <input type="hidden" value="{{$role->model}}" name="model">
-
+                   
         </form>
                     @endforeach
                 </table>

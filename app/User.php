@@ -48,10 +48,18 @@ class User extends Authenticatable
     }
 
 
-    public function getPolicies()
+  
+     public function getPermissions() //for permission controller
     {
         return ["delete", "update", "create", "insert", "view"];
     }
+
+    // public function setPermissions($a) // for login controller
+    // {
+    //     $permission
+    // }
+
+
 }
 
 

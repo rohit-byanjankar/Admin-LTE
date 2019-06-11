@@ -3,11 +3,11 @@
 @section('content')
     <div class="card mt-5" style="margin:auto; width:290px">
 
-        <form class="card-body" method="POST" action='/login'>
+        <form class="card-body" method="POST" action="{{url('login')}}">
             {{ csrf_field() }}
             <div class="d-flex justify-content-center nav nav-tabs">
                 <span class="nav-item"><a href="#" class="nav-link active">Log In</a></span>
-                <span class="nav-item"><a href="/register" class="nav-link">Sign Up</a></span>
+                <span class="nav-item"><a href="{{url('register')}}" class="nav-link">Sign Up</a></span>
             </div>
 
             <div class="mt-4">
