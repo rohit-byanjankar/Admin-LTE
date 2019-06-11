@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{ $post->title}}</td>
                         <td>
-                          <img src="{{ asset($post->image) }}" alt="" width="90px">
+                          <a href="{{route('posts.show',$post->id)}}"><img src="{{ asset($post->image) }}" alt="" width="90px"></a>
                         </td>
                         <td>{{ $post->category->name}}</td>
                        @if($post->trashed())

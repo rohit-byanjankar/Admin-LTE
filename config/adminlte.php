@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'VIEW ARTICLES',
         [
             'text'    => 'Articles',
             'icon'    => 'files-o',
@@ -144,7 +144,7 @@ return [
 
             ],
         ],
-        'ACCOUNT SETTINGS',
+        'USER ROLE SETTING',
         [
             'text' => 'Users',
             'url'  => '/users',

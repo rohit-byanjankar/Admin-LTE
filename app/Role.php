@@ -9,6 +9,6 @@ class Role extends Model
     protected $fillable= ['name'];
      public function getPermissions()
     {
-        return ["delete", "update", "create", "insert", "view"];
+        return ["delete", "update", "create","view"];
     }
 }
