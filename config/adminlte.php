@@ -160,6 +160,12 @@ return [
             'text' => 'Roles',
             'url'  => '/roles',
             'icon' => 'odnoklassniki',
+        ],
+        'DUMMY ANNOUNCEMENT',
+        [
+            'text' => 'Announcement',
+            'url' => '/announcement',
+            'icon' => 'bullhorn'
         ]
     ],
 
