@@ -55,6 +55,8 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
+
+
         if ($this->attemptLogin($request)) {
             
            
@@ -63,8 +65,6 @@ class LoginController extends Controller
             
             $permission = Permission::where('role',$role)->select('model','permission_granted')->get(); //get the permission of the role which the logged in user belongs to
             $p = $permission->toArray();
-             //dd($p); 
-            //Auth::user()->setPermissions($permission);
 
             return $this->sendLoginResponse($request);
         }
