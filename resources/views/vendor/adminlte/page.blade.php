@@ -15,12 +15,33 @@
 
 @section('body')
     <div class="wrapper">
+     
 
         <!-- Main Header -->
         <header class="main-header">
             @if(config('adminlte.layout') == 'top-nav')
+           
+             
             <nav class="navbar navbar-static-top">
+            @auth
+            <div class="container">
+               @if(session()->has('sucs'))
+                     <div class="alert alert-success text-center">
+                         {{ session()->get('sucs')}}
+                     </div>
+ 
+                 @endif
+                 @if(session()->has('err'))
+                     <div class="alert alert-danger text-center">
+                         {{ session()->get('err')}}
+                     </div>
+ 
+                 @endif
+            </div>
+           @endauth
                 <div class="container">
+                          
+               
                     <div class="navbar-header">
                         <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
                             {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
@@ -127,6 +148,25 @@
 
             <!-- Main content -->
             <section class="content">
+          
+            
+            @auth
+            <div class="container col-md-12">
+               @if(session()->has('sucs'))
+                     <div class="alert alert-success text-center">
+                         {{ session()->get('sucs')}}
+                     </div>
+ 
+                 @endif
+                 @if(session()->has('err'))
+                     <div class="alert alert-danger text-center">
+                         {{ session()->get('err')}}
+                     </div>
+ 
+                 @endif
+            </div>
+           @endauth
+              
 
                 @yield('content')
 
@@ -141,7 +181,9 @@
         <footer class="main-footer">
        
             <div class="text-center">
-                 <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved.
+                 <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved. <br/>
+                <a href="#"> <i class="fa fa-facebook-official"></i> </a>
+                <i class="fa fa-instagram"></i>
             </div>
             
          </footer>

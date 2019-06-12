@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
-
-
+    <!-- Custom styles for this template -->
+    <link rel ="stylesheet" href="css/article-style.css" >
+    
 
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->

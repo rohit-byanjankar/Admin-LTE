@@ -47,15 +47,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
-
-    public function getPolicies()
-    {
-        return ["delete", "update", "create", "insert", "view"];
-    }
-
      public function getPermissions()
     {
-        return ["delete", "update", "create", "insert", "view"];
+        return ["delete", "update", "create","view"];
     }
 }
 

@@ -14,13 +14,13 @@ class PostPolicy
     
     public function view(User $user, Post $post)
     {
-        //
+        
     }
 
   
     public function create(User $user)
     {
-        //
+        
     }
 
   
@@ -45,19 +45,14 @@ class PostPolicy
   
     public function restore(User $user, Post $post)
     {
-        //
+        
     }
 
   
     public function forceDelete(User $user, Post $post)
     {
-        //
+        
     }
 
-    public function permission(User $user, Post $post)
-    {
-        return true;
-
-
-    }
+   
 }
