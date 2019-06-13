@@ -119,13 +119,13 @@ return [
                     'icon' => 'file',
                     'submenu' => [
                         [
-                            'text' => 'Posts',
-                            'url'  => '/posts',
+                            'text' => 'View Posts',
+                            'url'  => '/article/posts',
                             'icon' => 'file',
                         ],
                         [
                             'text' => 'Trashed-Posts',
-                            'url'=> '/trashed-posts',
+                            'url'=> '/article/trashed-posts',
                             'icon' => 'trash',
                         ]
                     ]
@@ -133,12 +133,12 @@ return [
 
                 [
                     'text' => 'Category',
-                    'url'  => '/categories',
+                    'url'  => '/article/categories',
                     'icon' => 'list',
                 ],
                 [
                     'text' => 'Tag',
-                    'url'  => '/tags',
+                    'url'  => '/article/tags',
                     'icon' => 'tag',
                 ],
 
@@ -147,18 +147,18 @@ return [
         'USER ROLE SETTING',
         [
             'text' => 'Users',
-            'url'  => '/users',
+            'url'  => '/userroles/users',
             'icon' => 'user',
         ],[
             'text' => 'Permission',
-            'url'  => '/rolePermission',
+            'url'  => '/userroles/rolePermission',
             'icon' => 'lock',
         ],
        
 
         [
             'text' => 'Roles',
-            'url'  => '/roles',
+            'url'  => '/userroles/roles',
             'icon' => 'odnoklassniki',
         ]
     ],

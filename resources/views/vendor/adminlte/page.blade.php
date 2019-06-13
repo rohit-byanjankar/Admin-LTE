@@ -105,7 +105,6 @@
                                     {{ csrf_field() }}
                                 </form>
 
-
                             @endif
                         </li>
                     </ul>
@@ -181,9 +180,9 @@
         <footer class="main-footer">
        
             <div class="text-center">
-                 <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved. <br/>
+                 <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved.
                 <a href="#"> <i class="fa fa-facebook-official"></i> </a>
-                <i class="fa fa-instagram"></i>
+                <a href="#"> <i class="fa fa-instagram"></i></a>
             </div>
             
          </footer>
