@@ -8,6 +8,7 @@ use DB;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Post;
+
 use Illuminate\Support\Facades\Storage;
 use App\Category;
 use App\Tag;
@@ -51,7 +52,7 @@ class PostsController extends Controller
             'category_id'=> $request->category,
             'user_id' => auth::user()->id,
         ]);
-
+     
         if($request->tags)  //attaching tag 
         {
             $post->tags()->attach($request->tags);

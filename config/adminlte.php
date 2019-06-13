@@ -115,11 +115,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Posts',
-                    'url'  => '/posts',
+                   
                     'icon' => 'file',
                     'submenu' => [
                         [
-                            'text' => 'View Posts',
+                            'text' => 'Posts',
                             'url'  => '/article/posts',
                             'icon' => 'file',
                         ],
@@ -160,6 +160,11 @@ return [
             'text' => 'Roles',
             'url'  => '/userroles/roles',
             'icon' => 'odnoklassniki',
+        ],
+        [
+            'text' => 'Events',
+            'url'  => '/events/events',
+            'icon' => 'calendar-o',
         ]
     ],
 
