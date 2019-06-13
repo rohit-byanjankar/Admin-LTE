@@ -115,11 +115,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Posts',
-                    'url'  => '/posts',
+                   
                     'icon' => 'file',
                     'submenu' => [
                         [
-                            'text' => 'View Posts',
+                            'text' => 'Posts',
                             'url'  => '/article/posts',
                             'icon' => 'file',
                         ],
@@ -177,8 +177,13 @@ return [
                 ],
         ],
         [
+            'text' => 'Events',
+            'url'  => '/events/events',
+            'icon' => 'calendar-o',
+        ],
+        [
             'text' => 'Announcement',
-            'url' => '/announcement',
+            'url' => 'dummymodule/announcements',
             'icon' => 'bullhorn'
         ],
     ],

@@ -12,5 +12,9 @@
 */
 
 Route::prefix('dummymodule')->group(function() {
-    Route::get('/', 'DummyModuleController@index');
+   // Route::get('/announcements', 'DummyAnnouncementsController@index')->name('index');
+    Route::resource('/announcements','DummyAnnouncementsController');
+    
 });
+
+

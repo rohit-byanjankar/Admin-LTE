@@ -20,7 +20,7 @@
                         <th>Image</th>
                         <th>Category</th>
                         <th></th>
-                        <th></th>
+                        
                      </thead>
                         @foreach($posts as $post)
                      <tbody>
@@ -43,19 +43,19 @@
                         <td>
                             <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                             <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                        </td>
                         @endcan
-                       @endif
+                        </td>
                         <td>
                         @can('delete', $post)
-                           <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy', $post->id) }}" method="post">
-                               @csrf
-                               @method('DELETE')
-                               <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
-                                </button>
-                           </form>
+                            <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash-o"></i></button>
+                            </form>
                         @endcan
                         </td>
+                       @endif
                     </tr>
                 @endforeach
              </tbody>

@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsTable extends Migration
+class CreateDummyAnnouncementTable extends Migration
 {
+    
     /**
      * Run the migrations.
      *
@@ -13,16 +14,12 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('dummy_announcement', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->text('description');
-            $table->text('content');
-            $table->string('image');
-            $table->integer('category_id');
-            $table->integer('user_id');
+            $table->text('details');
             $table->timestamp('published_at');
-            $table->softDeletes();
+            $table->date('published_till');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('dummy_announcement');
     }
 }
