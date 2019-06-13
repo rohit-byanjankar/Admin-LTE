@@ -144,7 +144,7 @@ return [
 
             ],
         ],
-        'USER ROLE SETTING',
+        ' ROLE SETTING',
         [
             'text' => 'Users',
             'url'  => '/userroles/users',
@@ -154,21 +154,35 @@ return [
             'url'  => '/userroles/rolePermission',
             'icon' => 'lock',
         ],
-       
-
         [
             'text' => 'Roles',
             'url'  => '/userroles/roles',
             'icon' => 'odnoklassniki',
-        ]
-    ],
-
-    'models' => [
-                "App\Post",
-                "App\Tag",
-                "App\Category",
-                "App\User"
-                ],
+        ],
+        'USER FEATURES',
+        [
+           'text' => 'Phone Directory',
+           'icon' =>  'phone-square',
+            'submenu' => [
+                    [
+                        'text' => 'Add',
+                        'url'  => '/telephonedirectory/directory',
+                        'icon' => 'list-alt',
+                    ],
+                    [
+                        'text' => 'Categories',
+                        'url'=> '/telephonedirectory/',
+                        'icon' => 'th-list',
+                    ]
+                ]
+            ]
+        ],
+        'models' => [
+                        "App\Post",
+                        "App\Tag",
+                        "App\Category",
+                        "App\User"
+                    ],
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

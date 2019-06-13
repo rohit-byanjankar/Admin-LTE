@@ -11,26 +11,23 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('users.index')->with('users',User::all());
+        return view('userroles::users.index')->with('users',User::all());
     }
 
     public function edit()
     {
-        return view('users.edit')->with('user',auth()->user());
+        return view('userroles::users.edit')->with('user',auth()->user());
     }
 
     public function update(UpdateProfileRequest $request)
     {
         $user = auth()->user();
-
         $user->update([
             'name'=> $request->name,
             'about'=> $request->about
         ]);
         session()->flash('sucs','User profile is updated successfully.');
         return redirect()->back();
-
-
     } 
     
 

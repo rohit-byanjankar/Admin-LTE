@@ -15,7 +15,7 @@ class PermissionController extends Controller
 {
     public function selectRole(){
         $roles= Role::all();
-        return view('rolePermission.selectRole',compact('roles'));
+        return view('userroles::rolePermission.selectRole',compact('roles'));
     }
 
     public function getPermission($roleName){
@@ -30,7 +30,7 @@ class PermissionController extends Controller
             $permission=$m->getPermissions();
             $permissions[$modelname]=$permission;
         }
-        return view('rolePermission.permission',compact('permissions','roles','roleName'));
+        return view('userroles::rolePermission.permission',compact('permissions','roles','roleName'));
     }
 
     public function checkPermissionPost(Request $r){

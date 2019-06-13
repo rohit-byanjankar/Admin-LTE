@@ -1,0 +1,14 @@
+{
+    "name": "TelephoneDirectory",
+    "alias": "telephonedirectory",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\TelephoneDirectory\\Providers\\TelephoneDirectoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
