@@ -23,13 +23,13 @@ class PostsController extends Controller
     }
     public function index()
     {
-        return view('posts.index')->with('posts', Post::all());
+        return view('article::posts.index')->with('posts', Post::all());
     }
 
     
     public function create()
     {
-        return view('posts.create')->with('categories',Category::all())->with('tags',Tag::all());
+        return view('article::posts.create')->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     
@@ -70,14 +70,14 @@ class PostsController extends Controller
    
     public function show(Post $post)
     {
-        return view('posts.show')->with('post' ,$post);
+        return view('article::posts.show')->with('post' ,$post);
     }
 
   
     public function edit(Post $post)
     {
        
-        return view('posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
+        return view('article::posts.create')->with('post',$post)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
 
@@ -151,7 +151,7 @@ class PostsController extends Controller
     public function trashed() //display a list of all trashed posts
     {
         $trashed = Post::onlyTrashed()->get();
-        return view('posts.index')->withposts($trashed); //same as with('posts',$trashed)    
+        return view('article::posts.index')->withposts($trashed); //same as with('posts',$trashed)    
     }
 
     public function restore($id)

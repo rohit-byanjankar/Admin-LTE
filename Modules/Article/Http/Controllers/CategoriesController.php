@@ -18,7 +18,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('categories.index')->with('categories',Category::all());
+        return view('article::categories.index')->with('categories',Category::all());
     }
 
     /**
@@ -28,7 +28,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('article::categories.create');
     }
 
    
@@ -56,7 +56,7 @@ class CategoriesController extends Controller
     public function edit(Category $category)
     {
         //
-        return view('categories.create')-> with('category', $category);
+        return view('article::categories.create')-> with('category', $category);
     }
 
     

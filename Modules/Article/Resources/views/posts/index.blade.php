@@ -21,7 +21,7 @@
                         <th>Image</th>
                         <th>Category</th>
                         <th></th>
-                        <th></th>
+                        
                      </thead>
                         @foreach($posts as $post)
                      <tbody>
@@ -42,21 +42,22 @@
                         @else
                        @can('update', $post)
                         <td>
-                            <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"> Edit </a>
+                            <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                            @endcan
+
+                            @can('delete', $post)
+    
+                            <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash-o"></i></button>
+                            </form>
+                            @endcan
                         </td>
-                        @endcan
+                      
                        @endif
-                        <td>
-                        @can('delete', $post)
-                           <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                               @csrf
-                               @method('DELETE')
-                               <button type="submit" class="btn btn-danger btn-sm">
-                                   {{ $post->trashed() ? 'DELETE' : 'TRASH' }}
-                                </button>
-                           </form>
-                        @endcan
-                        </td>
+                      
                     </tr>
                 @endforeach
              </tbody>
