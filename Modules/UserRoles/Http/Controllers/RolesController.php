@@ -15,7 +15,7 @@ class RolesController extends Controller
      */
     public function index()
     {
-        return view('roles.index')->with('roles',Role::all());
+        return view('userroles::roles.index')->with('roles',Role::all());
     }
 
     /**
@@ -25,7 +25,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        return view('roles.create');
+        return view('userroles::roles.create');
     }
 
     
@@ -59,7 +59,7 @@ class RolesController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('roles.create')-> with('role', $role);
+        return view('userroles::roles.create')-> with('role', $role);
     }
 
     
@@ -83,11 +83,8 @@ class RolesController extends Controller
      */
     public function destroy(Role $role)
     {
-        
         $role->delete();
-
         session()-> flash('sucs', 'Deleted Successfully');
-
         return redirect(route('roles.index'));
     }
 }

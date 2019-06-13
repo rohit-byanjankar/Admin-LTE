@@ -11,10 +11,8 @@
 |
 */
 
-Route::prefix('dummymodule')->group(function() {
-   // Route::get('/announcements', 'DummyAnnouncementsController@index')->name('index');
-    Route::resource('/announcements','DummyAnnouncementsController');
-    
+Route::prefix('telephonedirectory')->group(function() {
+    //Route::get('/directory', 'TelephoneDirectoryController@index');
+    //Route::post('/directory', 'TelephoneDirectoryController@store');
+    Route::resource('directory','TelephoneDirectoryController');
 });
-
-

@@ -5,6 +5,7 @@ namespace Modules\DummyModule\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\DummyModule\Entities\DummyAnnouncement;
 
 class DummyAnnouncementsController extends Controller
 {
@@ -14,7 +15,7 @@ class DummyAnnouncementsController extends Controller
      */
     public function index()
     {
-        return view('dummymodule::index');
+        return view('dummymodule::announcements.index')->with('announcements', DummyAnnouncement::all());
     }
 
     /**
@@ -23,7 +24,7 @@ class DummyAnnouncementsController extends Controller
      */
     public function create()
     {
-        return view('dummymodule::create');
+        return view('dummymodule::announcements.create');
     }
 
     /**
@@ -33,7 +34,18 @@ class DummyAnnouncementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $announcement=DummyAnnouncement::create([       //storing to database
+            'title'=> $request->title,
+            'details'=> $request->details,
+            'published_at'=> $request->published_at,
+            'published_till'=>$request->published_till
+        ]);
+
+        
+        session()->flash('sucs','Announcement created successfully');
+
+        return redirect(route('announcements.index'));
+
     }
 
     /**
@@ -43,7 +55,8 @@ class DummyAnnouncementsController extends Controller
      */
     public function show($id)
     {
-        return view('dummymodule::show');
+        $announcement = DummyAnnouncement::find($id);
+        return view('dummymodule::announcements.show')->with('announcement',$announcement);
     }
 
     /**
@@ -51,9 +64,9 @@ class DummyAnnouncementsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(DummyAnnouncement $announcement)
     {
-        return view('dummymodule::edit');
+        return view('dummymodule::announcements.create')->with('announcement',$announcement);
     }
 
     /**
@@ -62,9 +75,16 @@ class DummyAnnouncementsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, DummyAnnouncement $announcement)
     {
-        //
+            $announcement->title = $request->title;
+            $announcement->details = $request->details;
+            $announcement->published_at = $request->published_at;
+            $announcement->published_till = $request->published_till;
+            $announcement->save();
+    
+        session()->flash('sucs','Announcement is updated successfully');
+        return redirect(route('announcements.index'));
     }
 
     /**
@@ -72,8 +92,10 @@ class DummyAnnouncementsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(DummyAnnouncement $announcement)
     {
-        //
+        $announcement->forceDelete();
+        session()->flash('sucs','Announcement deleted Successfully');
+        return redirect(route('announcements.index'));        
     }
 }

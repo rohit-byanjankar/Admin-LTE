@@ -18,7 +18,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        return view('tags.index')->with('tags',Tag::all());
+        return view('article::tags.index')->with('tags',Tag::all());
     }
 
     /**
@@ -28,38 +28,28 @@ class TagsController extends Controller
      */
     public function create()
     {
-        return view('tags.create');
+        return view('article::tags.create');
     }
 
-   
     public function store(CreateTagRequest $request)
     {
-        
-          //validation is done in app\request\createTagrequest in rule method 
+          //validation is done in app\request\createTagrequest in rule method
           Tag::create([  //Tag is model(table) and create is a function provided by model class 
             'name'=> $request->name  // the first name is column in database and second name is form name
           ]);
-
-          session()-> flash('success','Tag added successfully');
-
+          session()-> flash('sucs','Tag added successfully');
           return redirect(route('tags.index'));
     }
 
-    
     public function show($id)
     {
         //
     }
 
-   
-
     public function edit(Tag $tag)
     {
-        //
-        return view('tags.create')-> with('tag', $tag);
+        return view('article::tags.create')-> with('tag', $tag);
     }
-
-    
 
 
     public function update(UpdateTagRequest $request, Tag $tag )
@@ -67,14 +57,12 @@ class TagsController extends Controller
         $tag->update([
             'name'=> $request->name
         ]);
-
         $tag->save();
 
-        session()-> flash('success','Tag Updated Successfully');
+        session()-> flash('sucs','Tag Updated Successfully');
         return redirect(route('tags.index'));
     }
 
-   
     public function destroy(Tag $tag)
     {
         if($tag->posts->count()>0)
@@ -82,12 +70,9 @@ class TagsController extends Controller
             session()-> flash('err', 'There are posts associated with this tag.');
             return redirect()->back();
 
-
         }
         $tag->delete();
-
         session()-> flash('sucs', 'Deleted Successfully');
-
         return redirect(route('tags.index'));
     }
 }
