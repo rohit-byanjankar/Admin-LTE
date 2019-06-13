@@ -174,15 +174,21 @@ return [
                         'url'=> '/telephonedirectory/',
                         'icon' => 'th-list',
                     ]
-                ]
-            ]
+                ],
         ],
+        [
+            'text' => 'Announcement',
+            'url' => '/announcement',
+            'icon' => 'bullhorn'
+        ],
+    ],
         'models' => [
                         "App\Post",
                         "App\Tag",
                         "App\Category",
                         "App\User"
                     ],
+
     /*
     |--------------------------------------------------------------------------
     | Menu Filters
