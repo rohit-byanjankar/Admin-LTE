@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content')
-
+    
         <div class="d-flex justify-content-end">
            
             <a href="{{ route('posts.create')}}" class="btn btn-success float-right ">
@@ -28,7 +28,9 @@
                     <tr>
                         <td>{{ $post->title}}</td>
                         <td>
+                          <a href="{{ route('posts.show',$post->id)}}">
                           <img src="{{ asset($post->image) }}" alt="" width="90px">
+                          </a>
                         </td>
                         <td>{{ $post->category->name}}</td>
                        @if($post->trashed())
@@ -64,7 +66,7 @@
          </table>
                 @else
                 <h3 class="text-center">
-                    No Post Yet
+                    Nothing to Show!
                 </h3>
                 @endif
             </div>

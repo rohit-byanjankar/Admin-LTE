@@ -19,7 +19,7 @@
     }
         }
     @endphp
-        <form action="{{url('role-permission-save')}}" method="post">
+        <form action="{{url('userroles/role-permission-save')}}" method="post">
             {{csrf_field()}}
                 <h2 class="text-bold text-light-blue">Permission for {{$roleName}}</h2>
                 @php

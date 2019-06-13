@@ -183,7 +183,7 @@ return [
         ],
         [
             'text' => 'Announcement',
-            'url' => 'dummymodule/announcements',
+            'url' => '/dummymodule/announcements',
             'icon' => 'bullhorn'
         ],
     ],

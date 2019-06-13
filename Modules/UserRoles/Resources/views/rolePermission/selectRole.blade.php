@@ -12,7 +12,7 @@
                     </tr>
                     </thead>
                     @foreach($roles as $role)
-        <form action="{{url('rolePermission/'.$role->name)}}" method="get">
+        <form action="{{url('userroles/rolePermission/'.$role->name)}}" method="get">
             @csrf
                     <tbody>
                     <tr>
