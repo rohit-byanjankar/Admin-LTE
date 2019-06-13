@@ -73,8 +73,8 @@
 
 @section('scripts')
 <script>
- $(function () {
-$("#post").DataTable();
-});
+    $(function () {
+    $("#post").DataTable();
+    });
 </script>
 @endsection
