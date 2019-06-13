@@ -2,9 +2,8 @@
 
 @section('content')
 
-        <div class="d-flex justify-content-end">
-           
-            <a href="{{ route('posts.create')}}" class="btn btn-success float-right ">
+        <div class="d-flex justify-content-end margin">
+            <a href="{{ route('posts.create')}}" class="btn btn-success ">
                  Add Posts
             </a>
         </div>
@@ -36,23 +35,23 @@
                             <form action="{{ route('restore-posts', $post->id)}}" method="POST">
                             @csrf
                             @method('PUT')
-                            <button type="submit" class="btn btn-info btn-sm"> RESTORE </button>
+                            <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-reply"></i> </button>
                             </form>
                         </td>
                         @else
                        @can('update', $post)
                         <td>
-                            <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"> Edit </a>
+                            <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                            <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                         </td>
                         @endcan
                        @endif
                         <td>
                         @can('delete', $post)
-                           <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                           <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy', $post->id) }}" method="post">
                                @csrf
                                @method('DELETE')
-                               <button type="submit" class="btn btn-danger btn-sm">
-                                   {{ $post->trashed() ? 'DELETE' : 'TRASH' }}
+                               <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                                 </button>
                            </form>
                         @endcan

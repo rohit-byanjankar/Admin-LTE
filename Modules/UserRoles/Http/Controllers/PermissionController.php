@@ -43,7 +43,6 @@ class PermissionController extends Controller
         if($checked){
                 foreach($checked as $index){
             $inputArray=["role"=>$roles[$index],"permission_granted"=>$permissions[$index],"model"=>$models[$index]];
-
             Permission::create($inputArray);
             }
         }
