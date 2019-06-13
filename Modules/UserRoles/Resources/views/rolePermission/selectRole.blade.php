@@ -11,12 +11,12 @@
                         <th></th>
                     </tr>
                     </thead>
-                    @foreach($roles as $role)
-        <form action="{{url('userroles/rolePermission/'.$role->name)}}" method="get">
+                    @foreach($roles as $roleName)
+        <form action="{{url('userroles/rolePermission/'.$roleName->name)}}" method="get">
             @csrf
                     <tbody>
                     <tr>
-                        <td>{{$role->name}}</td>
+                        <td>{{$roleName->name}}</td>
                        <td><button class="btn btn-facebook">View Permission</button></td>
                     </tr>
                     </tbody>

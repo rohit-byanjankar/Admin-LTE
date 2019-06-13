@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card card-default">
-        <div class=" card-header">
+        <div class=" card-header text-bold ">
             {{ isset($post) ? 'Edit the post' : 'Create a Post' }}   
         </div>
 

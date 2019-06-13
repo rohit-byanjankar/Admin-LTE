@@ -1,10 +1,9 @@
 @extends('adminlte::page')
 
 @section('content')
-    
-        <div class="d-flex justify-content-end">
-           
-            <a href="{{ route('posts.create')}}" class="btn btn-success float-right ">
+
+        <div class="d-flex justify-content-end margin">
+            <a href="{{ route('posts.create')}}" class="btn btn-success ">
                  Add Posts
             </a>
         </div>
@@ -29,7 +28,7 @@
                         <td>{{ $post->title}}</td>
                         <td>
                           <a href="{{ route('posts.show',$post->id)}}">
-                          <img src="{{ asset($post->image) }}" alt="" width="90px">
+                          <img src="{{ asset($post->image) }}" alt="" width="90px" height="100px">
                           </a>
                         </td>
                         <td>{{ $post->category->name}}</td>
@@ -38,28 +37,27 @@
                             <form action="{{ route('restore-posts', $post->id)}}" method="POST">
                             @csrf
                             @method('PUT')
-                            <button type="submit" class="btn btn-info btn-sm"> RESTORE </button>
+                            <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-reply"></i> </button>
                             </form>
                         </td>
                         @else
                        @can('update', $post)
                         <td>
+                            <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                             <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                            @endcan
-
-                            @can('delete', $post)
-    
+                        @endcan
+                        </td>
+                        <td>
+                        @can('delete', $post)
                             <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash-o"></i></button>
+                                <i class="fa fa-trash-o"></i></button>
                             </form>
-                            @endcan
+                        @endcan
                         </td>
-                      
                        @endif
-                      
                     </tr>
                 @endforeach
              </tbody>

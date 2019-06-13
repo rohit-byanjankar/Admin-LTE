@@ -22,7 +22,6 @@ class PermissionController extends Controller
 
         $roles=Permission::where("role",$roleName)->get();
         $models=config("adminlte.models"); //["App\Post","App\Tag","App\Category","App\User"];
-        
         $permissions=[];
         
         foreach($models as $modelname){

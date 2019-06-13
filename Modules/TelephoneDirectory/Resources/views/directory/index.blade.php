@@ -8,7 +8,7 @@
          </div>
                 @if($phoneDirectory->count()>0)
                     <div class="col-md-12">
-                        <table class="table table-hover"  id="directoryTable">
+                        <table class="table table-hover"  id="directory">
                             <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -54,7 +54,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#directoryTable').DataTable();
+            $('#directory').DataTable();
         } );
     </script>
 @endsection

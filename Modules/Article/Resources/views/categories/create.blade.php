@@ -8,7 +8,6 @@
 
     <div class="card-header text-center">
         {{ isset($category) ? 'Edit Category' : 'Create Category'}}
-        
     </div>
     <div class="card-body">
     @include('partials.errors')

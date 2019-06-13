@@ -1,27 +1,19 @@
 @extends('adminlte::page')
 @section('content')
         <div class="card card-default">
-            <div class="card card-header">
+            <div class="card card-header text-bold">
                 USERS
             </div>
             <div class="card card-body">
                 @if($users->count()>0)
                 <table class="table  text-center" id="userTable">
                      <thead class="text-bold">
-                        <th>
-                             Name
-                         </th>
-                         <th>
-                             Role
-                         </th>
-                         <th>
-                             Image
-                         </th>
-                         <th>
-                             Email
-                         </th>
-                         <th></th>
-                         <th></th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Image</th>
+                        <th>Email</th>
+                        <th></th>
+                        <th></th>
                      </thead>
                      <tbody>
                         @foreach($users as $user)
