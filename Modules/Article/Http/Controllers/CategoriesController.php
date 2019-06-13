@@ -31,50 +31,36 @@ class CategoriesController extends Controller
         return view('article::categories.create');
     }
 
-   
     public function store(CreateCategoryRequest $request)
     {
-        
           //validation is done in app\request\createcategoryrequest in rule method 
           Category::create([  //Category is model(table) and create is a function provided by model class 
             'name'=> $request->name  // the first name is column in database and second name is form name
           ]);
-
-          session()-> flash('success','Category added successfully');
-
+          session()-> flash('sucs','Category added successfully');
           return redirect(route('categories.index'));
     }
-
     
     public function show($id)
     {
         //
     }
 
-   
-
     public function edit(Category $category)
     {
-        //
         return view('article::categories.create')-> with('category', $category);
     }
-
-    
-
 
     public function update(UpdateCategoriesRequest $request, Category $category )
     {
         $category->update([
             'name'=> $request->name
         ]);
-
         $category->save();
-
-        session()-> flash('success','Category Updated Successfully');
+        session()-> flash('sucs','Category Updated Successfully');
         return redirect(route('categories.index'));
     }
 
-   
     public function destroy(Category $category)
     {
         if($category->posts->count()>0)
@@ -84,8 +70,7 @@ class CategoriesController extends Controller
         }
         $category->delete();
 
-        session()-> flash('success', 'Deleted Successfully');
-
+        session()-> flash('sucs', 'Deleted Successfully');
         return redirect(route('categories.index'));
     }
 }

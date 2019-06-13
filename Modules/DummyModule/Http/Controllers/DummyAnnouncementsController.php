@@ -1,11 +1,12 @@
 <?php
 
-namespace Modules\UserRoles\Http\Controllers;
+namespace Modules\DummyModule\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
-class UserRolesController extends Controller
+use Illuminate\Routing\Controller;
+
+class DummyAnnouncementsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,7 @@ class UserRolesController extends Controller
      */
     public function index()
     {
-        return view('userroles::index');
+        return view('dummymodule::index');
     }
 
     /**
@@ -22,7 +23,7 @@ class UserRolesController extends Controller
      */
     public function create()
     {
-        return view('userroles::create');
+        return view('dummymodule::create');
     }
 
     /**
@@ -42,7 +43,7 @@ class UserRolesController extends Controller
      */
     public function show($id)
     {
-        return view('userroles::show');
+        return view('dummymodule::show');
     }
 
     /**
@@ -52,7 +53,7 @@ class UserRolesController extends Controller
      */
     public function edit($id)
     {
-        return view('userroles::edit');
+        return view('dummymodule::edit');
     }
 
     /**
