@@ -161,10 +161,10 @@ return [
             'url'  => '/userroles/roles',
             'icon' => 'odnoklassniki',
         ],
-        'DUMMY ANNOUNCEMENT',
+        'ANNOUNCEMENT',
         [
             'text' => 'Announcement',
-            'url' => '/announcement',
+            'url' => 'dummymodule/announcements',
             'icon' => 'bullhorn'
         ]
     ],
