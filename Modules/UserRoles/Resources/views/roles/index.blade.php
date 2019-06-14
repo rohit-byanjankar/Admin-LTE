@@ -11,9 +11,9 @@
         </div>
     </div>
 
-    <div class="card card-body">
+    <div class="card card-body panel">
         @if($roles->count()>0)
-        <table class="table" id="role">
+        <table class="table table-bordered table-hover" id="role">
             <thead>
                 <th>Name</th>
                 <th></th>

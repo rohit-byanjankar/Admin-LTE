@@ -14,9 +14,9 @@
         </div>
     </div>
 
-    <div class="card card-body">
+    <div class="card card-body panel">
         @if($tags->count()>0)
-        <table class="table" id="tag">
+        <table class="table table-hover table-bordered" id="tag">
             <thead>
                 <th>Name</th>
                 <th>POSTS COUNT</th>

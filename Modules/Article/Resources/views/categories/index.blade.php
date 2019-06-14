@@ -12,9 +12,9 @@
         </div>
     </div>
 
-    <div class="card card-body">
+    <div class="card card-body panel">
     @if($categories->count()>0)
-        <table class="table" id="category">
+        <table class="table table-bordered table-hover panel-body" id="category">
             <thead>
                 <th>
                     Name

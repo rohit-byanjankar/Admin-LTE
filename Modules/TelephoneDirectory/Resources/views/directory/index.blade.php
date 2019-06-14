@@ -7,8 +7,8 @@
             </a>
          </div>
                 @if($phoneDirectory->count()>0)
-                    <div class="col-md-12">
-                        <table class="table table-hover"  id="directory">
+                    <div class="col-md-12 card card-body panel">
+                        <table class="table table-hover table-bordered"  id="directory">
                             <thead>
                             <tr>
                                 <th>Full Name</th>
