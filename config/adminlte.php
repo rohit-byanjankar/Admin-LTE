@@ -115,17 +115,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Posts',
-                    'url'  => '/posts',
+                   
                     'icon' => 'file',
                     'submenu' => [
                         [
                             'text' => 'Posts',
-                            'url'  => '/posts',
+                            'url'  => '/article/posts',
                             'icon' => 'file',
                         ],
                         [
                             'text' => 'Trashed-Posts',
-                            'url'=> '/trashed-posts',
+                            'url'=> '/article/trashed-posts',
                             'icon' => 'trash',
                         ]
                     ]
@@ -133,42 +133,67 @@ return [
 
                 [
                     'text' => 'Category',
-                    'url'  => '/categories',
+                    'url'  => '/article/categories',
                     'icon' => 'list',
                 ],
                 [
                     'text' => 'Tag',
-                    'url'  => '/tags',
+                    'url'  => '/article/tags',
                     'icon' => 'tag',
                 ],
 
             ],
         ],
-        'USER ROLE SETTING',
+        ' ROLE SETTING',
         [
             'text' => 'Users',
-            'url'  => '/users',
+            'url'  => '/userroles/users',
             'icon' => 'user',
         ],[
             'text' => 'Permission',
-            'url'  => '/rolePermission',
+            'url'  => '/userroles/rolePermission',
             'icon' => 'lock',
         ],
-       
-
         [
             'text' => 'Roles',
-            'url'  => '/roles',
+            'url'  => '/userroles/roles',
             'icon' => 'odnoklassniki',
-        ]
-    ],
-
-    'models' => [
-                "App\Post",
-                "App\Tag",
-                "App\Category",
-                "App\User"
+        ],
+        'USER FEATURES',
+        [
+           'text' => 'Phone Directory',
+           'icon' =>  'phone-square',
+            'submenu' => [
+                    [
+                        'text' => 'Add',
+                        'url'  => '/telephonedirectory/directory',
+                        'icon' => 'list-alt',
+                    ],
+                    [
+                        'text' => 'Categories',
+                        'url'=> '/telephonedirectory/',
+                        'icon' => 'th-list',
+                    ]
                 ],
+        ],
+        [
+            'text' => 'Events',
+            'url'  => '/events/events',
+            'icon' => 'calendar-o',
+        ],
+        [
+            'text' => 'Announcement',
+            'url' => '/dummymodule/announcements',
+            'icon' => 'bullhorn'
+        ],
+    ],
+        'models' => [
+                        "App\Post",
+                        "App\Tag",
+                        "App\Category",
+                        "App\User"
+                    ],
+
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

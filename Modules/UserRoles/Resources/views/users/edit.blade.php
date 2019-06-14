@@ -18,6 +18,12 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="dp"> Profile Picture </label> <br>
+                          <img src="{{ asset($user->image) }} " alt=""> 
+                        </div>
+
+
+                        <div class="form-group">
                             <label for="about"> About Me </label>
                             <textarea name="about" id="about" cols="5" rows="5" class="form-control">{{ $user->about }}
                                  </textarea>

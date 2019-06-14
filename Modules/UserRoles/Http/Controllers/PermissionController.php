@@ -2,20 +2,20 @@
 
 namespace Modules\UserRoles\Http\Controllers;
 
-use App\Role;
-use App\Permission;
-use App\Category;
-use App\Tag;
-use App\User;
+use Modules\UserRoles\Entities\Role;
+use Modules\UserRoles\Entities\Permission;
+
+use Modules\UserRoles\Entities\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PermissionController extends Controller
 {
     public function selectRole(){
         $roles= Role::all();
-        return view('rolePermission.selectRole',compact('roles'));
+        return view('userroles::rolePermission.selectRole',compact('roles'));
     }
 
     public function getPermission($roleName){
@@ -30,7 +30,7 @@ class PermissionController extends Controller
             $permission=$m->getPermissions();
             $permissions[$modelname]=$permission;
         }
-        return view('rolePermission.permission',compact('permissions','roles','roleName'));
+        return view('userroles::rolePermission.permission',compact('permissions','roles','roleName'));
     }
 
     public function checkPermissionPost(Request $r){
@@ -43,11 +43,12 @@ class PermissionController extends Controller
         if($checked){
                 foreach($checked as $index){
             $inputArray=["role"=>$roles[$index],"permission_granted"=>$permissions[$index],"model"=>$models[$index]];
-
             Permission::create($inputArray);
             }
         }
+        session()->flash("sucs","Successfully Updated permissions");
 
-        return redirect()->back()->with("success","Successfully Updated permissions");
+        return redirect()->back();
+      
     }
 }
