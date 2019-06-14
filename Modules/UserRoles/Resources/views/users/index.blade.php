@@ -13,7 +13,7 @@
                         <th>Image</th>
                         <th>Email</th>
                         <th></th>
-                        <th></th>
+                       
                      </thead>
                      <tbody>
                         @foreach($users as $user)
@@ -39,7 +39,10 @@
                                             Make Admin
                                         </button>
                                     </form>
+                                    @else
+                                    <p class="text-aqua">This person is Admin.</p>
                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach
