@@ -3,22 +3,21 @@
 @section('content')
 
 <div class="d-flex justify-content-end margin">
-    <a href="{{ route('posts.create')}}" class="btn btn-success ">
-        Add Posts
-    </a>
+        <a href="{{ route('posts.create')}}" class="btn btn-success ">
+            Add Posts
+        </a>
 </div>
 
 <div class="card card-default">
-    <div class="card card-header">
-
-    </div>
-    <div class="card card-body">
+    
+    <div class="card card-body panel">
         @if($posts->count()>0)
-        <table class="table table-bordered table-condensed" id="post">
+        <table class="table table-bordered table-hover panel-body" id="post">
             <thead>
                 <th>Title</th>
                 <th>Image</th>
                 <th>Category</th>
+                <th></th>
                 <th></th>
 
 
@@ -41,23 +40,24 @@
                             <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-reply"></i> </button>
                         </form>
                     </td>
+
                     @else
 
                     <td>
                         <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                        @can('update', $post)
+                      
                         <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                        @endcan
-                        @can('delete', $post)
-                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fa fa-trash-o"></i></button>
-                        </form>
-                        @endcan
                     </td>
                     @endif
+                    
+                    <td>
+                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger btn-sm">
+                                    <i class="fa fa-trash-o"></i></button>
+                            </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
