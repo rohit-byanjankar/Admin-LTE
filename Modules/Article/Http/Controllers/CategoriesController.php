@@ -4,7 +4,7 @@ namespace Modules\Article\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Category;
+use Modules\Article\Entities\Category;
 use App\Http\Requests\Categories\CreateCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoriesRequest;
 use App\Http\Controllers\Controller;
