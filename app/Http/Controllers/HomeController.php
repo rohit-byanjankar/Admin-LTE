@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Article\Entities\Post;
+use Modules\Article\Entities\Category;
+use Modules\Article\Entities\Tag;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->role == 'admin')
+        {
+            return view('home');
+        }
+        else{
+            return view('userhome')->with('posts', Post::all())-> with('categories', Category::all())-> with('tags', Tag::all());
+        }
+
+       
     }
 }
