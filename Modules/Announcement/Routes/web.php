@@ -11,10 +11,7 @@
 |
 */
 
-Route::prefix('dummymodule')->group(function() {
-   // Route::get('/announcements', 'DummyAnnouncementsController@index')->name('index');
-    Route::resource('/announcements','DummyAnnouncementsController');
-    
+Route::prefix('announcements')->group(function() {
+    Route::resource('/announcements','AnnouncementController');
+
 });
-
-

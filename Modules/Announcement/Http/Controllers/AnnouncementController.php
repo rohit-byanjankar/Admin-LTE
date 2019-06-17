@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\DummyModule\Http\Controllers;
+namespace Modules\Announcement\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\DummyModule\Entities\DummyAnnouncement;
+use Modules\Announcement\Entities\Announcement;
 
-class DummyAnnouncementsController extends Controller
+class AnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DummyAnnouncementsController extends Controller
      */
     public function index()
     {
-        return view('dummymodule::announcements.index')->with('announcements', DummyAnnouncement::all());
+        return view('announcement::announcements.index')->with('announcements', Announcement::all());
     }
 
     /**
@@ -24,7 +24,7 @@ class DummyAnnouncementsController extends Controller
      */
     public function create()
     {
-        return view('dummymodule::announcements.create');
+        return view('announcement::announcements.create');
     }
 
     /**
@@ -34,7 +34,7 @@ class DummyAnnouncementsController extends Controller
      */
     public function store(Request $request)
     {
-        $announcement=DummyAnnouncement::create([       //storing to database
+        $announcement=Announcement::create([       //storing to database
             'title'=> $request->title,
             'details'=> $request->details,
             'published_at'=> $request->published_at,
@@ -55,18 +55,17 @@ class DummyAnnouncementsController extends Controller
      */
     public function show($id)
     {
-        $announcement = DummyAnnouncement::find($id);
-        return view('dummymodule::announcements.show')->with('announcement',$announcement);
-    }
+        $announcement = Announcement::find($id);
+        return view('announcement::announcements.show')->with('announcement',$announcement);    }
 
     /**
      * Show the form for editing the specified resource.
      * @param int $id
      * @return Response
      */
-    public function edit(DummyAnnouncement $announcement)
+    public function edit(Announcement $announcement)
     {
-        return view('dummymodule::announcements.create')->with('announcement',$announcement);
+        return view('announcement::announcements.create')->with('announcement',$announcement);
     }
 
     /**
@@ -75,16 +74,16 @@ class DummyAnnouncementsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, DummyAnnouncement $announcement)
+    public function update(Request $request, Announcement $announcement)
     {
-            $announcement->title = $request->title;
-            $announcement->details = $request->details;
-            $announcement->published_at = $request->published_at;
-            $announcement->published_till = $request->published_till;
-            $announcement->save();
-    
-        session()->flash('sucs','Announcement is updated successfully');
-        return redirect(route('announcements.index'));
+        $announcement->title = $request->title;
+        $announcement->details = $request->details;
+        $announcement->published_at = $request->published_at;
+        $announcement->published_till = $request->published_till;
+        $announcement->save();
+
+    session()->flash('sucs','Announcement is updated successfully');
+    return redirect(route('announcements.index'));
     }
 
     /**
@@ -92,10 +91,10 @@ class DummyAnnouncementsController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(DummyAnnouncement $announcement)
+    public function destroy(Announcement $announcement)
     {
         $announcement->forceDelete();
         session()->flash('sucs','Announcement deleted Successfully');
-        return redirect(route('announcements.index'));        
+        return redirect(route('announcements.index'));  
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DummyModule\Providers;
+namespace Modules\Announcement\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class DummyModuleServiceProvider extends ServiceProvider
+class AnnouncementServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -39,10 +39,10 @@ class DummyModuleServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('dummymodule.php'),
+            __DIR__.'/../Config/config.php' => config_path('announcement.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'dummymodule'
+            __DIR__.'/../Config/config.php', 'announcement'
         );
     }
 
@@ -53,7 +53,7 @@ class DummyModuleServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/dummymodule');
+        $viewPath = resource_path('views/modules/announcement');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -62,8 +62,8 @@ class DummyModuleServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/dummymodule';
-        }, \Config::get('view.paths')), [$sourcePath]), 'dummymodule');
+            return $path . '/modules/announcement';
+        }, \Config::get('view.paths')), [$sourcePath]), 'announcement');
     }
 
     /**
@@ -73,12 +73,12 @@ class DummyModuleServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/dummymodule');
+        $langPath = resource_path('lang/modules/announcement');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'dummymodule');
+            $this->loadTranslationsFrom($langPath, 'announcement');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'dummymodule');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'announcement');
         }
     }
 

@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/dummymodule",
+    "name": "nwidart/announcement",
     "description": "",
     "authors": [
         {
@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\DummyModule\\Providers\\DummyModuleServiceProvider"
+                "Modules\\Announcement\\Providers\\AnnouncementServiceProvider"
             ],
             "aliases": {
                 
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\DummyModule\\": ""
+            "Modules\\Announcement\\": ""
         }
     }
 }

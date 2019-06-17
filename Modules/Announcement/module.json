@@ -1,12 +1,12 @@
 {
-    "name": "DummyModule",
-    "alias": "dummymodule",
+    "name": "Announcement",
+    "alias": "announcement",
     "description": "",
     "keywords": [],
     "active": 1,
     "order": 0,
     "providers": [
-        "Modules\\DummyModule\\Providers\\DummyModuleServiceProvider"
+        "Modules\\Announcement\\Providers\\AnnouncementServiceProvider"
     ],
     "aliases": {},
     "files": [],

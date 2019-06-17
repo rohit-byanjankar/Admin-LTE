@@ -12,14 +12,7 @@
             <p class="font-weight-lighter">Published Till: {{$announcement->published_till}} </p>
         </p>
     </div>
-    <div>
-        <a href=" {{ route('announcements.edit', $announcement->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('announcements.destroy' ,$announcement->id) }}" method="post" style="display:inline">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
-        </form>
-    </div>
+
 </div>
 
 @endsection
