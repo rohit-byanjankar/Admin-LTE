@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Modules\Article\Entities\Post;
 use Modules\Article\Entities\Category;
 use Modules\Article\Entities\Tag;
+use Modules\Events\Entities\Event;
 use Illuminate\Support\Facades\Auth;
+// use Illuminate\Console\Scheduling\Event;
 
 class HomeController extends Controller
 {
@@ -32,7 +34,7 @@ class HomeController extends Controller
             return view('home');
         }
         else{
-            return view('userhome')->with('posts', Post::all())-> with('categories', Category::all())-> with('tags', Tag::all());
+            return view('userhome')->with('posts', Post::all())-> with('categories', Category::all())-> with('tags', Tag::all())->with('events',Event::all());
         }
 
        
