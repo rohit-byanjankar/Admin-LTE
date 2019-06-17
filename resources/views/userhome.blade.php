@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>TheSaaS — Blog with sidebar</title>
+    <title> Community Media </title>
 
     <!-- Styles -->
     <link href="{{asset('css/page.min.css')}}" rel="stylesheet">
@@ -16,6 +17,11 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
     <link rel="icon" href="../assets/img/favicon.png">
+
+   <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
+
+    
 </head>
 
 <body>
@@ -38,16 +44,33 @@
 
                 <ul class="nav nav-navbar">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Demos <span class="arrow"></span></a>
+                        <a class="nav-link" href="#"> Articles <span class="arrow"></span></a>
                         <ul class="nav">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">SaaS <span class="arrow"></span></a>
+                                <a class="nav-link" href="#">Posts <span class="arrow"></span></a>
                                 <nav class="nav">
-                                    <a class="nav-link" href="../demo/saas-1.html">SaaS 1</a>
-                                    <a class="nav-link" href="../demo/saas-2.html">SaaS 2</a>
-                                    <a class="nav-link" href="../demo/saas-3.html">SaaS 3</a>
-                                    <a class="nav-link" href="../demo/saas-4.html">SaaS 4</a>
+                                    @foreach($posts as $post)
+                                    <a class="nav-link" href="../demo/saas-1.html"> {{ $post->title }}</a>
+                                    @endforeach
+                                </nav>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Events <span class="arrow"></span></a>
+                                <nav class="nav">
+                                    @foreach($events as $event)
+                                    <a class="nav-link" href="../demo/saas-1.html"> {{ $event->title }}</a>
+                                    @endforeach
+                                </nav>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Announcement <span class="arrow"></span></a>
+                                <nav class="nav">
+                                    @foreach($announcements as $annoucement)
+                                    <a class="nav-link" href="../demo/saas-1.html"> {{ $event->title }}</a>
+                                    @endforeach
                                 </nav>
                             </li>
 
@@ -346,12 +369,18 @@
 
     <!-- Main Content -->
     <main class="main-content">
+    <div class="col-md-5 col-xl-5">
+                        <div class="sidebar px-4 py-md-0">
+
+                            <h6 class="sidebar-title">Search</h6>
+                        </div>
+    </div>                    
         <div class="section bg-gray">
             <div class="container">
                 <div class="row">
 
 
-                    <div class="col-md-8 col-xl-9">
+                    <div class="col-md-5 col-xl-7">
                         <div class="row gap-y">
 
                             @foreach($posts as $post)
@@ -359,73 +388,20 @@
                             <div class="col-md-6">
                                 <div class="card border hover-shadow-6 mb-6 d-block">
                                     <a href="#"><img class="card-img-top" src="{{ url($post->image) }}" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
+                                    <div class="p-6 text-center bg-dark">
                                         <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">{{ $post->category->name}} </a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">{{ $post->description}}</a></h5>
+                                        <h5 class="mb-0"><a class="text-white" href="#">{{ $post->description}}</a></h5>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-
-
-
-
-
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                    <a href="#"><img class="card-img-top" src="../assets/img/thumb/2.jpg" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
-                                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Marketing</a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">Top 5 brilliant content marketing strategies</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                    <a href="#"><img class="card-img-top" src="../assets/img/thumb/3.jpg" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
-                                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Design</a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">Best practices for minimalist design with example</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                    <a href="#"><img class="card-img-top" src="../assets/img/thumb/4.jpg" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
-                                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Hiring</a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">Congratulate and thank to Maryam for joining our team</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                    <a href="#"><img class="card-img-top" src="../assets/img/thumb/5.jpg" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
-                                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Product</a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">New published books to read by a product designer</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-                                <div class="card border hover-shadow-6 mb-6 d-block">
-                                    <a href="#"><img class="card-img-top" src="../assets/img/thumb/6.jpg" alt="Card image cap"></a>
-                                    <div class="p-6 text-center">
-                                        <p><a class="small-5 text-lighter text-uppercase ls-2 fw-400" href="#">Management</a></p>
-                                        <h5 class="mb-0"><a class="text-dark" href="#">This is why it's time to ditch dress codes at work</a></h5>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+
+
+
+                            
+
+
 
 
                         <nav class="flexbox mt-30">
@@ -521,7 +497,7 @@
                 <div class="col-6 col-lg-3">
                     <a href="../index.html"><img src="../assets/img/logo-dark.png" alt="logo"></a>
                 </div>
-
+               
                 <div class="col-6 col-lg-3 text-right order-lg-last">
                     <div class="social">
                         <a class="social-facebook" href="https://www.facebook.com/thethemeio"><i class="fa fa-facebook"></i></a>
@@ -535,7 +511,7 @@
                     <div class="nav nav-bold nav-uppercase nav-trim justify-content-lg-center">
                         <a class="nav-link" href="../uikit/index.html">Elements</a>
                         <a class="nav-link" href="../block/index.html">Blocks</a>
-                        <a class="nav-link" href="../page/about-1.html">About</a>
+                        <a class="nav-link" href="">About</a>
                         <a class="nav-link" href="../blog/grid.html">Blog</a>
                         <a class="nav-link" href="../page/contact-1.html">Contact</a>
                     </div>
