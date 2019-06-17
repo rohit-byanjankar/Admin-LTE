@@ -47,10 +47,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
-     public function getPermissions()
-    {
-        return ["delete", "update", "create","view"];
-    }
+    
 }
 
 

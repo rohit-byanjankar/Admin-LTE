@@ -3,9 +3,9 @@
 namespace App\Policies;
 
 use App\User;
-use App\Post;
+use Modules\Article\Entities\Post;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use App\Permission;
+use Modules\UserRoles\Entities\Permission;
 
 class PostPolicy
 {
