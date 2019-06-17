@@ -4,7 +4,7 @@ namespace Modules\Article\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Tag;
+use Modules\Article\Entities\Tag;
 use App\Http\Requests\Tags\CreateTagRequest;
 use App\Http\Requests\Tags\UpdateTagRequest;
 use App\Http\Controllers\Controller;

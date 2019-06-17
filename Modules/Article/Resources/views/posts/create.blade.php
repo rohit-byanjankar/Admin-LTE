@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="card card-default">
-        <div class=" card-header">
+        <div class=" card-header text-bold ">
             {{ isset($post) ? 'Edit the post' : 'Create a Post' }}   
         </div>
 
@@ -43,10 +43,7 @@
                     <input type="file" class="form-control" name='image' id='image'>
                 </div>
 
-                <div class="form-group">
-                    <label for="published_at" > Published_at </label>
-                    <input type="text" class="form-control" name='published_at' id='published_at' value="{{ isset($post) ? $post->published_at : ''}}">
-                </div>
+               
 
                 <div class="form-group">
                     <label for="category">Category</label>

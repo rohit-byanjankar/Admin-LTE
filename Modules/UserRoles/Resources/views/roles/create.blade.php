@@ -1,20 +1,14 @@
 @extends('adminlte::page')
 
-
 @section('content')
-
-
 <div class="card card-default">
-
-    <div class="card-header text-center">
+    <div class="card-header text-center text-bold">
         {{ isset($role) ? 'Edit Role' : 'Create Role'}}
-        
     </div>
     <div class="card-body">
        @include('partials.errors')
         <form action="{{ isset($role)? route('roles.update', $role->id) : route('roles.store')}}" method="POST">
             @csrf
-
             @if(isset($role))
              @method('PUT')
             @endif

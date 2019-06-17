@@ -2,14 +2,14 @@
 
 namespace Modules\UserRoles\Http\Controllers;
 
-use App\Role;
-use App\Permission;
-use App\Category;
-use App\Tag;
-use App\User;
+use Modules\UserRoles\Entities\Role;
+use Modules\UserRoles\Entities\Permission;
+
+use Modules\UserRoles\Entities\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class PermissionController extends Controller
 {
@@ -43,11 +43,12 @@ class PermissionController extends Controller
         if($checked){
                 foreach($checked as $index){
             $inputArray=["role"=>$roles[$index],"permission_granted"=>$permissions[$index],"model"=>$models[$index]];
-
             Permission::create($inputArray);
             }
         }
+        session()->flash("sucs","Successfully Updated permissions");
 
-        return redirect()->back()->with("success","Successfully Updated permissions");
+        return redirect()->back();
+      
     }
 }

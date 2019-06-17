@@ -183,7 +183,7 @@ return [
         ],
         [
             'text' => 'Announcement',
-            'url' => 'announcements/announcements',
+            'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
     ],

@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 use DB;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
-use App\Post;
+use Modules\Article\Entities\Post;
 use Illuminate\Support\Facades\Storage;
-use App\Category;
-use App\Tag;
+use Modules\Article\Entities\Category;
+use Modules\Article\Entities\Tag;
 use Auth;
 
 class PostsController extends Controller

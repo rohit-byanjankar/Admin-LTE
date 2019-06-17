@@ -7,8 +7,8 @@
             </a>
          </div>
                 @if($phoneDirectory->count()>0)
-                    <div class="col-md-12">
-                        <table class="table table-hover"  id="directoryTable">
+                    <div class="col-md-12 card card-body panel">
+                        <table class="table table-hover table-bordered"  id="directory">
                             <thead>
                             <tr>
                                 <th>Full Name</th>
@@ -18,7 +18,9 @@
                                 <th>Mobile Number</th>
                                 <th>Office Number</th>
                                 <th>Profession</th>
+                                <th>Category</th>
                                 <th></th>
+                                
                             </tr>
                             </thead>
                             @foreach($phoneDirectory as $list)
@@ -31,6 +33,9 @@
                                     <td>{{$list->mobile_number}}</td>
                                     <td>{{$list->office_number}}</td>
                                     <td>{{$list->profession}}</td>
+                                    <td>
+                                        {{ $list->phone_category_id}}
+                                    </td>
                                     <td>
                                         <a href=" {{ route('directory.edit', $list->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                                         <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('directory.destroy' ,$list->id) }}" method="post" style="display:inline">
@@ -54,7 +59,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#directoryTable').DataTable();
+            $('#directory').DataTable();
         } );
     </script>
 @endsection

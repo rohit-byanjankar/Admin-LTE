@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use App\Permission;
+use Modules\UserRoles\Entities\Permission;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -36,8 +36,7 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct()
-    {
-        
+    {   
         $this->middleware('guest')->except('logout');
     }
 
@@ -55,10 +54,7 @@ class LoginController extends Controller
             return $this->sendLockoutResponse($request);
         }
 
-
-
         if ($this->attemptLogin($request)) {
-            
            
             $role = Auth::user()->role; //get the role of the user who just login
             

@@ -1,27 +1,19 @@
 @extends('adminlte::page')
 @section('content')
         <div class="card card-default">
-            <div class="card card-header">
+            <div class="card card-header text-bold">
                 USERS
             </div>
-            <div class="card card-body">
+            <div class="card card-body panel">
                 @if($users->count()>0)
-                <table class="table  text-center" id="userTable">
+                <table class="table  text-center  table-bordered table-hover panel-body" id="userTable">
                      <thead class="text-bold">
-                        <th>
-                             Name
-                         </th>
-                         <th>
-                             Role
-                         </th>
-                         <th>
-                             Image
-                         </th>
-                         <th>
-                             Email
-                         </th>
-                         <th></th>
-                         <th></th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Image</th>
+                        <th>Email</th>
+                        <th></th>
+                       
                      </thead>
                      <tbody>
                         @foreach($users as $user)
@@ -47,7 +39,10 @@
                                             Make Admin
                                         </button>
                                     </form>
+                                    @else
+                                    <p class="text-aqua">This person is Admin.</p>
                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach

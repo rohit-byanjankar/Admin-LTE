@@ -5,8 +5,7 @@
 
 
 <div class="card card-default">
-
-    <div class="card-header text-center">
+    <div class="card-header text-center text-bold">
         {{ isset($tag) ? 'Edit tag' : 'Create tag'}}
         
     </div>

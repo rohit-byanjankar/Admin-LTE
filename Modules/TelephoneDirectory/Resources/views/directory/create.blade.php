@@ -13,7 +13,7 @@
                 @if(isset($phoneDirectory))
                 @method('PUT')
                 @endif
-        <div class="row">
+        <div class="container-fluid">
             <div class="form-group col-md-4">
                 <label for="fname" >First Name:</label>
                 <input type="text" class="form-control" name='fname' id='fname' value="{{ isset($phoneDirectory) ? $phoneDirectory->first_name : ''}}" required>
@@ -29,7 +29,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="container-fluid">
             <div class="form-group col-md-4">
                 <label for="city" >City:</label>
                 <input type="text" class="form-control" name='city' id='city' value="{{ isset($phoneDirectory) ? $phoneDirectory->city : ''}}" required>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="container-fluid">
             <div class="form-group col-md-4">
                 <label for="mnumber" >Phone Number:</label>
                 <input type="text" class="form-control" name='mnumber' id='mnumber' value="{{ isset($phoneDirectory) ? $phoneDirectory->mobile_number : ''}}" required>
@@ -61,32 +61,28 @@
                 <input type="text" name="profession" id="profession"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->profession : ''}}" required>
             </div>
         </div>
-
-        <div class="form-group">
-            <button type="submit" class="btn btn-success">
-                {{ isset($phoneDirectory) ? 'UPDATE DIRECTORY' : 'REGISTER' }}
-            </button>
+     
+        <div class="form-group col-md-4">
+        <button type="submit" class="btn btn-success">
+                    {{ isset($phoneDirectory) ? 'EDIT THE POST' : 'CREATE NOW!' }}
+                </button>
+            <label for="category"> Category:</label>
+                <select name="category"  class="form-control">
+                @foreach($categories as $category)
+                            <option value=" {{ $category->id}} "
+                               @if(isset($phoneDirectory))
+                                @if($category->id == $phoneDirectory->phone_category_id)
+                                        selected
+                                @endif
+                               @endif
+                            >
+                                {{ $category->name }}    
+                            </option>
+                @endforeach
+              
         </div>
             </form>
-        </div>
-    </div>
+         </div>
+</div>
 @endsection
-@section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.js"> </script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script>
-    flatpickr('#published_at',{
-        enableTime : true
-    })
 
-    $(document).ready(function() {
-     $('.tags-selector').select2();
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
-@endsection
-@section('css')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.1.1/trix.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-@endsection

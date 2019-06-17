@@ -3,7 +3,7 @@
 namespace Modules\UserRoles\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use Modules\UserRoles\Entities\User;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Controllers\Controller;
 
