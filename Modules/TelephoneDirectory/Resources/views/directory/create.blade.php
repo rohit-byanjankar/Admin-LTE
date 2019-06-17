@@ -63,9 +63,7 @@
         </div>
      
         <div class="form-group col-md-4">
-        <button type="submit" class="btn btn-success">
-                    {{ isset($phoneDirectory) ? 'EDIT THE POST' : 'CREATE NOW!' }}
-                </button>
+       
             <label for="category"> Category:</label>
                 <select name="category"  class="form-control">
                 @foreach($categories as $category)
@@ -79,6 +77,10 @@
                                 {{ $category->name }}    
                             </option>
                 @endforeach
+                </select>
+                <button type="submit" class="btn btn-success">
+                    {{ isset($phoneDirectory) ? 'EDIT THE POST' : 'CREATE NOW!' }}
+                </button>
               
         </div>
             </form>

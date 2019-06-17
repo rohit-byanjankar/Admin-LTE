@@ -171,7 +171,7 @@ return [
                     ],
                     [
                         'text' => 'Categories',
-                        'url'=> '/telephonedirectory/',
+                        'url'=> '/telephonedirectory/category',
                         'icon' => 'th-list',
                     ]
                 ],

@@ -26,14 +26,14 @@
             @auth
             <div class="container">
                @if(session()->has('sucs'))
-                     <div class="alert alert-success text-center">
-                         {{ session()->get('sucs')}}
+                     <div class="alert  alert-dismissable alert-success text-center">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session()->get('sucs')}}
                      </div>
  
                  @endif
                  @if(session()->has('err'))
-                     <div class="alert alert-danger text-center">
-                         {{ session()->get('err')}}
+                     <div class="alert  alert-dismissable alert-danger text-center">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> {{ session()->get('err')}}
                      </div>
  
                  @endif

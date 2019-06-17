@@ -2,7 +2,7 @@
 
 namespace Modules\Article\Http\Controllers;
 
-use App\Permission;
+use Modules\UserRoles\Entities\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
