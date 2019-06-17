@@ -121,7 +121,7 @@ class PostsController extends Controller
     {
         $post= Post::withTrashed()->where('id', $id)->firstOrFail();
         $post->restore();
-        session()->flash('sucs','Post Restored Successfully.');
+        session()->flash('err','Post Restored Successfully.');
         return redirect()->back();
     }
 }

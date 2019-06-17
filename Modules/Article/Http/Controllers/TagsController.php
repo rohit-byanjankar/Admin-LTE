@@ -72,7 +72,7 @@ class TagsController extends Controller
 
         }
         $tag->delete();
-        session()-> flash('sucs', 'Deleted Successfully');
+        session()-> flash('err', 'Deleted Successfully');
         return redirect(route('tags.index'));
     }
 }

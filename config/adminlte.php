@@ -165,13 +165,13 @@ return [
            'icon' =>  'phone-square',
             'submenu' => [
                     [
-                        'text' => 'Add',
+                        'text' => 'List',
                         'url'  => '/telephonedirectory/directory',
                         'icon' => 'list-alt',
                     ],
                     [
                         'text' => 'Categories',
-                        'url'=> '/telephonedirectory/',
+                        'url'=> '/telephonedirectory/category',
                         'icon' => 'th-list',
                     ]
                 ],

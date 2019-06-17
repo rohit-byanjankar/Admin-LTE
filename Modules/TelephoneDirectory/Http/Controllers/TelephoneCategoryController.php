@@ -90,7 +90,7 @@ class TelephoneCategoryController extends Controller
     {
         $phoneCategory=PhoneCategory::find($id);
         $phoneCategory->delete();
-        session()-> flash('sucs','Category deleted successfully');
+        session()-> flash('err','Category deleted successfully');
       return redirect(route('category.index'));
     }
 }

@@ -23,25 +23,7 @@
            
              
             <nav class="navbar navbar-static-top">
-            @auth
-            <div class="container">
-               @if(session()->has('sucs'))
-                     <div class="alert alert-success text-center">
-                         {{ session()->get('sucs')}}
-                     </div>
- 
-                 @endif
-                 @if(session()->has('err'))
-                     <div class="alert alert-danger text-center">
-                         {{ session()->get('err')}}
-                     </div>
- 
-                 @endif
-            </div>
-           @endauth
                 <div class="container">
-                          
-               
                     <div class="navbar-header">
                         <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
                             {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
@@ -147,23 +129,25 @@
 
             <!-- Main content -->
             <section class="content">
-          
-            
+
             @auth
-            <div class="container col-md-12">
                @if(session()->has('sucs'))
-                     <div class="alert alert-success text-center">
+                     <div class="alert alert-info text-center alert-dismissible">
                          {{ session()->get('sucs')}}
+                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                         </button>
                      </div>
  
                  @endif
                  @if(session()->has('err'))
-                     <div class="alert alert-danger text-center">
+                       <div class="alert alert-danger text-center alert-dismissible">
                          {{ session()->get('err')}}
+                           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                               <span aria-hidden="true">&times;</span>
+                           </button>
                      </div>
- 
                  @endif
-            </div>
            @endauth
               
 

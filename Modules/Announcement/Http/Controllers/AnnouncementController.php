@@ -94,7 +94,7 @@ class AnnouncementController extends Controller
     public function destroy(Announcement $announcement)
     {
         $announcement->forceDelete();
-        session()->flash('sucs','Announcement deleted Successfully');
+        session()->flash('err','Announcement deleted Successfully');
         return redirect(route('announcements.index'));  
     }
 }
