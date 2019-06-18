@@ -13,6 +13,6 @@
 
 
     Route::resource('userposts', 'UserPostController');
-    Route::resource('events', 'EventController');
-    Route::resource('announcements', 'AnnouncementController');
+    Route::resource('userevents', 'UserEventController');
+    Route::resource('userannouncements', 'UserAnnouncementController');
     Route::resource('telephonedir', 'TelephoneController');

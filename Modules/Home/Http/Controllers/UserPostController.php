@@ -16,7 +16,8 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        return view('home::userposts.index')->with('posts',Post::all())->with('categories',Category::all());
+       
+        return view('home::userposts.index')->with('posts',Post::all())->with('categories',Category::all())->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
     }
 
     /**
