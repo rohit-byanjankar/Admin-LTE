@@ -15,7 +15,7 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
     <!-- Custom styles for this template -->
-    <link rel ="stylesheet" href="css/article-style.css" >
+    <!-- <link rel ="stylesheet" href="css/article-style.css" > -->
     
 
     @if(config('adminlte.plugins.select2'))
@@ -28,6 +28,7 @@
 
     @if(config('adminlte.plugins.datatables'))
         <!-- DataTables with bootstrap 3 style -->
+
         <link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
     @endif
 
