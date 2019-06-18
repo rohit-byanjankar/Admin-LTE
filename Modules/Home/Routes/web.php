@@ -12,6 +12,6 @@
 */
     Route::get('/home','UserPostController@userHome');
     Route::resource('userposts', 'UserPostController');
-    Route::resource('events', 'EventController');
-    Route::resource('announcements', 'AnnouncementController');
+    Route::resource('userevents', 'EventController');
+    Route::resource('userannouncements', 'AnnouncementController');
     Route::resource('telephonedir', 'TelephoneController');

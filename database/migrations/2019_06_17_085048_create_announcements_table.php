@@ -17,7 +17,6 @@ class CreateAnnouncementsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('details');
-            $table->timestamp('published_at');
             $table->date('published_till');
             $table->timestamps();
         });

@@ -9,8 +9,7 @@
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/bootstrap.min.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/line-awesome.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/line-awesome-font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/line-awesome.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/font-awesome.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jquery.mCustomScrollbar.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/slick.css')}}">
@@ -38,7 +37,7 @@
 						<ul>
 							<li>
 								<a href="index.html" title="">
-									<span><i class="fa fa-facebook"></i></span>
+									<span><i class="fa fa-face"></i></span>
 									Home
 								</a>
 							</li>

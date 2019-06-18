@@ -28,7 +28,6 @@ class LoginController extends Controller
      *
      * @var string
      */
-//    protected $redirectTo = 'home::index';
 
     /**
      * Create a new controller instance.
@@ -77,7 +76,6 @@ class LoginController extends Controller
         if (Auth::attempt($credentials))
         {
             $credentials['role']='admin';
-            // dd(Auth::attempt($credentials));
             if (Auth::attempt($credentials)) {
                 //user is admin
                 return redirect('/adminpanel');

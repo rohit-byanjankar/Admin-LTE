@@ -4,7 +4,7 @@
 
 <div class="card card-default">
     <h4 class=" card-header text-center text-info">
-        {{ isset($announcement) ? 'Edit the announcement' : 'Create an announcement' }}
+        {{ isset($announcement) ? 'Edit announcement' : 'Create an announcement' }}
     </h4>
 
     <div class="card-body">
@@ -29,18 +29,13 @@
             </div>
 
             <div class="form-group">
-                <label for="published_at"> Published At </label>
-                <input type="text" class="form-control" name='published_at' id='published_at' value="{{ isset($announcement) ? $announcement->published_at : ''}}">
-            </div>
-
-            <div class="form-group">
                 <label for="published_till"> Published Till </label>
                 <input type="text" class="form-control" name='published_till' id='published_till' value="{{ isset($announcement) ? $announcement->published_till : ''}}">
             </div>
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success">
-                    {{ isset($announcement) ? 'EDIT THE ANNOUNCEMENT' : 'CREATE NOW!' }}
+                    {{ isset($announcement) ? 'EDIT ANNOUNCEMENT' : 'CREATE NOW!' }}
                 </button>
             </div>
 
