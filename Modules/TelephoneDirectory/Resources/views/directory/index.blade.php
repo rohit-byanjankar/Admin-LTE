@@ -34,7 +34,7 @@
                                     <td>{{$list->office_number}}</td>
                                     <td>{{$list->profession}}</td>
                                     <td>
-                                        {{ $list->phone_category_id}}
+                                        {{ $list->phoneCategory->name}}
                                     </td>
                                     <td>
                                         <a href=" {{ route('directory.edit', $list->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>

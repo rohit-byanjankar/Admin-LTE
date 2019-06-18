@@ -165,7 +165,7 @@ return [
            'icon' =>  'phone-square',
             'submenu' => [
                     [
-                        'text' => 'Add',
+                        'text' => 'List',
                         'url'  => '/telephonedirectory/directory',
                         'icon' => 'list-alt',
                     ],
@@ -183,7 +183,7 @@ return [
         ],
         [
             'text' => 'Announcement',
-            'url' => '/dummymodule/announcements',
+            'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
     ],

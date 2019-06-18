@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+   
    return view('auth.login');
 });
 
@@ -30,3 +31,4 @@ Route::middleware('auth')->group(function(){
 Auth::routes();
 Route::get('register','RegisterController@show');
 Route::post('register','RegisterController@register');
+Route::get('logout','\App\Http\Controllers\Auth\LoginController@logout');

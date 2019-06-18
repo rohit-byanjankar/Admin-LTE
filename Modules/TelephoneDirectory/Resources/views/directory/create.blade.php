@@ -60,28 +60,30 @@
                 <label for="profession" >Profession:</label>
                 <input type="text" name="profession" id="profession"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->profession : ''}}" required>
             </div>
-        </div>
-     
-        <div class="form-group col-md-4">
-       
-            <label for="category"> Category:</label>
+
+            @if($categories->count()>0)
+            <div class="col-md-4">
+                <label for="category"> Category:</label>
                 <select name="category"  class="form-control">
-                @foreach($categories as $category)
-                            <option value=" {{ $category->id}} "
-                               @if(isset($phoneDirectory))
+                    @foreach($categories as $category)
+                        <option value=" {{ $category->id}} "
+                                @if(isset($phoneDirectory))
                                 @if($category->id == $phoneDirectory->phone_category_id)
-                                        selected
+                                selected
                                 @endif
-                               @endif
-                            >
-                                {{ $category->name }}    
-                            </option>
-                @endforeach
+                                @endif
+                        >
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
                 </select>
-                <button type="submit" class="btn btn-success">
-                    {{ isset($phoneDirectory) ? 'EDIT THE POST' : 'CREATE NOW!' }}
-                </button>
-              
+            </div>
+        @endif
+        </div>
+        <div class="col-md-12 margin text-center">
+            <button type="submit" class="btn btn-success">
+            {{ isset($phoneDirectory) ? 'EDIT DIRECTORY' : 'CREATE NOW!' }}
+        </button>
         </div>
             </form>
          </div>

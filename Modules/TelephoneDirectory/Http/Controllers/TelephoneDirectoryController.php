@@ -70,7 +70,7 @@ class TelephoneDirectoryController extends Controller
     public function edit($id)
     {
         $phoneDirectory=PhoneDirectory::find($id);
-        return view('telephonedirectory::directory.create',compact('phoneDirectory'));
+        return view('telephonedirectory::directory.create',compact('phoneDirectory'))->with('categories', PhoneCategory::all() );
     }
 
     /**
@@ -110,7 +110,7 @@ class TelephoneDirectoryController extends Controller
         $phoneDirectory=PhoneDirectory::find($id);
         $phoneDirectory->delete();
 
-        session()->flash('sucs','Directory Deleted Succesfully');
+        session()->flash('err','Directory Deleted Succesfully');
         return redirect(route('directory.index'));
     }
 }

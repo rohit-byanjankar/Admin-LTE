@@ -70,7 +70,7 @@ class CategoriesController extends Controller
         }
         $category->delete();
 
-        session()-> flash('sucs', 'Deleted Successfully');
+        session()-> flash('err', 'Deleted Successfully');
         return redirect(route('categories.index'));
     }
 }
