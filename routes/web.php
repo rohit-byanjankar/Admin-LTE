@@ -21,7 +21,7 @@ Route::get('/website/posts', function () {
 });
 
 Route::middleware('auth')->group(function(){
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/adminpanel', 'HomeController@index')->name('home');
 });
 
 
