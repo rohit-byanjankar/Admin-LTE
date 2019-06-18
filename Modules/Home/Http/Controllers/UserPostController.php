@@ -78,4 +78,9 @@ class UserPostController extends Controller
     {
         //
     }
+
+    public function userHome()
+    {
+        return view('home::index');
+    }
 }

@@ -16,16 +16,10 @@ Route::get('/', function () {
    return view('auth.login');
 });
 
-Route::get('/website/posts', function () {
-	
-   return view('front.posts');
-});
 
 Route::middleware('auth')->group(function(){
-    Route::get('/adminpanel', 'HomeController@index')->name('home');
+    Route::get('/adminpanel', 'HomeController@index')->middleware('admin');
 });
-
-
 
 //REGISTER
 Auth::routes();

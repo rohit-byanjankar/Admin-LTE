@@ -31,15 +31,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if(Auth::user()->role == 'admin')
-        {
-            return view('home');
-        }
-       if(Auth::user()->role == 'writer')
-       {
-        return view('home::index')->with('posts', Post::all())-> with('categories', Category::all())-> with('tags', Tag::all())->with('events',Event::all())-> with('tags', Tag::all())->with('announcements',Announcement::all());
-       }
-
-       
+        return view('home');
+//        return view('home::index')->with('posts', Post::all())-> with('categories', Category::all())
+//            -> with('tags', Tag::all())->with('events',Event::all())-> with('tags', Tag::all())
+//            ->with('announcements',Announcement::all());
     }
 }
