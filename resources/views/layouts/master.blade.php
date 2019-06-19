@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/style.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
 
+
 </head>
 
 
@@ -43,23 +44,23 @@
 								</a>
 							</li>
 							<li>
-								<a href="companies.html" title="">
+								<a href="{{ route('userposts.index') }}" title="">
 									<span><img src="images/icon2.png" alt=""></span>
 									Articles
 								</a>
 								<ul>
+									<li><a href="{{ route('userposts.index') }}" title="">Articles</a></li>
 									<li><a href="companies.html" title="">Categories</a></li>
-									<li><a href="{{ route('userposts.index') }}" title="">Posts</a></li>
 								</ul>
 							</li>
 							<li>
-								<a href="{{ route('events.index') }}" title="">
+								<a href="{{ route('userevents.index') }}" title="">
 									<span><img src="images/icon3.png" alt=""></span>
 									Events
 								</a>
 							</li>
 							<li>
-								<a href="profiles.html" title="">
+								<a href="{{ route('userannouncements.index') }}" title="">
 									<span><img src="images/icon4.png" alt=""></span>
 									Announcements
 								</a>
@@ -224,8 +225,27 @@
 				</div><!--header-data end-->
 			</div>
 		</header><!--header end-->
+		
 		@yield('content')
-
+		
+		<footer>
+			<div class="footy-sec mn no-margin">
+				<div class="container">
+					<ul>
+						<li><a href="#" title="">Help Center</a></li>
+						<li><a href="#" title="">Privacy Policy</a></li>
+						<li><a href="#" title="">Community Guidelines</a></li>
+						<li><a href="#" title="">Cookies Policy</a></li>
+						<li><a href="#" title="">Career</a></li>
+						<li><a href="#" title="">Forum</a></li>
+						<li><a href="#" title="">Language</a></li>
+						<li><a href="#" title="">Copyright Policy</a></li>
+					</ul>
+					<p><img src="images/copy-icon2.png" alt="">Copyright 2018</p>
+					<img class="fl-rgt" src="images/logo2.png" alt="">
+				</div>
+			</div>
+		</footer>
 
 
 		<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>

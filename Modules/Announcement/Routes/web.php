@@ -12,6 +12,6 @@
 */
 
 Route::prefix('announcements')->group(function() {
-    Route::resource('/announcements','AnnouncementController');
+    Route::resource('announcements','AnnouncementController');
 
 });
