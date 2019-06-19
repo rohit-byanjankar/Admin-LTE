@@ -2,7 +2,6 @@
 
 namespace Modules\TelephoneDirectory\Entities;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 class PhoneDirectory extends Model

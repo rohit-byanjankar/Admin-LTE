@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
 
 class VerifyIsAdmin
 {
@@ -15,10 +16,10 @@ class VerifyIsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(!auth()->user()->isAdmin())
-        {
-            return redirect(route('home'));
+        if (Auth::check() && Auth::user()->role=='admin') {
+            return $next($request);
+        }else{
+            return abort(403, 'Unauthorized action.');
         }
-        return $next($request);
     }
 }
