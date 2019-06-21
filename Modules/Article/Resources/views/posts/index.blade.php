@@ -8,19 +8,15 @@
         </a>
 </div>
 
-<div class="card card-default">
-    
     <div class="card card-body panel">
         @if($posts->count()>0)
-        <table class="table table-bordered table-hover panel-body" id="post">
-            <thead>
-                <th>Title</th>
-                <th>Image</th>
-                <th>Category</th>
+                <table class="table table-bordered table-hover panel-body" id="post">
+                    <thead>
+                    <th>Title</th>
+                    <th>Image</th>
+                    <th>Category</th>
                 <th></th>
                 <th></th>
-
-
             </thead>
             @foreach($posts as $post)
             <tbody>
@@ -40,23 +36,25 @@
                             <button type="submit" class="btn btn-info btn-sm"> <i class="fa fa-reply"></i> </button>
                         </form>
                     </td>
-
                     @else
-
                     <td>
+                        @can('view',$post)
                         <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                      
-                        <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                      @endcan
+                        @can('update',$post)
+                          <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                      @endcan
                     </td>
                     @endif
-                    
                     <td>
-                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
+                        @can('delete',$post)
+                            <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('posts.destroy' ,$post->id) }}" method="post" style="display:inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger btn-sm">
                                     <i class="fa fa-trash-o"></i></button>
                             </form>
+                        @endcan
                     </td>
                 </tr>
                 @endforeach
@@ -68,8 +66,6 @@
         </h3>
         @endif
     </div>
-</div>
-
 @endsection
 
 @section('scripts')

@@ -20,7 +20,11 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('events::events.index')->with('events',Event::all());
+        $events=new Event;
+        $events->setConnection('mysql2');
+        $events=$events->all();
+        //return view('events::events.index')->with('events',Event::all());
+        return view('events::events.index',compact('events'));
     }
 
     /**

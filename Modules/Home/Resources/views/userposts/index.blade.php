@@ -2,10 +2,8 @@
 
 @section('content')
 <div class="wrapper">
-		
 
-
-		<header>
+	<header>
 			<div class="container">
 				<div class="header-data">
 					<div class="logo pd-btm">

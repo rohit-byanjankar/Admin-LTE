@@ -32,8 +32,5 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
-//        return view('home::index')->with('posts', Post::all())-> with('categories', Category::all())
-//            -> with('tags', Tag::all())->with('events',Event::all())-> with('tags', Tag::all())
-//            ->with('announcements',Announcement::all());
     }
 }

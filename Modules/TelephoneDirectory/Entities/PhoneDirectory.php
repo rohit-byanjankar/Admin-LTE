@@ -15,5 +15,9 @@ class PhoneDirectory extends Model
     {
         return $this->belongsTo(PhoneCategory::class);
     }
+
+    public function getPermissions(){
+        return ["delete", "update", "create", "view"];
+    }
 }
 

@@ -14,5 +14,7 @@ class PhoneCategory extends Model
         return $this->hasMany(PhoneDirectory::class);
     }
 
-  
+    public function getPermissions(){
+        return ["delete", "update", "create", "view"];
+    }
 }

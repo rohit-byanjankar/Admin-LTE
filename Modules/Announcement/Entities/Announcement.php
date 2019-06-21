@@ -8,4 +8,8 @@ class Announcement extends Model
 {
     public $table = 'announcements';
     protected $fillable = ['title','details','published_till'];
+
+    public function getPermissions(){
+        return ["delete", "update", "create", "view"];
+    }
 }

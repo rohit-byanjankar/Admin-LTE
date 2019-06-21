@@ -36,7 +36,7 @@
 					<nav>
 						<ul>
 							<li>
-								<a href="index.html" title="">
+								<a href="{{url('/home')}}" title="">
 									<span><i class="fa fa-face"></i></span>
 									Home
 								</a>
