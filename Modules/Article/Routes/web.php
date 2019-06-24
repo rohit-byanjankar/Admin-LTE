@@ -14,10 +14,6 @@
 
 
 Route::prefix('article')->group(function() {
-<<<<<<< HEAD
-   
-=======
->>>>>>> 58fd8aaccb101886ef3bfd02b2e33407e0e2b7ad
     Route::resource('posts', 'PostsController')->middleware('admin');
     Route::resource('tags', 'TagsController')->middleware('admin');
     Route::resource('categories', 'CategoriesController')->middleware('admin');
