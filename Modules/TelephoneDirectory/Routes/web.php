@@ -12,7 +12,6 @@
 */
 
 Route::prefix('telephonedirectory')->group(function() {
-    //Route::get('/directory', 'TelephoneDirectoryController@index');
-    //Route::post('/directory', 'TelephoneDirectoryController@store');
-    Route::resource('directory','TelephoneDirectoryController');
+    Route::resource('directory','TelephoneDirectoryController')->middleware('admin');
+    Route::resource('category','TelephoneCategoryController')->middleware('admin');
 });

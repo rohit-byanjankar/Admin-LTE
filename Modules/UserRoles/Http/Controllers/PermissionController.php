@@ -5,7 +5,7 @@ namespace Modules\UserRoles\Http\Controllers;
 use Modules\UserRoles\Entities\Role;
 use Modules\UserRoles\Entities\Permission;
 
-use Modules\UserRoles\Entities\User;
+use App\User;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;

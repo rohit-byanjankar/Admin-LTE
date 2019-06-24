@@ -2,7 +2,7 @@
 
 namespace Modules\Article\Http\Controllers;
 
-use App\Permission;
+use Modules\UserRoles\Entities\Permission;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
@@ -121,7 +121,7 @@ class PostsController extends Controller
     {
         $post= Post::withTrashed()->where('id', $id)->firstOrFail();
         $post->restore();
-        session()->flash('sucs','Post Restored Successfully.');
+        session()->flash('err','Post Restored Successfully.');
         return redirect()->back();
     }
 }

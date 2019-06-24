@@ -3,7 +3,7 @@
 namespace Modules\UserRoles\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Modules\UserRoles\Entities\User;
+use App\User;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Controllers\Controller;
 
@@ -11,6 +11,7 @@ class UsersController extends Controller
 {
     public function index()
     {
+
         return view('userroles::users.index')->with('users',User::all());
     }
 
@@ -29,7 +30,6 @@ class UsersController extends Controller
         session()->flash('sucs','User profile is updated successfully.');
         return redirect()->back();
     } 
-    
 
     public function makeAdmin(User $user)
     {

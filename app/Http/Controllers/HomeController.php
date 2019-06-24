@@ -3,6 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Article\Entities\Post;
+use Modules\Article\Entities\Category;
+use Modules\Article\Entities\Tag;
+use Modules\Events\Entities\Event;
+use Illuminate\Support\Facades\Auth;
+use Modules\Announcement\Entities\Announcement;
+
+// use Illuminate\Console\Scheduling\Event;
 
 class HomeController extends Controller
 {

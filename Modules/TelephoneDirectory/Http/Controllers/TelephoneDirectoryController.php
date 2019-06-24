@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use Modules\TelephoneDirectory\Entities\PhoneCategory;
 
 class TelephoneDirectoryController extends Controller
 {
@@ -24,7 +25,7 @@ class TelephoneDirectoryController extends Controller
      */
     public function create()
     {
-        return view('telephonedirectory::directory.create');
+        return view('telephonedirectory::directory.create')->with('categories', PhoneCategory::all() );
     }
 
     /**
@@ -44,6 +45,7 @@ class TelephoneDirectoryController extends Controller
             'mobile_number' => $request->mnumber,
             'office_number' => $request->onumber,
             'profession' => $request->profession,
+            'phone_category_id' => $request->category
         ]);
 
         session()->flash('sucs','Directory Created Succesfully');
@@ -68,7 +70,7 @@ class TelephoneDirectoryController extends Controller
     public function edit($id)
     {
         $phoneDirectory=PhoneDirectory::find($id);
-        return view('telephonedirectory::directory.create',compact('phoneDirectory'));
+        return view('telephonedirectory::directory.create',compact('phoneDirectory'))->with('categories', PhoneCategory::all() );
     }
 
     /**
@@ -90,6 +92,8 @@ class TelephoneDirectoryController extends Controller
         $phoneDirectory->mobile_number = $request->mnumber;
         $phoneDirectory->office_number = $request->onumber;
         $phoneDirectory->profession = $request->profession;
+        $phoneDirectory->phone_category_id = $request->category;
+
         $phoneDirectory->save();
 
         session()->flash('sucs','Directory Updated Succesfully');
@@ -106,7 +110,7 @@ class TelephoneDirectoryController extends Controller
         $phoneDirectory=PhoneDirectory::find($id);
         $phoneDirectory->delete();
 
-        session()->flash('sucs','Directory Deleted Succesfully');
+        session()->flash('err','Directory Deleted Succesfully');
         return redirect(route('directory.index'));
     }
 }

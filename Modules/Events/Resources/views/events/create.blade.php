@@ -4,7 +4,7 @@
 
     <div class="card card-default">
         <div class=" card-header">
-          <h2 class="text-center text-info">   {{ isset($event) ? 'Edit this Event' : 'Create a Event' }}   </h2>    
+          <h2 class="text-center text-info">   {{ isset($event) ? 'Edit this Event' : 'Create Event' }}   </h2>
         </div>
 
         <div class="card-body">

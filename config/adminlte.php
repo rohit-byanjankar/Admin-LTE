@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'adminpanel',
 
     'logout_url' => 'logout',
 
@@ -165,13 +165,13 @@ return [
            'icon' =>  'phone-square',
             'submenu' => [
                     [
-                        'text' => 'Add',
+                        'text' => 'List',
                         'url'  => '/telephonedirectory/directory',
                         'icon' => 'list-alt',
                     ],
                     [
                         'text' => 'Categories',
-                        'url'=> '/telephonedirectory/',
+                        'url'=> '/telephonedirectory/category',
                         'icon' => 'th-list',
                     ]
                 ],
@@ -183,14 +183,18 @@ return [
         ],
         [
             'text' => 'Announcement',
-            'url' => '/dummymodule/announcements',
+            'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
     ],
         'models' => [
-                        "App\Post",
-                        "App\Tag",
-                        "App\Category",
+                        "Modules\Article\Entities\Post",
+                        "Modules\Article\Entities\Tag",
+                        "Modules\Article\Entities\Category",
+                        "Modules\Events\Entities\Event",
+                        "Modules\TelephoneDirectory\Entities\PhoneCategory",
+                        "Modules\TelephoneDirectory\Entities\PhoneDirectory",
+                        "Modules\UserRoles\Entities\Role",
                         "App\User"
                     ],
 

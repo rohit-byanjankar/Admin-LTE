@@ -2,6 +2,7 @@
 
 namespace Modules\Article\Entities;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -25,9 +26,9 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo(Post::class);
+        //return $this->belongsTo('App\Post');
     }
-
 
     //checks if post has tag 
     //returns boolean

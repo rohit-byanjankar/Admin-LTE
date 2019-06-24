@@ -12,5 +12,5 @@
 */
 
 Route::prefix('events')->group(function() {
-    Route::resource('events', 'EventsController');
+    Route::resource('events', 'EventsController')->middleware('admin');
 });

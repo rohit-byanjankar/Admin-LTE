@@ -5,8 +5,7 @@
 
 
 <div class="card card-default">
-
-    <div class="card-header text-center">
+    <div class="card-header text-bold">
         {{ isset($category) ? 'Edit Category' : 'Create Category'}}
     </div>
     <div class="card-body">
