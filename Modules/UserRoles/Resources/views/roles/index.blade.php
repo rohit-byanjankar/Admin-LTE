@@ -1,15 +1,11 @@
 @extends('adminlte::page')
 
 @section('content')
-<div class="card card-default">
-    <div class="text-bold">
-        <h1>Roles</h1>
         <div class="d-flex justify-content-end margin">
             <a href="{{ route('roles.create')}}" class="btn btn-success ">
                 Add Roles
             </a>
         </div>
-    </div>
 
     <div class="card card-body panel">
         @if($roles->count()>0)
@@ -38,19 +34,10 @@
             <h3 class="text-center"> No roles Yet. </h3>
             @endif
     </div>
-</div>   
 @endsection
 
 @section('scripts')
 <script>
-    function handleDelete(id) 
-    {
-        var form = document.getElementById('deleteroleForm')
-        form.action = '/roles/'+ id
-        console.log('deleting.', id)
-        $('#deleteModal').modal('show')
-    }
-
         $(function () {
         $("#role").DataTable();
         });

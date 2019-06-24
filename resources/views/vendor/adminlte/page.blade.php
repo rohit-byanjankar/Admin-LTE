@@ -20,12 +20,12 @@
         <!-- Main Header -->
         <header class="main-header">
             @if(config('adminlte.layout') == 'top-nav')
-           
-             
+
+
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
-                        <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="navbar-brand">
+                        <a href="{{ url(config('adminlte.dashboard_url', 'adminpanel')) }}" class="navbar-brand">
                             {!! config('adminlte.logo', '<b>Admin</b>LTE') !!}
                         </a>
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -42,7 +42,7 @@
                     <!-- /.navbar-collapse -->
             @else
             <!-- Logo -->
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" class="logo">
+            <a href="{{ url(config('adminlte.dashboard_url', 'adminpanel')) }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">{!! config('adminlte.logo_mini', '<b>A</b>LT') !!}</span>
                 <!-- logo for regular state and mobile devices -->
@@ -58,7 +58,7 @@
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
-                   
+
 
                     <ul class="nav navbar-nav"> 
                         <li>
@@ -79,18 +79,17 @@
                                 </li>
                                 </a>
 
-
                                 <form id="logout-form" action="{{ url(config('adminlte.logout_url', 'auth/logout')) }}" method="POST" style="display: none;">
                                     @if(config('adminlte.logout_method'))
                                         {{ method_field(config('adminlte.logout_method')) }}
                                     @endif
                                     {{ csrf_field() }}
                                 </form>
-
                             @endif
                         </li>
                     </ul>
                 </div>
+            </nav>
                 @if(config('adminlte.layout') == 'top-nav')
                 </div>
                 @endif
@@ -114,7 +113,7 @@
         </aside>
         @endif
 
-       
+
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">

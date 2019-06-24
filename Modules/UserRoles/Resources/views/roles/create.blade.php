@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="card card-default">
-    <div class="card-header text-center text-bold">
+    <div class="card-header text-bold">
         {{ isset($role) ? 'Edit Role' : 'Create Role'}}
     </div>
     <div class="card-body">

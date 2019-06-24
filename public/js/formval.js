@@ -38,5 +38,14 @@ $("#validate").on('click',function(e) {
 		else{
 			$('#p4').hide();
 		}
+
+		if($('#c2').checked)
+		{
+			e.preventDefault();
+			$('#p5').text("* Please Agree to terms and conditions"); 
+		}else{
+			$('#p5').hide();
+		}
+			
 });
 });

@@ -2,26 +2,18 @@
 
 
 @section('content')
-<div class="card card-default">
-    <div class="card card-header">
-        Categories
         <div class="d-flex justify-content-end margin">
             <a href="{{ route('category.create')}}" class="btn btn-success float-right ">
                 Add Category
             </a>
         </div>
-    </div>
 
     <div class="card card-body panel">
     @if($categories->count()>0)
         <table class="table table-bordered table-hover panel-body" id="category">
             <thead>
-                <th>
-                    Name
-                </th>
-                <th>
-                    NUMBERS COUNT
-                </th>
+                <th>Name</th>
+                <th>NUMBERS COUNT</th>
                 <th></th>
             </thead>
             <tbody>
@@ -46,7 +38,6 @@
             <h3 class="text-center"> No Categories Yet. </h3>
             @endif
     </div>
-</div>
 @endsection
 @section('scripts')
 <script>

@@ -1,9 +1,5 @@
 @extends('adminlte::page')
 @section('content')
-        <div class="card card-default">
-            <div class="card card-header text-bold">
-                USERS
-            </div>
             <div class="card card-body panel">
                 @if($users->count()>0)
                 <table class="table  text-center  table-bordered table-hover panel-body" id="userTable">
@@ -13,7 +9,6 @@
                         <th>Image</th>
                         <th>Email</th>
                         <th></th>
-                       
                      </thead>
                      <tbody>
                         @foreach($users as $user)
@@ -28,10 +23,7 @@
                                 <td>
                                     <img class="img-circle img-bordered-sm" height="90px" width="85px" src="{{url($user->image)}}" alt="">
                                 </td>
-
-                                <td>
-                                    {{ $user->email }}
-                                </td>
+                                <td>{{ $user->email }}</td>
                                 <td>
                                    @if(!$user->isAdmin())
                                     <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
@@ -43,7 +35,6 @@
                                     @else
                                     <p class="text-aqua">This person is Admin.</p>
                                    @endif
-                                   
                                 </td>
                             </tr>
                         @endforeach
@@ -55,7 +46,6 @@
                 </h3>
                 @endif
             </div>
-        </div>
 @endsection
 @section('scripts')
 <script>

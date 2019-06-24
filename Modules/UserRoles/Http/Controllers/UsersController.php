@@ -11,6 +11,7 @@ class UsersController extends Controller
 {
     public function index()
     {
+
         return view('userroles::users.index')->with('users',User::all());
     }
 
@@ -31,7 +32,6 @@ class UsersController extends Controller
         session()->flash('sucs','User profile is updated successfully.');
         return redirect()->back();
     } 
-    
 
     public function makeAdmin(User $user)
     {

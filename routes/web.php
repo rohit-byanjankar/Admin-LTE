@@ -21,6 +21,7 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/adminpanel', 'HomeController@index')->middleware('admin');
 });
+Route::get('/home', 'HomeController@index');
 
 //REGISTER
 Auth::routes();

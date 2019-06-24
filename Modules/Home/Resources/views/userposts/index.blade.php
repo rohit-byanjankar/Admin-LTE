@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="wrapper">
+<<<<<<< HEAD
 	<section class="forum-page">
 		<div class="container">
 		<div class="col-lg-3 col-md-4 pd-left-none no-pd">
@@ -14,6 +15,32 @@
 						</ul>
 					</div>
 					<!--post-st end-->
+=======
+
+	<header>
+			<div class="container">
+				<div class="header-data">
+					<div class="logo pd-btm">
+						<a href="index.html" title=""><img src="images/logo.png" alt=""></a>
+					</div><!--logo end-->
+			</div>
+		</header>	
+
+
+		<section class="forum-sec">
+			<div class="container">
+				<div class="forum-links">
+					<ul>
+						<li class="active"><a href="#" title="">Latest</a></li>
+						<li><a href="#" title="">Unanswered</a></li>
+						<li><a href="#" title="">Treading</a></li>
+						<li><a href="#" title="">Popular This Week</a></li>
+						<li><a href="#" title="">Popular of Month</a></li>
+					</ul>
+				</div><!--forum-links end-->
+				<div class="forum-links-btn">
+					<a href="#" title=""><i class="fa fa-bars"></i></a>
+>>>>>>> 58fd8aaccb101886ef3bfd02b2e33407e0e2b7ad
 				</div>
 			</div>
 		</div>	
