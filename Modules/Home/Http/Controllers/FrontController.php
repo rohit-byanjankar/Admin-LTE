@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-class EventController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('home::events.index');
+        return view('home::index');
     }
 
     /**

@@ -20,8 +20,9 @@ class VerifyCategoriesCount
         {
             session()->flash('err','No Category at all :(    Please create a Category');
             return redirect(route('categories.create'));
-        
+            
          }
          return $next($request);
+         
     }
 }      

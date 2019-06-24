@@ -387,7 +387,7 @@ nav {
 	float: left;
 	width: 60%;
 	text-align: right;
-	padding-right: 13px;
+	padding-right: 100px;
 }
 nav ul li {
 	display: inline-block;
@@ -614,7 +614,7 @@ nav > ul > li > a:hover {
 .search_form form button {
 	color: #f2f2f2;
 	font-size: 14px;
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	padding: 0 10px;
 	height: 100%;
 	position: absolute;
@@ -661,7 +661,7 @@ nav > ul > li > a:hover {
 	color: #000;
 }
 .user-info img {
-	margin-right: 10px;
+	margin-left: 30px;
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
@@ -672,7 +672,7 @@ nav > ul > li > a:hover {
 	color: #fff;
 	font-size: 14px;
 	float: left;
-	margin-top: 8px;
+	margin: 0px 4.9px	;
 }
 .user-info a:hover {
 	color: #fff;
@@ -725,7 +725,7 @@ main {
 .username-dt {
 	float: left;
 	width: 100%;
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	padding-top: 40px;
 }
 .user-data {
@@ -754,7 +754,8 @@ main {
 .user-specs {
 	float: left;
 	width: 100%;
-	padding: 63px 0 27px 0;
+	padding: 10px 0 0 0;
+	background-color: #3c8dbc;
 }
 .user-specs h3 {
 	color: #000000;
@@ -798,7 +799,7 @@ main {
 	font-size: 20px;
 }
 .user-fw-status li a {
-	color: #e44d3a;
+	color: #3c8dbc;
 	font-size: 14px;
 	font-weight: 600;	
 }
@@ -873,7 +874,7 @@ main {
 	cursor: pointer;
 }
 .suggestion-usd > span i:hover {
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	color: #fff;
 }
 .view-more {
@@ -883,12 +884,12 @@ main {
 	padding-top: 10px;
 }
 .view-more > a {
-	color: #e44d3a;
+	color: #3c8dbc;
 	font-size: 14px;
 	font-weight: 700;
 }
 .view-more > a:hover {
-	color: #e44d3a
+	color: #3c8dbc
 }
 
 
@@ -922,7 +923,7 @@ main {
 	font-weight: 500;
 }
 .tags-sec ul li a:hover {
-	color: #e44d3a;
+	color: #3c8dbc;
 }
 .cp-sec {
 	float: left;
@@ -963,7 +964,7 @@ main {
 	width: 100%;
 	padding: 23px 20px;
 	background-color: #fff;
-	border-top: 4px solid #e44d3a;
+	border-top: 4px solid #3c8dbc;
 	border-left: 1px solid #e4e4e4;
 	border-bottom: 1px solid #e4e4e4;
 	border-right: 1px solid #e4e4e4;
@@ -994,10 +995,10 @@ main {
 	margin-right: 0;
 }
 .post-st ul li a {
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 16px;
 	display: inline-block;
-	background-color: #e5e5e5;
+	background-color: #3c8dbc;
 	height: 40px;
 	padding: 0 15px;
 	line-height: 40px;
@@ -1005,7 +1006,7 @@ main {
 }
 .post-st ul li a:hover,
 .post-st ul li a.active {
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	color: #fff;
 }
 
@@ -1088,7 +1089,7 @@ main {
 	font-weight: 600;
 }
 .ed-opts > a:hover {
-	color: #e44d3a;
+	color: #3c8dbc;
 }
 .usy-name {
 	float: left;
@@ -1159,7 +1160,7 @@ main {
 	line-height: 30px;
 }
 .bk-links li i.la-envelope {
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 }
 .bid_now {
 	color: #fff;
@@ -1226,7 +1227,7 @@ main {
 	margin-bottom: 20px;
 }
 .job_descp > p a {
-	color: #e44d3a;
+	color: #3c8dbc;
 	font-weight: 600;
 }
 
@@ -1961,7 +1962,7 @@ select {
 /* ================= sign-in ================ */
 
 .sign-in {
-	background-color: #e75348;
+	background-color: #3c8dbc;
 }
 .sign-in-page {
 	float: left;
@@ -1973,34 +1974,7 @@ select {
 	margin: 0 auto;
 	position: relative;
 }
-.signin-popup:before {
-	content: '';
-	position: absolute;
-	top: -16px;
-	left: 56px;
-	width: 30px;
-	height: 30px;
-	background-color: #fff;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	-ms-border-radius: 100px;
-	-o-border-radius: 100px;
-	border-radius: 100px;
-}
-.signin-popup:after {
-	content: '';
-	position: absolute;
-	top: -37px;
-	left: 43px;
-	width: 20px;
-	height: 20px;
-	background-color: #fff;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	-ms-border-radius: 100px;
-	-o-border-radius: 100px;
-	border-radius: 100px;
-}
+
 .signin-pop {
 	float: left;
 	width: 100%;
@@ -2124,7 +2098,7 @@ select {
 	border-radius: 0 4px 4px 0;
 }
 .sign-control li.current a {
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	color: #fff;
 }
 .sign_in_sec {
@@ -2150,9 +2124,9 @@ select {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 30px;
+	width: 54px;
 	height: 2px;
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 }
 
 
@@ -2217,7 +2191,7 @@ select {
 .sign_in_sec form button {
 	color: #ffffff;
 	font-size: 16px;
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	padding: 12px 27px;
 	border:0;
 	font-weight: 500;
@@ -2271,7 +2245,7 @@ select {
 	color: #ffffff;
 	opacity: 0;
 	visibility: hidden;
-	background-color: #e44d3a;
+	background-color: #3c8dbc;
 	position: absolute;
 	font-family: fontawesome;
 	top: 50%;
@@ -2986,7 +2960,7 @@ footer {
 	object-fit: cover;
 }
 .row {
-	margin: 0;
+	margin: 20 ;
 }
 .gallery_pt > a {
 	position: absolute;
@@ -4777,6 +4751,8 @@ a:hover {
 	left: 20px;
 	width: 50px;
 }
+
+
 .messg-usr-img img {
 	width: 100%;
 	-webkit-border-radius: 100px;
@@ -4969,15 +4945,17 @@ a:hover {
 /* ================ forum-page =============== */
 
 .forum-page {
-	padding: 50px 0;
+	padding: 20px 10px;
 }
 .forum-questions-sec {
-	float: left;
 	width: 100%;
+	margin-left: 7px;
 }
 .forum-questions {
+	
 	float: left;
 	width: 100%;
+	 
 	background-color: #fff;
 }
 .usr-question {
@@ -4991,6 +4969,13 @@ a:hover {
 	float: left;
 	width: 60px;
 }
+
+.mid-dat{
+	margin: 0px;
+	background-color: #666666;
+
+}
+
 .usr_img img {
 	width: 100%;
 	-webkit-border-radius: 100px;
@@ -5061,11 +5046,20 @@ a:hover {
 }
 .quest-posted-time {
 	position: absolute;
-	bottom: 30px;
-	right: 20px;
+	bottom: 10px;
+	right: 369px;
 	color: #b2b2b2;
 	font-size: 14px;
 }
+
+.post-posted-time {
+	position: absolute;
+	bottom: 10px;
+	right: 1px;
+	color: #b2b2b2;
+	font-size: 14px;
+}
+
 .quest-posted-time i {
 	padding-right: 5px;
 }

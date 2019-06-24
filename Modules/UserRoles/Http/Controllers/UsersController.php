@@ -20,6 +20,8 @@ class UsersController extends Controller
         return view('userroles::users.edit')->with('user',auth()->user());
     }
 
+   
+
     public function update(UpdateProfileRequest $request)
     {
         $user = auth()->user();

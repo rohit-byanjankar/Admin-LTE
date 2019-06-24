@@ -5,8 +5,9 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Announcement\Entities\Announcement;
 
-class AnnouncementController extends Controller
+class UserAnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::index');
+        return view('home::announcements.index')->with('announcements',Announcement::orderBy('published_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('published_at','desc')->limit(4)->get());
     }
 
     /**
@@ -43,7 +44,8 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        return view('home::show');
+        $announcemt = Announcement::find($id);
+        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('published_at','desc')->limit(4)->get());
     }
 
     /**
