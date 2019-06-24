@@ -75,14 +75,14 @@
 						</li>
 					</ul>
 				</nav>
-				<!--nav end-->
-				<!-- <div class="search-bar">
+				<!-- nav end-->
+				 <div class="search-bar">
 					<form>
 						<input type="text" name="search" placeholder="Search...">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
-				search bar -->
+				<!-- search bar --> 
 
 
 				<div class="user-account">
