@@ -10,7 +10,7 @@
     @foreach($announcements as $announcement)
     <div class=" card-body well col-lg-5 margin">
         <h4 class="lead">{{$announcement->title}}</h4>
-        <small class="text-muted">Published At : {{$announcement->published_at}}</small><br>
+        <small class="text-muted">Published At : {{\Carbon\Carbon::parse($announcement->created_at)->format('d D-M Y')}}</small><br>
         <a href=" {{ route('announcements.show', $announcement->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
         <a href=" {{ route('announcements.edit', $announcement->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
         <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('announcements.destroy' ,$announcement->id) }}" method="post" style="display:inline">
@@ -24,7 +24,7 @@
 
 @else
 <h3 class="text-primary text-center">
-    No Post Yet
+    No Announcements Yet
 </h3>
 @endif
 </div>

@@ -10,8 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/home','UserPostController@userHome');
+    Route::get('/home', 'FrontController@index');
     Route::resource('userposts', 'UserPostController');
     Route::resource('userevents', 'UserEventController');
     Route::resource('userannouncements', 'UserAnnouncementController');
     Route::resource('telephonedir', 'TelephoneController');
+
+    //route by ajax
+    Route::get('telphoneCategory','TelephoneController@telephoneCategory');

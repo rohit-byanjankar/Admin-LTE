@@ -5,6 +5,8 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use Modules\TelephoneDirectory\Entities\PhoneCategory;
 
 class TelephoneController extends Controller
 {
@@ -14,7 +16,32 @@ class TelephoneController extends Controller
      */
     public function index()
     {
-        return view('home::index');
+        $categories=PhoneCategory::all();
+        $i=0;
+        $contacts=PhoneDirectory::all();
+        $groupedContacts=array();
+        foreach($categories as $category){
+            if(!isset($groupedContacts[$category->name])){
+                $groupedContacts[$category->name]=[];
+            }
+            if(!isset($groupedContacts[$category->name]["id"])){
+                $groupedContacts[$category->name]["id"]=$category->id;
+            }
+
+            if(!isset($groupedContacts[$category->name]["list"])){
+                $groupedContacts[$category->name]["list"]=[];
+            }
+          
+            foreach($contacts as $contact){
+                
+                if($contact->phone_category_id==$category->id){
+                   
+                    array_push($groupedContacts[$category->name]["list"],$contact);
+                }
+            }
+            $i++;
+        }
+        return view('home::telephonedir.index',compact("categories","groupedContacts"));
     }
 
     /**
@@ -23,7 +50,7 @@ class TelephoneController extends Controller
      */
     public function create()
     {
-        return view('home::create');
+        return view('home::telephonedir.create');
     }
 
     /**
@@ -43,7 +70,7 @@ class TelephoneController extends Controller
      */
     public function show($id)
     {
-        return view('home::show');
+        return view('home::telephonedir.show');
     }
 
     /**
@@ -53,7 +80,7 @@ class TelephoneController extends Controller
      */
     public function edit($id)
     {
-        return view('home::edit');
+        return view('home::telephonedir.edit');
     }
 
     /**
@@ -75,5 +102,12 @@ class TelephoneController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function telephoneCategory(Request $request,$cat)
+    {
+
+        $msg = PhoneDirectory::find($cat);
+        return response()->json(array('msg'=> $msg), 200);
     }
 }
