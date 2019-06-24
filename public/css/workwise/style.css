@@ -698,12 +698,15 @@ nav > ul > li > a:hover {
 main {
 	float: left;
 	width: 100%;
-	padding: 60px 0;
+	padding: 10px 0;
 }
 .main-section {
 	float: left;
 	width: 100%;
+	margin:auto;
+	
 }
+
 .main-section-data {
 	float: left;
 	width: 100%;
@@ -711,7 +714,8 @@ main {
 .main-left-sidebar {
 	float: left;
 	width: 100%;
-	margin-top: -20px;
+	margin-left: -80px;
+
 }
 .full-width {
 	float: left;
@@ -955,6 +959,8 @@ main {
 .main-ws-sec {
 	float: left;
 	width: 100%;
+	margin-left: -40px;
+	
 }
 
 /* ============ post-topbar =========== */
@@ -1040,7 +1046,8 @@ main {
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
-	border-radius: 100px;
+	border-radius: 1px;
+	margin-top: -5px;
 }
 .ed-opts {
 	float: right;
@@ -1106,6 +1113,7 @@ main {
 .usy-name span {
 	color: #b2b2b2;
 	font-size: 14px;
+	padding-top : 150px;
 }
 .usy-name img {
 	margin-top: 2px;
@@ -1244,9 +1252,9 @@ main {
 }
 .skill-tags li a {
 	display: inline-block;
-	color: #b2b2b2;
+	color: #ffffff;
 	font-size: 14px;
-	background-color: #e5e5e5;
+	background-color: #53d690;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	-ms-border-radius: 30px;
@@ -1680,8 +1688,10 @@ main {
 
 .right-sidebar {
 	float: left;
-	width: 100%;
+	width: 150%;
+	margin-left: 5px;
 }
+
 .widget {
 	float: left;
 	width: 100%;
@@ -1698,6 +1708,8 @@ main {
 }
 .widget-about {
 	text-align: center;
+	margin-right: 200x;
+
 }
 .widget-about img {
 	float: none;

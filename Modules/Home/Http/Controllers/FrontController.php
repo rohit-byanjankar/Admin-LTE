@@ -5,6 +5,7 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Article\Entities\Post;
 
 class FrontController extends Controller
 {
@@ -14,7 +15,7 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('home::index');
+        return view('home::index')->with('posts',Post::orderBy('updated_at','desc')->paginate(5));
     }
 
     /**
