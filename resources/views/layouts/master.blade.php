@@ -75,14 +75,14 @@
 						</li>
 					</ul>
 				</nav>
-				<!--nav end-->
-				<!-- <div class="search-bar">
+				<!-- nav end-->
+				 <div class="search-bar">
 					<form>
 						<input type="text" name="search" placeholder="Search...">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
-				search bar -->
+				<!-- search bar --> 
 
 
 				<div class="user-account">
@@ -93,19 +93,16 @@
 					</div>
 					<div class="user-account-settingss">
 
-						<h3 class="bg-success">Online Status</h3>
-
-
-
 						<!--search_form end-->
 
-						<ul class="us-links bg-info ">
+						<ul class="us-links">
 							<li><a href="profile-account-setting.html" title="">Account Setting</a></li>
 							<li><a href="#" title="">Privacy</a></li>
 							<li><a href="#" title="">Faqs</a></li>
 							<li><a href="#" title="">Terms & Conditions</a></li>
 						</ul>
-						<h3 class="tc bg-danger"><a href="logout" title="">Logout</a></h3>
+						<h3><i class="fa fa-power-off"></i>
+						<a href="logout" class="text-center">Logout</a></h3>
 					</div>
 					<!--user-account-settingss end-->
 				</div>
@@ -116,6 +113,7 @@
 	<!--header end-->
 
 	@yield('content')
+	
 
 	<footer>
 		<div class="footy-sec mn no-margin">
