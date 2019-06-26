@@ -46,12 +46,7 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials))
         {
-//            $role = Auth::user()->role; //get the role of the user who just login
-//            $permission = Permission::where('role',$role)->select('model','permission_granted')->get(); /*get the permission of the
-//            role which the logged in user belongs to*/
-//            $p = $permission->toArray();
-            //dd(Auth::user()->custom);
-            $credentials['role']='admin';
+            $credentials['role']=['admin','superadmin'];
             if (Auth::attempt($credentials)) {
                 //user is admin
                 return redirect('/adminpanel');

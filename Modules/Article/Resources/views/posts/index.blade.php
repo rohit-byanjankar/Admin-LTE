@@ -1,23 +1,24 @@
 @extends('adminlte::page')
 
 @section('content')
-
-<div class="d-flex justify-content-end margin">
+    @can('create',\Modules\Article\Entities\Post::class)
+    <div class="d-flex justify-content-end margin">
         <a href="{{ route('posts.create')}}" class="btn btn-success ">
             Add Posts
         </a>
-</div>
+    </div>
+    @endcan
 
     <div class="card card-body panel">
         @if($posts->count()>0)
-                <table class="table table-bordered table-hover panel-body" id="post">
-                    <thead>
+            <table class="table table-bordered table-hover panel-body" id="post">
+                <thead>
                     <th>Title</th>
                     <th>Image</th>
                     <th>Category</th>
-                <th></th>
-                <th></th>
-            </thead>
+                    <th></th>
+                    <th></th>
+                </thead>
             @foreach($posts as $post)
             <tbody>
                 <tr>
@@ -38,10 +39,12 @@
                     </td>
                     @else
                     <td>
-                     
-                        <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                     
+                        @can('view',$post)
+                            <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                        @endcan
+                        @can('update',$post)
                           <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                        @endcan
                     </td>
                     @endif
                     <td>
@@ -65,7 +68,6 @@
         @endif
     </div>
 @endsection
-
 @section('scripts')
 <script>
     $(function() {

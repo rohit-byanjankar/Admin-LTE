@@ -12,15 +12,13 @@
 */
 
 Route::get('/', function () {
-   return view('auth.login');
+    return view('auth.login');
 })->middleware('guest');
 
-
-
-Route::middleware('auth')->group(function(){ 
-
+Route::middleware('auth')->group(function(){
     Route::get('/adminpanel', 'HomeController@index')->middleware('admin');
 });
+
 Route::get('/home', 'HomeController@index');
 
 

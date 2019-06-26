@@ -1,11 +1,14 @@
 @extends('adminlte::page')
 
 @section('content')
+    @dd(Request::root());
+    @can('create',\Modules\TelephoneDirectory\Entities\PhoneDirectory::class)
         <div class="row margin">
             <a href="{{ route('directory.create')}}" class="btn btn-success float-right ">
                  Add directory
             </a>
          </div>
+    @endcan
                 @if($phoneDirectory->count()>0)
                     <div class="col-md-12 card card-body panel">
                         <table class="table table-hover table-bordered"  id="directory">
@@ -37,12 +40,16 @@
                                         {{(isset($list->phoneCategory->name) ?  $list->phoneCategory->name : '')}}
                                     </td>
                                     <td>
-                                        <a href=" {{ route('directory.edit', $list->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('directory.destroy' ,$list->id) }}" method="post" style="display:inline">
+                                        @can('update',\Modules\TelephoneDirectory\Entities\PhoneDirectory::class)
+                                            <a href=" {{ route('directory.edit', $list->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                                        @endcan
+                                            @can('delete',\Modules\TelephoneDirectory\Entities\PhoneDirectory::class)
+                                            <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('directory.destroy' ,$list->id) }}" method="post" style="display:inline">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
                                         </form>
+                                                @endcan
                                     </td>
                                 </tr>
                                 </tbody>
