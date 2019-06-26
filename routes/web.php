@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index');
 
 //REGISTER
 Auth::routes();
-Route::get('register','RegisterController@show')->middleware('guest');
+
 Route::post('register','RegisterController@register');
 Route::get('logout','\App\Http\Controllers\Auth\LoginController@logout');

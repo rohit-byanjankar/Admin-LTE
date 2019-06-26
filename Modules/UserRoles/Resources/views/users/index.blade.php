@@ -13,8 +13,13 @@
                      <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td>{{ $user->name}}</td>
-                                <td>{{ $user->role}}</td>
+                               <td>
+                                     {{ $user->name}}
+                               </td> 
+                              
+                                <td>
+                                    {{ $user->role}}
+                                </td>
                                 <td>
                                     <img class="img-circle img-bordered-sm" height="90px" width="85px" src="{{url($user->image)}}" alt="">
                                 </td>

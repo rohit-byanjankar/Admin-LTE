@@ -21,4 +21,12 @@ Route::prefix('article')->group(function() {
     Route::resource('posts', 'Api\PostControllerApi');
     Route::resource('tags', 'TagsController');
     Route::resource('categories', 'CategoriesController');
+
+
+    //Listing the posts 
+
+    Route::get('pppp', 'Api\PostControllerApi@index');  
 });
+
+
+

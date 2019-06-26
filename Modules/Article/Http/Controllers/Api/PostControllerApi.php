@@ -15,22 +15,19 @@ use Illuminate\Support\Facades\Storage;
 use Modules\Article\Entities\Category;
 use Modules\Article\Entities\Tag;
 use Auth;
+use App\Http\Resources\Post as PostResource;
 
 class PostControllerApi extends Controller
 {
-    public function __construct()
-    {   
-        $this->middleware('verifyCategoryCount')->only(['create','store']);
-    }
+   public function index()
+   {
+    //    $post = Post::paginate(15);
+    //    return PostResource::collection($post);
 
-    public function index()
-    {
-        $posts=Post::all();
-        return response($posts, 200)
-                  ->header('Content-Type', 'text/plain');
+       $category = Category::all();
+       return PostResource::collection($category);
 
-        
-    }
+   }
 
     
 }

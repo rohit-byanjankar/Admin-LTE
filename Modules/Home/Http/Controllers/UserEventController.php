@@ -5,8 +5,9 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Events\Entities\Event;
 
-class EventController extends Controller
+class UserEventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        return view('home::events.index');
+        return view('home::events.index')->with('events',Event::orderBy('event_date')->paginate(5))->with('limevents',Event::orderBy('event_date','asc')->limit(4)->get());
     }
 
     /**
@@ -43,7 +44,8 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        return view('home::show');
+        $event = Event::find($id);
+        return view('home::events.show')->with('event', $event)->with('limevents',Event::orderBy('event_date','asc')->limit(4)->get());
     }
 
     /**

@@ -264,7 +264,7 @@ nav ul li:hover > ul,
 header {
 	float: left;
 	width: 100%;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 }
 .header-data {
 	float: left;
@@ -295,12 +295,12 @@ header {
 .ask-question {
 	background-color: #fff;
 	padding: 10px 25px;
-	color: #3c8dbc !important;
+	color: #e44d3a !important;
 	font-size: 14px;
 	font-weight: 600;
 }
 .ask-question:hover {
-	color: #3c8dbc;
+	color: #e44d3a;
 }
 
 .forum-bar ul li {
@@ -378,7 +378,7 @@ header {
 	border: 0;
 }
 .search-bar form button i {
-	color: #3c8dbc;
+	color: #e44d3a;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -405,7 +405,7 @@ nav ul ul {
 	top: 100%;
 	left: 0;
 	width: 200px;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	text-align: left;
 	padding: 20px 0 10px 0; 
 	opacity: 0;
@@ -505,7 +505,7 @@ nav ul ul li a {
 	text-transform: capitalize;
 	font-weight: 600;
 	text-align: center;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	padding: 18px 0;
 }
 nav ul li span {
@@ -526,8 +526,8 @@ nav > ul > li > a:hover {
 .user-account {
 	float: right;
 	width: 110px;
-	border-left: 1px solid #3c8dbc;
-	border-right: 1px solid #3c8dbc;
+	border-left: 1px solid #dd3e2b;
+	border-right: 1px solid #dd3e2b;
 	box-sizing: border-box;
 	position: relative;
 }
@@ -4656,8 +4656,6 @@ a:hover {
 	position: relative;
 	width: 100%;
 }
-
-
 .usr-ms-img {
 	float: left;
 	width: 50px;
