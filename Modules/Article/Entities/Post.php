@@ -41,4 +41,5 @@ class Post extends Model
     {
         return ["delete", "update", "create","view"];
     }
+
 } 

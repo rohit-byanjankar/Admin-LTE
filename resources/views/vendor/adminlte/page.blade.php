@@ -21,7 +21,6 @@
         <header class="main-header">
             @if(config('adminlte.layout') == 'top-nav')
 
-
             <nav class="navbar navbar-static-top">
                 <div class="container">
                     <div class="navbar-header">
@@ -112,8 +111,6 @@
             <!-- /.sidebar -->
         </aside>
         @endif
-
-
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
