@@ -11,6 +11,10 @@
 |
 */
     Route::get('/home', 'FrontController@index');
+    Route::get('account', 'FrontController@account')->name('account');
+    Route::post('changepassword', 'PasswordController@change');
+
+
     Route::resource('userposts', 'UserPostController');
     Route::resource('userevents', 'UserEventController');
     Route::resource('userannouncements', 'UserAnnouncementController');
