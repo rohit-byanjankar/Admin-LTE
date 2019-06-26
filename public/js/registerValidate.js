@@ -46,6 +46,5 @@ $("#validate").on('click',function(e) {
 		}else{
 			$('#p5').hide();
 		}
-			
 });
 });
