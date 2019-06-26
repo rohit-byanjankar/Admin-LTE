@@ -18,10 +18,11 @@ class FrontController extends Controller
         return view('home::index')->with('posts',Post::orderBy('updated_at','desc')->paginate(5));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
+    public function account()
+    {
+        return view('home::UserProfile.account');
+    }
+
     public function create()
     {
         return view('home::create');

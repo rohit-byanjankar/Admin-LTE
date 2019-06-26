@@ -38,12 +38,10 @@
                     </td>
                     @else
                     <td>
-                        @can('view',$post)
+                     
                         <a href=" {{ route('posts.show', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                      @endcan
-                        @can('update',$post)
+                     
                           <a href=" {{ route('posts.edit', $post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                      @endcan
                     </td>
                     @endif
                     <td>
