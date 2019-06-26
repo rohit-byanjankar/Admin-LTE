@@ -18,7 +18,9 @@ class CreateEventsTable extends Migration
             $table-> string('title');
             $table-> text('details');
             $table-> string('venue');
+            $table-> string('description',40);
             $table-> text('event_date');
+            $table->string('image');
             $table-> integer('duration')->default(1);
             $table->timestamp('published_at');
             $table->timestamps();

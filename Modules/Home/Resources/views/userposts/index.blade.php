@@ -4,22 +4,23 @@
 <div class="wrapper">
 	<section class="forum-page">
 		<div class="container">
-		<div class="col-lg-3 col-md-4 pd-left-none no-pd">
-			<div class="col-lg-6 col-md-8 no-pd">
-				<div class="main-ws-sec">
-					<div class="post-st">
-						<ul>
+			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
+				<div class="col-lg-6 col-md-8 no-pd">
+					<div class="main-ws-sec">
+						<div class="post-st">
+							<ul>
 
-							<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
-						</ul>
+								<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
+							</ul>
+						</div>
+						<!--post-st end-->
 					</div>
-					<!--post-st end-->
 				</div>
 			</div>
-		</div>	
 			<div class="forum-questions-sec">
 				<div class="row">
 					<div class="col-lg-8">
+						@if($posts->count()>0)
 						@foreach($posts as $post)
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">
@@ -47,20 +48,31 @@
 						<!--forum-questions end-->
 						@endforeach
 
-						<div class="text-center"> 
-								{!! $posts->links(); !!}
+						@else
+						<div class="forum-questions  mt-2 mb-2">
+							<div class="usr-question">
+
+								<h2> No Posts Available..</h2>
+							</div>
+						</div>
+						@endif
+
+						<div class="text-center">
+							{!! $posts->links(); !!}
 						</div>
 					</div>
+
 					<div class="col-lg-4">
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center">LATEST POSTS</h3>
 							<ul>
+								@if($limposts->count()>0)
 								@foreach($limposts as $limpost)
 								<li>
 									<div class="usr-msg-details">
 										<div class="usr_img">
 											<a href="{{ route('userposts.show',$limpost->id)}}">
-												<img height="60px"  width="200px" src="{{ url($limpost->image)}}" alt="">
+												<img height="60px" width="200px" src="{{ url($limpost->image)}}" alt="">
 											</a>
 										</div>
 										<div class="usr-mg-info">
@@ -72,22 +84,35 @@
 
 								</li>
 								@endforeach
+
 							</ul>
-							
+							@else
+							<div class="usr-msg-details text-center">
+								<h3>
+									No Recent Posts...
+								</h3>
+							</div>
+							@endif
+
 
 
 						</div>
-						
+
+						<!-- advertisement -->
+						<div class="widget widget-adver">
+							<img src="http://via.placeholder.com/370x270" alt="">
+						</div>
+
 					</div>
 				</div>
 			</div>
 			<!--forum-questions-sec end-->
-			
+
 		</div>
 	</section>
 	<!--forum-page end-->
 
-	
+
 
 
 	<div class="overview-box" id="question-box">
