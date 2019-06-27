@@ -15,6 +15,8 @@ class RegisterController extends Controller
         $email = $request->input('email');
         $password = bcrypt($request->input('password'));
         $uname = $request->input('name');
+        $phone = $request->phoneNumber;
+        $address = $request->get('address');
        
             $image = $request->file('image');
             $name = time().'.'.$image->getClientOriginalExtension();
@@ -30,6 +32,8 @@ class RegisterController extends Controller
             'password'=>$password,
             'name'=>$uname,
             'image' => $img,
+            'phone_number'=> $phone,
+            'address'=> $address,
             
         ]);
 

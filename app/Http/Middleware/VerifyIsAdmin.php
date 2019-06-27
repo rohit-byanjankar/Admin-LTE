@@ -17,7 +17,7 @@ class VerifyIsAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::check()){//checks if user is logged in ,return true if logged in
-            if (Auth::user()->role=='admin') {//checks role of currently logged in user
+            if (Auth::user()->role=='admin' || Auth::user()->role=='superadmin') {//checks role of currently logged in user
                 return $next($request);//if user is admin send to next request
             }else{
                 return abort(403, 'You dont have permission to Admin Panel.');//if user isn't admin display error

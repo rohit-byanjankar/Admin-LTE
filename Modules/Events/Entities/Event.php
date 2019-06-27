@@ -8,7 +8,7 @@ class Event extends Model
 {
     //protected $connection='mysql2';
     protected $fillable = [
-        'title', 'details', 'duration', 'published_at','venue','event_date'
+        'title', 'details', 'duration', 'published_at','venue','event_date','image','description'
     ];
 
     public function getPermissions(){

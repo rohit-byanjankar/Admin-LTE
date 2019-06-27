@@ -264,7 +264,7 @@ nav ul li:hover > ul,
 header {
 	float: left;
 	width: 100%;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 }
 .header-data {
 	float: left;
@@ -295,12 +295,12 @@ header {
 .ask-question {
 	background-color: #fff;
 	padding: 10px 25px;
-	color: #3c8dbc !important;
+	color: #e44d3a !important;
 	font-size: 14px;
 	font-weight: 600;
 }
 .ask-question:hover {
-	color: #3c8dbc;
+	color: #e44d3a;
 }
 
 .forum-bar ul li {
@@ -378,7 +378,7 @@ header {
 	border: 0;
 }
 .search-bar form button i {
-	color: #3c8dbc;
+	color: #e44d3a;
 	font-size: 20px;
 	font-weight: bold;
 }
@@ -387,12 +387,12 @@ nav {
 	float: left;
 	width: 60%;
 	text-align: right;
-	padding-right: 100px;
+	padding-right: 13px;
 }
 nav ul li {
 	display: inline-block;
 	text-align: center;
-	padding: 13px 13px;
+	padding: 13px 20px;
 	position: relative;
 }
 nav ul li:hover > ul {
@@ -405,7 +405,7 @@ nav ul ul {
 	top: 100%;
 	left: 0;
 	width: 200px;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	text-align: left;
 	padding: 20px 0 10px 0; 
 	opacity: 0;
@@ -425,6 +425,7 @@ nav ul ul li a:hover {
 }
 nav ul ul li a {
 	font-size: 16px;
+	
 }
 .notification-box.msg p {
 	line-height: 16px;
@@ -505,7 +506,7 @@ nav ul ul li a {
 	text-transform: capitalize;
 	font-weight: 600;
 	text-align: center;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	padding: 18px 0;
 }
 nav ul li span {
@@ -526,15 +527,15 @@ nav > ul > li > a:hover {
 .user-account {
 	float: right;
 	width: 110px;
-	border-left: 1px solid #3c8dbc;
-	border-right: 1px solid #3c8dbc;
+	border-left: 1px solid #dd3e2b;
+	border-right: 1px solid #dd3e2b;
 	box-sizing: border-box;
 	position: relative;
 }
 .user-info {
 	float: left;
 	width: 100%;
-	padding: 13px 10px;
+	padding: 13px 1px;
 	position: relative;
 }
 .user-account-settingss {
@@ -614,7 +615,7 @@ nav > ul > li > a:hover {
 .search_form form button {
 	color: #f2f2f2;
 	font-size: 14px;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	padding: 0 10px;
 	height: 100%;
 	position: absolute;
@@ -661,18 +662,20 @@ nav > ul > li > a:hover {
 	color: #000;
 }
 .user-info img {
-	margin-left: 30px;
+	margin-right: -60px;
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
 	border-radius: 100px;
+	float: right;
 }
 .user-info a {
 	color: #fff;
-	font-size: 14px;
+	font-size: 15px;
 	float: left;
-	margin: 0px 4.9px	;
+	margin-top: 4px;
+	margin-left:10px;
 }
 .user-info a:hover {
 	color: #fff;
@@ -698,15 +701,12 @@ nav > ul > li > a:hover {
 main {
 	float: left;
 	width: 100%;
-	padding: 10px 0;
+	padding: 60px 0;
 }
 .main-section {
 	float: left;
 	width: 100%;
-	margin:auto;
-	
 }
-
 .main-section-data {
 	float: left;
 	width: 100%;
@@ -714,8 +714,7 @@ main {
 .main-left-sidebar {
 	float: left;
 	width: 100%;
-	margin-left: -80px;
-
+	margin-top: -20px;
 }
 .full-width {
 	float: left;
@@ -729,7 +728,7 @@ main {
 .username-dt {
 	float: left;
 	width: 100%;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	padding-top: 40px;
 }
 .user-data {
@@ -758,8 +757,7 @@ main {
 .user-specs {
 	float: left;
 	width: 100%;
-	padding: 10px 0 0 0;
-	background-color: #3c8dbc;
+	padding: 63px 0 27px 0;
 }
 .user-specs h3 {
 	color: #000000;
@@ -803,7 +801,7 @@ main {
 	font-size: 20px;
 }
 .user-fw-status li a {
-	color: #3c8dbc;
+	color: #e44d3a;
 	font-size: 14px;
 	font-weight: 600;	
 }
@@ -878,7 +876,7 @@ main {
 	cursor: pointer;
 }
 .suggestion-usd > span i:hover {
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	color: #fff;
 }
 .view-more {
@@ -888,12 +886,12 @@ main {
 	padding-top: 10px;
 }
 .view-more > a {
-	color: #3c8dbc;
+	color: #e44d3a;
 	font-size: 14px;
 	font-weight: 700;
 }
 .view-more > a:hover {
-	color: #3c8dbc
+	color: #e44d3a
 }
 
 
@@ -927,7 +925,7 @@ main {
 	font-weight: 500;
 }
 .tags-sec ul li a:hover {
-	color: #3c8dbc;
+	color: #e44d3a;
 }
 .cp-sec {
 	float: left;
@@ -959,8 +957,6 @@ main {
 .main-ws-sec {
 	float: left;
 	width: 100%;
-	margin-left: -40px;
-	
 }
 
 /* ============ post-topbar =========== */
@@ -970,7 +966,7 @@ main {
 	width: 100%;
 	padding: 23px 20px;
 	background-color: #fff;
-	border-top: 4px solid #3c8dbc;
+	border-top: 4px solid #e44d3a;
 	border-left: 1px solid #e4e4e4;
 	border-bottom: 1px solid #e4e4e4;
 	border-right: 1px solid #e4e4e4;
@@ -1001,10 +997,10 @@ main {
 	margin-right: 0;
 }
 .post-st ul li a {
-	color: #ffffff;
+	color: #b2b2b2;
 	font-size: 16px;
 	display: inline-block;
-	background-color: #3c8dbc;
+	background-color: #e5e5e5;
 	height: 40px;
 	padding: 0 15px;
 	line-height: 40px;
@@ -1012,7 +1008,7 @@ main {
 }
 .post-st ul li a:hover,
 .post-st ul li a.active {
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	color: #fff;
 }
 
@@ -1046,8 +1042,7 @@ main {
 	-moz-border-radius: 100px;
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
-	border-radius: 1px;
-	margin-top: -5px;
+	border-radius: 100px;
 }
 .ed-opts {
 	float: right;
@@ -1096,7 +1091,7 @@ main {
 	font-weight: 600;
 }
 .ed-opts > a:hover {
-	color: #3c8dbc;
+	color: #e44d3a;
 }
 .usy-name {
 	float: left;
@@ -1113,7 +1108,6 @@ main {
 .usy-name span {
 	color: #b2b2b2;
 	font-size: 14px;
-	padding-top : 150px;
 }
 .usy-name img {
 	margin-top: 2px;
@@ -1168,7 +1162,7 @@ main {
 	line-height: 30px;
 }
 .bk-links li i.la-envelope {
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 }
 .bid_now {
 	color: #fff;
@@ -1235,7 +1229,7 @@ main {
 	margin-bottom: 20px;
 }
 .job_descp > p a {
-	color: #3c8dbc;
+	color: #e44d3a;
 	font-weight: 600;
 }
 
@@ -1252,9 +1246,9 @@ main {
 }
 .skill-tags li a {
 	display: inline-block;
-	color: #ffffff;
+	color: #b2b2b2;
 	font-size: 14px;
-	background-color: #53d690;
+	background-color: #e5e5e5;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	-ms-border-radius: 30px;
@@ -1688,10 +1682,8 @@ main {
 
 .right-sidebar {
 	float: left;
-	width: 150%;
-	margin-left: 5px;
+	width: 100%;
 }
-
 .widget {
 	float: left;
 	width: 100%;
@@ -1708,8 +1700,6 @@ main {
 }
 .widget-about {
 	text-align: center;
-	margin-right: 200x;
-
 }
 .widget-about img {
 	float: none;
@@ -1974,7 +1964,7 @@ select {
 /* ================= sign-in ================ */
 
 .sign-in {
-	background-color: #3c8dbc;
+	background-color: #e75348;
 }
 .sign-in-page {
 	float: left;
@@ -1986,7 +1976,34 @@ select {
 	margin: 0 auto;
 	position: relative;
 }
-
+.signin-popup:before {
+	content: '';
+	position: absolute;
+	top: -16px;
+	left: 56px;
+	width: 30px;
+	height: 30px;
+	background-color: #fff;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-ms-border-radius: 100px;
+	-o-border-radius: 100px;
+	border-radius: 100px;
+}
+.signin-popup:after {
+	content: '';
+	position: absolute;
+	top: -37px;
+	left: 43px;
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	-ms-border-radius: 100px;
+	-o-border-radius: 100px;
+	border-radius: 100px;
+}
 .signin-pop {
 	float: left;
 	width: 100%;
@@ -2110,7 +2127,7 @@ select {
 	border-radius: 0 4px 4px 0;
 }
 .sign-control li.current a {
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	color: #fff;
 }
 .sign_in_sec {
@@ -2136,9 +2153,9 @@ select {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	width: 54px;
+	width: 30px;
 	height: 2px;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 }
 
 
@@ -2203,7 +2220,7 @@ select {
 .sign_in_sec form button {
 	color: #ffffff;
 	font-size: 16px;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	padding: 12px 27px;
 	border:0;
 	font-weight: 500;
@@ -2257,7 +2274,7 @@ select {
 	color: #ffffff;
 	opacity: 0;
 	visibility: hidden;
-	background-color: #3c8dbc;
+	background-color: #e44d3a;
 	position: absolute;
 	font-family: fontawesome;
 	top: 50%;
@@ -2479,6 +2496,7 @@ select {
 footer {
 	float: left;
 	width: 100%;
+	margin-top:250px;
 	background-color: #fff;
 }
 .footy-sec.mn ul {
@@ -2972,7 +2990,7 @@ footer {
 	object-fit: cover;
 }
 .row {
-	margin: 20 ;
+	margin: 0;
 }
 .gallery_pt > a {
 	position: absolute;
@@ -3452,7 +3470,7 @@ a:hover {
 }
 .company-title {
 	float: left;
-	width: 100%;
+	width: 75%;
 	margin-bottom: 20px;
 	padding: 0 15px;
 }
@@ -4642,8 +4660,6 @@ a:hover {
 	position: relative;
 	width: 100%;
 }
-
-
 .usr-ms-img {
 	float: left;
 	width: 50px;
@@ -4763,8 +4779,6 @@ a:hover {
 	left: 20px;
 	width: 50px;
 }
-
-
 .messg-usr-img img {
 	width: 100%;
 	-webkit-border-radius: 100px;
@@ -4957,17 +4971,15 @@ a:hover {
 /* ================ forum-page =============== */
 
 .forum-page {
-	padding: 20px 10px;
+	padding: 50px 0;
 }
 .forum-questions-sec {
-	width: 100%;
-	margin-left: 7px;
-}
-.forum-questions {
-	
 	float: left;
 	width: 100%;
-	 
+}
+.forum-questions {
+	float: left;
+	width: 100%;
 	background-color: #fff;
 }
 .usr-question {
@@ -4981,13 +4993,6 @@ a:hover {
 	float: left;
 	width: 60px;
 }
-
-.mid-dat{
-	margin: 0px;
-	background-color: #666666;
-
-}
-
 .usr_img img {
 	width: 100%;
 	-webkit-border-radius: 100px;
@@ -5002,8 +5007,8 @@ a:hover {
 	padding-left: 15px;
 }
 .usr_quest > h3 {
-	color: #000000;
-	font-size: 17px;
+	color: #160d01;
+	font-size: 30px;
 	font-weight: 600;
 	margin-bottom: 20px;
 }
@@ -5058,20 +5063,11 @@ a:hover {
 }
 .quest-posted-time {
 	position: absolute;
-	bottom: 10px;
-	right: 369px;
+	bottom: 30px;
+	right: 20px;
 	color: #b2b2b2;
 	font-size: 14px;
 }
-
-.post-posted-time {
-	position: absolute;
-	bottom: 10px;
-	right: 1px;
-	color: #b2b2b2;
-	font-size: 14px;
-}
-
 .quest-posted-time i {
 	padding-right: 5px;
 }

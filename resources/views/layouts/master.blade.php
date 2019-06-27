@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
-	<title>WorkWise Html Template</title>
+	<title>Community Media</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -17,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 
-	
+
 
 	@yield('css')
 
@@ -50,7 +49,7 @@
 							</a>
 							<ul>
 								<li><a href="{{ route('userposts.index') }}" title="">Articles</a></li>
-								<li><a href="#" title="">Categories</a></li>
+								<li><a href="{{ route('postscategories.index') }}" title="">Categories</a></li>
 							</ul>
 						</li>
 						<li>
@@ -76,43 +75,50 @@
 					</ul>
 				</nav>
 				<!-- nav end-->
-				 <div class="search-bar">
+
+				<div class="search-bar">
 					<form>
 						<input type="text" name="search" placeholder="Search...">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
-				<!-- search bar --> 
+				<!-- search bar -->
 
 
 				<div class="user-account">
 					<div class="user-info">
-						<img src="{{ Auth::user()->image }}" width=20 height=20 alt="">
-							<a href="#" title=""> {{ Auth::user()->name }}
+						<a href="#" title=""> {{ Auth::user()->name }}
 						</a>
+						<img src="{{ Auth::user()->image }}" width=30 height=30 alt="">
+
 					</div>
 					<div class="user-account-settingss">
 
 						<!--search_form end-->
 
 						<ul class="us-links">
-							<li><a href="profile-account-setting.html" title="">Account Setting</a></li>
+							<li><a href="{{ route('account') }}" title="">Account Setting</a></li>
 							<li><a href="#" title="">Privacy</a></li>
 							<li><a href="#" title="">Faqs</a></li>
 							<li><a href="#" title="">Terms & Conditions</a></li>
 						</ul>
 						<h3><i class="fa fa-power-off"></i>
-						<a href="logout" class="text-center">Logout</a></h3>
+							<a href="logout" class="text-center">Logout</a></h3>
 					</div>
 					<!--user-account-settingss end-->
 				</div>
+
 			</div>
 			<!--header-data end-->
 		</div>
 	</header>
 	<!--header end-->
 
+
+
 	@yield('content')
+
+
 	
 
 	<footer>
@@ -141,7 +147,7 @@
 	<script type="text/javascript" src="{{ url('js/jquery.mCustomScrollbar.js')}}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- <script type="text/javascript" src="{{ url('js/slick.min.js')}}"></script>
 	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script> -->
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>

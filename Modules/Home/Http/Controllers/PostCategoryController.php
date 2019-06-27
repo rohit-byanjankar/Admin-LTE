@@ -5,9 +5,9 @@ namespace Modules\Home\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Article\Entities\Post;
+use Modules\Article\Entities\Category;
 
-class FrontController extends Controller
+class PostCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,14 +15,13 @@ class FrontController extends Controller
      */
     public function index()
     {
-        return view('home::index')->with('posts',Post::orderBy('updated_at','desc')->paginate(5));
+        return view('home::postCategories.index')->with('categories',Category::all());
     }
 
-    public function account()
-    {
-        return view('home::UserProfile.account');
-    }
-
+    /**
+     * Show the form for creating a new resource.
+     * @return Response
+     */
     public function create()
     {
         return view('home::create');

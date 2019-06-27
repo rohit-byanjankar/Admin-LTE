@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Community Media',
+    'title' => 'Chyasal',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Community Media</b>',
+    'logo' => '<b>Chyasal</b>',
 
-    'logo_mini' => '<b>CM</b>',
+    'logo_mini' => '<b>CYC</b>',
 
     /*
     |--------------------------------------------------------------------------
