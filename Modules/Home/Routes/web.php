@@ -13,13 +13,14 @@
     Route::get('/home', 'FrontController@index');
     Route::get('account', 'FrontController@account')->name('account');
     Route::post('changepassword', 'PasswordController@change');
+    Route::post('profilechange', 'ProfileController@change')->name('profilechange');
 
 
     Route::resource('userposts', 'UserPostController');
     Route::resource('postscategories', 'PostCategoryController');
+    Route::get('cat/{id}','PostCategoryController@getCategory')->name('cat');
     Route::resource('userevents', 'UserEventController');
     Route::resource('userannouncements', 'UserAnnouncementController');
     Route::resource('telephonedir', 'TelephoneController');
 
-    //route by ajax
-    Route::get('telphoneCategory','TelephoneController@telephoneCategory');
+    

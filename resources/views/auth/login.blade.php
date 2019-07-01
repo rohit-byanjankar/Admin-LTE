@@ -1,18 +1,25 @@
 @extends('layouts.app')
-
-
-
-
-
 @section('content')
+@auth
+<div class="text-center">
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+</div>
+@endauth
+
 <div class="col-lg-6">
     <div class="login-sec" id="tabs">
         <ul class="sign-control">
-
             <li data-tab="tab-1" class="current">
                 <a href="#tabs-1" class="nav-link active">Log In</a>
             </li>
-
             <li data-tab="tab-2">
                 <a href="#tabs-2" class="nav-link active">
                     Sign Up
@@ -20,16 +27,14 @@
             </li>
         </ul>
 
-
         <div class="sign_in_sec current" id="tabs-1">
-
             <h3>Sign in</h3>
             <form method="POST" action="{{url('login')}}">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <input type="text" class="form-control" placeholder="Email" name="email">
+                            <input type="text" class="form-control" placeholder="Email/Phone Number" name="email">
                             <i class="fa fa-user"></i>
                         </div>
                         <!--sn-field end-->
@@ -64,9 +69,13 @@
         </div>
         <!--sign_in_sec end-->
 
+
+
+
         <div class="sign_in_sec" id="tabs-2">
             <h3>Register</h3>
-            <form action="{{url('register')}}" method="post" enctype="multipart/form-data">
+            <form action="{{url('register')}}" method="post" enctype="multipart/form-data" id="register_form">
+
                 {{csrf_field()}}
 
                 <div class="row">
@@ -110,20 +119,20 @@
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
                             <i class="fa fa-phone"></i>
-                            <input type="text" name="phoneNumber" class="form-control" placeholder="Phone Number">
+                            <input type="text" name="phone" class="form-control" placeholder="Phone Number">
                         </div>
                     </div>
 
                     <div class="col-lg-12 no-pdd form-group">
                         <div class="sn-field ">
                             <i class="fa fa-home"></i>
-                            <select name="address" class="form-control" >
+                            <select name="address" class="form-control">
                                 <option disabled selected>--Select Address--</option>
                                 <option value="two">two</option>
                                 <option value="one">one</option>
 
 
-                                
+
                             </select>
                         </div>
                     </div>
@@ -143,7 +152,7 @@
 
                     <div class="col-lg-12 no-pdd">
                         <div class="sn-field">
-                            <button type="submit" class="btn btn-success" id="validate">Sign up</button>
+                            <input type="button" class="btn btn-success" onclick="validateForm('register_form')" id="validate" value="Sign up" />
                         </div>
                     </div>
 
@@ -172,9 +181,7 @@
 <!--theme-layout end-->
 @endsection
 
-
-
-
 @section('scripts')
 <script src="{{asset("js/loginValidate.js")}}"></script>
+<script src="{{asset('js/registerValidate.js')}}"></script>
 @endsection

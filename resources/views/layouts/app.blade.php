@@ -34,6 +34,18 @@
 
 <body class="sign-in">
     <div class="wrapper">
+        <div class="text-center">
+
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
+        </div>
 
 
         <div class="sign-in-page">
@@ -50,20 +62,22 @@
                                 <img src="images/cm-main-img.png" alt="">
                             </div>
                             <!--cmp-info end-->
+
                         </div>
 
+
                         @yield('content')
-                        
+
                         <div class="footy-sec">
                             <div class="container ">
                                 <ul>
-                                    
+
                                     <li><a href="#" title="">Privacy Policy</a></li>
                                     <li><a href="#" title="">Community Guidelines</a></li>
                                     <li><a href="#" title="">Language</a></li>
                                     <li><a href="#" title="">Copyright Policy</a></li>
                                 </ul>
-                                
+
                                 <p><img src="images/copy-icon.png" alt="">Copyright 2018</p>
                             </div>
                         </div>
@@ -73,7 +87,6 @@
                         <script src="{{ asset('js/app.js') }}"></script>
                         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
                         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-                        <script src="{{asset('js/formval.js')}}"></script>
                         <script>
                             $(function() {
                                 $("#tabs").tabs();

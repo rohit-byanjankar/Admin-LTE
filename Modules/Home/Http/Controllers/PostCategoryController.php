@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Article\Entities\Category;
+use Modules\Article\Entities\Post;
+
+
 
 class PostCategoryController extends Controller
 {
@@ -15,7 +18,7 @@ class PostCategoryController extends Controller
      */
     public function index()
     {
-        return view('home::postCategories.index')->with('categories',Category::all());
+        return view('home::postCategories.index')->with('categories',Category::orderBy('name','asc')->paginate(9));
     }
 
     /**
@@ -27,11 +30,16 @@ class PostCategoryController extends Controller
         return view('home::create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Response
-     */
+    public function getCategory($Category_id)
+    {
+        $category = Category::find($Category_id);
+        if(!$category == null){
+            $posts = $category->posts;
+            return view('home::userposts.index',['posts' => $posts])->with('categories',Category::all())->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
+        }
+       
+    }
+    
     public function store(Request $request)
     {
         //

@@ -11,13 +11,14 @@
 					<div class="col-lg-8">
 						<div class="forum-post-view">
 							<div class="usr-question">
-								
+
+								<img src="{{url($event->image)}}" width="40" height="60" alt="">
 								<div class="usr_quest">
 									<h3> {{ $event->title }} </h3>
 									<span>{{ $event->event_date}}</span>
 
 
-									
+
 									<p>
 										{{ $event->details }}
 									</p>
@@ -37,7 +38,7 @@
 								@foreach($limevents as $limevent)
 								<li>
 									<div class="usr-msg-details">
-										
+										<img src="{{url($limevent->image)}}" width="40" height="60" alt="">
 										<div class="usr-mg-info">
 											<h2> <b> {{ $limevent->title }} </b></h2>
 											<p> {{ $limevent->event_date}} </p>
@@ -78,4 +79,4 @@
 
 </div>
 <!--theme-layout end-->
-@endsection				
+@endsection

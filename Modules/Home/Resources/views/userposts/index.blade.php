@@ -26,21 +26,32 @@
 							<div class="usr-question">
 								<div class="usr_img">
 									<a href="{{ route('userposts.show', $post->id) }}">
-										<img src="{{ url($post->image)}}" alt="">
+										<img src="{{ url($post->image)}}" height="60" alt="">
 									</a>
 								</div>
 								<div class="usr_quest">
-									<h3> {{ $post->title }} </h3>
-									<p> {{ $post->description }}</p>
+
+									<div class="card card-header">
+										<h3> {{ $post->title }} </h3>
+									</div>
+									<div class="card card-body">
+
+										<p> {{ $post->description }}</p>
+									</div>
 									<ul class="quest-tags">
-										<li><a href="#" title=""> {{ $post->category->name }} </a></li>
+										@foreach($post->tags as $tag)
+										<li><a href="#" title=""> {{ $tag->name }} </a></li>
+										@endforeach
 									</ul>
 
+									<span class="posted_time">
+										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($post->published_at)->format('d D-M Y') }} <br>
+
+									</span>
+									<p class="pull-right font-italic"> By : NameHEre </p>
 								</div>
 								<!--usr_quest end-->
-								<span class="post-posted-time"><i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($post->published_at)->format('d D-M Y') }} <br>
-									Published By: {{ $post->user->name}}
-								</span>
+
 
 							</div>
 							<!--usr-question end-->

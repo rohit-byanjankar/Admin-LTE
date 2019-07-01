@@ -28,12 +28,9 @@
 	<header>
 		<div class="container">
 			<div class="header-data">
-				<!-- <div class="logo">
-					<a href="" title=""><img src="images/logo.png" alt=""></a>
-				</div> -->
-				<!--logo end-->
 
-				<!--search-bar end-->
+
+
 				<nav>
 					<ul>
 						<li>
@@ -87,9 +84,9 @@
 
 				<div class="user-account">
 					<div class="user-info">
-						<a href="#" title=""> {{ Auth::user()->name }}
+						<a href="#" title=""> {{Auth::user()->name}}
 						</a>
-						<img src="{{ Auth::user()->image }}" width=30 height=30 alt="">
+						<img src="{{ url(Auth::user()->image) }}" width=30 height=30 alt="">
 
 					</div>
 					<div class="user-account-settingss">
@@ -112,14 +109,17 @@
 			<!--header-data end-->
 		</div>
 	</header>
+
+
 	<!--header end-->
 
 
 
 	@yield('content')
-
-
 	
+
+
+
 
 	<footer>
 		<div class="footy-sec mn no-margin">

@@ -42,8 +42,8 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-
-        $credentials = $request->only('email', 'password');
+       
+        $credentials = $request->only('email','phone_number','password');
         if (Auth::attempt($credentials))
         {
             $credentials['role']=['admin','superadmin'];

@@ -29,6 +29,10 @@ class PasswordController extends Controller
             //Current password and new password are same
             return redirect()->back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
         }
+        if(!strcmp($request->get('repeatPassword'), $request->get('newPassword')) == 0){
+            //Current password and new password are same
+            return redirect()->back()->with("error","Passwords do not match.");
+        }
         //Change Password
         $user->password = bcrypt($request->get('newPassword'));
         $user->update();

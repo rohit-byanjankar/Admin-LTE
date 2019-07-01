@@ -12,13 +12,14 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Auth;
+use Helper;
 use Illuminate\Support\Facades\DB;
 
 
 class UserPostController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.   
      * @return Response
      */
     public function index()
@@ -40,15 +41,20 @@ class UserPostController extends Controller
     public function store(CreatePostsRequest $request)
     {
         $image = $request->image;
-        $image_name  =  Storage::disk('public')->put('/uploads', $image); //storing image to storage
-         $post=Post::create([       //storing to database
-             'title'=> $request->title,
-             'description'=> $request->description,
-             'content' => $request->content, 
-             'image'=>   $image_name,
-             'category_id'=> $request->category,
-             'user_id' => auth::user()->id,
-         ]);
+        $destinationPath = 'uploads/'; 
+       $contents = strip_tags($request->content);
+        $post=Post::create([       //storing to database
+            'title'=> $request->title,
+            'description'=> $request->description,
+            'content'=> $contents, 
+            'image'=> '-',
+            'published_at'=> $request->published_at,
+            'category_id'=> $request->category,
+            'user_id' => auth::user()->id,
+        ]);
+
+        $post->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        $post->save();
  
          if($request->tags)  //attaching tag 
          {

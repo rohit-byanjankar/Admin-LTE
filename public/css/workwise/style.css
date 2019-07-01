@@ -263,8 +263,8 @@ nav ul li:hover > ul,
 
 header {
 	float: left;
-	width: 100%;
-	background-color: #e44d3a;
+	width: 50%;
+	background-color: #222222;
 }
 .header-data {
 	float: left;
@@ -288,6 +288,8 @@ header {
 	float: left;
 	margin-right: 40px;
 }
+
+
 .forum-bar ul {
 	float: left;
 	margin-top: 0px;
@@ -728,7 +730,7 @@ main {
 .username-dt {
 	float: left;
 	width: 100%;
-	background-color: #e44d3a;
+	background-color: #923ae4;
 	padding-top: 40px;
 }
 .user-data {
@@ -1684,6 +1686,8 @@ main {
 	float: left;
 	width: 100%;
 }
+
+
 .widget {
 	float: left;
 	width: 100%;
@@ -1701,6 +1705,8 @@ main {
 .widget-about {
 	text-align: center;
 }
+
+
 .widget-about img {
 	float: none;
 	padding-top: 20px;
@@ -3500,7 +3506,7 @@ a:hover {
 .company-up-info {
 	float: left;
 	width: 100%;
-	padding: 30px 0;
+	padding: 80px 0;
 	border-bottom: 1px solid #e5e5e5;
 }
 .company-up-info img {
@@ -4710,6 +4716,7 @@ a:hover {
 }
 .usr-mg-info {
 	float: left;
+	margin-top:0px;
 	padding-left: 13px;
 }
 .usr-mg-info h3 {
@@ -4727,12 +4734,19 @@ a:hover {
 	top: 5px;
 	padding-left: 5px;
 }
+
 .posted_time {
 	position: absolute;
 	top: 2px;
 	right: 0;
-	color: #b2b2b2;
+	color: #b2b2c2;
 	font-size: 14px;
+	margin-top : 500px;
+}
+
+.publish
+{
+	margin-right: 100px;
 }
 
 
@@ -4987,6 +5001,7 @@ a:hover {
 	width: 100%;
 	position: relative;
 	padding: 25px;
+	
 	border-bottom: 1px solid #e5e5e5;
 }
 .usr_img {

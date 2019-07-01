@@ -57,7 +57,7 @@
 
 								</div>
 								<!--usr_quest end-->
-								<span class="quest-posted-time"><i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($announcement->published_at)->format('d D-M Y') }}</span>
+								<span class="quest-posted-time"><i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($announcement->created_at)->format('d D-M Y') }}</span>
 							</div>
 							<!--usr-question end-->
 						</div>
