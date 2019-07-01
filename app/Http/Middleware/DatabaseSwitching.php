@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Settings;
 use Closure;
 use DB;
 use App\Registrar;
@@ -24,6 +25,11 @@ class DatabaseSwitching
         Config::set('database.connections.mysql.database',$databaseName);
         DB::purge();
         DB::connection();
+
+        $temp=Settings::all();
+        {
+            session()->push('basic_settings',$temp);
+        }
         return $next($request);
     }
 }

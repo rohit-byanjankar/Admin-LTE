@@ -10,15 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/home', 'FrontController@index');
-    Route::get('account', 'FrontController@account')->name('account');
-    Route::post('changepassword', 'PasswordController@change');
+    Route::get('/home', 'FrontController@index')->middleware('auth');
+    Route::get('account', 'FrontController@account')->name('account')->middleware('auth');
+    Route::post('changepassword', 'PasswordController@change')->middleware('auth');
 
 
-    Route::resource('userposts', 'UserPostController');
-    Route::resource('userevents', 'UserEventController');
-    Route::resource('userannouncements', 'UserAnnouncementController');
-    Route::resource('telephonedir', 'TelephoneController');
+    Route::resource('userposts', 'UserPostController')->middleware('auth');
+    Route::resource('postscategories', 'PostCategoryController')->middleware('auth');
+    Route::resource('userevents', 'UserEventController')->middleware('auth');
+    Route::resource('userannouncements', 'UserAnnouncementController')->middleware('auth');
+    Route::resource('telephonedir', 'TelephoneController')->middleware('auth');
 
     //route by ajax
     Route::get('telphoneCategory','TelephoneController@telephoneCategory');

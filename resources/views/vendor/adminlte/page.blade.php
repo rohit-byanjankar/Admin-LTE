@@ -57,17 +57,13 @@
             @endif
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
-
-
                     <ul class="nav navbar-nav"> 
                         <li>
                             @if(config('adminlte.logout_method') == 'GET' || !config('adminlte.logout_method') && version_compare(\Illuminate\Foundation\Application::VERSION, '5.3.0', '<'))
-                  
                                 <a href="{{ url(config('adminlte.logout_url', 'auth/logout')) }}">
                                     <i class="fa fa-fw fa-power-off"></i> Logout
                                 </a>
                             @else
-                                
                                 <li class="dropdown">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img src="{{ asset(Auth::user()->image)}}" class="img-circle" width= 28px height=20px /> {{ Auth::user()->name }}
                                     <span class="caret"></span></a>
@@ -145,9 +141,8 @@
                      </div>
                  @endif
            @endauth
-              
 
-                @yield('content')
+            @yield('content')
 
             </section>
             <!-- /.content -->
@@ -158,19 +153,16 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-       
             <div class="text-center">
                  <strong>Copyright &copy; 2019 <a href="http://elit.com.np/">Elit Pvt. Ltd </a>.</strong> All rights reserved.
                 <a href="#"> <i class="fa fa-facebook-official"></i> </a>
                 <a href="#"> <i class="fa fa-instagram"></i></a>
             </div>
-            
          </footer>
     </div>
     
     <!-- ./wrapper -->
 @stop
-
 @section('adminlte_js')
     <script src="{{ asset('vendor/adminlte/dist/js/adminlte.min.js') }}"></script>
     @stack('js')

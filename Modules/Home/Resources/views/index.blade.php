@@ -58,18 +58,19 @@
 									</div>
 									<div class="post-st">
 										<ul>
-											
-										<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
+
+											<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
 										</ul>
 									</div>
 									<!--post-st end-->
 								</div>
 								<!--post-topbar end-->
-								
+
 								<!--post-st end-->
 
 
 								<div class="posts-section">
+									@if($posts->count()>0)
 									@foreach($posts as $post)
 									<div class="post-bar">
 										<div class="post_topbar">
@@ -85,10 +86,10 @@
 										</div>
 
 										<div class="job_descp">
-												<a href="{{route('userposts.show',$post->id)}}">
+											<a href="{{route('userposts.show',$post->id)}}">
 												<h3>{{$post->title}}</h3>
-												</a>
-											
+											</a>
+
 
 											<p>{{$post->description}} </p>
 
@@ -101,6 +102,20 @@
 										</div>
 									</div>
 									@endforeach
+
+									@else
+									<div class="post-bar">
+										<div class="post_topbar">
+											<div class="usy-dt">
+												<h3 class="text-center">
+													No Posts Available..
+												</h3>
+											</div>
+										</div>
+									</div>
+
+									@endif
+
 									<!--post-bar end-->
 									<div class="text-center">
 										{!! $posts->links(); !!}

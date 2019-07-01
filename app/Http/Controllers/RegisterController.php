@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\VerifyUser;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Notification;
 
 class RegisterController extends Controller
 {
@@ -15,6 +17,8 @@ class RegisterController extends Controller
         $email = $request->input('email');
         $password = bcrypt($request->input('password'));
         $uname = $request->input('name');
+        $phone = $request->phoneNumber;
+        $address = $request->get('address');
        
             $image = $request->file('image');
             $name = time().'.'.$image->getClientOriginalExtension();
@@ -23,17 +27,20 @@ class RegisterController extends Controller
             $img = '/uploads/'.$name;
         
 
-        
-
         $user = user::create([
             'email'=>$email,
             'password'=>$password,
             'name'=>$uname,
             'image' => $img,
+            'phone_number'=> $phone,
+            'address'=> $address,
             
         ]);
 
-        auth()->login($user);
-        return redirect('/home');
+        $admin=User::where('role','superadmin')->first();
+        if($admin){
+            $admin->notify(new VerifyUser($user));
+        }
+        return redirect()->back();
     }
 }

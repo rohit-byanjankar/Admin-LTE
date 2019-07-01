@@ -2,10 +2,12 @@
 
 namespace Modules\UserRoles\Http\Controllers;
 
+use App\Notifications\VerifiedUser;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Notification;
 
 class UsersController extends Controller
 {
@@ -20,8 +22,6 @@ class UsersController extends Controller
         return view('userroles::users.edit')->with('user',auth()->user());
     }
 
-   
-
     public function update(UpdateProfileRequest $request)
     {
         $user = auth()->user();
@@ -35,9 +35,20 @@ class UsersController extends Controller
 
     public function makeAdmin(User $user)
     {
-        $user->role = 'admin';
+        $user->role = 'superadmin';
         $user->save();
-        session()->flash('sucs','User is promoted to admin successfully.');
+        session()->flash('sucs','User is promoted to superadmin successfully.');
+        return redirect(route('users.index'));
+    }
+
+    public function verifyUser($id)
+    {
+        $user=User::where('id',$id)->first();
+        $user->verify = 1;
+        $user->email_verified_at = now();
+        $user->save();
+        $user->notify(new VerifiedUser($user));
+        session()->flash('sucs','User is successfully verified.');
         return redirect(route('users.index'));
     }
 }

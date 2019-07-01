@@ -49,7 +49,7 @@
 							</a>
 							<ul>
 								<li><a href="{{ route('userposts.index') }}" title="">Articles</a></li>
-								<li><a href="#" title="">Categories</a></li>
+								<li><a href="{{ route('postscategories.index') }}" title="">Categories</a></li>
 							</ul>
 						</li>
 						<li>
@@ -87,9 +87,10 @@
 
 				<div class="user-account">
 					<div class="user-info">
-						<img src="{{ Auth::user()->image }}" width=30 height=30 alt="">
 						<a href="#" title=""> {{ Auth::user()->name }}
 						</a>
+						<img src="{{ Auth::user()->image }}" width=30 height=30 alt="">
+
 					</div>
 					<div class="user-account-settingss">
 
@@ -112,13 +113,13 @@
 		</div>
 	</header>
 	<!--header end-->
-	
+
 
 
 	@yield('content')
 
 
-
+	
 
 	<footer>
 		<div class="footy-sec mn no-margin">

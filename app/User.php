@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     //protected $connection='mysql2';
     protected $fillable = [
-        'name', 'email', 'password','about', 'image','role'
+        'name', 'email', 'password','about', 'image','role','phone_number','address'
     ];
 
     /**
@@ -43,7 +43,12 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->role == 'admin';
+        return $this->role == 'superadmin';
+    }
+
+    public function isVerified()
+    {
+        return $this->verify == 1;
     }
 
     public function posts()
