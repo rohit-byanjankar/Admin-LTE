@@ -186,6 +186,12 @@ return [
             'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
+        'COMMUNITY SETTINGS',
+            [
+                'text' =>  'Basic Settings',
+                'url'  =>  '/settings',
+                'icon' =>  'wrench',
+            ],
     ],
         'models' => [
                         "Modules\Article\Entities\Post",

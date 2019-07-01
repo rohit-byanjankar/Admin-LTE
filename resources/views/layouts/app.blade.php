@@ -14,7 +14,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-
     <link rel="stylesheet" type="text/css" href="{{url('css/workwise/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}">
     <!-- Styles -->
@@ -52,8 +51,8 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                {{--<img src="{{asset('uploads/1559734818.png')}}" alt="" height="150px" width="350px">--}}
-                                <p>{{session('basic_settings.0.3.value')}}</p>
+                                <h2>{{config('basic_settings.title')}}</h2>
+                                <p>{{config('basic_settings.vision')}}</p>
                             </div>
                         </div>
                     </div>
