@@ -15,7 +15,7 @@ class UserAnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::announcements.index')->with('announcements',Announcement::orderBy('published_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('published_at','desc')->limit(4)->get());
+        return view('home::announcements.index')->with('announcements',Announcement::orderBy('created_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
     }
 
     /**
@@ -45,7 +45,7 @@ class UserAnnouncementController extends Controller
     public function show($id)
     {
         $announcemt = Announcement::find($id);
-        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('published_at','desc')->limit(4)->get());
+        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
     }
 
     /**

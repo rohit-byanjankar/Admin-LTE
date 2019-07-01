@@ -8,6 +8,7 @@
                         <th>Role</th>
                         <th>Image</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th></th>
                      </thead>
                      <tbody>
@@ -25,15 +26,28 @@
                                 </td>
                                 <td>{{ $user->email }}</td>
                                 <td>
-                                   @if(!$user->isAdmin())
-                                    <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
+                                   @if(!$user->isVerified())
+                                    <form action="{{ route('users.verify-user', $user->id) }}" method="POST">
                                         @csrf
+                                        @method('PUT')
                                         <button type="submit" class="btn btn-success btn-sm">
-                                            Make Admin
+                                            Verify User
                                         </button>
                                     </form>
                                     @else
-                                    <p class="text-aqua">This person is Admin.</p>
+                                    <p class="text-aqua">Activated</p>
+                                   @endif
+                                </td><td>
+                                   @if(!$user->isAdmin())
+                                    <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('PUT')
+                                        <button type="submit" class="btn btn-success btn-sm">
+                                            Make SuperAdmin
+                                        </button>
+                                    </form>
+                                    @else
+                                    <p class="text-aqua">This person is SuperAdmin.</p>
                                    @endif
                                 </td>
                             </tr>

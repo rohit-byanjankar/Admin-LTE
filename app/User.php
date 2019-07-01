@@ -43,7 +43,12 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return $this->role == 'admin';
+        return $this->role == 'superadmin';
+    }
+
+    public function isVerified()
+    {
+        return $this->verify == 1;
     }
 
     public function posts()

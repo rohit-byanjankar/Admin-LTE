@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
     @include('partials.errors')
-        <form action="{{ isset($category)? route('categories.update', $category->id) : route('categories.store')}}" method="POST">
+        <form action="{{ isset($category)? route('categories.update', $category->id) : route('categories.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             @if(isset($category))
@@ -21,6 +21,13 @@
                 <label for="name"> Name </label>
                 <input type="text" id="name" name="name" class="form-control" value="{{ isset($category) ? $category->name: ''}}">
             </div>
+
+            <div class="form-group">
+                <label for="image"> Image </label>
+                <input type="file" id="image" name="image" >
+            </div>
+
+           
 
             <div class="form-group">
                 <button class="btn btn-success">

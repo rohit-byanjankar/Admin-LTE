@@ -8,6 +8,7 @@ use Modules\Article\Entities\Category;
 use App\Http\Requests\Categories\CreateCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoriesRequest;
 use App\Http\Controllers\Controller;
+use Helper;
 
 class CategoriesController extends Controller
 {
@@ -18,7 +19,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('article::categories.index')->with('categories',Category::all());
+        return view('article::categories.index')->with('categories', Category::all());
     }
 
     /**
@@ -33,14 +34,26 @@ class CategoriesController extends Controller
 
     public function store(CreateCategoryRequest $request)
     {
-          //validation is done in app\request\createcategoryrequest in rule method 
-          Category::create([  //Category is model(table) and create is a function provided by model class 
-            'name'=> $request->name  // the first name is column in database and second name is form name
-          ]);
-          session()-> flash('sucs','Category added successfully');
-          return redirect(route('categories.index'));
+        //validation is done in app\request\createcategoryrequest in rule method 
+        $image = $request->image;
+        $destinationPath = 'uploads/';
+
+
+        $category = Category::create([
+            'name' => $request->name,
+            'image' => '-',
+        ]);
+        if(!$request->image==null)
+        {
+
+            $category->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        }
+
+        $category->save();
+        session()->flash('sucs', 'Category added successfully');
+        return redirect(route('categories.index'));
     }
-    
+
     public function show($id)
     {
         //
@@ -48,29 +61,52 @@ class CategoriesController extends Controller
 
     public function edit(Category $category)
     {
-        return view('article::categories.create')-> with('category', $category);
+        return view('article::categories.create')->with('category', $category);
     }
 
-    public function update(UpdateCategoriesRequest $request, Category $category )
+    public function update(UpdateCategoriesRequest $request, Category $category)
     {
-        $category->update([
-            'name'=> $request->name
-        ]);
+
+
+        if (!$request->image == null) {
+            $old_image = $category->image;
+            if(!$old_image==null)
+            {
+                unlink($old_image);
+            }
+
+            $image = $request->image;
+            $destinationPath = 'uploads/';
+
+            $category->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        } else {
+
+            $category->image = $category->image;
+        }
+
+        if (!$request->name == null) {
+            $category->name = $request->name;
+         }
+         
+         else{
+             $category->name = $category->name;
+         }
+
+
         $category->save();
-        session()-> flash('sucs','Category Updated Successfully');
+        session()->flash('sucs', 'Category Updated Successfully');
         return redirect(route('categories.index'));
     }
 
     public function destroy(Category $category)
     {
-        if($category->posts->count()>0)
-        {
-            session()-> flash('err', 'There are posts associated with this category.');
+        if ($category->posts->count() > 0) {
+            session()->flash('err', 'There are posts associated with this category.');
             return redirect()->back();
         }
         $category->delete();
 
-        session()-> flash('err', 'Deleted Successfully');
+        session()->flash('err', 'Deleted Successfully');
         return redirect(route('categories.index'));
     }
 }

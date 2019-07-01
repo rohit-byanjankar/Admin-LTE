@@ -16,4 +16,12 @@ class Helper
         else
             return false;
     }
+    
+    public static function uploadFile($destinationPath,$image)
+    {
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $img = $destinationPath.$name;
+        $image-> move($destinationPath,$name);
+        return $img;
+    }
 }
