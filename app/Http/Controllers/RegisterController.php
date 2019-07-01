@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\VerifyUser;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Notification;
 use Helper;
 class RegisterController extends Controller
 {
@@ -40,7 +42,10 @@ class RegisterController extends Controller
         $user->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $user->save();
 
-        auth()->login($user);
-        return redirect('/home');
+        $admin=User::where('role','superadmin')->first();
+        if($admin){
+            $admin->notify(new VerifyUser($user));
+        }
+        return redirect()->back();
     }
 }

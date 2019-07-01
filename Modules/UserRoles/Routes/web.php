@@ -20,7 +20,8 @@ Route::prefix('userroles')->group(function() {
     Route::middleware(['admin'])->group(function(){
         Route::get('users', 'UsersController@index')->name('users.index');
         Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
-        Route::post('users/{user}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin');
         Route::put('users/profile', 'UsersController@update')->name('users.update-profile');
+        Route::put('users/{user}/make-admin', 'UsersController@makeAdmin')->name('users.make-admin');
+        Route::put('users/{user}/verify-user', 'UsersController@verifyUser')->name('users.verify-user');
     });
 });

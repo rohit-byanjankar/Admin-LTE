@@ -39,21 +39,24 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-
     public function login(Request $request)
     {
-       
-        $credentials = $request->only('email','phone_number','password');
-        if (Auth::attempt($credentials))
+        $email=$request->email;
+        $password=$request->password;
+        if (Auth::attempt(['email'=>$email ,'password' => $password , 'verify' => 1]))
         {
-            $credentials['role']=['admin','superadmin'];
-            if (Auth::attempt($credentials)) {
+        /*$credentials = $request->only('email','phone_number','password');
+        if (Auth::attempt($credentials))
+        {*/
+            if (Auth::user()->role == 'admin' || Auth::user()->role =='superadmin') {
                 //user is admin
                 return redirect('/adminpanel');
             }else{
                 //user isn't admin
                 return redirect('/home');
             }
+        }else{
+            return redirect()->back();
         }
     }
 }
