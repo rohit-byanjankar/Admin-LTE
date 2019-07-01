@@ -13,6 +13,7 @@
     Route::get('/home', 'FrontController@index')->middleware('auth');
     Route::get('account', 'FrontController@account')->name('account')->middleware('auth');
     Route::post('changepassword', 'PasswordController@change')->middleware('auth');
+    Route::post('profilechange', 'ProfileController@change')->name('profilechange')->middleware('auth');
 
 
     Route::resource('userposts', 'UserPostController')->middleware('auth');
@@ -20,6 +21,7 @@
     Route::resource('userevents', 'UserEventController')->middleware('auth');
     Route::resource('userannouncements', 'UserAnnouncementController')->middleware('auth');
     Route::resource('telephonedir', 'TelephoneController')->middleware('auth');
+    Route::get('cat/{id}','PostCategoryController@getCategory')->name('cat')->middleware('auth');
 
-    //route by ajax
-    Route::get('telphoneCategory','TelephoneController@telephoneCategory');
+
+    

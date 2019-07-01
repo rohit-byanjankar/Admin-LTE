@@ -45,6 +45,9 @@ class LoginController extends Controller
         $password=$request->password;
         if (Auth::attempt(['email'=>$email ,'password' => $password , 'verify' => 1]))
         {
+        /*$credentials = $request->only('email','phone_number','password');
+        if (Auth::attempt($credentials))
+        {*/
             if (Auth::user()->role == 'admin' || Auth::user()->role =='superadmin') {
                 //user is admin
                 return redirect('/adminpanel');

@@ -1,5 +1,19 @@
 @extends('layouts.app')
 @section('content')
+@auth
+    <div class="text-center">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+    </div>
+@endauth
+
     <div class="col-lg-6">
         <div class="login-sec" id="tabs">
             <ul class="sign-control">
@@ -23,8 +37,9 @@
                                 <input type="text" class="form-control" placeholder="Email" name="email" required>
                                 <i class="fa fa-user"></i>
                             </div>
-                            <!--sn-field end-->
                         </div>
+                            <!--sn-field end-->
+
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
                                 <input type="password" class="form-control" placeholder="Password" name="password" required>
@@ -46,13 +61,14 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-lg-12 no-pdd">
-                            <button type="submit" value="submit">Sign in</button>
-                        </div>
+                    <div class="col-lg-12 no-pdd">
+                        <button type="submit" value="submit">Sign in</button>
                     </div>
-                </form>
-            </div>
-            <!--sign_in_sec end-->
+                </div>
+            </form>
+        </div>
+        <!--sign_in_sec end-->
+
             <div class="sign_in_sec" id="tabs-2">
                 <h3>Register</h3>
                 <form action="{{url('register')}}" method="post" enctype="multipart/form-data" id="register_form">
@@ -71,7 +87,6 @@
                                 <input type="email" class="form-control" name="email" placeholder="Email" id="email" required>
                                 <p id="p2" class='text-danger small'></p>
                             </div>
-
                         </div>
 
                         <div class="col-lg-12 no-pdd">
@@ -95,6 +110,7 @@
                                 <p id="p4" class='text-danger'></p>
                             </div>
                         </div>
+
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
                                 <i class="fa fa-phone"></i>
@@ -108,6 +124,7 @@
                                 <input type="text" name="address" placeholder="Address" required>
                             </div>
                         </div>
+
                         <div class="col-lg-12 no-pdd">
                             <div class="checky-sec st2">
                                 <div class="fgt-sec">
@@ -122,9 +139,9 @@
                             </div>
                         </div>
 
-                        <div class="no-pdd">
+                        <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
-                                <button class="btn btn-success" onclick="validateForm('register_form')">Register</button>
+                                <input type="button" class="btn btn-success" onclick="validateForm('register_form')" id="validate" value="Sign up" />
                             </div>
                         </div>
                     </div>
@@ -134,7 +151,6 @@
         <!--login-sec end-->
     </div>
 @endsection
-
 @section('scripts')
     <script src="{{asset("../Community-Media/resources/js/loginValidate.js")}}"></script>
     <script src="{{asset('../Community-Media/resources/js/registerValidate.js')}}"></script>

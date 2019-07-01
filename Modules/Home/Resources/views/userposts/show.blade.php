@@ -6,15 +6,14 @@
 		<div class="container">
 			<div class="forum-questions-sec">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-9">
 						<div class="forum-post-view">
 							<div class="usr-question">
-								<div class="usr_img">
-									<img src="{{url( $post->image )}}" alt="">
-								</div>
+
 								<div class="usr_quest">
 									<h3> {{ $post->title }} </h3>
-									<span>{{ $post->user->name}}</span>
+									<img src="{{url( $post->image )}}" width="120" height="100" alt="">
+
 
 
 									<ul class="quest-tags">
@@ -27,6 +26,8 @@
 									</p>
 
 								</div>
+								<p class="pull-right font-italic"> Published By: namehere</p>
+
 								<!--usr_quest end-->
 							</div>
 							<!--usr-question end-->
@@ -34,22 +35,20 @@
 						<!--forum-post-view end-->
 
 					</div>
-					<div class="col-lg-4">
+					<div class="col-lg-3">
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center">LATEST POSTS</h3>
 							<ul>
 								@foreach($limposts as $limpost)
 								<li>
 									<div class="usr-msg-details">
-										<div class="usr_img">
-											<a href="{{ route('userposts.show',$limpost->id)}}">
-												<img src="{{ url($limpost->image)}}" alt="">
-											</a>
-										</div>
-										<div class="usr-mg-info">
-											<h2> <b> {{ $limpost->title }} </b></h2>
-											<p> {{ $limpost->category->name}} </p>
-										</div>
+										<a href="{{ route('userposts.show',$limpost->id)}}">
+											<img src="{{ url($limpost->image)}}" width="55" height="50" alt="">
+											<div class="usr-mg-info">
+												<b> {{ $limpost->title }} </b>
+											</div>
+										</a>
+
 										<!--usr-mg-info end-->
 									</div>
 

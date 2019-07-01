@@ -13,7 +13,7 @@
 									<div class="user-profile">
 										<div class="username-dt">
 											<div class="usr-pic">
-												<img src="{{ url(Auth::user()->image)}}" alt="">
+												<img src="{{ asset(Auth::user()->image)}}" height="100" alt="">
 											</div>
 										</div>
 										<!--username-dt end-->
@@ -75,7 +75,7 @@
 									<div class="post-bar">
 										<div class="post_topbar">
 											<div class="usy-dt">
-												<img src="{{ url($post->image) }}" height="30" width="30" alt="">
+												<img src="{{ asset($post->image) }}" height="30" width="30" alt="">
 
 												<div class="usy-name">
 													<span> {{$post->Category->name}}. </span>
@@ -95,9 +95,13 @@
 
 											<ul class="skill-tags">
 												<i class="fa fa-tag"></i>
+												@if($post->tags->count()>0)
 												@foreach($post->tags as $tag)
 												<li><a href="#">{{ $tag->name}}</a></li>
 												@endforeach
+												@else
+												<li> No Tags.. </li>
+												@endif
 											</ul>
 										</div>
 									</div>

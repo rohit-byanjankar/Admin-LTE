@@ -32,7 +32,19 @@
 
 </head>
 <body class="sign-in">
-<div class="wrapper">
+        <div class="wrapper">
+            <div class="text-center">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+
     <div class="sign-in-page">
         <div class="signin-popup">
             <div class="signin-pop">
@@ -56,7 +68,6 @@
                                 <li><a href="#" title="">Language</a></li>
                                 <li><a href="#" title="">Copyright Policy</a></li>
                             </ul>
-
                             <p><img src="images/copy-icon.png" alt="">Copyright 2018</p>
                         </div>
                     </div>
@@ -77,5 +88,4 @@
     </script>
 @yield('scripts')
 </body>
-
 </html>

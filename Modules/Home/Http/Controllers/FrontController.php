@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Article\Entities\Post;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -20,7 +21,7 @@ class FrontController extends Controller
 
     public function account()
     {
-        return view('home::UserProfile.account');
+        return view('home::UserProfile.account')->with('user',Auth::user());
     }
 
     public function create()

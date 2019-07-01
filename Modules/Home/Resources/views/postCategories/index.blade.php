@@ -5,50 +5,66 @@
         <div class="container">
 
             <!--company-title end-->
-            <div class="companies-list">
-                <div>
-                    <h2>All Categories</h2>
-                </div>
+            <!--company-title end-->
+            <div class="companies-list col-lg-9">
+
                 <div class="row">
+                    @if($categories->count()>0)
                     @foreach($categories as $category)
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                    <div class="col-lg-4">
                         <div class="company_profile_info">
                             <div class="company-up-info">
-                                <h3>{{$category->name}}</h3>
-                                <img src="http://via.placeholder.com/91x91" width="150" height="50" alt="">
-                                <h4></h4>
                                 <ul>
-                                    <li><a href="#" title="" class="follow">Follow</a></li>
-                                    <li><a href="#" title="" class="message-us"><i class="fa fa-envelope"></i></a></li>
-                                    <li><a href="#" title="" class="hire-us">Hire</a></li>
+
+                                    <li>
+                                        <a href="#" title="" class="follow">
+                                            <h3>{{$category->name}}</h3>
+                                        </a>
+                                    </li>
                                 </ul>
+
+                                <img src="{{url($category->image)}}" width="150" height="50" alt="">
+
                             </div>
-                            <a href="#" title="" class="view-more-pro">View Posts</a>
+                            <a href="{{route('cat',$category->id)}}">
+                                View Posts
+
+                            </a>
                         </div>
                         <!--company_profile_info end-->
                     </div>
                     @endforeach
+                    @else
+                    <div class="card card-header company_profile_info bg-danger">
 
-                    <div class="col-lg-3 pd-right-none no-pd">
-                        <div class="right-sidebar">
-                            <div class="widget widget-about">
+                        <h1>No Categories...</h1>
 
-                                <h3>Community Media</h3>
-                                <span>Connect with your Community</span>
-                                <div class="sign_link">
-                                    <h3><a href="{{ route('userposts.create') }}" title="" class="">Create a Post</a></h3>
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
-                    <!--right-sidebar end-->
-
+                    @endif
+                </div>
+                <div class="pull-left">
+                    {!! $categories->links(); !!}
                 </div>
             </div>
             <!--companies-list end-->
 
+            <div class="col-lg-3 pd-right-none no-pd pull-right">
+                <div class="right-sidebar">
+                    <div class="widget widget-about">
+
+                        <h3>Community Media</h3>
+                        <span>Connect with your Community</span>
+                        <div class="sign_link">
+                            <h3><a href="{{ route('userposts.create') }}" title="" class="">Create a Post</a></h3>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--right-sidebar end-->
+
         </div>
+
     </section>
     <!--companies-info end-->
 
