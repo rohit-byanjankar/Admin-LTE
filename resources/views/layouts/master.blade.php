@@ -245,14 +245,11 @@
 	</header>
 	<!--header end-->
 	@yield('content')
-<<<<<<< HEAD
 
 
 
 
 
-=======
->>>>>>> c1fffebf6ec56f4d9799e2683169070e5c2c57e2
 	<footer>
 		<div class="footy-sec mn no-margin bottom">
 			<div class="container">
