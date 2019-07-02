@@ -186,12 +186,17 @@ return [
             'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
+        [
+            'text' => 'Ad Categories',
+            'url' => '/adcategory',
+            'icon' => 'list'
+        ],
         'COMMUNITY SETTINGS',
-            [
-                'text' =>  'Basic Settings',
-                'url'  =>  '/settings',
-                'icon' =>  'wrench',
-            ],
+        [
+            'text' =>  'Basic Settings',
+            'url'  =>  '/settings',
+            'icon' =>  'wrench',
+        ],
     ],
         'models' => [
                         "Modules\Article\Entities\Post",

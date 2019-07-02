@@ -8,6 +8,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Modules\UserRoles\Entities\Permission;
+use Modules\Advertisement\Entities\Advertisement;
 
 class User extends Authenticatable
 {
@@ -55,6 +56,12 @@ class User extends Authenticatable
     {
         //return $this->hasMany('App\Post');
         return $this->hasMany(Post::class);
+    }
+
+    public function advertisements()
+    {
+        
+        return $this->hasMany(Advertisement::class);
     }
 
     public function getPermissions(){

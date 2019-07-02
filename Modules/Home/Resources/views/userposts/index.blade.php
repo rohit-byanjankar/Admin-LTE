@@ -37,6 +37,7 @@
 									<div class="card card-body">
 
 										<p> {{ $post->description }}</p>
+										
 									</div>
 									<ul class="quest-tags">
 										@foreach($post->tags as $tag)
@@ -48,7 +49,7 @@
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($post->published_at)->format('d D-M Y') }} <br>
 
 									</span>
-									<p class="pull-right font-italic"> By : NameHEre </p>
+									<p class="pull-right font-italic"> By : {{$post->user->name}} </p>
 								</div>
 								<!--usr_quest end-->
 
