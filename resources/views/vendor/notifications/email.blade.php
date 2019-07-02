@@ -43,7 +43,7 @@
 @if (! empty($salutation))
 {{ $salutation }}
 @else
-@lang('Regards'),<br>@lang('Chyasal')
+@lang('Regards'),<br>{{config('basic_settings.CM_title')}}
 @endif
 
 {{-- Subcopy --}}

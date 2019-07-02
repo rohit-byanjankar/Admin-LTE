@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('telephonedirectory')->group(function() {
+Route::prefix('adminpanel')->group(function() {
     Route::resource('directory','TelephoneDirectoryController')->middleware('admin');
     Route::resource('category','TelephoneCategoryController')->middleware('admin');
 });

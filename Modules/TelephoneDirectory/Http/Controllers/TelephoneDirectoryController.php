@@ -35,15 +35,27 @@ class TelephoneDirectoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request ->validate([
+            'fname' => 'required',
+            'mname' => 'required',
+            'lname' => 'required',
+            'city' => 'required',
+            'street' => 'required',
+            'home_number' => 'required||numeric||digits_between:7,10',
+            'mobile_number' => 'required||numeric||digits_between:10,14',
+            'office_number' => 'required||numeric||digits_between:7,10',
+            'profession' => 'required',
+        ]);
+
         PhoneDirectory::create([       //storing to database
             'first_name'=> $request->fname,
             'middle_name'=> $request->mname,
             'surname'=> $request->lname,
             'city'=> $request->city,
             'street' => $request->street,
-            'home_number' => $request->hnumber,
-            'mobile_number' => $request->mnumber,
-            'office_number' => $request->onumber,
+            'home_number' => $request->home_number,
+            'mobile_number' => $request->mobile_number,
+            'office_number' => $request->office_number,
             'profession' => $request->profession,
             'phone_category_id' => $request->category
         ]);
@@ -81,6 +93,17 @@ class TelephoneDirectoryController extends Controller
      */
     public function update(Request $request,$id)
     {
+        $request ->validate([
+            'fname' => 'required',
+            'mname' => 'required',
+            'lname' => 'required',
+            'city' => 'required',
+            'street' => 'required',
+            'home_number' => 'required||numeric||digits_between:7,10',
+            'mobile_number' => 'required||numeric||digits_between:10,14',
+            'office_number' => 'required||numeric||digits_between:7,10',
+            'profession' => 'required',
+        ]);
             //update to database
         $phoneDirectory=PhoneDirectory::find($id);
         $phoneDirectory->first_name = $request->fname;
@@ -88,9 +111,9 @@ class TelephoneDirectoryController extends Controller
         $phoneDirectory->surname= $request->lname;
         $phoneDirectory->city= $request->city;
         $phoneDirectory->street = $request->street;
-        $phoneDirectory->home_number = $request->hnumber;
-        $phoneDirectory->mobile_number = $request->mnumber;
-        $phoneDirectory->office_number = $request->onumber;
+        $phoneDirectory->home_number = $request->home_number;
+        $phoneDirectory->mobile_number = $request->mobile_number;
+        $phoneDirectory->office_number = $request->office_number;
         $phoneDirectory->profession = $request->profession;
         $phoneDirectory->phone_category_id = $request->category;
 

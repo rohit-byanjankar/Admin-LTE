@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('article')->group(function() {
+Route::prefix('adminpanel')->group(function() {
     Route::resource('posts', 'PostsController')->middleware('admin');
     Route::resource('tags', 'TagsController')->middleware('admin');
     Route::resource('categories', 'CategoriesController')->middleware('admin');

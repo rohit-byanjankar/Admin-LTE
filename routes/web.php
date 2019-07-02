@@ -19,11 +19,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/adminpanel', 'HomeController@index')->middleware('admin');
 });
 
-Route::get('/home', 'HomeController@index');
-Route::resource('settings','SettingsController');
+Route::resource('adminpanel/settings','SettingsController')->middleware('admin');
+Route::get('aboutUs','HomeController@aboutUs'); //should put this on Home module
 
 //REGISTER
 Auth::routes();
-
 Route::post('register','RegisterController@register');
 Route::get('logout','\App\Http\Controllers\Auth\LoginController@logout');

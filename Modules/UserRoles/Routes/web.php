@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('userroles')->group(function() {
+Route::prefix('adminpanel')->group(function() {
     Route::resource('roles', 'RolesController')->middleware('admin');
     Route::get('rolePermission','PermissionController@selectRole')->middleware('admin');
     Route::get('rolePermission/{role}','PermissionController@getPermission')->middleware('admin');

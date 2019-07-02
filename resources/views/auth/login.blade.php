@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
-                                <input type="text" class="form-control" placeholder="Email" name="email" required>
+                                <input type="email" class="form-control" placeholder="Email" name="email" required>
                                 <i class="fa fa-user"></i>
                             </div>
                         </div>

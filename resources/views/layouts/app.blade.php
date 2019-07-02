@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
-
     <meta charset="UTF-8">
-    <title> Chyasal </title>
+    <title> {{config('basic_settings.CM_title')}} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -51,8 +49,8 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                <h2>{{config('basic_settings.title')}}</h2>
-                                <p>{{config('basic_settings.vision')}}</p>
+                               <span class="text-center text-dark">{{config('basic_settings.CM_title')}}</span>
+                                <p class="mt-3">{{config('basic_settings.CM_Description')}}</p>
                             </div>
                         </div>
                     </div>
@@ -67,7 +65,6 @@
                                 <li><a href="#" title="">Language</a></li>
                                 <li><a href="#" title="">Copyright Policy</a></li>
                             </ul>
-                            <p><img src="images/copy-icon.png" alt="">Copyright 2018</p>
                         </div>
                     </div>
                     <!--footy-sec end-->

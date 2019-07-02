@@ -36,4 +36,9 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function aboutUs()
+    {
+        return view('aboutUs');
+    }
 }

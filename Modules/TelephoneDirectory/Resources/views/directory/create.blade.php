@@ -41,19 +41,19 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="hnumber" >Home Number:</label>
-                <input type="text" name="hnumber" id="hnumber"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->home_number : ''}}" required>
+                <input type="text" name="home_number" id="hnumber" maxlength="10" class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->home_number : ''}}" required>
             </div>
         </div>
 
         <div class="container-fluid">
             <div class="form-group col-md-4">
-                <label for="mnumber" >Phone Number:</label>
-                <input type="text" class="form-control" name='mnumber' id='mnumber' value="{{ isset($phoneDirectory) ? $phoneDirectory->mobile_number : ''}}" required>
+                <label for="mnumber" >Mobile Number:</label>
+                <input type="text" class="form-control" maxlength="14" name='mobile_number' id='mnumber' value="{{ isset($phoneDirectory) ? $phoneDirectory->mobile_number : ''}}" required>
             </div>
 
             <div class="form-group col-md-4">
                 <label for="onumber" >Office Number:</label>
-                <input type="text" name="onumber" id="onumber"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->office_number : ''}}" required>
+                <input type="text" name="office_number" id="onumber" maxlength="10" class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->office_number : ''}}" required>
             </div>
 
             <div class="form-group col-md-4">

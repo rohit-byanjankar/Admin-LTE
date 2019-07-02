@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Chyasal',
+    'title' => '',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Chyasal</b>',
+    'logo' => '<b></b>',
 
     'logo_mini' => '<b>CYC</b>',
 
@@ -115,17 +115,16 @@ return [
             'submenu' => [
                 [
                     'text' => 'Posts',
-                   
                     'icon' => 'file',
                     'submenu' => [
                         [
                             'text' => 'Posts',
-                            'url'  => '/article/posts',
+                            'url'  => '/adminpanel/posts',
                             'icon' => 'file',
                         ],
                         [
                             'text' => 'Trashed-Posts',
-                            'url'=> '/article/trashed-posts',
+                            'url'=> '/adminpanel/trashed-posts',
                             'icon' => 'trash',
                         ]
                     ]
@@ -133,12 +132,12 @@ return [
 
                 [
                     'text' => 'Category',
-                    'url'  => '/article/categories',
+                    'url'  => '/adminpanel/categories',
                     'icon' => 'list',
                 ],
                 [
                     'text' => 'Tag',
-                    'url'  => '/article/tags',
+                    'url'  => '/adminpanel/tags',
                     'icon' => 'tag',
                 ],
 
@@ -147,16 +146,16 @@ return [
         ' ROLE SETTING',
         [
             'text' => 'Users',
-            'url'  => '/userroles/users',
+            'url'  => '/adminpanel/users',
             'icon' => 'user',
         ],[
             'text' => 'Permission',
-            'url'  => '/userroles/rolePermission',
+            'url'  => '/adminpanel/rolePermission',
             'icon' => 'lock',
         ],
         [
             'text' => 'Roles',
-            'url'  => '/userroles/roles',
+            'url'  => '/adminpanel/roles',
             'icon' => 'odnoklassniki',
         ],
         'USER FEATURES',
@@ -166,30 +165,30 @@ return [
             'submenu' => [
                     [
                         'text' => 'List',
-                        'url'  => '/telephonedirectory/directory',
+                        'url'  => '/adminpanel/directory',
                         'icon' => 'list-alt',
                     ],
                     [
                         'text' => 'Categories',
-                        'url'=> '/telephonedirectory/category',
+                        'url'=> '/adminpanel/category',
                         'icon' => 'th-list',
                     ]
                 ],
         ],
         [
             'text' => 'Events',
-            'url'  => '/events/events',
+            'url'  => '/adminpanel/events',
             'icon' => 'calendar-o',
         ],
         [
             'text' => 'Announcement',
-            'url' => '/announcements/announcements',
+            'url' => '/adminpanel/announcements',
             'icon' => 'bullhorn'
         ],
         'COMMUNITY SETTINGS',
             [
                 'text' =>  'Basic Settings',
-                'url'  =>  '/settings',
+                'url'  =>  '/adminpanel/settings',
                 'icon' =>  'wrench',
             ],
     ],

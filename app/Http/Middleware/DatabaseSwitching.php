@@ -31,10 +31,7 @@ class DatabaseSwitching
         foreach($temp as $key=>$value){
             $settings[$value->key]=$value->value;
         }
-
             config(['basic_settings'=>$settings]);
-
-
         return $next($request);
     }
 }

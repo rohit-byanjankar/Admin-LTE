@@ -228,7 +228,5 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Helper' => App\Helpers\Helper::class,
-
     ],
-
 ];

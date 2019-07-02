@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use App\Http\Middleware\VerifyCategoriesCount;
 use App\Http\Middleware\VerifyIsAdmin;
+use App\Http\Middleware\CheckDeactivate;
 
 class Kernel extends HttpKernel
 {
@@ -67,7 +68,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifyCategoryCount' => VerifyCategoriesCount::class,
-        'admin' => VerifyIsAdmin::class
+        'admin' => VerifyIsAdmin::class,
+        'checkDeactivate' => CheckDeactivate::class
     ];
 
 
