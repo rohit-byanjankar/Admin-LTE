@@ -244,12 +244,13 @@
 		</div>
 	</header>
 	<!--header end-->
+
+
+
+
+	<div class="mainbody col-md-12">
 	@yield('content')
-
-
-
-
-
+	</div>
 	<footer>
 		<div class="footy-sec mn no-margin bottom">
 			<div class="container">

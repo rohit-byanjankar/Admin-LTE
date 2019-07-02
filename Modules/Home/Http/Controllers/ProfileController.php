@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Helper;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -26,9 +27,9 @@ class ProfileController extends Controller
         ]);
         $user = Auth::user();
 
-        
 
-        
+
+
 
         if (!$request->name == null) {
             $user->name = $request->name;
@@ -65,5 +66,44 @@ class ProfileController extends Controller
         $user->update();
 
         return redirect()->back()->with("success", "Your info was changed successfully !");
+    }
+
+    // deactivating account
+
+    public function deactivate(Request $request)
+    {
+        $user = Auth::user();
+        $email = $user->email;
+        $password = $user->password;
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        switch ($request->input('remove')) {
+            case 'deactivate':
+
+
+                if ($email != $request->email || !Hash::check($request->password, $password)) {
+                    return redirect()->back()->with('error', "Password or Email doesn't match");
+                } else {
+                    
+                    $user->verify = 0;
+                    $user->deactivated = 1;
+                    $user->save();
+                    return redirect('/logout')->with('success', 'Your Account is Deactivated');
+                }
+                break;
+
+            case 'delete':
+                if ($email != $request->email || !Hash::check($request->password, $password)) {
+                    return redirect()->back()->with('error', "Password or Email doesn't match");
+                } else {
+
+                    $user->delete();
+                    return redirect('/logout')->with('success', 'Your Account is deleted');
+                }
+                break;
+        }
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Modules\UserRoles\Entities\Permission;
 use Modules\Advertisement\Entities\Advertisement;
+use Modules\Article\Entities\Post;
 
 class User extends Authenticatable
 {
