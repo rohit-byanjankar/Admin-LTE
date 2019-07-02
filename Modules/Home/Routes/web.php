@@ -14,6 +14,7 @@
     Route::get('account', 'FrontController@account')->name('account')->middleware('auth');
     Route::post('changepassword', 'PasswordController@change')->middleware('auth');
     Route::post('profilechange', 'ProfileController@change')->name('profilechange')->middleware('auth');
+    Route::post('deactivate', 'ProfileController@deactivate')->name('deactivate')->middleware('auth');
 
 
     Route::resource('userposts', 'UserPostController')->middleware('auth');

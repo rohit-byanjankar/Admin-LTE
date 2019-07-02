@@ -185,6 +185,11 @@ return [
             'url' => '/adminpanel/announcements',
             'icon' => 'bullhorn'
         ],
+        [
+            'text' => 'Ad Categories',
+            'url' => 'adminpanel/adcategory',
+            'icon' => 'list'
+        ],
         'COMMUNITY SETTINGS',
             [
                 'text' =>  'Basic Settings',

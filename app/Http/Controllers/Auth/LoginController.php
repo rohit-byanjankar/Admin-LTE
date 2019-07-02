@@ -47,7 +47,7 @@ class LoginController extends Controller
 
         $email=$request->email;
         $password=$request->password;
-        if (Auth::attempt(['email'=>$email ,'password' => $password , 'verify' => 1]))
+        if (Auth::attempt(['email'=>$email ,'password' => $password ,'deactivated' => 0, 'verify' => 1]))
         {
         /*$credentials = $request->only('email','phone_number','password');
         if (Auth::attempt($credentials))
@@ -60,7 +60,7 @@ class LoginController extends Controller
                 return redirect('/home');
             }
         }else{
-            return redirect()->back();
+            return redirect()->back()->with('error','You are not allowed');
         }
     }
 }

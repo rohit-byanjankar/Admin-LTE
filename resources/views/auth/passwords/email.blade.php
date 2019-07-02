@@ -27,7 +27,7 @@
                         <!--sn-field end-->
                     </div>
                     <div class="col-lg-12 no-pdd text-center">
-                        <button type="submit" class="btn btn-success ">
+                        <button type="submit" class="btn btn-success mb-3 ">
                             {{ __('Send Password Reset Link') }}
                         </button>
                     </div>

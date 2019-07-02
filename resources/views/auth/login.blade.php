@@ -1,18 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@auth
-    <div class="text-center">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </div>
-@endauth
+
 
     <div class="col-lg-6">
         <div class="login-sec" id="tabs">
@@ -20,7 +8,7 @@
                 <li data-tab="tab-1" class="current">
                     <a href="#tabs-1">Log In</a>
                 </li>
-                <li data-tab="tab-2" >
+                <li data-tab="tab-2" class="current" >
                     <a href="#tabs-2">
                         Register
                     </a>
@@ -141,7 +129,7 @@
 
                         <div class="col-lg-6 ml-5 mt-3">
                             <div class="sn-field">
-                                <input type="button" class="btn btn-danger text-center text-white" onclick="validateForm('register_form')" id="validate" value="Register" />
+                                <input type="button" class="btn btn-success pr-5" onclick="validateForm('register_form')" id="validate" value="Sign up" />
                             </div>
                         </div>
                     </div>
@@ -152,6 +140,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset("../Community-Media/resources/js/loginValidate.js")}}"></script>
+    <script src="{{asset('../Community-Media/resources/js/loginValidate.js')}}"></script>
     <script src="{{asset('../Community-Media/resources/js/registerValidate.js')}}"></script>
 @endsection
