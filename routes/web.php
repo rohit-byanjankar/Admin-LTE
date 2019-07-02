@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::get('/home', 'HomeController@index');
-
+Route::resource('settings','SettingsController');
 
 //REGISTER
 Auth::routes();

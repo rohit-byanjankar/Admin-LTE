@@ -26,10 +26,15 @@ class DatabaseSwitching
         DB::purge();
         DB::connection();
 
-        $temp=Settings::all();
-        {
-            session()->push('basic_settings',$temp);
+        $temp=Settings::select('key','value')->get();
+        $settings=[];
+        foreach($temp as $key=>$value){
+            $settings[$value->key]=$value->value;
         }
+
+            config(['basic_settings'=>$settings]);
+
+
         return $next($request);
     }
 }

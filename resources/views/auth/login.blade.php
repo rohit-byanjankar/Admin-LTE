@@ -139,9 +139,9 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-12 no-pdd">
+                        <div class="col-lg-6 ml-5 mt-3">
                             <div class="sn-field">
-                                <input type="button" class="btn btn-success" onclick="validateForm('register_form')" id="validate" value="Sign up" />
+                                <input type="button" class="btn btn-danger text-center text-white" onclick="validateForm('register_form')" id="validate" value="Register" />
                             </div>
                         </div>
                     </div>
