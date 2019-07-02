@@ -186,6 +186,11 @@ return [
             'url' => '/announcements/announcements',
             'icon' => 'bullhorn'
         ],
+        [
+            'text' => 'Ad Categories',
+            'url' => '/adcategory',
+            'icon' => 'list'
+        ]
     ],
         'models' => [
                         "Modules\Article\Entities\Post",

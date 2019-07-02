@@ -8,7 +8,8 @@
 
 
 <div class="container">
-    <div class="header">
+
+    <div class="card mr-5 ml-5 mt-5">
         @auth
         @if(session()->has('error'))
         <div class="alert alert-danger text-center alert-dismissible">
@@ -27,10 +28,8 @@
         </div>
         @endif
         @endauth
-    </div>
-    <div class="card mr-5 ml-5 mt-5">
-        <div class="card card-header">
-            Post a ad.
+        <div class="card card-header text-center">
+            Post an ad.
         </div>
         <div class="card card-body">
             <div class="col-12">
@@ -60,9 +59,24 @@
 
 
                         <label for="image" class="mb-2"> Image: </label> <br>
-
                         <input type="file" class="form-control" name='image' id='image'>
 
+                        <div class="form-group">
+                    <label for="Adcategory">Advertisement Category</label>
+                    <select name="category" id="category" class="form-control">
+                        @foreach($categories as $category)
+                            <option value=" {{ $category->id }} "
+                               @if(isset($advertisement))
+                                @if($category->id == $advertisement->category_id)
+                                        selected
+                                @endif
+                               @endif
+                            >
+                                {{ $category->name }}                                    
+                            </option>
+                        @endforeach                       
+                    </select>
+                </div>
 
 
 

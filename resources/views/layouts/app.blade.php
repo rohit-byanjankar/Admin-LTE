@@ -15,8 +15,8 @@
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
 
-    <link rel="stylesheet" type="text/css" href="{{url('css/workwise/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/responsive.css')}}">
     <!-- Styles -->
 
     <meta charset="utf-8">

@@ -12,5 +12,10 @@
 */
 
 
+
     Route::resource('ad', 'AdvertisementController');
+    Route::resource('adcategory', 'AdvertisementCategoryController');
+    Route::get('adcat/{id}','AdvertisementCategoryController@getCategory')->name('adcat')->middleware('auth');
+
+
 

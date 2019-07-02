@@ -32,11 +32,9 @@ class PostCategoryController extends Controller
 
     public function getCategory($Category_id)
     {
-        $category = Category::find($Category_id);
-        if(!$category == null){
-            $posts = $category->posts;
-            return view('home::userposts.index',['posts' => $posts])->with('categories',Category::all())->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
-        }
+        $posts=Post::where("category_id",$Category_id)->paginate(5);
+        
+            return view('home::userposts.index',['posts' => $posts])->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
        
     }
     

@@ -20,7 +20,7 @@
                 <li data-tab="tab-1" class="current">
                     <a href="#tabs-1">Log In</a>
                 </li>
-                <li data-tab="tab-2" >
+                <li data-tab="tab-2" class="current" >
                     <a href="#tabs-2">
                         Register
                     </a>
@@ -141,7 +141,7 @@
 
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
-                                <input type="button" class="btn btn-success" onclick="validateForm('register_form')" id="validate" value="Sign up" />
+                                <input type="button" class="btn btn-success pr-5" onclick="validateForm('register_form')" id="validate" value="Sign up" />
                             </div>
                         </div>
                     </div>
@@ -152,6 +152,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset("../Community-Media/resources/js/loginValidate.js")}}"></script>
+    <script src="{{asset('../Community-Media/resources/js/loginValidate.js')}}"></script>
     <script src="{{asset('../Community-Media/resources/js/registerValidate.js')}}"></script>
 @endsection
