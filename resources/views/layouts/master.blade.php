@@ -115,8 +115,10 @@
 
 
 
+	<div class="mainbody col-md-12">
 	@yield('content')
-	
+	</div>
+
 
 
 
