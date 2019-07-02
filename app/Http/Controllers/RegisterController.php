@@ -46,6 +46,6 @@ class RegisterController extends Controller
         if($admin){
             $admin->notify(new VerifyUser($user));
         }
-        return redirect()->back();
+        return view('thankYou');
     }
 }

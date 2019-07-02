@@ -52,8 +52,8 @@
                     <div class="col-lg-6">
                         <div class="cmp-info">
                             <div class="cm-logo">
-                                {{--<img src="{{asset('uploads/1559734818.png')}}" alt="" height="150px" width="350px">--}}
-                                <p>{{session('basic_settings.0.3.value')}}</p>
+                                <h2>{{config('basic_settings.title')}}</h2>
+                                <p>{{config('basic_settings.vision')}}</p>
                             </div>
                         </div>
                     </div>

@@ -153,23 +153,13 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
-
-
-
-
 	@yield('css')
 
 </head>
-
-
-
 <body>
 	<header>
 		<div class="container">
 			<div class="header-data">
-
-
-
 				<nav>
 					<ul>
 						<li>
@@ -232,46 +222,37 @@
 				</div>
 				<!-- search bar -->
 
-
 				<div class="user-account">
 					<div class="user-info">
-						<a href="#" title=""> {{Auth::user()->name}}
-						</a>
 						<img src="{{ url(Auth::user()->image) }}" width=30 height=30 alt="">
-
+						<a href="#"> {{Auth::user()->name}}</a>
 					</div>
 					<div class="user-account-settingss">
-
-						<!--search_form end-->
-
 						<ul class="us-links">
 							<li><a href="{{ route('account') }}" title="">Account Setting</a></li>
 							<li><a href="#" title="">Privacy</a></li>
 							<li><a href="#" title="">Faqs</a></li>
 							<li><a href="#" title="">Terms & Conditions</a></li>
+							<i class="fa fa-power-off"></i>
+							<a href="logout" class="text-center">Logout</a>
 						</ul>
-						<h3><i class="fa fa-power-off"></i>
-							<a href="logout" class="text-center">Logout</a></h3>
 					</div>
 					<!--user-account-settingss end-->
 				</div>
-
 			</div>
 			<!--header-data end-->
 		</div>
 	</header>
-
-
 	<!--header end-->
-
-
-
 	@yield('content')
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> c1fffebf6ec56f4d9799e2683169070e5c2c57e2
 	<footer>
 		<div class="footy-sec mn no-margin bottom">
 			<div class="container">
@@ -292,7 +273,6 @@
 		</div>
 	</footer>
 
-
 	<script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
 	<script type="text/javascript" src="{{ url('js/popper.js')}}"></script>
 	<script type="text/javascript" src="{{ url('js/bootstrap.min.js')}}"></script>
@@ -304,9 +284,6 @@
 	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script> -->
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
-
-
 	<!--jquery tabs -->
-
 	@yield('scripts')
 </body>
