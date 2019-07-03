@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'Chyasal',
+    'title' => 'Chyasal2',
 
     'title_prefix' => '',
 
