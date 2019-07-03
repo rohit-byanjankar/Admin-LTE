@@ -1,18 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@auth
-    <div class="text-center">
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-    </div>
-@endauth
+
 
     <div class="col-lg-6">
         <div class="login-sec" id="tabs">

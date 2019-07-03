@@ -30,8 +30,11 @@
                                     <form action="{{ route('users.verify-user', $user->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" class="btn btn-success btn-sm">
+                                        <button type="submit" name="activate" value="verifiedUser" class="btn btn-success btn-sm">
                                             Verify User
+                                        </button>
+                                        <button type="submit" name="activate" value="activatedUser" class="btn btn-success btn-sm">
+                                            Activate User
                                         </button>
                                     </form>
                                     @else

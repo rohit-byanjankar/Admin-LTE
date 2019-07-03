@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddVerifyToUsers extends Migration
+class AddDeactivatedToUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddVerifyToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('verify')->default(0);
+            $table->boolean('deactivated')->default(0);
         });
     }
 
@@ -28,6 +28,5 @@ class AddVerifyToUsers extends Migration
         Schema::table('users', function (Blueprint $table) {
             //
         });
-
     }
 }
