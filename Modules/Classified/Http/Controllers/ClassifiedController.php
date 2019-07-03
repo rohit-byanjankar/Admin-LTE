@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\Advertisement\Http\Controllers;
+namespace Modules\Classified\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Advertisement\Entities\Advertisement;
+use Modules\Classified\Entities\Classified;
 use Helper;
 use Illuminate\Support\Facades\Auth;
-use Modules\Advertisement\Entities\AdCategory;
+use Modules\Classified\Entities\ClassifiedCategory;
 
-class AdvertisementController extends Controller
+class ClassifiedController extends Controller
 {
     
     public function __construct()
@@ -20,14 +20,13 @@ class AdvertisementController extends Controller
 
     public function index()
     {
-      
-        return view('advertisement::classifiedAd.index')->with('advertisements', Advertisement::orderBy('created_at', 'desc')->paginate(5))->with('limadvertisements', Advertisement::orderBy('updated_at', 'desc')->limit(4)->get())->with('useradvertisements',Advertisement::all());
+        return view('classified::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('userclassifieds',Classified::all());
     }
 
   
     public function create()
     {
-        return view('advertisement::classifiedAd.create')->with('categories',AdCategory::all());
+        return view('classified::classifiedAd.create')->with('categories',ClassifiedCategory::all());
     }
 
    
@@ -35,7 +34,7 @@ class AdvertisementController extends Controller
     {
         $image = $request->image;
         $destinationPath = 'uploads/';
-        $advertisement = Advertisement::create([       //storing to database
+        $classified = Classified::create([       //storing to database
             'title' => $request->title,
             'description' => $request->description,
             'content' => $request->content,
@@ -45,22 +44,22 @@ class AdvertisementController extends Controller
             'category_id' => $request->category 
 
         ]);
-        $advertisement->image = Helper::uploadFile($destinationPath, $image); //using helper file
-        $advertisement->save();
+        $classified->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        $classified->save();
         return redirect()->back()->with('success', 'Ad posted successfully');
     }
 
    
     public function show($id)
     {
-        $advertisement = Advertisement::find($id);
-        return view('advertisement::classifiedAd.show')->with('advertisement', $advertisement)->with('limadvertisements', Advertisement::orderBy('updated_at', 'desc')->limit(4)->get());;
+        $classified = Classified::find($id);
+        return view('classified::classifiedAd.show')->with('classified', $classified)->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get());;
     }
 
    
     public function edit($id)
     {
-        return view('advertisement::edit');
+        return view('classified::edit');
     }
 
     

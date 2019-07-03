@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/advertisement",
+    "name": "nwidart/classified",
     "description": "",
     "authors": [
         {
@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Advertisement\\Providers\\AdvertisementServiceProvider"
+                "Modules\\Classified\\Providers\\ClassifiedServiceProvider"
             ],
             "aliases": {
                 
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\Advertisement\\": ""
+            "Modules\\Classified\\": ""
         }
     }
 }

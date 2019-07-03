@@ -187,8 +187,8 @@ return [
             'icon' => 'bullhorn'
         ],
         [
-            'text' => 'Ad Categories',
-            'url' => '/adcategory',
+            'text' => 'Classified Categories',
+            'url' => '/classifiedcategory',
             'icon' => 'list'
         ],
         'COMMUNITY SETTINGS',

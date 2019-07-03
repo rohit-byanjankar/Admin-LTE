@@ -13,9 +13,9 @@
 
 
 
-    Route::resource('ad', 'AdvertisementController');
-    Route::resource('adcategory', 'AdvertisementCategoryController');
-    Route::get('adcat/{id}','AdvertisementCategoryController@getCategory')->name('adcat')->middleware('auth');
+    Route::resource('classified', 'ClassifiedController');
+    Route::resource('classifiedcategory', 'ClassifiedCategoryController');
+    Route::get('adcat/{id}','ClassifiedCategoryController@getCategory')->name('adcat')->middleware('auth');
 
 
 

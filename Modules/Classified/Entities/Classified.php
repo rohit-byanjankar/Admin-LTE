@@ -1,12 +1,13 @@
 <?php
 
-namespace Modules\Advertisement\Entities;
+namespace Modules\Classified\Entities;
 
 use Illuminate\Database\Eloquent\Model;
 use App\User;
-class Advertisement extends Model
+class Classified extends Model
 {
     protected $fillable = ['title', 'description', 'content', 'image','user_id','category_id'];
+    protected $table="advertisements";
     
     public function user()
     {
@@ -15,6 +16,6 @@ class Advertisement extends Model
 
     public function category()
     {
-        return $this->belongsTo(AdCategory::class);
+        return $this->belongsTo(ClassifiedCategory::class);
     }
 }

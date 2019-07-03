@@ -39,6 +39,7 @@
                     </div>
 
 
+<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/create.blade.php
 
                     <div class="form-group">
                         <label for="category">Category</label>
@@ -46,6 +47,16 @@
                             @foreach($categories as $category)
                             <option value=" {{ $category->id }} " @if(isset($post)) @if($category->id == $post->category_id)
                                 selected
+=======
+                        <div class="form-group">
+                    <label for="Adcategory">Classified Category</label>
+                    <select name="category" id="category" class="form-control">
+                        @foreach($categories as $category)
+                            <option value=" {{ $category->id }} "
+                               @if(isset($classified))
+                                @if($category->id == $classified->category_id)
+                                        selected
+>>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/create.blade.php
                                 @endif
                                 @endif
                                 >
@@ -64,6 +75,7 @@
                     <div class="form-group">
                         <label for="tags"> Tags </label>
 
+<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/create.blade.php
                         <select name="tags[]" id="tags" class="form-control tags-selector" multiple>
                             @foreach($tags as $tag)
                             <option value="{{ $tag->id }}" @if(isset($post)) @if( $post->hasTag($tag->id ))
@@ -77,6 +89,14 @@
                         </select>
                     </div>
                     @endif
+=======
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-success">
+                                <!-- {{ isset($classified) ? 'EDIT THE POST' : 'CREATE NOW!' }} -->
+                                create
+                            </button>
+                        </div>
+>>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/create.blade.php
 
 
 
