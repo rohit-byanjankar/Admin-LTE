@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="main-section-data">
-        <div class="card card-default">
+        <div class="card card-default mr-5 ml-5 mt-5">
             <div class=" card-header text-bold text-center ">
                 Create a Post
             </div>

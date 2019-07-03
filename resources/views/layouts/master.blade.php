@@ -156,6 +156,7 @@
 	@yield('css')
 
 </head>
+
 <body>
 	<header>
 		<div class="container">
@@ -223,6 +224,7 @@
 				<!-- search bar -->
 
 				<div class="user-account">
+
 					<div class="user-info">
 						<img src="{{ url(Auth::user()->image) }}" width=30 height=30 alt="">
 						<a href="#"> {{Auth::user()->name}}</a>
@@ -249,7 +251,7 @@
 
 
 	<div class="mainbody col-md-12">
-	@yield('content')
+		@yield('content')
 	</div>
 	<footer>
 		<div class="footy-sec mn no-margin bottom">

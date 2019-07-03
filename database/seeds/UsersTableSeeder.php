@@ -14,31 +14,33 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        $users =
-            [
+        if (User::all() == null) {
+            $users =
                 [
-                    'name' => 'saman shakya',
-                    'email' => 'samanshakya01@gmail.com',
-                    'password' => Hash::make('k0nk@12345'),
-                    'role' => 'admin',
-                    'about' => 'Student',
-                    'image' => '-',
-                    'phone_number' => '9860300808',
-                    'address' => 'ombahal',
-                    'verify' => '1'
-                ],
-                [
-                    'name' => 'rohit byanjan',
-                    'email' => 'rohitbenz09@gmail.com',
-                    'password' => Hash::make('redskull'),
-                    'role' => 'admin',
-                    'about' => 'Student',
-                    'image' => '-',
-                    'phone_number' => '9860300808',
-                    'address' => 'ombahal',
-                    'verify' => '1'
-                ]
-            ];
+                    [
+                        'name' => 'saman shakya',
+                        'email' => 'samanshakya01@gmail.com',
+                        'password' => Hash::make('k0nk@12345'),
+                        'role' => 'admin',
+                        'about' => 'Student',
+                        'image' => '-',
+                        'phone_number' => '9860300808',
+                        'address' => 'ombahal',
+                        'verify' => '1'
+                    ],
+                    [
+                        'name' => 'rohit byanjan',
+                        'email' => 'rohitbenz09@gmail.com',
+                        'password' => Hash::make('redskull'),
+                        'role' => 'admin',
+                        'about' => 'Student',
+                        'image' => '-',
+                        'phone_number' => '9860300808',
+                        'address' => 'ombahal',
+                        'verify' => '1'
+                    ]
+                ];
             DB::table('users')->insert($users);
+        }
     }
 }

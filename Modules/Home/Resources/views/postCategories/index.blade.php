@@ -11,25 +11,31 @@
                 <div class="row">
                     @if($categories->count()>0)
                     @foreach($categories as $category)
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
+
                         <div class="company_profile_info">
-                            <div class="company-up-info">
-                                <ul>
-
-                                    <li>
-                                        <a href="#" title="" class="follow">
-                                            <h3>{{$category->name}}</h3>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <img src="{{url($category->image)}}" width="150" height="50" alt="">
-
-                            </div>
                             <a href="{{route('cat',$category->id)}}">
-                                View Posts
+                                @if(File::exists($category->image))
+                                <img src="{{url($category->image)}}" width=100% height=100% alt="">
+                                @else
+                                <img src="uploads/noimage.png" width=100% height=50% alt="No Image">
+                                @endif
+                                <div class="company-up-info">
+                                    <ul>
 
+                                        <li>
+                                            <a href="{{route('cat',$category->id)}}" title="" class="follow">
+                                                <h3> {{$category->name}}
+                                                </h3>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </a>
+                            <a href="{{route('cat',$category->id)}}"> </a>
+
+
+
                         </div>
                         <!--company_profile_info end-->
                     </div>

@@ -7,10 +7,11 @@
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
 				<div class="col-lg-6 col-md-8 no-pd">
 					<div class="main-ws-sec">
-						<div class="advertisement-st">
+						<div class="post-st">
 							<ul>
 
-								<li><a class="" href="{{ route('ad.create')}}" title="">Add an advertisement</a></li>
+								<li>
+									<a class="" href="{{ route('ad.create')}}" title=""> <i class="fa fa-plus"> Advertisement</i></a></li>
 							</ul>
 						</div>
 						<!--advertisement-st end-->
@@ -44,7 +45,7 @@
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($advertisement->published_at)->format('d D-M Y') }} <br>
 
 									</span>
-									<p class="pull-right font-italic"> By : {{$advertisement->user->name}} <br> Contact: {{$advertisement->user->phone_number}} </p> <br>
+									<p class="pull-right font-italic"> By :asd<br> Contact:</p> <br>
 									<p class="pull-right font-italic"> </p>
 
 								</div>
@@ -86,7 +87,7 @@
 										</div>
 										<div class="usr-mg-info">
 											<h2> <b> {{ $limadvertisement->title }} </b></h2>
-	
+
 										</div>
 										<!--usr-mg-info end-->
 									</div>
@@ -107,32 +108,32 @@
 
 						</div>
 
-						
-							<div class="widget widget-user">
-								@foreach($useradvertisements as $useradvertisement)
-								<h3 class="title-wd text-center">Your advertisements</h3>
 
-								<ul>
-									<li>
-										<div class="usr-msg-details">
-											<div class="usr_img">
-												<a href="{{ route('ad.show',$useradvertisement->id)}}">
-													<img height="60px" width="200px" src="{{ url($useradvertisement->image)}}" alt="">
-												</a>
-											</div>
-											<div class="usr-mg-info">
-												<h2> <b> {{ $useradvertisement->title }} </b></h2>
+						<div class="widget widget-user">
+							@foreach($useradvertisements as $useradvertisement)
+							<h3 class="title-wd text-center">Your advertisements</h3>
 
-											</div>
-											<!--usr-mg-info end-->
+							<ul>
+								<li>
+									<div class="usr-msg-details">
+										<div class="usr_img">
+											<a href="{{ route('ad.show',$useradvertisement->id)}}">
+												<img height="60px" width="200px" src="{{ url($useradvertisement->image)}}" alt="">
+											</a>
 										</div>
+										<div class="usr-mg-info">
+											<h2> <b> {{ $useradvertisement->title }} </b></h2>
 
-									</li>
-								</ul>
-								@endforeach
-							</div>
-							
-						
+										</div>
+										<!--usr-mg-info end-->
+									</div>
+
+								</li>
+							</ul>
+							@endforeach
+						</div>
+
+
 
 						<!-- advertisement -->
 						<div class="widget widget-adver">

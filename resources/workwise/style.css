@@ -546,8 +546,8 @@ nav > ul > li > a:hover {
 .user-account-settingss {
 	position: absolute;
 	top: 100%;
-	right: 0;
-	width: 240px;
+	right: -90;
+	width: 200px;
 	background-color: #fff;
 	border-left: 1px solid #e5e5e5;
 	border-bottom: 1px solid #e5e5e5;
@@ -640,9 +640,9 @@ nav > ul > li > a:hover {
 /* ============ us-links ============= */
 
 .us-links {
-	float: right;
+	float: left;
 	width: 100%;
-	border-bottom: 1px solid #756464;
+	border-bottom: 1px solid #e5e5e5;
 	padding: 20px;
 	
 }
@@ -684,7 +684,8 @@ nav > ul > li > a:hover {
 	margin-left:10px;
 }
 .user-info a:hover {
-	color: #fff;
+	color: rgb(123, 182, 121);
+	
 }
 .user-info > i {
 	position: absolute;
@@ -998,23 +999,25 @@ main {
 .post-st ul li {
 	display: inline-block;
 	margin-right: 6px;
+	width: 100%
 }
 .post-st ul li:last-child {
 	margin-right: 0;
 }
 .post-st ul li a {
-	color: #b2b2b2;
-	font-size: 16px;
+	color: #fff;
+	font-size: 18px;
 	display: inline-block;
-	background-color: #e5e5e5;
+	background-color: #666666;
 	height: 40px;
+	
 	padding: 0 15px;
 	line-height: 40px;
 	font-weight: 500;
 }
 .post-st ul li a:hover,
 .post-st ul li a.active {
-	background-color: #e44d3a;
+	background-color: #00b540;
 	color: #fff;
 }
 
@@ -1119,13 +1122,7 @@ main {
 	margin-top: 2px;
 	margin-right: 6px;
 }
-.post_topbar i {
-/*	position: absolute;
-	top: 20px;
-	right: 5px;
-	color: #b2b2b2;
-	font-size: 30px;
-*/}
+
 .epi-sec {
 	float: left;
 	width: 100%;
@@ -3507,43 +3504,24 @@ a:hover {
 }
 .company_profile_info {
 	float: left;
-	width: 100%;
+	width: 75%;
 	background-color: #fff;
 	text-align: center;
-	border-left: 1px solid #e4e4e4;
-	border-right: 1px solid #e4e4e4;
-	border-bottom: 1px solid #e4e4e4;
+	border:5px solid #44331f;
 	margin-bottom: 30px;
+	height : 110px;
 }
 .company-up-info {
 	float: left;
 	width: 100%;
-	padding: 80px 0;
-	border-bottom: 1px solid #e5e5e5;
+	height: 5px;
+	padding: 45px 30px;
+	margin-top: -77px;		
+	position: relative;	
+	border-bottom: 1px solid #c6d1e6;
 }
-.company-up-info img {
-	float: none;
-	margin-bottom: 10px;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	-ms-border-radius: 100px;
-	-o-border-radius: 100px;
-	border-radius: 100px;
-	height: 90px;
-	object-fit: cover;
-}
-.company-up-info h3 {
-	color: #000000;
-	font-size: 20px;
-	font-weight: 600;
-	margin-bottom: 10px;
-}
-.company-up-info h4 {
-	color: #686868;
-	font-size: 14px;
-	font-weight: 500;
-	margin-bottom: 21px;
-}
+
+
 .company-up-info ul {
 	float: left;
 	width: 100%;
@@ -3558,6 +3536,7 @@ a:hover {
 	color: #fff;
 	height: 35px;
 	line-height: 35px;
+	margin-bottom: -200px;
 }
 .company-up-info ul li a i {
 	font-size: 24px;
@@ -3573,13 +3552,7 @@ a:hover {
 .hire-us {
 	background-color: #51a5fb;
 }
-.company_profile_info > a {
-	display: inline-block;
-	color: #000000;
-	font-size: 16px;
-	font-weight: 600;
-	padding: 18px 0;
-}
+
 
 
 /* ============= search-sec ============= */
