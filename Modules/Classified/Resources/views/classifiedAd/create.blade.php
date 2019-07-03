@@ -29,14 +29,14 @@
         @endif
         @endauth
         <div class="card card-header text-center">
-            Post an ad.
+            Post an classified.
         </div>
         <div class="card card-body">
             <div class="col-12">
 
                 <div class="col-lg-12">
 
-                    <form action="{{ route('ad.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('classified.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group">
@@ -62,12 +62,12 @@
                         <input type="file" class="form-control" name='image' id='image'>
 
                         <div class="form-group">
-                    <label for="Adcategory">Advertisement Category</label>
+                    <label for="Adcategory">Classified Category</label>
                     <select name="category" id="category" class="form-control">
                         @foreach($categories as $category)
                             <option value=" {{ $category->id }} "
-                               @if(isset($advertisement))
-                                @if($category->id == $advertisement->category_id)
+                               @if(isset($classified))
+                                @if($category->id == $classified->category_id)
                                         selected
                                 @endif
                                @endif
@@ -86,7 +86,7 @@
 
                         <div class="form-group mt-4">
                             <button type="submit" class="btn btn-success">
-                                <!-- {{ isset($advertisement) ? 'EDIT THE POST' : 'CREATE NOW!' }} -->
+                                <!-- {{ isset($classified) ? 'EDIT THE POST' : 'CREATE NOW!' }} -->
                                 create
                             </button>
                         </div>

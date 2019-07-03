@@ -199,13 +199,13 @@
 							</a>
 						</li>
 						<li>
-							<a href="{{ route('ad.index') }}" title="">
+							<a href="{{ route('classified.index') }}" title="">
 								<span><i class="fa fa-ticket" aria-hidden="true"></i>
 								</span>
-								Advertisement </a>
+								Classifieds </a>
 							<ul>
 
-								<li><a href="{{ route('adcategory.index') }}" title="">Categories</a></li>
+								<li><a href="{{ route('classifiedcategory.index') }}" title="">Categories</a></li>
 
 							</ul>
 

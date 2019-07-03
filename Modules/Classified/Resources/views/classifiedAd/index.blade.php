@@ -7,44 +7,44 @@
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
 				<div class="col-lg-6 col-md-8 no-pd">
 					<div class="main-ws-sec">
-						<div class="advertisement-st">
+						<div class="classified-st">
 							<ul>
 
-								<li><a class="" href="{{ route('ad.create')}}" title="">Add an advertisement</a></li>
+								<li><a class="" href="{{ route('classified.create')}}" title="">Add an classified</a></li>
 							</ul>
 						</div>
-						<!--advertisement-st end-->
+						<!--classified-st end-->
 					</div>
 				</div>
 			</div>
 			<div class="forum-questions-sec">
 				<div class="row">
 					<div class="col-lg-8">
-						@if($advertisements->count()>0)
-						@foreach($advertisements as $advertisement)
+						@if($classifieds->count()>0)
+						@foreach($classifieds as $classified)
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">
 								<div class="usr_img">
-									<a href="{{ route('ad.show', $advertisement->id) }}">
-										<img src="{{ url($advertisement->image)}}" height="60" alt="">
+									<a href="{{ route('classified.show', $classified->id) }}">
+										<img src="{{ url($classified->image)}}" height="60" alt="">
 									</a>
 								</div>
 								<div class="usr_quest">
 
 									<div class="card card-header">
-										<h3> {{ $advertisement->title }} </h3>
+										<h3> {{ $classified->title }} </h3>
 									</div>
 									<div class="card card-body">
 
-										<p> {{ $advertisement->description }}</p>
+										<p> {{ $classified->description }}</p>
 									</div>
 
 
 									<span class="posted_time">
-										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($advertisement->published_at)->format('d D-M Y') }} <br>
+										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($classified->published_at)->format('d D-M Y') }} <br>
 
 									</span>
-									<p class="pull-right font-italic"> By : {{$advertisement->user->name}} <br> Contact: {{$advertisement->user->phone_number}} </p> <br>
+									<p class="pull-right font-italic"> By : {{$classified->user->name}} <br> Contact: {{$classified->user->phone_number}} </p> <br>
 									<p class="pull-right font-italic"> </p>
 
 								</div>
@@ -61,31 +61,31 @@
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">
 
-								<h2> No advertisements Available..</h2>
+								<h2> No classifieds Available..</h2>
 							</div>
 						</div>
 						@endif
 
 						<div class="text-center">
-							{!! $advertisements->links(); !!}
+							{!! $classifieds->links(); !!}
 						</div>
 					</div>
 
 					<div class="col-lg-4">
 						<div class="widget widget-user">
-							<h3 class="title-wd text-center">Latest advertisements</h3>
+							<h3 class="title-wd text-center">Latest classifieds</h3>
 							<ul>
-								@if($limadvertisements->count()>0)
-								@foreach($limadvertisements as $limadvertisement)
+								@if($limclassifieds->count()>0)
+								@foreach($limclassifieds as $limclassified)
 								<li>
 									<div class="usr-msg-details">
 										<div class="usr_img">
-											<a href="{{ route('ad.show',$limadvertisement->id)}}">
-												<img height="60px" width="200px" src="{{ url($limadvertisement->image)}}" alt="">
+											<a href="{{ route('classified.show',$limclassified->id)}}">
+												<img height="60px" width="200px" src="{{ url($limclassified->image)}}" alt="">
 											</a>
 										</div>
 										<div class="usr-mg-info">
-											<h2> <b> {{ $limadvertisement->title }} </b></h2>
+											<h2> <b> {{ $limclassified->title }} </b></h2>
 	
 										</div>
 										<!--usr-mg-info end-->
@@ -98,7 +98,7 @@
 							@else
 							<div class="usr-msg-details text-center">
 								<h3>
-									No Recent advertisements...
+									No Recent classifieds...
 								</h3>
 							</div>
 							@endif
@@ -109,19 +109,19 @@
 
 						
 							<div class="widget widget-user">
-								@foreach($useradvertisements as $useradvertisement)
-								<h3 class="title-wd text-center">Your advertisements</h3>
+								@foreach($userclassifieds as $userclassified)
+								<h3 class="title-wd text-center">Your classifieds</h3>
 
 								<ul>
 									<li>
 										<div class="usr-msg-details">
 											<div class="usr_img">
-												<a href="{{ route('ad.show',$useradvertisement->id)}}">
-													<img height="60px" width="200px" src="{{ url($useradvertisement->image)}}" alt="">
+												<a href="{{ route('classified.show',$userclassified->id)}}">
+													<img height="60px" width="200px" src="{{ url($userclassified->image)}}" alt="">
 												</a>
 											</div>
 											<div class="usr-mg-info">
-												<h2> <b> {{ $useradvertisement->title }} </b></h2>
+												<h2> <b> {{ $userclassified->title }} </b></h2>
 
 											</div>
 											<!--usr-mg-info end-->
@@ -134,7 +134,7 @@
 							
 						
 
-						<!-- advertisement -->
+						<!-- classified -->
 						<div class="widget widget-adver">
 							<img src="http://via.placeholder.com/370x270" alt="">
 						</div>

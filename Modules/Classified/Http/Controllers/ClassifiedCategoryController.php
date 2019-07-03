@@ -1,17 +1,17 @@
 <?php
 
-namespace Modules\Advertisement\Http\Controllers;
+namespace Modules\Classified\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Advertisement\Entities\Advertisement;
+use Modules\Classified\Entities\Classified;
 use Helper;
 use Illuminate\Support\Facades\Auth;
-use Modules\Advertisement\Entities\Category;
-use Modules\Advertisement\Entities\AdCategory;
+use Modules\Classified\Entities\Category;
+use Modules\Classified\Entities\ClassifiedCategory;
 
-class AdvertisementCategoryController extends Controller
+class ClassifiedCategoryController extends Controller
 {
 
     public function __construct()
@@ -23,26 +23,26 @@ class AdvertisementCategoryController extends Controller
     {
 
        
-        return view('advertisement::adCategory.userindex')->with('categories', AdCategory::all());
+        return view('classified::adCategory.userindex')->with('categories', ClassifiedCategory::all());
        
     }
 
     public function adminIndex()
     {
-        return view('advertisement::adCategory.index')->with('adcategories', AdCategory::all());
+        return view('classified::adCategory.index')->with('adcategories', ClassifiedCategory::all());
     }
 
 
     public function create()
     {
-        return view('advertisement::adCategory.create');
+        return view('classified::adCategory.create');
     }
 
     public function getCategory($Category_id)
     {
-        $advertisements=Advertisement::where("category_id",$Category_id)->paginate(5);
+        $classifieds=Classified::where("category_id",$Category_id)->paginate(5);
         
-            return view('advertisement::classifiedAd.index',['advertisements' => $advertisements])->with('limadvertisements',Advertisement::orderBy('updated_at','desc')->limit(4)->get())->with('useradvertisements',Advertisement::all());
+            return view('classified::classifiedAd.index',['classifieds' => $classifieds])->with('limclassifieds',Classified::orderBy('updated_at','desc')->limit(4)->get())->with('userclassifieds',Classified::all());
        
     }
 
@@ -53,7 +53,7 @@ class AdvertisementCategoryController extends Controller
         $destinationPath = 'uploads/';
 
 
-        $category = AdCategory::create([
+        $category = ClassifiedCategory::create([
             'name' => $request->name,
             'image' => '-',
         ]);
@@ -72,13 +72,13 @@ class AdvertisementCategoryController extends Controller
     { }
 
 
-    public function edit(AdCategory $category)
+    public function edit(ClassifiedCategory $category)
     {
-        return view('advertisement::adcategory.create')->with('category', $category);
+        return view('classified::adcategory.create')->with('category', $category);
     }
 
 
-    public function update(Request $request, AdCategory $category)
+    public function update(Request $request, ClassifiedCategory $category)
     {
         if (!$request->image == null) {
             $old_image = $category->image;
@@ -108,7 +108,7 @@ class AdvertisementCategoryController extends Controller
     }
 
 
-    public function destroy(AdCategory $category)
+    public function destroy(ClassifiedCategory $category)
     {
         $category->delete();
 
