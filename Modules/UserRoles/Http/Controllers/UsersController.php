@@ -2,6 +2,7 @@
 
 namespace Modules\UserRoles\Http\Controllers;
 
+use App\Notifications\emailActivated;
 use App\Notifications\VerifiedUser;
 use Illuminate\Http\Request;
 use App\User;
@@ -58,6 +59,7 @@ class UsersController extends Controller
             case 'activatedUser':
                 $user->deactivated = 0;
                 $user->save();
+                $user->notify(new emailActivated());
                 session()->flash('sucs', 'User is successfully activated.');
                 return redirect(route('users.index'));
                 break;

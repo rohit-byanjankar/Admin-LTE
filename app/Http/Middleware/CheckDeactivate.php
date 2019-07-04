@@ -3,7 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Auth;
+use App\Http\Controllers\Controller;
+
 
 class CheckDeactivate
 {
@@ -16,11 +18,16 @@ class CheckDeactivate
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->deactivated == 1)
-        {
-            return view('thankYou');
-        }else{
-            return $next($request);
-        }
-    }
+        if (Auth::check()) //checks if user is logged in ,return true if logged in
+                {
+                if(Auth::user()->deactivated == 0) //checks if user is deactivated
+                {
+                    return $next($request);//send to next request if user isn't deactivated
+                }else{
+                    return redirect('/deactivated');
+                }
+            }else{
+                    return redirect('/login');//if user is not logged in redirect him to login page
+                 }
+     }
 }

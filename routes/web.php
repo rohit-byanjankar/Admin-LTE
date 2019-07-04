@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function(){
 
 Route::resource('adminpanel/settings','SettingsController')->middleware('admin');
 Route::get('aboutUs','HomeController@aboutUs'); //should put this on Home module
+Route::get('deactivated','RegisterController@userDeactivated')->middleware('auth');
+Route::post('deactivated','RegisterController@reActivatedEmail');
 
 //REGISTER
 Auth::routes();

@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
-
     <div class="col-lg-6">
         <div class="login-sec" id="tabs">
             <ul class="sign-control">

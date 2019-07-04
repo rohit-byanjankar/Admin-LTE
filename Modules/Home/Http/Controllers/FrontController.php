@@ -14,6 +14,7 @@ class FrontController extends Controller
      * Display a listing of the resource.
      * @return Response
      */
+
     public function index()
     {
         return view('home::index')->with('posts',Post::orderBy('updated_at','desc')->paginate(5));

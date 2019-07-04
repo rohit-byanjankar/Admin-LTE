@@ -47,20 +47,21 @@ class LoginController extends Controller
 
         $email=$request->email;
         $password=$request->password;
-        if (Auth::attempt(['email'=>$email ,'password' => $password ,'deactivated' => 0, 'verify' => 1]))
-        {
+        if (Auth::attempt(['email'=>$email ,'password' => $password ,'verify' => 1]))
         /*$credentials = $request->only('email','phone_number','password');
         if (Auth::attempt($credentials))
         {*/
+        {
             if (Auth::user()->role == 'admin' || Auth::user()->role =='superadmin') {
                 //user is admin
                 return redirect('/adminpanel');
-            }else{
+            }
+            else{
                 //user isn't admin
                 return redirect('/home');
             }
         }else{
-            return redirect()->back()->with('error','You are not allowed');
+            return redirect('/login')->with('error','You are not allowed');
         }
     }
 }
