@@ -153,6 +153,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
+
 	@yield('css')
 
 </head>
@@ -285,5 +286,7 @@
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
+	
+
 	@yield('scripts')
 </body>

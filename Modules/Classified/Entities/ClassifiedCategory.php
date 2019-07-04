@@ -11,6 +11,6 @@ class ClassifiedCategory extends Model
     protected $table = 'adcategories';
     
     public function classifieds(){
-        return $this->hasMany(Classified::class);
+        return $this->hasMany(Classified::class,'category_id');
     }
 }

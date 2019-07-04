@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        if (User::all() == null) {
+        
             $users =
                 [
                     [
@@ -41,6 +41,6 @@ class UsersTableSeeder extends Seeder
                     ]
                 ];
             DB::table('users')->insert($users);
-        }
+        
     }
 }

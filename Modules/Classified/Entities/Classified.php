@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 class Classified extends Model
 {
-    protected $fillable = ['title', 'description', 'content', 'image','user_id','category_id'];
-    protected $table="advertisements";
+    protected $fillable = ['title', 'description', 'price', 'image','user_id','category_id'];
+   
     
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function classifiedCategory()
     {
         return $this->belongsTo(ClassifiedCategory::class);
     }
