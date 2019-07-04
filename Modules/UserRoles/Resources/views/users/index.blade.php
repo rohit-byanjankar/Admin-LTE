@@ -33,14 +33,22 @@
                                         <button type="submit" name="activate" value="verifiedUser" class="btn btn-success btn-sm">
                                             Verify User
                                         </button>
+                                    </form>
+                                    @endif
+                                    @if(!$user->isDeactivated())
+                                    <form action="{{ route('users.verify-user', $user->id) }}" method="POST" class="margin">
+                                        @csrf
+                                        @method('PUT')
                                         <button type="submit" name="activate" value="activatedUser" class="btn btn-success btn-sm">
                                             Activate User
                                         </button>
                                     </form>
-                                    @else
-                                    <p class="text-aqua">Activated</p>
-                                   @endif
-                                </td><td>
+                                       @endif
+                                       @if($user->isVerified() && $user->isDeactivated())
+                                        <p class="text-aqua">Activated</p>
+                                       @endif
+                                    </td>
+                                    <td>
                                    @if(!$user->isAdmin())
                                     <form action="{{ route('users.make-admin', $user->id) }}" method="POST">
                                         @csrf

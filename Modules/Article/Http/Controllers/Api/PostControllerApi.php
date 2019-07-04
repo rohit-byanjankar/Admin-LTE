@@ -19,11 +19,11 @@ use App\Http\Resources\Post as PostResource;
 
 class PostControllerApi extends Controller
 {
-   public function index()
+   public function allCategories()
    {
     //    $post = Post::paginate(15);
     //    return PostResource::collection($post);
-
+        dd("asdasd");
        $category = Category::all();
        return PostResource::collection($category);
 

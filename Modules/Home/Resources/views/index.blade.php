@@ -154,4 +154,3 @@
 </div>
 <!--theme-layout end-->
 @endsection
-</div>

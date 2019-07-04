@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
 <div class="wrapper">
 	<section class="forum-page">
@@ -9,7 +8,6 @@
 					<div class="main-ws-sec">
 						<div class="post-st">
 							<ul>
-
 								<li><a class="" href="{{ route('userposts.create')}}" title=""><i class= "fa fa-plus"> Article </i> </a></li>
 							</ul>
 						</div>
@@ -30,45 +28,35 @@
 									</a>
 								</div>
 								<div class="usr_quest">
-
 									<div class="card card-header">
 										<h3> {{ $post->title }} </h3>
 									</div>
 									<div class="card card-body">
-
 										<p> {{ $post->description }}</p>
-										
 									</div>
 									<ul class="quest-tags">
 										@foreach($post->tags as $tag)
 										<li><a href="#" title=""> {{ $tag->name }} </a></li>
 										@endforeach
 									</ul>
-
 									<span class="posted_time">
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($post->published_at)->format('d D-M Y') }} <br>
-
 									</span>
 									<p class="pull-right font-italic"> By : {{$post->user->name}} </p>
 								</div>
 								<!--usr_quest end-->
-
-
 							</div>
 							<!--usr-question end-->
 						</div>
 						<!--forum-questions end-->
 						@endforeach
-
 						@else
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">
-
 								<h2> No Posts Available..</h2>
 							</div>
 						</div>
 						@endif
-
 						<div class="text-center">
 							{!! $posts->links(); !!}
 						</div>

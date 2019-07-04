@@ -8,6 +8,7 @@ use App\Policies\PhoneDirectoriesPolicy;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use App\Policies\PostPolicy;
+use Laravel\Passport\Passport;
 use Modules\Article\Entities\Post;
 use Modules\Events\Entities\Event;
 use Modules\TelephoneDirectory\Entities\PhoneCategory;
@@ -36,7 +37,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        Passport::routes();
         //
     }
 }

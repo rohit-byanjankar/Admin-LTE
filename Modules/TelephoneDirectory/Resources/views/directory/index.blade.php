@@ -1,7 +1,6 @@
 @extends('adminlte::page')
 
 @section('content')
-
     @can('create',\Modules\TelephoneDirectory\Entities\PhoneDirectory::class)
         <div class="row margin">
             <a href="{{ route('directory.create')}}" class="btn btn-success float-right ">

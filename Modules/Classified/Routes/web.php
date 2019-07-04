@@ -12,10 +12,11 @@
 */
 
 
-
+Route::prefix('adminpanel')->middleware('auth')->group(function () {
     Route::resource('classified', 'ClassifiedController');
     Route::resource('classifiedcategory', 'ClassifiedCategoryController');
-    Route::get('adcat/{id}','ClassifiedCategoryController@getCategory')->name('adcat')->middleware('auth');
+    Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
+});
 
 
 

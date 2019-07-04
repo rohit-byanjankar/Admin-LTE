@@ -7,7 +7,7 @@
             Add Events
         </a>
     @endcan
-<br>
+    @if($events->count()>0)
 <div class="row">
     @foreach($events as $event)
         <div class="card-body well col-lg-5 margin">
@@ -36,8 +36,12 @@
                 </button>
             </form>
             @endcan
-
     </div>
     @endforeach
 </div>
+    @else
+            <h3 class="text-center">
+                No Events Yet
+            </h3>
+        @endif
 @endsection

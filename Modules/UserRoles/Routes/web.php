@@ -11,13 +11,13 @@
 |
 */
 
-Route::prefix('userroles')->group(function() {
-    Route::resource('roles', 'RolesController')->middleware('admin');
-    Route::get('rolePermission','PermissionController@selectRole')->middleware('admin');
-    Route::get('rolePermission/{role}','PermissionController@getPermission')->middleware('admin');
-    Route::post('role-permission-save', 'PermissionController@checkPermissionPost')->name('permission-post')->middleware('admin');
+Route::middleware(['admin'])->group(function(){
+    Route::prefix('adminpanel')->group(function() {
+        Route::resource('roles', 'RolesController');
+        Route::get('rolePermission','PermissionController@selectRole');
+        Route::get('rolePermission/{role}','PermissionController@getPermission');
+        Route::post('role-permission-save', 'PermissionController@checkPermissionPost')->name('permission-post');
 
-    Route::middleware(['admin'])->group(function(){
         Route::get('users', 'UsersController@index')->name('users.index');
         Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
         Route::put('users/profile', 'UsersController@update')->name('users.update-profile');

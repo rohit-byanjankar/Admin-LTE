@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Community Media</title>
+	<title>{{config('basic_settings.CM_title')}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -264,7 +264,7 @@
 					<li><a href="#" title="">Cookies Policy</a></li>
 					<li><a href="#" title="">Career</a></li>
 					<li><a href="#" title="">Forum</a></li>
-					<li><a href="#" title="">Language</a></li>
+					<li><a href="{{url('aboutUs')}}" title="">About Us</a></li>
 					<li><a href="#" title="">Copyright Policy</a></li>
 					<li> <i class="fa fa-copyright"> Copyright </i> 2018
 					</li>

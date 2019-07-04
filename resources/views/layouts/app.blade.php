@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
-
     <meta charset="UTF-8">
-    <title> Chyasal </title>
+    <title> {{config('basic_settings.CM_title')}} </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -29,52 +27,51 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
 </head>
-
 <body class="sign-in">
     <div class="wrapper">
-        <div class="text-center">
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissable">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
-            @if(session()->has('success'))
-            <div class="alert alert-info text-center alert-dismissible">
-                {{ session()->get('success')}}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-
-            @endif
-        </div>
-
         <div class="sign-in-page">
             <div class="signin-popup">
                 <div class="signin-pop">
+                    @if ($errors->any())
+                        <div class="alert alert-danger alert-dismissable col-md-12 text-center">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if(session()->has('success'))
+                        <div class="alert alert-info text-center alert-dismissible col-md-12">
+                            {{ session()->get('success')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                     <div class="row">
+                    @if(session()->has('error'))
+                        <div class="alert alert-info text-center alert-dismissible col-md-12">
+                            {{ session()->get('error')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    @endif
                         <div class="col-lg-6">
                             <div class="cmp-info">
                                 <div class="cm-logo">
-                                    <h2>{{config('basic_settings.title')}}</h2>
-                                    <p>{{config('basic_settings.vision')}}</p>
+                                    <span class="text-center text-dark">{{config('basic_settings.CM_title')}}</span>
+                                <p class="mt-3">{{config('basic_settings.CM_Description')}}</p>
                                 </div>
                             </div>
                         </div>
-
                         @yield('content')
-
                         <div class="footy-sec">
                             <div class="container ">
                                 <ul>

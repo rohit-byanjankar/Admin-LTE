@@ -3,12 +3,11 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use App\User;
-use Illuminate\Notifications\Notification;
 
-class VerifiedUser extends Notification
+class emailActivated extends Notification
 {
     use Queueable;
 
@@ -17,9 +16,9 @@ class VerifiedUser extends Notification
      *
      * @return void
      */
-    public function __construct(User $new_user)
+    public function __construct()
     {
-        $this->user = $new_user;
+        //
     }
 
     /**
@@ -42,10 +41,9 @@ class VerifiedUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('chyasal@test.com', config('basic_settings.CM_title'))
-                    ->line('Your email has now been verified')
-                    ->action('Click to login', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Your email has been succesfully activated.')
+                    ->action('Click to login', url('/'));
+
     }
 
     /**

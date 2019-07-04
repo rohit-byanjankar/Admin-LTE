@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('announcements')->group(function() {
+Route::prefix('adminpanel')->group(function() {
     Route::resource('/announcements','AnnouncementController')->middleware('admin');
 });

@@ -4,16 +4,17 @@ namespace App;
 
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Passport\HasApiTokens;
 use Modules\UserRoles\Entities\Permission;
 use Modules\Article\Entities\Post;
 use Modules\Classified\Entities\Classified;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,6 +52,11 @@ class User extends Authenticatable
     public function isVerified()
     {
         return $this->verify == 1;
+    }
+
+    public function isDeactivated()
+    {
+        return $this->deactivated == 0;
     }
 
     public function posts()
