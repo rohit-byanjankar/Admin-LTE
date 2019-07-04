@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Advertisement\Providers;
+namespace Modules\Classified\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
-class AdvertisementServiceProvider extends ServiceProvider
+class ClassifiedServiceProvider extends ServiceProvider
 {
     /**
      * Boot the application events.
@@ -39,10 +39,10 @@ class AdvertisementServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('advertisement.php'),
+            __DIR__.'/../Config/config.php' => config_path('classified.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'advertisement'
+            __DIR__.'/../Config/config.php', 'classified'
         );
     }
 
@@ -53,7 +53,7 @@ class AdvertisementServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/advertisement');
+        $viewPath = resource_path('views/modules/classified');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -62,8 +62,8 @@ class AdvertisementServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/advertisement';
-        }, \Config::get('view.paths')), [$sourcePath]), 'advertisement');
+            return $path . '/modules/Classified';
+        }, \Config::get('view.paths')), [$sourcePath]), 'classified');
     }
 
     /**
@@ -73,12 +73,12 @@ class AdvertisementServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/advertisement');
+        $langPath = resource_path('lang/modules/Classified');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'advertisement');
+            $this->loadTranslationsFrom($langPath, 'Classified');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'advertisement');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'classified');
         }
     }
 

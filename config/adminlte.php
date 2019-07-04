@@ -13,7 +13,9 @@ return [
     |
     */
 
-    'title' => '',
+
+    'title' => 'Chyasal2',
+
 
     'title_prefix' => '',
 
@@ -186,8 +188,9 @@ return [
             'icon' => 'bullhorn'
         ],
         [
-            'text' => 'Ad Categories',
-            'url' => 'adminpanel/adcategory',
+
+            'text' => 'Classified Categories',
+            'url' => '/adminpanel/classifiedcategory',
             'icon' => 'list'
         ],
         'COMMUNITY SETTINGS',

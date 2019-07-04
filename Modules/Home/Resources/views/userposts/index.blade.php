@@ -8,7 +8,7 @@
 					<div class="main-ws-sec">
 						<div class="post-st">
 							<ul>
-								<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
+								<li><a class="" href="{{ route('userposts.create')}}" title=""><i class= "fa fa-plus"> Article </i> </a></li>
 							</ul>
 						</div>
 						<!--post-st end-->
