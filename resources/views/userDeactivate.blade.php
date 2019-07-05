@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @section('content')
 <div class="col-md-6">
-    <div>YOU ARE CURRENTLY DE-ACTIVATED.PLEASE FILL THIS FORM TO RE-ACTIVATE!</div>
-<div>
-    <form action="{{url('deactivated')}}" method="post">
+    <h2 class="text-muted mt-3 p-3">YOU ARE CURRENTLY DE-ACTIVATED.PLEASE FILL THIS FORM TO RE-ACTIVATE!</h2>
+    <form action="{{url('deactivated')}}" method="post" class="mt-3">
         @csrf
         <div class="form-group">
             <label for="email">Email address:</label>
             <input type="email" class="form-control" placeholder="Enter email" name="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <small id="emailHelp" class="form-text text-muted ">We'll never share your email with anyone else.</small>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
@@ -18,9 +17,7 @@
             <label for="phone">Phone Number:</label>
             <input type="text" class="form-control" placeholder="Phone Number" name="phone_number">
         </div>
-
-        <button type="submit" class="btn btn-primary">Re-activate</button>
+        <button type="submit" class="btn btn-info">Re-activate</button>
     </form>
-</div>
 </div>
 @endsection

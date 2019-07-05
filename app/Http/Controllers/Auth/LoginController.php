@@ -42,6 +42,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
+            'email' => 'required',
             'password' => 'min:7',
         ]);
 
@@ -61,7 +62,11 @@ class LoginController extends Controller
                 return redirect('/home');
             }
         }else{
-            return redirect('/login')->with('error','You are not allowed');
+            return redirect('/login')->with('error','Oops Something is wrong!');
         }
+    }
+
+    public function userDeactivated(){
+        return view('userDeactivate');
     }
 }

@@ -14,21 +14,9 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->group(function() {
-    Route::get('/article', function (Request $request) {
-        return $request->user();
-    });
-    Route::get('/articles/all','Api\PostControllerApi@allCategories');
-});
-
-Route::prefix('article')->group(function() {
-    Route::resource('posts', 'Api\PostControllerApi');
-    Route::resource('tags', 'TagsController');
-    Route::resource('categories', 'CategoriesController');
-
-
-    //Listing the posts 
-
-    Route::get('pppp', 'Api\PostControllerApi@index');  
+    Route::resource('article','Api\PostControllerApi');
+    Route::resource('category','Api\CategoryControllerApi');
+    Route::resource('tag','Api\TagControllerApi');
 });
 
 
