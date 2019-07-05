@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Announcement\Http\Controllers;
+namespace Modules\Announcement\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Routing\Controller;
 use Modules\Announcement\Entities\Announcement;
 
-class AnnouncementController extends Controller
+class AnnouncementControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        return view('announcement::announcements.index')->with('announcements', Announcement::all());
+        $announcement=Announcement::all();
+        $message=['Announcement' => 'Announcement retrieved succesfully'];
+        return response()->json(['data' => $announcement,'message' => $message]);
     }
 
     /**
@@ -24,7 +26,7 @@ class AnnouncementController extends Controller
      */
     public function create()
     {
-        return view('announcement::announcements.create');
+        //
     }
 
     /**
@@ -44,8 +46,7 @@ class AnnouncementController extends Controller
             'details'=> $request->details,
             'published_till'=>$request->published_till
         ]);
-        session()->flash('sucs','Announcement created successfully');
-        return redirect(route('announcements.index'));
+        return response()->json(['data'=>$announcement,'message'=>'Announcement created succesfully']);
     }
 
     /**
@@ -56,16 +57,17 @@ class AnnouncementController extends Controller
     public function show($id)
     {
         $announcement = Announcement::find($id);
-        return view('announcement::announcements.show')->with('announcement',$announcement);    }
+        return response()->json(['data' => $announcement,'message' => 'One Announcement retrieved succesfully']);
+    }
 
     /**
      * Show the form for editing the specified resource.
      * @param int $id
      * @return Response
      */
-    public function edit(Announcement $announcement)
+    public function edit($id)
     {
-        return view('announcement::announcements.create')->with('announcement',$announcement);
+       //
     }
 
     /**
@@ -74,21 +76,20 @@ class AnnouncementController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, Announcement $announcement)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'title' => 'required',
             'details' => 'required',
             'published_till' => 'required|date',
         ]);
+        $announcement=Announcement::find($id);
         $announcement->title = $request->title;
         $announcement->details = $request->details;
-        $announcement->published_at = $request->published_at;
         $announcement->published_till = $request->published_till;
         $announcement->save();
 
-    session()->flash('sucs','Announcement is updated successfully');
-    return redirect(route('announcements.index'));
+        return response()->json(['data' => $announcement,'message' => 'Announcement updated succesfully']);
     }
 
     /**
@@ -96,10 +97,11 @@ class AnnouncementController extends Controller
      * @param int $id
      * @return Response
      */
-    public function destroy(Announcement $announcement)
+    public function destroy($id)
     {
+        $announcement=Announcement::find($id);
         $announcement->forceDelete();
-        session()->flash('err','Announcement deleted Successfully');
-        return redirect(route('announcements.index'));  
+
+        return response(['data' => $announcement,'message' => 'Announcement deleted succesfully']);
     }
 }

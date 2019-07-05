@@ -20,9 +20,8 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::resource('adminpanel/settings','SettingsController')->middleware('admin');
-Route::get('aboutUs','HomeController@aboutUs'); //should put this on Home module
-Route::get('deactivated','RegisterController@userDeactivated')->middleware('auth');
-Route::post('deactivated','RegisterController@reActivatedEmail');
+Route::get('deactivated','\App\Http\Controllers\Auth\LoginController@userDeactivated')->middleware('auth');
+Route::post('deactivated','\App\Http\Controllers\Auth\LoginController@reActivatedEmail');
 
 //REGISTER
 Auth::routes();

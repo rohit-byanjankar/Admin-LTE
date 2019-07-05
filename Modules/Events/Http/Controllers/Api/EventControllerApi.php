@@ -1,41 +1,39 @@
 <?php
 
+namespace Modules\Events\Http\Controllers\Api;
 
-namespace Modules\Events\Http\Controllers;
-
+use Helper;
 use Illuminate\Http\Request;
-
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
-use Symfony\Contracts\EventDispatcher\Event as SymfonyEvent;
 use Modules\Events\Entities\Event;
-use Helper;
 
-class EventsController extends Controller
+class EventControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
-        $events = Event::all();
-        return view('events::events.index', compact('events'));
+        $event=Event::all();
+        return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully']);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
-        return view('events::events.create')->with('events', Event::all());
+        //
     }
 
-
+    /**
+     * Store a newly created resource in storage.
+     * @param Request $request
+     * @return Response
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -48,14 +46,14 @@ class EventsController extends Controller
             'image' => 'required',
         ]);
         $event= Event::create([
-        //storing to database
-        'title' => $request->title,
-        'details' => $request->details,
-        'description' => $request->description,
-        'venue' => $request->venue,
-        'event_date' => $request->event_date,
-        'duration' => $request->duration,
-        'image' => '-'
+            //storing to database
+            'title' => $request->title,
+            'details' => $request->details,
+            'description' => $request->description,
+            'venue' => $request->venue,
+            'event_date' => $request->event_date,
+            'duration' => $request->duration,
+            'image' => '-'
         ]);
         $image = $request->image;
         $destinationPath = 'uploads/';
@@ -63,44 +61,39 @@ class EventsController extends Controller
         $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $event->save();
 
-        session()->flash('sucs', 'Event Created Successfully');
-        return redirect(route('events.index'));
+        return response()->json(['data' => $event ,'message' => 'Events stored succesfully']);
     }
 
-    public function show(Event $event)
+    /**
+     * Show the specified resource.
+     * @param int $id
+     * @return Response
+     */
+    public function show($id)
     {
-        return view('events::events.show')->with('event', $event);
+        $event=Event::find($id);
+        return response()->json(['data' => $event ,'message' => 'One Event retrieved succesfully']);
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        return view('events::events.create')->with('event', $event);
+       //
     }
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param int $id
+     * @return Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'details' => 'required',
-            'description' => 'required',
-            'venue' => 'required',
-            'event_date' => 'required|date',
-            'duration' => 'required|numeric',
-            'image' => 'required',
-        ]);
+        $event=Event::find($id);
         $event->title = $request->title;
         $event->details = $request->details;
         $event->venue = $request->venue;
@@ -122,18 +115,18 @@ class EventsController extends Controller
             $event->image = $event->image;
         }
         $event->save();
-
-        session()->flash('sucs', 'Event is updated successfully');
-
-        return redirect(route('events.index'));
+        return response()->json(['data' => $event ,'message' => 'Event updated succesfully']);
     }
 
-
+    /**
+     * Remove the specified resource from storage.
+     * @param int $id
+     * @return Response
+     */
     public function destroy($id)
     {
-        $event = Event::where('id', $id);
+        $event=Event::find($id);
         $event->delete();
-        return redirect(route('events.index'));
-        session()->flash('err', 'Event deleted Successfully');
+        return response()->json(['data' => $event ,'message' => 'Event deleted succesfully']);
     }
 }

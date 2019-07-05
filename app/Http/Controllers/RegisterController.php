@@ -48,13 +48,10 @@ class RegisterController extends Controller
         if($admin){
             $admin->notify(new VerifyUser($user));
         }
-        return view('thankYou');
+        return redirect('/login')->with('success','You have succesfully registered.Please wait for our admin to verify you.');
 
     }
 
-    public function userDeactivated(){
-        return view('userDeactivate');
-    }
 
     public function reActivatedEmail(Request $request){
         $email=$request->email;
