@@ -30,7 +30,6 @@ class CreatePostsRequest extends FormRequest
             'image' => 'required|image',
             'content' => 'required',
             'category'=> 'required'
-            
         ];
     }
 }

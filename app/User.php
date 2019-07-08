@@ -2,15 +2,16 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\CanResetPassword;
+use App\Notifications\resetPassword;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Passport\HasApiTokens;
 use Modules\UserRoles\Entities\Permission;
-use Modules\Article\Entities\Post;
 use Modules\Classified\Entities\Classified;
+use Modules\Article\Entities\Post;
+
 
 class User extends Authenticatable
 {
@@ -99,6 +100,11 @@ class User extends Authenticatable
             }
         }
         return $permission_granted;
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new resetPassword($token));
     }
 }
 
