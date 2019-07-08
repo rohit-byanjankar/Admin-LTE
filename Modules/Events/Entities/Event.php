@@ -3,8 +3,10 @@
 namespace Modules\Events\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Event extends Model
+class Event extends Model implements Searchable
 {
     //protected $connection='mysql2';
     protected $fillable = [
@@ -13,5 +15,16 @@ class Event extends Model
 
     public function getPermissions(){
         return ["delete", "update", "create", "view"];
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('userevents.show', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->title,
+            $url
+         );
     }
 }

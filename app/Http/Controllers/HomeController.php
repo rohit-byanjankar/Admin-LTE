@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Auth;
 use Modules\Announcement\Entities\Announcement;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Session;
-
 // use Illuminate\Console\Scheduling\Event;
+use Spatie\Searchable\Search;
+use Modules\Classified\Entities\Classified;
+use Modules\Classified\Entities\ClassifiedCategory;
+use Modules\TelephoneDirectory\Entities\PhoneCategory;
+use Modules\TelephoneDirectory\Entities\PhoneDirectory;
 
 class HomeController extends Controller
 {
@@ -32,6 +36,25 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function search(Request $request)
+    {
+        $searchterm = $request->input('query');
+        $searchResults = (new Search())
+            ->registerModel(Post::class, 'title')
+            ->registerModel(Category::class, 'name')
+            ->registerModel(Announcement::class, 'title')
+            ->registerModel(Classified::class, 'title')
+            ->registerModel(ClassifiedCategory::class, 'name')
+            ->registerModel(Event::class, 'title','venue')
+            ->registerModel(PhoneDirectory::class, 'first_name','middle_name','surname')
+            
+            ->perform($searchterm);
+
+        return view('home::search.index', compact('searchResults','searchterm'));
+    }
+
+
     public function index()
     {
         return view('home');

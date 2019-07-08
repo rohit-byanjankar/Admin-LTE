@@ -12,7 +12,7 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        if (Category::all()->count() < 0) {
             $categories =
                 [
                     [
@@ -38,6 +38,6 @@ class CategoriesTableSeeder extends Seeder
                     ],
                 ];
             DB::table('categories')->insert($categories);
-        
+        }
     }
 }

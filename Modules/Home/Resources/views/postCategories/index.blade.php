@@ -52,7 +52,7 @@
                         <h3>{{config('basic_settings.CM_title')}}</h3>
                         <span>Connect with your Community</span>
                         <div class="sign_link">
-                            <h3><a href="{{ route('userposts.create') }}" title="" class="">Create a Post</a></h3>
+                            <h3><a href="{{ route('userposts.create') }}" title="" class="">Create an Article</a></h3>
                         </div>
                     </div>
                 </div>

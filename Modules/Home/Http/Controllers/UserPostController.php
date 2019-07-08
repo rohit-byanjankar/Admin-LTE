@@ -24,8 +24,8 @@ class UserPostController extends Controller
      */
     public function index()
     {
-        
-        return view('home::userposts.index')->with('posts',Post::orderBy('published_at','desc')->paginate(5))->with('categories',Category::all())->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
+
+        return view('home::userposts.index')->with('posts', Post::orderBy('published_at', 'desc')->paginate(5))->with('categories', Category::all())->with('limposts', Post::orderBy('updated_at', 'desc')->limit(4)->get());
     }
 
     /**
@@ -34,37 +34,36 @@ class UserPostController extends Controller
      */
     public function create()
     {
-        return view('home::userposts.create')->with('categories',Category::all())->with('posts',Post::all())->with('tags',Tag::all());
+        return view('home::userposts.create')->with('categories', Category::all())->with('posts', Post::all())->with('tags', Tag::all());
     }
 
 
     public function store(CreatePostsRequest $request)
     {
         $image = $request->image;
-        $destinationPath = 'uploads/'; 
-       $contents = strip_tags($request->content);
-        $post=Post::create([       //storing to database
-            'title'=> $request->title,
-            'description'=> $request->description,
-            'content'=> $contents, 
-            'image'=> '-',
-            'published_at'=> $request->published_at,
-            'category_id'=> $request->category,
+        $destinationPath = 'uploads/';
+        $contents = strip_tags($request->content);
+        $post = Post::create([       //storing to database
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $contents,
+            'image' => '-',
+            'published_at' => $request->published_at,
+            'category_id' => $request->category,
             'user_id' => auth::user()->id,
         ]);
 
         $post->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $post->save();
- 
-         if($request->tags)  //attaching tag 
-         {
-             $post->tags()->attach($request->tags);
-         }
- 
-         session()->flash('sucs','Post Created Successfully');
- 
-         return redirect(route('userposts.index'));
-        
+
+        if ($request->tags)  //attaching tag 
+        {
+            $post->tags()->attach($request->tags);
+        }
+
+        session()->flash('sucs', 'Post Created Successfully');
+
+        return redirect(route('userposts.index'));
     }
 
     /**
@@ -75,7 +74,7 @@ class UserPostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('home::userposts.show')->with('post',$post)->with('tags',Tag::find($id))->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
+        return view('home::userposts.show')->with('post', $post)->with('tags', Tag::find($id))->with('limposts', Post::orderBy('updated_at', 'desc')->limit(4)->get());
     }
 
     /**
@@ -85,7 +84,8 @@ class UserPostController extends Controller
      */
     public function edit($id)
     {
-        return view('home::edit');
+        $post = Post::find($id);
+        return view('home::userposts.create')->with('categories', Category::all())->with('tags', Tag::all())->with('post', $post);
     }
 
     /**
@@ -94,11 +94,33 @@ class UserPostController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdatePostRequest $request, $id)
     {
-        //
-    }
+        $post = Post::find($id);
+        if ($request->hasFile('image')) {
+            $old_image = $post->image;
+            unlink($old_image);
+            $image = $request->image;
+            $destinationPath = 'uploads/';
 
+            $post->image = Helper::uploadFile($destinationPath, $image); //using helper file
+            $post->save(); //saving to database
+        }
+
+        if ($request->tags) {
+            $post->tags()->sync($request->tags);
+        }
+        //updating to database
+        $post->title = $request->title;
+        $post->description = $request->description;
+        $contents = strip_tags($request->content);
+        $post->content = $contents;
+        $post->published_at = $request->published_at;
+        $post->save();
+
+        session()->flash('sucs', 'Post is updated successfully');
+        return redirect(route('userposts.index'));
+    }
     /**
      * Remove the specified resource from storage.
      * @param int $id

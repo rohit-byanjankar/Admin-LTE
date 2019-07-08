@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
     @include('partials.errors')
-        <form action="{{ isset($category)? route('adcategory.update', $category->id) : route('adcategory.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ isset($category)? route('classifiedcategory.update', $category->id) : route('classifiedcategory.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
 
             @if(isset($category))

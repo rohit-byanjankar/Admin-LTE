@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
-@section('content')
 <div class="wrapper">
+@section('content')
 	<section class="forum-page">
 		<div class="container">
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
@@ -36,6 +36,8 @@
 							<!--classified-st end-->
 						</div>
 						@if($classifieds->count()>0)
+						
+						
 						@foreach($classifieds as $classified)
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">

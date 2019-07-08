@@ -49,7 +49,7 @@ class ClassifiedController extends Controller
         ]);
         $classified->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $classified->save();
-        return redirect('/classified')->with('success', 'Ad posted successfully');
+        return redirect()->route('classified.index')->with('success', 'Ad posted successfully');
     }
 
    

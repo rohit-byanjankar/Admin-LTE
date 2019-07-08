@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('content')
 <div class="wrapper">
+@section('content')
 	<section class="forum-page">
 		<div class="container">
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
@@ -27,7 +27,12 @@
 										<img src="{{ url($post->image)}}" height="60" alt="">
 									</a>
 								</div>
-								<div class="usr_quest">
+								<div class="usr_quest">	
+									
+									@can('update',$post)
+									<a href="{{route('userposts.edit',$post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit">Edit your Article</i></a>
+									@endcan
+									
 									<div class="card card-header">
 										<h3> {{ $post->title }} </h3>
 									</div>
