@@ -28,8 +28,9 @@
 
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
-                                <input type="password" class="form-control" placeholder="Password" name="password" required>
-                                <i class="fa fa-lock"></i>
+                            <i class="fa fa-lock"></i>
+                                <input id="password-field"  type="password"  value="secret" class="form-control" placeholder="Password" name="password" required>
+                                <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password" ></span>
                             </div>
                         </div>
                         <div class="col-lg-12 no-pdd">

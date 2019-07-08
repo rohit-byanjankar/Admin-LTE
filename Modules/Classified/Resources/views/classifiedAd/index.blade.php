@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 <div class="wrapper">
-@section('content')
+	@section('content')
 	<section class="forum-page">
 		<div class="container">
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
@@ -36,18 +36,40 @@
 							<!--classified-st end-->
 						</div>
 						@if($classifieds->count()>0)
-						
-						
+
+
 						@foreach($classifieds as $classified)
-						<div class="forum-questions  mt-2 mb-2">
+						<div class="forum-questions  mt-2 mb-2 ">
 							<div class="usr-question">
+
 								<div class="ad_img img-rounded">
 									<a href="{{ route('classified.show', $classified->id) }}">
 										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
 									</a>
+									<br>
+
+
+
 								</div>
+
+
+
+
 								<div class="ad_quest">
 
+
+									@can('update', $classified)
+									<a href="{{route('classified.edit',$classified->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+									@endcan
+
+									@can('delete',$classified)
+									<form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('classified.destroy' ,$classified->id) }}" method="post" style="display:inline">
+										@csrf
+										@method('DELETE')
+										<button class="btn btn-danger btn-sm">
+											<i class="fa fa-trash-o"></i></button>
+									</form>
+									@endcan
 									<div class="card card-header">
 										<h3> {{ $classified->title }} </h3>
 									</div>
@@ -90,10 +112,10 @@
 
 					<div class="col-lg-3 tabhead">
 						<div class="widget widget-user">
-						
 
-								<h3 class="title-wd text-center"> LATEST ADS</h3>
-							
+
+							<h3 class="title-wd text-center"> LATEST ADS</h3>
+
 							<ul>
 								@if($limclassifieds->count()>0)
 								@foreach($limclassifieds as $limclassified)

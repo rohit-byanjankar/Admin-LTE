@@ -118,7 +118,7 @@ class UserPostController extends Controller
         $post->published_at = $request->published_at;
         $post->save();
 
-        session()->flash('sucs', 'Post is updated successfully');
+        session()->flash('success', 'Post is updated successfully');
         return redirect(route('userposts.index'));
     }
     /**
@@ -128,7 +128,14 @@ class UserPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post= Post::find($id);
+        $old_image = $post->image;
+        if (file_exists($old_image)) {
+            unlink($old_image);
+        }
+        $post->forceDelete();
+        session()->flash('success', 'Your Article is deleted successfully');
+        return redirect(route('userposts.index'));
     }
 
     public function userHome()

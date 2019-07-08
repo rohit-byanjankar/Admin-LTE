@@ -13,32 +13,42 @@
 
             <div class="card-body">
 
-                <form action="{{ route('classified.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ isset($classified) ? route('classified.update', $classified->id) : route('classified.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @if(isset($classified))
+                    @method('PUT')
+                    @endif
 
                     <div class="form-group">
                         <label for="title"> Title </label>
-                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Ad" required min=5 max=20>
+                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Ad" value="{{ isset($classified) ? $classified->title : ''}}" required min=5 max=20>
                     </div>
-    
+
 
                     <div class="form-group">
                         <label for="description"> Description </label>
                         <textarea name="description" id="description" cols="5" rows="5" class="form-control">
-                    </textarea>
+                        {{ isset($classified) ? $classified->description : ''}}
+                        </textarea>
 
                     </div>
-                    
 
 
+
+                    Image:
+                    @if(isset($classified))
+                    <div class="form-group">
+                        <img src="{{ asset($classified->image)}}" alt="" width="20%">
+                    </div>
+                    @endif
 
                     <div class="form-group">
-                        <label for="image"> Image </label>
                         <input type="file" class="form-control" name='image' id='image'>
                     </div>
+
                     <div class="form-group">
                         <label for="price"> Price </label>
-                        <input type="number" class="form-control" name='price' min=1 required>
+                        <input type="number" class="form-control" name='price' value="{{ isset($classified) ? $classified->price : ''}}" min=1 required>
                     </div>
 
                     @if($categories->count()>0)
@@ -91,18 +101,17 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 <script type="text/javascript">
-
-  $(function(){
-    changeLanguage("dyn", "fa");
-    $('#language').change(function(){	
-	 lang = $(this).val();
-	 var control = $('#dyn');
-	 control.attr('lang', lang);
-	 var id = control.attr('id');
-	 changeLanguage(id, lang);
+    $(function() {
+        changeLanguage("dyn", "fa");
+        $('#language').change(function() {
+            lang = $(this).val();
+            var control = $('#dyn');
+            control.attr('lang', lang);
+            var id = control.attr('id');
+            changeLanguage(id, lang);
+        });
     });
-   });
-  </script>
+</script>
 
 
 

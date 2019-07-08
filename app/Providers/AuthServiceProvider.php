@@ -13,6 +13,8 @@ use Modules\Article\Entities\Post;
 use Modules\Events\Entities\Event;
 use Modules\TelephoneDirectory\Entities\PhoneCategory;
 use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use Modules\Classified\Entities\Classified;
+use App\Policies\ClassifiedPolicy;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -27,6 +29,7 @@ class AuthServiceProvider extends ServiceProvider
         Event::class => EventsPolicy::class,
         PhoneCategory::class => PhoneCategoriesPolicy::class,
         PhoneDirectory::class => PhoneDirectoriesPolicy::class,
+        Classified::class => ClassifiedPolicy::class,
     ];
 
     /**

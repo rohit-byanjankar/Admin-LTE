@@ -32,4 +32,9 @@ class Classified extends Model implements Searchable
             $url
          );
     }
+
+    public function getPermissions()
+    {
+        return ["delete", "update", "create","view"];
+    }
 }

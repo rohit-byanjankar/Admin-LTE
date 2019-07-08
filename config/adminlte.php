@@ -208,7 +208,8 @@ return [
                         "Modules\TelephoneDirectory\Entities\PhoneCategory",
                         "Modules\TelephoneDirectory\Entities\PhoneDirectory",
                         "Modules\UserRoles\Entities\Role",
-                        "App\User"
+                        "App\User",
+                        "Modules\Classified\Entities\Classified"
                     ],
 
     /*

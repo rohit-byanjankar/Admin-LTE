@@ -159,7 +159,7 @@
 </head>
 
 <body>
-	<header>
+	<header id="navbar">
 		<div class="container">
 			<div class="header-data">
 				<nav>
@@ -231,6 +231,7 @@
 					<div class="user-info">
 						<img src="{{ url(Auth::user()->image) }}" width=30 height=30 alt="">
 						<a href="#"> {{Auth::user()->name}}</a>
+
 					</div>
 					<div class="user-account-settingss">
 						<ul class="us-links">
@@ -309,6 +310,30 @@
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
+
+
+	<!-- for sticky navbar -->
+	<script>
+		// When the user scrolls the page, execute myFunction 
+		window.onscroll = function() {
+			myFunction()
+		};
+
+		// Get the navbar
+		var navbar = document.getElementById("navbar");
+
+		// Get the offset position of the navbar
+		var sticky = navbar.offsetTop;
+
+		// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+		function myFunction() {
+			if (window.pageYOffset >= sticky) {
+				navbar.classList.add("sticky")
+			} else {
+				navbar.classList.remove("sticky");
+			}
+		}
+	</script>
 
 
 	@yield('scripts')

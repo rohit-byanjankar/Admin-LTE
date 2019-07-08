@@ -46,7 +46,9 @@ class ProfileController extends Controller
         //for image
         if (!$request->dp == null) {
             $old_image = $user->image;
-            unlink($old_image);
+            if (file_exists($old_image)) {
+                unlink($old_image);
+            }
 
             $image = $request->dp;
             $destinationPath = 'uploads/';
@@ -87,7 +89,7 @@ class ProfileController extends Controller
                 if ($email != $request->email || !Hash::check($request->password, $password)) {
                     return redirect()->back()->with('error', "Password or Email doesn't match");
                 } else {
-                    
+
                     $user->verify = 0;
                     $user->deactivated = 1;
                     $user->save();
