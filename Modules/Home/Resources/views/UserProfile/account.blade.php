@@ -1,8 +1,6 @@
 @extends('layouts.master')
-
 @section('content')
 <div class="wrapper">
-
 	<section class="profile-account-setting">
 		<div class="container">
 			<div class="account-tabs-setting">
@@ -40,16 +38,10 @@
 					<div class="col-lg-3">
 						<div class="acc-leftbar">
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
-
 								<a class="nav-item nav-link" id="nav-status-tab" data-toggle="tab" href="#nav-status" role="tab" aria-controls="nav-status" aria-selected="false"><i class="fa fa-user"></i>Profile</a>
-
 								<a class="nav-item nav-link" id="nav-password-tab" data-toggle="tab" href="#nav-password" role="tab" aria-controls="nav-password" aria-selected="false"><i class="fa fa-lock"></i>Change Password</a>
-
-							
-								
 								<a class="nav-item nav-link" id="security-login" data-toggle="tab" href="#security-login" role="tab" aria-controls="security-login" aria-selected="false"><i class="fa fa-user-secret"></i>Security and Login</a>
 								<a class="nav-item nav-link" id="privacy" data-toggle="tab" href="#privacy" role="tab" aria-controls="privacy" aria-selected="false"><i class="fa fa-paw"></i>Privacy</a>
-								
 								<a class="nav-item nav-link" id="nav-deactivate-tab" data-toggle="tab" href="#nav-deactivate" role="tab" aria-controls="nav-deactivate" aria-selected="false"><i class="fa fa-random"></i>Deactivate Account</a>
 							</div>
 						</div>
@@ -58,9 +50,6 @@
 
 					<div class="col-lg-9">
 						<div class="tab-content" id="nav-tabContent">
-
-
-
 							<div class="tab-pane fade show active" id="nav-status" role="tabpanel" aria-labelledby="nav-status-tab">
 								<div class="acc-setting">
 									<h3>Profile Status</h3>
@@ -71,7 +60,6 @@
 											<div class="cpp-fiel">
 												<i class="fa fa-user"></i>
 												<input type="text" name="name" value="{{old('name', $user->name)}}" />
-
 											</div>
 										</div>
 
@@ -98,9 +86,7 @@
 
 										<div class="save-stngs pd3">
 											<ul>
-
 												<li><button type="submit">Save Setting</button></li>
-
 											</ul>
 										</div>
 										<!--save-stngs end-->
@@ -190,6 +176,5 @@
 			<!--account-tabs-setting end-->
 		</div>
 	</section>
-
 </div>
 @endsection

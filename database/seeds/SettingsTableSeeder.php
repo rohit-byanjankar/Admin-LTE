@@ -12,31 +12,26 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Settings::all()->count() < 0) {
+        if (Settings::all()->count() < 1) {
 
             $settings =
                 [
                     [
-                        'id' => 1,
                         'key' => 'CM_title',
-                        'value' => 'Community Media',
+                        'value' => 'Chyasal Online',
                     ],
                     [
-                        'id' => 2,
                         'key' => 'CM_Description',
                         'value' => 'This is our vision',
                     ],
                     [
-                        'id' => 3,
                         'key' => 'CM_address',
-                        'value' => 'Community Media',
+                        'value' => 'Chyasal',
                     ],
                     [
-                        'id' => 4,
                         'key' => 'CM_phone_number',
                         'value' => '9860300808',
                     ]
-
                 ];
             DB::table('settings')->insert($settings);
         }

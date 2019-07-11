@@ -29,7 +29,7 @@ class PermissionControllerApi extends Controller
             $permission=$m->getPermissions();
             $permissions[$modelname]=$permission;
         }
-        $data=['Roles' => $roles , 'Permissions' => $permissions , 'RoleName' => $roleName];
+        $data=['Permission Available' => $roles , 'Models' => $permissions , 'RoleName' => $roleName];
         return response()->json(['data' => $data, 'message ' => 'Permissions of current role retrieved succesfully']);
     }
 

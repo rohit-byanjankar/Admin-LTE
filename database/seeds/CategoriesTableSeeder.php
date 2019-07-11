@@ -12,28 +12,24 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Category::all()->count() < 0) {
+        if (Category::all()->count() < 1) {
             $categories =
                 [
                     [
                         'name' => 'food',
-
-                        'image' => 'uploads/food.jpg',
+                        'image' => '-',
 
                     ],
                     [
                         'name' => 'travel',
-
                         'image' => '-',
                     ],
                     [
                         'name' => 'music',
-
-                        'image' => 'uploads/music.png',
+                        'image' => '-',
                     ],
                     [
                         'name' => 'sports',
-
                         'image' => '-',
                     ],
                 ];

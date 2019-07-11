@@ -12,7 +12,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Role::all()->count() < 0) {
+        if (Role::all()->count() < 1) {
             $roles =
                 [
                     [
