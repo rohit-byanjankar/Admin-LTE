@@ -17,7 +17,6 @@ class CreateClassifiedsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('description');
-            
             $table->string('image');
             $table->integer('user_id');
             $table->integer('category_id')->nullable();

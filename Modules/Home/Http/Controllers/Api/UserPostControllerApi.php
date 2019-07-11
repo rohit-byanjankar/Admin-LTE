@@ -23,7 +23,11 @@ class UserPostControllerApi extends Controller
         $categories=Category::all();
         $limposts=Post::orderBy('updated_at','desc')->limit(4)->get();
         $data = ['All Post' => $posts , 'All Category' =>$categories , 'Limited-Post' => $limposts];
-        return response()->json(['data' => $data , 'message' => 'Post retrieved succesfully']);
+        if (count($posts) > 0){
+            return response()->json(['data' => $data , 'message' => 'Post retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Post found']);
+        }
     }
 
     /**
@@ -68,11 +72,15 @@ class UserPostControllerApi extends Controller
      */
     public function show($id)
     {
-        $post = Post::find($id);
+        $posts = Post::find($id);
         $tags=Tag::find($id);
         $limposts=Post::orderBy('updated_at','desc')->limit(4)->get();
-        $data = ['Post' => $post ,'Tag' => $tags, 'limited-Post' =>$limposts];
-        return response()->json(['data' => $data , 'message' => 'One Post retrieved succesfully']);
+        $data = ['Post' => $posts ,'Tag' => $tags, 'limited-Post' =>$limposts];
+        if (count($posts) > 0){
+            return response()->json(['data' => $data , 'message' => 'One Post retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Post found']);
+        }
     }
 
     /**

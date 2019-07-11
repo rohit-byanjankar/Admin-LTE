@@ -35,28 +35,22 @@ array_push($permission_array[$role][$model],$permission_granted);
                 @php
                 $cname = str_replace('\\' , '-' , $model );
                 @endphp
-                <h2 class="box-title text-bold"> <input type="checkbox" onclick="selectAll(this,'{{$cname}}')" />
-                    {{$model}} </h2>
-
-
-
+                <h5 class="text-bold"> <input type="checkbox" onclick="selectAll(this,'{{$cname}}')" />
+                    {{$model}} </h5>
             </div>
             <div class="box-body">
-
                 @foreach($permission as $permission_granted)
                 <div class="checkbox no-margin no-padding">
-
                     <label><input type="checkbox" value="{{$index++}}" name="checked[]" class="{{$cname}}" {{Helper::check($permission_granted,$roleName,$model,$permission_array)== true ? 'checked' :''}}>{{$permission_granted}}</label>
                     <input type="hidden" value="{{$roleName}}" name="role[]">
                     <input type="hidden" value="{{$permission_granted}}" name="permission_granted[]">
                     <input type="hidden" value="{{$model}}" name="model[]">
-
                 </div>
                 @endforeach
             </div>
         </div>
         @endforeach
-        <div class="col-md-12">
+        <div class="col-md-12 ">
             <button class="btn btn-facebook text-success">Update Permissions</button>
         </div>
     </div>

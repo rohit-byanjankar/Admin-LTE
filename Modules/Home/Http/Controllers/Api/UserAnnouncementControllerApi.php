@@ -18,7 +18,11 @@ class UserAnnouncementControllerApi extends Controller
         $announcements=Announcement::orderBy('created_at','desc')->paginate(5);
         $limannouncements=Announcement::orderBy('created_at','desc')->limit(4)->get();
         $data=['announcements' => $announcements , 'limited-announcement' => $limannouncements];
-        return response()->json(['data' => $data , 'message'=> 'announcement retrieved succesfully']);
+        if (count($announcements) > 0){
+            return response()->json(['data' => $data , 'message'=> 'announcement retrieved succesfully']);
+        }else{
+            return response()->json(['message'=> 'No announcement found']);
+        }
     }
 
     /**
@@ -47,10 +51,14 @@ class UserAnnouncementControllerApi extends Controller
      */
     public function show($id)
     {
-        $announcemt = Announcement::find($id);
+        $announcement = Announcement::find($id);
         $limannouncements=Announcement::orderBy('created_at','desc')->limit(4)->get();
-        $data = ['announcement' => $announcemt , 'limited-announcement' =>$limannouncements];
-        return response()->json(['data' => $data , 'message' => 'One announcement retrieved succesfully']);
+        $data = ['announcement' => $announcement , 'limited-announcement' =>$limannouncements];
+        if (count($announcement) > 0){
+            return response()->json(['data' => $data , 'message' => 'One announcement retrieved succesfully']);
+        }else{
+            return response()->json(['message'=> 'No announcement found']);
+        }
     }
 
     /**

@@ -29,7 +29,11 @@ class PostCategoryControllerApi extends Controller
         $posts=Post::where("category_id",$Category_id)->paginate(5);
         $limposts=Post::orderBy('updated_at','desc')->limit(4)->get();
         $data = ['posts' => $posts , 'limit-post' => $limposts];
-        return response()->json(['data' => $data, 'message' => 'Post displayed succesfully']);
+        if (count($posts) > 0){
+            return response()->json(['data' => $data, 'message' => 'Post displayed succesfully']);
+        }else{
+            return response()->json(['message' => 'No post found']);
+        }
     }
 
     /**

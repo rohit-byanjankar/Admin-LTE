@@ -16,7 +16,7 @@ class TelephoneCategoryControllerApi extends Controller
     public function index()
     {
         $phoneCategory=PhoneCategory::all();
-        if ($phoneCategory){
+        if (count($phoneCategory) > 0){
             return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneCategory found']);
@@ -47,7 +47,7 @@ class TelephoneCategoryControllerApi extends Controller
     public function show($id)
     {
         $phoneCategory=PhoneCategory::find($id);
-        if ($phoneCategory){
+        if (count($phoneCategory) > 0){
             return response()->json(['data' => $phoneCategory,'message' => 'One phoneCategory retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneCategory found']);
@@ -70,7 +70,6 @@ class TelephoneCategoryControllerApi extends Controller
             'name'=> $request->name  // the first name is column in database and second name is form name
         ]);
         $phoneCategory->save();
-
         return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory edited succesfully']);
     }
 
@@ -78,7 +77,7 @@ class TelephoneCategoryControllerApi extends Controller
     {
         $phoneCategory=PhoneCategory::find($id);
         $phoneCategory->delete();
-        if ($phoneCategory){
+        if (count($phoneCategory) > 0){
             return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory deleted succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneCategory found']);

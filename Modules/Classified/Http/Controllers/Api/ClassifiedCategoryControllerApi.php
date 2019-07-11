@@ -1,31 +1,33 @@
 <?php
 
-namespace Modules\Classified\Http\Controllers;
+namespace Modules\Classified\Http\Controllers\api;
 
+use Helper;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Classified\Entities\Classified;
-use Helper;
-use Illuminate\Support\Facades\Auth;
-use Modules\Classified\Entities\Category;
 use Modules\Classified\Entities\ClassifiedCategory;
 
-class ClassifiedCategoryController extends Controller
+class ClassifiedCategoryControllerApi extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    /**
+     * Display a listing of the resource.
+     * @return Response
+     */
 
     public function index()
     {
-        return view('classified::adcategory.index')->with('categories', ClassifiedCategory::all());
+        $categories=ClassifiedCategory::all();
+        if (count($categories) > 0){
+            return response()->json(['data' => $categories , 'message' => 'All categories retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No categories found']);
+        }
     }
 
     public function create()
     {
-        return view('classified::adcategory.create');
+        //
     }
 
     public function store(Request $request)
@@ -42,16 +44,19 @@ class ClassifiedCategoryController extends Controller
         }
 
         $category->save();
-        session()->flash('sucs', 'Category added successfully');
-        return redirect(route('adminclassifiedcategory.index'));
+
+        return response()->json(['data' => $category ,'message' => 'Classified category created succesfully']);
     }
 
     public function edit($id)
     {
-        $category = ClassifiedCategory::find($id);
-        return view('classified::adcategory.create')->with('category', $category);
+        $categories = ClassifiedCategory::find($id);
+        if (count($categories) > 0){
+            return response()->json(['data' => $categories , 'message' => 'One category retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No categories found']);
+        }
     }
-
 
     public function update(Request $request, $id)
     {
@@ -77,16 +82,17 @@ class ClassifiedCategoryController extends Controller
         }
 
         $category->save();
-        session()->flash('sucs', 'Category Updated Successfully');
-        return redirect(route('adminclassifiedcategory.index'));
-    }
+        return response()->json(['data' => $category,'message' => 'Category updated succesfully']);
+  }
 
     public function destroy($id)
     {
-        $category=ClassifiedCategory::find($id);
-        $category->delete();
-
-        session()->flash('err', 'Deleted Successfully');
-        return redirect(route('adminclassifiedcategory.index'));
+        $categories=ClassifiedCategory::find($id);
+        $categories->delete();
+        if (count($categories) > 0){
+            return response()->json(['data' => $categories , 'message' => 'Category deleted succesfully']);
+        }else{
+            return response()->json(['message' => 'No categories found']);
+        }
     }
 }
