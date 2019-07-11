@@ -45,22 +45,25 @@ class EventsController extends Controller
             'venue' => 'required',
             'event_date' => 'required|date',
             'duration' => 'required|numeric',
-            'image' => 'required',
+
         ]);
-        $event= Event::create([
-        //storing to database
-        'title' => $request->title,
-        'details' => $request->details,
-        'description' => $request->description,
-        'venue' => $request->venue,
-        'event_date' => $request->event_date,
-        'duration' => $request->duration,
-        'image' => '-'
+        $event = Event::create([
+            //storing to database
+            'title' => $request->title,
+            'details' => $request->details,
+            'description' => $request->description,
+            'venue' => $request->venue,
+            'event_date' => $request->event_date,
+            'duration' => $request->duration,
+            'image' => '-'
         ]);
         $image = $request->image;
         $destinationPath = 'uploads/';
 
-        $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        if ($request->image != null) {
+            $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        }
+        
         $event->save();
 
         session()->flash('sucs', 'Event Created Successfully');
@@ -99,7 +102,7 @@ class EventsController extends Controller
             'venue' => 'required',
             'event_date' => 'required|date',
             'duration' => 'required|numeric',
-            'image' => 'required',
+
         ]);
         $event->title = $request->title;
         $event->details = $request->details;
@@ -109,8 +112,7 @@ class EventsController extends Controller
         $event->published_at = $request->published_at;
         if (!$request->image == null) {
             $old_image = $event->image;
-            if(!$old_image==null)
-            {
+            if (!$old_image == null) {
                 unlink($old_image);
             }
             $image = $request->image;

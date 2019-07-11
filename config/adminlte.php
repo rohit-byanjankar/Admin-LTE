@@ -126,7 +126,7 @@ return [
                         ],
                         [
                             'text' => 'Trashed-Posts',
-                            'url'=> '/adminpanel/trashed-posts',
+                            'url' => '/adminpanel/trashed-posts',
                             'icon' => 'trash',
                         ]
                     ]
@@ -150,7 +150,7 @@ return [
             'text' => 'Users',
             'url'  => '/adminpanel/users',
             'icon' => 'user',
-        ],[
+        ], [
             'text' => 'Permission',
             'url'  => '/adminpanel/rolePermission',
             'icon' => 'lock',
@@ -162,20 +162,20 @@ return [
         ],
         'USER FEATURES',
         [
-           'text' => 'Phone Directory',
-           'icon' =>  'phone-square',
+            'text' => 'Phone Directory',
+            'icon' =>  'phone-square',
             'submenu' => [
-                    [
-                        'text' => 'List',
-                        'url'  => '/adminpanel/directory',
-                        'icon' => 'list-alt',
-                    ],
-                    [
-                        'text' => 'Categories',
-                        'url'=> '/adminpanel/category',
-                        'icon' => 'th-list',
-                    ]
+                [
+                    'text' => 'List',
+                    'url'  => '/adminpanel/directory',
+                    'icon' => 'list-alt',
                 ],
+                [
+                    'text' => 'Categories',
+                    'url' => '/adminpanel/category',
+                    'icon' => 'th-list',
+                ]
+            ],
         ],
         [
             'text' => 'Events',
@@ -187,30 +187,44 @@ return [
             'url' => '/adminpanel/announcements',
             'icon' => 'bullhorn'
         ],
-        [
 
-            'text' => 'Classified Categories',
-            'url' => '/adminpanel/classifiedcategory',
-            'icon' => 'list'
+
+
+        [
+            'text' => 'Classified Ads',
+            'icon' => 'list',
+            'submenu' => [
+                [
+                    'text' => 'Classified Ads',
+                    'url' => '/adminpanel/adminclassified',
+                    'icon' => 'list',
+                ],
+                [
+                    'text' => 'Classified Categories',
+                    'url' => '/adminpanel/adminclassifiedcategory',
+                    'icon' => 'list',
+                ]
+            ]
         ],
+
         'COMMUNITY SETTINGS',
-            [
-                'text' =>  'Basic Settings',
-                'url'  =>  '/adminpanel/settings',
-                'icon' =>  'wrench',
-            ],
+        [
+            'text' =>  'Basic Settings',
+            'url'  =>  '/adminpanel/settings',
+            'icon' =>  'wrench',
+        ],
     ],
-        'models' => [
-                        "Modules\Article\Entities\Post",
-                        "Modules\Article\Entities\Tag",
-                        "Modules\Article\Entities\Category",
-                        "Modules\Events\Entities\Event",
-                        "Modules\TelephoneDirectory\Entities\PhoneCategory",
-                        "Modules\TelephoneDirectory\Entities\PhoneDirectory",
-                        "Modules\UserRoles\Entities\Role",
-                        "App\User",
-                        "Modules\Classified\Entities\Classified"
-                    ],
+    'models' => [
+        "Modules\Article\Entities\Post",
+        "Modules\Article\Entities\Tag",
+        "Modules\Article\Entities\Category",
+        "Modules\Events\Entities\Event",
+        "Modules\TelephoneDirectory\Entities\PhoneCategory",
+        "Modules\TelephoneDirectory\Entities\PhoneDirectory",
+        "Modules\UserRoles\Entities\Role",
+        "App\User",
+        "Modules\Classified\Entities\Classified"
+    ],
 
     /*
     |--------------------------------------------------------------------------

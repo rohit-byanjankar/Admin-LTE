@@ -1,34 +1,86 @@
 @extends('layouts.master')
 
 <div class="wrapper">
-@section('content')
+	@section('content')
 	<section class="companies-info">
 
 		<div class="container">
-			<div class="companies-list col-lg-9">
+
+
+			<div class="companies-list col-lg-8 card middlebody">
+
+				<h1 class="font-bold mt-2 mb-2">All Events</h1>
 				<div class="row">
 
-
 					@if($events->count()>0)
-
-
 					@foreach($events as $event)
-					<div class="col-lg-4">
-						<div class="company_profile_info">
-							<h2 class="card card-header">{{$event->title}}</h2>
-							<a href="{{ route('userevents.show', $event->id)}}">
-								<img src="{{url($event->image)}}" width="90" height="100" alt="">
+					<div class="col-lg-4 mb-2">
 
-								<ul class="react-links pull-left">
-									<li><a href="#" title=""><i class="fa fa-map-marker"></i> {{ $event->venue}}</a></li> <br/>
-									<li><a href="#" title=""><i class="fa fa-hourglass" aria-hidden="true"></i> {{ $event->duration }}hours </a></li> <br/>
-									<li><a href="#" title=""><i class="fa fa-calendar"></i> {{ $event->event_date}} </a></li>
+
+						<div class="card border-secondary mt-2 mb-2">
+
+							@if(File::exists($event->image))
+							<a href="{{route('userevents.show',$event->id)}}">
+								<img class="card-img-top" height="180px" src="{{url($event->image)}}" alt="">
+							</a>
+							@else
+							<img src="uploads/noimage.png" width=100% height=50% alt="No Image">
+							@endif
+
+							<div class="card-body">
+
+								<ul>
+
+									<li>
+
+										<div class="leftdate">
+
+											<i class="fa fa-calendar ml-2"></i> <br>
+											<p class="pull-left colordate">{{ \carbon\carbon::parse($event->event_date)->format('M d') }}</p>
+
+										</div>
+									</li>
+
+									<li>
+										<div class="mb-2 eventtitle">
+
+											<b>{{ $event->title}}</b>
+										</div>
+									</li>
+
+									<li>
+
+										<div class="location">
+
+											<i class="fa fa-map-marker"></i>
+										</div>
+										<div class="eventvenue">
+											{{ $event->venue}}
+										</div>
+									</li>
 								</ul>
+
+
+								<hr>
+								<p>{{$event->description}}</p>
+
+
+
+
+
+
+
+								<p class="card-text"><small class="text-muted">Duration: {{$event->duration}} hours </small></p>
+							</div>
+
+
 
 						</div>
 
+
 					</div>
-					<!--forum-questions end-->
+
+
 					@endforeach
 
 
@@ -42,6 +94,8 @@
 					</div>
 					@endif
 				</div>
+
+
 				<div class="text-center">
 					{!! $events->links(); !!}
 				</div>
