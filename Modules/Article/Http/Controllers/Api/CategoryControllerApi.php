@@ -14,7 +14,11 @@ class CategoryControllerApi
     public function index()
     {
         $category=Category::all();
-        return response()->json(['data' => $category,'message ' => 'Category retrieved succesfully']);
+        if (count($category) > 0){
+            return response()->json(['data' => $category,'message ' => 'Category retrieved succesfully']);
+        }else{
+            return response()->json(['message ' => 'No category found']);
+        }
     }
 
     /**
@@ -42,13 +46,22 @@ class CategoryControllerApi
         }
 
         $category->save();
-        return response()->json(['data' => $category,'message ' => 'Category created succesfully']);
+
+        if ($category){
+            return response()->json(['data' => $category,'message ' => 'Category created succesfully']);
+        }else{
+            return response()->json(['message ' => 'No category found']);
+        }
     }
 
     public function show($id)
     {
         $category=Category::find($id);
-        return response()->json(['data' => $category,'message ' => 'One Category retrieved succesfully']);
+        if ($category){
+            return response()->json(['data' => $category,'message ' => 'One Category retrieved succesfully']);
+        }else{
+            return response()->json(['message ' => 'No category found']);
+        }
     }
 
     public function edit(Category $category)
@@ -80,7 +93,11 @@ class CategoryControllerApi
         }
 
         $category->save();
-        return response()->json(['data' => $category,'message ' => 'Category updated succesfully']);
+        if ($category){
+            return response()->json(['data' => $category,'message ' => 'Category updated succesfully']);
+        }else{
+            return response()->json(['message ' => 'No category found']);
+        }
     }
 
     public function destroy($id)
@@ -91,6 +108,10 @@ class CategoryControllerApi
             return response()->json(['message' => 'Category associated with post']);
         }
         $category->delete();
-        return response()->json(['data' => $category,'message ' => 'Category deleted succesfully']);
+        if ($category){
+            return response()->json(['data' => $category,'message ' => 'Category deleted succesfully']);
+        }else{
+            return response()->json(['message ' => 'No category found']);
+        }
     }
 }

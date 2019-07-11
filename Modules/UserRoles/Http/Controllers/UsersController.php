@@ -57,7 +57,7 @@ class UsersController extends Controller
 
         $user = User::where('id', $id)->first();
         switch ($request->input('activate')) {
-            case 'verifiedUser':
+            case 'verifyUser':
                 $user->verify = 1;
                 $user->email_verified_at = now();
                 $user->save();
@@ -66,7 +66,7 @@ class UsersController extends Controller
                 return redirect(route('users.index'));
                 break;
 
-            case 'activatedUser':
+            case 'activateUser':
                 $user->deactivated = 0;
                 $user->save();
                 $user->notify(new emailActivated());

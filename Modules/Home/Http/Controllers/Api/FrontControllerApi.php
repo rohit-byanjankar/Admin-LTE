@@ -1,13 +1,14 @@
 <?php
 
-namespace Modules\Home\Http\Controllers;
+namespace Modules\Home\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Announcement\Entities\Announcement;
+use Illuminate\Support\Facades\Auth;
+use Modules\Article\Entities\Post;
 
-class UserAnnouncementController extends Controller
+class FrontControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,22 @@ class UserAnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::announcements.index')->with('announcements',Announcement::orderBy('created_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $posts=Post::orderBy('updated_at','desc')->paginate(5);
+        if (count($$posts) > 0){
+            return response()->json(['data' => $posts , 'message' => 'Post retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Posts found']);
+        }
+    }
+
+    public function account()
+    {
+        $user=Auth::user();
+        if ($user){
+            return response()->json(['data' => $user , 'message' => 'Current logged in user\'s data retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'User not logged in ']);
+        }
     }
 
     /**
@@ -24,7 +40,7 @@ class UserAnnouncementController extends Controller
      */
     public function create()
     {
-        //
+        return view('home::create');
     }
 
     /**
@@ -44,8 +60,7 @@ class UserAnnouncementController extends Controller
      */
     public function show($id)
     {
-        $announcemt = Announcement::find($id);
-        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        //
     }
 
     /**

@@ -55,14 +55,11 @@ class UserPostController extends Controller
 
         $post->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $post->save();
-
         if ($request->tags)  //attaching tag 
         {
             $post->tags()->attach($request->tags);
         }
-
         session()->flash('sucs', 'Post Created Successfully');
-
         return redirect(route('userposts.index'));
     }
 
@@ -138,8 +135,8 @@ class UserPostController extends Controller
         return redirect(route('userposts.index'));
     }
 
-    public function userHome()
+  /*  public function userHome()
     {
         return view('home::index');
-    }
+    }*/
 }

@@ -21,23 +21,21 @@ class PostCategoryController extends Controller
         return view('home::postCategories.index')->with('categories',Category::orderBy('name','asc')->paginate(9));
     }
 
+    public function getCategory($Category_id)
+    {
+        $posts=Post::where("category_id",$Category_id)->paginate(5);
+        return view('home::userposts.index',['posts' => $posts])->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Response
      */
     public function create()
     {
-        return view('home::create');
+        //
     }
 
-    public function getCategory($Category_id)
-    {
-        $posts=Post::where("category_id",$Category_id)->paginate(5);
-        
-            return view('home::userposts.index',['posts' => $posts])->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
-       
-    }
-    
     public function store(Request $request)
     {
         //
@@ -50,7 +48,7 @@ class PostCategoryController extends Controller
      */
     public function show($id)
     {
-        return view('home::show');
+        //
     }
 
     /**
@@ -60,7 +58,7 @@ class PostCategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('home::edit');
+        //
     }
 
     /**

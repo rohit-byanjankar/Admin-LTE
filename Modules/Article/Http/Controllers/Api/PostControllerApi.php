@@ -14,13 +14,18 @@ class PostControllerApi extends Controller
 {
     public function index()
     {
-        $post=Post::all();
-        return response()->json(['data' => $post,'message' => 'Post retrieved succesfully']);
+        $post = Post::all();
+        if (count($post) > 0) {
+            return response()->json(['data' => $post,
+                'message' => 'Post retrieved succesfully']);
+        } else {
+            return response()->json(['message' => 'No posts']);
+        }
     }
 
     public function create()
     {
-
+        //
     }
 
     public function store(CreatePostsRequest $request)
@@ -45,14 +50,21 @@ class PostControllerApi extends Controller
         {
             $post->tags()->attach($request->tags);
         }
-        return response()->json(['data' => $post,'message' => 'Post created succesfully']);
-    }
 
+        return response()->json(['data' => $post,
+            'message' => 'Post created succesfully']);
+    }
 
     public function show($id)
     {
         $post=Post::find($id);
-        return response()->json(['data' => $post,'message' => 'One Post retrieved succesfully']);
+        if ($post){
+            return response()->json(['data' => $post,
+                'message' => 'One Post retrieved succesfully',
+            ]);
+        }else{
+            return response()->json(['message' => 'No post for this id']);
+        }
     }
 
     public function edit(Post $post)
@@ -62,7 +74,7 @@ class PostControllerApi extends Controller
 
     public function update(UpdatePostRequest $request, $id)
     {
-        $post=Post::find($id);
+        $post = Post::find($id);
         if ($request->hasFile('image')) {
             $old_image = $post->image;
             unlink($old_image);
@@ -83,16 +95,21 @@ class PostControllerApi extends Controller
         $post->published_at = $request->published_at;
         $post->save();
 
-        return response()->json(['data' => $post,'message' => 'Post updated succesfully']);
+            return response()->json(['data' => $post,
+                'message' => 'Post updated succesfully']);
     }
 
     public function destroy($id)
     {
         $post=Post::find($id);
-        $post->delete();
 
-        return response()->json(['data' => $post,'message' => 'Post deleted succesfully']);
+        if ($post){
+        $post->delete();
+            return response()->json(['data' => $post,
+                'message' => 'Post deleted succesfully']);
+        }else {
+            return response()->json(['message' => 'No posts to delete']);
+        }
     }
-    
 }
 

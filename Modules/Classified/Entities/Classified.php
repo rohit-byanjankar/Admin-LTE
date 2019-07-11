@@ -10,8 +10,7 @@ use Spatie\Searchable\SearchResult;
 class Classified extends Model implements Searchable
 {
     protected $fillable = ['title', 'description', 'price', 'image','user_id','category_id'];
-   
-    
+
     public function user()
     {
         return $this->belongsTo(User::class);

@@ -27,7 +27,7 @@ class FrontController extends Controller
 
     public function create()
     {
-        return view('home::create');
+        //
     }
 
     /**
@@ -47,7 +47,7 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        return view('home::show');
+       //
     }
 
     /**
@@ -57,7 +57,7 @@ class FrontController extends Controller
      */
     public function edit($id)
     {
-        return view('home::edit');
+        //
     }
 
     /**

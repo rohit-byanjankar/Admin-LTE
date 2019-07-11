@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Home\Http\Controllers;
+namespace Modules\Home\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Announcement\Entities\Announcement;
+use Modules\Events\Entities\Event;
 
-class UserAnnouncementController extends Controller
+class UserEventControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,10 @@ class UserAnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::announcements.index')->with('announcements',Announcement::orderBy('created_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $events=Event::orderBy('event_date')->paginate(5);
+        $limevents=Event::orderBy('event_date','asc')->limit(4)->get();
+        $data = ['event' => $events , 'limited-event' =>$limevents];
+        return response()->json(['data' => $data , 'message' => 'Event retrieved succesfully']);
     }
 
     /**
@@ -44,8 +47,10 @@ class UserAnnouncementController extends Controller
      */
     public function show($id)
     {
-        $announcemt = Announcement::find($id);
-        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $event = Event::find($id);
+        $limevents=Event::orderBy('event_date','asc')->limit(4)->get();
+        $data = ['event' => $event , 'limited-event' =>$limevents];
+        return response()->json(['data' => $data , 'message' => 'One Event retrieved succesfully']);
     }
 
     /**

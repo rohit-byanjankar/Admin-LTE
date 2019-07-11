@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\userReactivate;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Hash;
 use Modules\UserRoles\Entities\Permission;
 use Illuminate\Support\Facades\Auth;
 
@@ -64,9 +67,5 @@ class LoginController extends Controller
         }else{
             return redirect('/login')->with('error','Oops Something is wrong!');
         }
-    }
-
-    public function userDeactivated(){
-        return view('userDeactivate');
     }
 }

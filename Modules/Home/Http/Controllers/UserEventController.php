@@ -24,7 +24,7 @@ class UserEventController extends Controller
      */
     public function create()
     {
-        return view('home::create');
+        //
     }
 
     /**
@@ -55,7 +55,7 @@ class UserEventController extends Controller
      */
     public function edit($id)
     {
-        return view('home::edit');
+        //
     }
 
     /**

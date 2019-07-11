@@ -6,7 +6,6 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use test\Mockery\ReturnTypeObjectTypeHint;
 
 class resetPassword extends Notification
 {
@@ -43,6 +42,7 @@ class resetPassword extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+            ->from('chyasal-online@test.com',config("basic_settings.CM_title"))
                     ->line('You are receiving this email beacause we received a password reset request for your account.')
                     ->action('Reset Password',route('password.reset',['token' => $this->token]))
                     ->line('If you did not request a password reset,no further action is required');

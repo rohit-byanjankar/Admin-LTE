@@ -29,14 +29,14 @@ class UsersTableSeeder extends Seeder
                         'verify' => '1'
                     ],
                     [
-                        'name' => 'rohit byanjan',
+                        'name' => 'rohit byanjankar',
                         'email' => 'rohitbenz09@gmail.com',
                         'password' => Hash::make('redskull'),
-                        'role' => 'admin',
+                        'role' => 'superadmin',
                         'about' => 'Student',
                         'image' => '-',
-                        'phone_number' => '9860300808',
-                        'address' => 'ombahal',
+                        'phone_number' => '9861167885',
+                        'address' => 'chyasal',
                         'verify' => '1'
                     ]
                 ];

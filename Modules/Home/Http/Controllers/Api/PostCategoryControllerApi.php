@@ -1,13 +1,14 @@
 <?php
 
-namespace Modules\Home\Http\Controllers;
+namespace Modules\Home\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Announcement\Entities\Announcement;
+use Modules\Article\Entities\Category;
+use Modules\Article\Entities\Post;
 
-class UserAnnouncementController extends Controller
+class PostCategoryControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,20 @@ class UserAnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::announcements.index')->with('announcements',Announcement::orderBy('created_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $categories=Category::orderBy('name','asc')->paginate(9);
+        if (count($categories) > 0){
+            return response()->json(['data' => $categories , 'message' => 'Category retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Categories found']);
+        }
+    }
+
+    public function getCategory($Category_id)
+    {
+        $posts=Post::where("category_id",$Category_id)->paginate(5);
+        $limposts=Post::orderBy('updated_at','desc')->limit(4)->get();
+        $data = ['posts' => $posts , 'limit-post' => $limposts];
+        return response()->json(['data' => $data, 'message' => 'Post displayed succesfully']);
     }
 
     /**
@@ -44,8 +58,7 @@ class UserAnnouncementController extends Controller
      */
     public function show($id)
     {
-        $announcemt = Announcement::find($id);
-        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        //
     }
 
     /**
