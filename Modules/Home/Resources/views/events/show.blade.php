@@ -7,49 +7,143 @@
 	<section class="forum-page">
 		<div class="container">
 			<div class="forum-questions-sec">
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="forum-post-view">
-							<div class="usr-question">
 
-								<img src="{{url($event->image)}}" width="40" height="60" alt="">
-								<div class="usr_quest">
-									<h3> {{ $event->title }} </h3>
-									<span>{{ $event->event_date}}</span>
+				<div class="col-lg-8 middlebody">
 
+					<div class="card-group">
 
+						<div class="card border-secondary mt-2 mb-2">
 
-									<p>
-										{{ $event->details }}
-									</p>
-
-								</div>
-								<!--usr_quest end-->
-							</div>
-							<!--usr-question end-->
+							@if(File::exists($event->image))
+							<a href="{{route('userevents.show',$event->id)}}">
+								<img class="card-img-top" height="40%" src="{{url($event->image)}}" alt="">
+							</a>
+							@else
+							<img src="uploads/noimage.png" width=100% height=50% alt="No Image">
+							@endif
 						</div>
-						<!--forum-post-view end-->
 
-					</div>
-					<div class="col-lg-4">
-						<div class="widget widget-user">
-							<h3 class="title-wd text-center">LATEST EVENTS</h3>
-							<ul>
-								@foreach($limevents as $limevent)
-								<li>
-									<div class="usr-msg-details">
-										<img src="{{url($limevent->image)}}" width="40" height="60" alt="">
-										<div class="usr-mg-info">
-											<h2> <b> {{ $limevent->title }} </b></h2>
-											<p> {{ $limevent->event_date}} </p>
+						<div class="card border-secondary mt-2">
+
+							<div class="card-body">
+
+								<ul>
+
+									<li>
+
+										<div class="leftdate">
+
+											<i class="fa fa-calendar ml-2"></i> <br>
+											<p class="pull-left colordate">{{ \carbon\carbon::parse($event->event_date)->format('M d') }}</p>
+
 										</div>
-										<!--usr-mg-info end-->
-									</div>
+									</li>
 
-								</li>
-								@endforeach
-							</ul>
+									<li>
+										<div class="mb-2 eventtitle">
+
+											<b>{{ $event->title}}</b>
+										</div>
+									</li>
+
+									<li>
+
+										<div class="location">
+
+											<i class="fa fa-map-marker"></i>
+										</div>
+										<div class="eventvenue">
+											{{ $event->venue}}
+										</div>
+									</li>
+								</ul>
+
+
+								<hr>
+								<p>{{$event->description}}</p>
+								<p class="card-text"><small class="text-muted">Duration: {{$event->duration}} hours </small></p>
+							</div>
 						</div>
+					</div>
+
+					<div class="card mb-2">
+						<div class="card-body">
+							
+							<ul>
+
+								<li>
+
+									<div class="leftdate">
+
+										<i class="fa fa-calendar ml-2"></i> <br>
+										<p class="pull-left colordate">{{ \carbon\carbon::parse($event->event_date)->format('M d') }}</p>
+
+									</div>
+								</li>
+
+								<li>
+									<div class="mb-2 eventtitle">
+
+										<b>{{ $event->title}}</b>
+									</div>
+								</li>
+
+								<li>
+
+									<div class="location">
+
+										<i class="fa fa-map-marker"></i>
+									</div>
+									<div class="eventvenue">
+										{{ $event->venue}}
+									</div>
+								</li>
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="card">
+						<div class="card-header">
+							Details
+						</div>
+						<div class="card-body">
+						<div class="details">
+							{{$event->details}} 
+						</div>
+						<div class="info">
+						{{	$now = $event->event_date;}}
+							Days: {{Carbon::now()->diffInDays($now , false);}}
+						</div>
+						</div>
+					</div>
+
+
+				</div>
+
+
+
+				<div class="col-lg-3 pd-right-none no-pd pull-right">
+					<div class="widget widget-user">
+						<h3 class="title-wd text-center">UPCOMING EVENTS</h3>
+						<ul>
+							@foreach($limevents as $limevent)
+							<li>
+								<div class="usr-msg-details">
+
+									<div class="usr-mg-info">
+										<img src="{{url($limevent->image)}}" width="40" height="60" alt="">
+										<a href="{{route('userevents.show', $limevent->id)}}">
+											<h2> <b> {{ $limevent->title }} </b></h2>
+										</a>
+										<p> {{ $limevent->event_date}} </p>
+									</div>
+									<!--usr-mg-info end-->
+								</div>
+
+							</li>
+							@endforeach
+						</ul>
 					</div>
 				</div>
 			</div>

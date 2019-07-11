@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Classified\Http\Controllers;
+namespace Modules\Home\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,18 +23,28 @@ class ClassifiedCategoryController extends Controller
     {
 
        
-        return view('classified::adcategory.index')->with('categories', ClassifiedCategory::all());
+        return view('classified::adCategory.userindex')->with('categories', ClassifiedCategory::all());
        
     }
 
-    
+    public function adminIndex()
+    {
+        return view('classified::adCategory.index')->with('adcategories', ClassifiedCategory::all());
+    }
+
 
     public function create()
     {
-        return view('classified::adcategory.create');
+        return view('classified::adCategory.create');
     }
 
-    
+    public function getCategory($Category_id)
+    {
+        $classifieds=Classified::where("category_id",$Category_id)->paginate(5);
+        
+            return view('home::classifiedAd.index',['classifieds' => $classifieds])->with('limclassifieds',Classified::orderBy('updated_at','desc')->limit(4)->get())->with('userclassifieds',Classified::all())->with('categories',ClassifiedCategory::all());
+       
+    }
 
 
     public function store(Request $request)
@@ -54,24 +64,22 @@ class ClassifiedCategoryController extends Controller
 
         $category->save();
         session()->flash('sucs', 'Category added successfully');
-        return redirect(route('adminclassifiedcategory.index'));
+        return redirect(route('adcategory.index'));
     }
 
 
-   
+    public function show($id)
+    { }
 
 
-    public function edit($id)
+    public function edit(ClassifiedCategory $category)
     {
-        $category = ClassifiedCategory::find($id);
         return view('classified::adcategory.create')->with('category', $category);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, ClassifiedCategory $category)
     {
-        $category = ClassifiedCategory::find($id);
-
         if (!$request->image == null) {
             $old_image = $category->image;
             if (!$old_image == null) {
@@ -96,16 +104,15 @@ class ClassifiedCategoryController extends Controller
 
         $category->save();
         session()->flash('sucs', 'Category Updated Successfully');
-        return redirect(route('adminclassifiedcategory.index'));
+        return redirect(route('adcategory.index'));
     }
 
 
-    public function destroy($id)
+    public function destroy(ClassifiedCategory $category)
     {
-        $category=ClassifiedCategory::find($id);
         $category->delete();
 
         session()->flash('err', 'Deleted Successfully');
-        return redirect(route('adminclassifiedcategory.index'));
+        return redirect(route('adcategory.index'));
     }
 }

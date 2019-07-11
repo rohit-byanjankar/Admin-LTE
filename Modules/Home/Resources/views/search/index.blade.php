@@ -12,21 +12,7 @@
 
                         <div class="col-lg-9 col-md-8 no-pd">
                             <div class="main-ws-sec ">
-                                <div class="post-topbar">
-                                    <div class="user-picy">
-                                        <img src="http://via.placeholder.com/100x100" alt="">
-                                    </div>
-
-                                    <div class="post-st">
-                                        <ul>
-
-                                            <li><a class="" href="{{ route('userposts.create')}}" title="">Add an Article </a></li>
-                                        </ul>
-                                    </div>
-                                    <!--post-st end-->
-
-                                </div>
-                                <!--post-topbar end-->
+                                
                                 <div class="card card-header mt-2">
                                     <b>{{ $searchResults->count() }} results found for "{{ request('query') }}"</b>
                                 </div>
@@ -55,7 +41,7 @@
                                 <!--posts-section end-->
 
 
-                                <!-- For events -->
+                                
 
 
 

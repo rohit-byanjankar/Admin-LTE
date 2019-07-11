@@ -12,8 +12,7 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        if (Settings::all()->count() < 1) {
-
+        while (Settings::all()->count() < 1) {
             $settings =
                 [
                     [

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Classified\Http\Controllers;
+namespace Modules\Home\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -10,24 +10,26 @@ use Helper;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Modules\Classified\Entities\ClassifiedCategory;
+use App\User;
+use App\Notifications\verifyAd;
 
 class ClassifiedController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
 
     public function index()
     {
-        return view('classified::classifiedAd.index')->with('classifieds', Classified::all())->with('categories', ClassifiedCategory::all());
+        return view('home::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('userclassifieds', Classified::all())->with('categories', ClassifiedCategory::all());
     }
 
 
     public function create()
-    {   
-        return view('classified::classifiedAd.create')->with('categories', ClassifiedCategory::all());
+    {
+        return view('home::classifiedAd.create')->with('categories', ClassifiedCategory::all());
     }
 
 
@@ -50,41 +52,32 @@ class ClassifiedController extends Controller
         ]);
         $classified->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $classified->save();
-        return redirect()->route('adminclassified.index')->with('success', 'Ad posted successfully');
-    }
 
-
-    public function verifyAd($id)
-    {
-        $classified = Classified::find($id);
-        
-        if($classified->approved == 0)
-        {
-            $classified->approved = 1;
-            $classified->update();
-            session()->flash('sucs', 'Classified Ad Post is successfully approved.');
-            return redirect(route('adminclassified.index'));
+        // Notifying Admin to approve Ad
+        $admin = User::where('role', 'superadmin')->first();
+        if ($admin) {
+            $admin->notify(new VerifyAd($classified));
         }
+        return redirect()->route('classified.index')->with('success', 'You have succesfully placed your Ad.Please wait for our admin to verify the Ad.');
+
     }
 
 
     public function show($id)
     {
         $classified = Classified::find($id);
-        return view('classified::classifiedAd.show')->with('classified', $classified)->with('categories', ClassifiedCategory::all());
+        return view('home::classifiedAd.show')->with('classified', $classified)->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('categories', ClassifiedCategory::all());
     }
 
 
-    public function edit($id)
+    public function edit(Classified $classified)
     {
-        $classified = Classified::find($id);
-        return view('classified::classifiedAd.create')->with('categories', ClassifiedCategory::all())->with('classified', $classified);
+        return view('home::classifiedAd.create')->with('categories', ClassifiedCategory::all())->with('classified', $classified);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Classified $classified)
     {
-        $classified = Classified::find($id);
         if ($request->hasFile('image')) {
             $old_image = $classified->image;
             if (file_exists($old_image)) {
@@ -109,20 +102,18 @@ class ClassifiedController extends Controller
         $classified->save();
 
         session()->flash('success', 'Your Ad is updated successfully');
-        return redirect(route('adminclassified.index'));
+        return redirect(route('classified.index'));
     }
 
 
-    public function destroy($id)
-    {   
-        $classified = Classified::find($id);
+    public function destroy(Classified $classified)
+    {
         $old_image = $classified->image;
         if (file_exists($old_image)) {
             unlink($old_image);
         }
-        $classified-> delete();
+        $classified->delete();
         session()->flash('error', 'Your Ad is deleted successfully');
-        return redirect(route('adminclassified.index'));
-
+        return redirect(route('classified.index'));
     }
 }

@@ -10,9 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::resource('classified', 'ClassifiedController');
-Route::resource('classifiedcategory', 'ClassifiedCategoryController');
+Route::prefix('adminpanel')->group(function () {
 
-Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
-
-
+    Route::resource('adminclassified', 'ClassifiedController');
+    Route::resource('adminclassifiedcategory', 'ClassifiedCategoryController');
+    Route::put('adminclassified/{ad}/approvead', 'ClassifiedController@verifyAd')->name('adminclassified.verify-ad');
+});

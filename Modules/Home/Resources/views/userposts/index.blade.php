@@ -30,7 +30,16 @@
 								<div class="usr_quest">	
 									
 									@can('update',$post)
-									<a href="{{route('userposts.edit',$post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit">Edit your Article</i></a>
+									<a href="{{route('userposts.edit',$post->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+									@endcan
+
+									@can('delete',$post)
+									<form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('userposts.destroy', $post->id) }}" method="post" style="display:inline">
+										@csrf
+										@method('DELETE')
+										<button class="btn btn-danger btn-sm">
+											<i class="fa fa-trash-o"></i></button>
+									</form>
 									@endcan
 									
 									<div class="card card-header">

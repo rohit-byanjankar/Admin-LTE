@@ -19,11 +19,18 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
 
     Route::resource('userposts', 'UserPostController');
     Route::resource('postscategories', 'PostCategoryController');
+
     Route::resource('userevents', 'UserEventController');
+
     Route::resource('userannouncements', 'UserAnnouncementController');
+
     Route::resource('telephonedir', 'TelephoneController');
     Route::get('cat/{id}', 'PostCategoryController@getCategory')->name('cat');
 
+    Route::resource('classified', 'ClassifiedController');
+    Route::resource('classifiedcategory', 'ClassifiedController');
+
+    Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
     //extra
     Route::get('aboutUs','HomeController@aboutUs');
 });

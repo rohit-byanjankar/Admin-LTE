@@ -40,7 +40,7 @@ class ProfileController extends Controller
         //for image
         if (!$request->dp == null) {
             $old_image = $user->image;
-            if(file_exists($old_image)){
+            if (file_exists($old_image)) {
                 unlink($old_image);
             }
 

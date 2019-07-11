@@ -159,7 +159,7 @@
 </head>
 
 <body>
-	<header>
+	<header class="fixed-top">
 		<div class="container">
 			<div class="header-data">
 				<nav>
@@ -205,12 +205,7 @@
 								<span><i class="fa fa-ticket" aria-hidden="true"></i>
 								</span>
 								Classifieds </a>
-							<ul>
-
-								<li><a href="{{ route('classifiedcategory.index') }}" title="">Categories</a></li>
-
-							</ul>
-
+						
 						</li>
 					</ul>
 				</nav>
@@ -270,13 +265,15 @@
 	</div>
 	@endif
 
-	<div class="mainbody col-md-12">
+	<div class="mainbody col-md-12 mt-5">
 
 
 
 
 		@yield('content')
 	</div>
+	
+	
 	<footer>
 		<div class="footy-sec mn no-margin bottom">
 			<div class="container">
@@ -309,6 +306,7 @@
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
+	
 
 
 	@yield('scripts')

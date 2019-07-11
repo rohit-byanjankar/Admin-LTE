@@ -3,31 +3,31 @@
 
 @section('content')
         <div class="d-flex justify-content-end margin">
-            <a href="{{ route('adminclassifiedcategory.create')}}" class="btn btn-success float-right ">
+            <a href="{{ route('adminpanel/classifiedcategory.create')}}" class="btn btn-success float-right ">
                 Add Category
             </a>
         </div>
 
     <div class="card card-body panel">
-    @if($categories->count()>0)
+    @if($adcategories->count()>0)
         <table class="table table-bordered table-hover panel-body" id="category">
             <thead>
                 <th>
                     Name
                 </th>
                 <th>
-                    Classified Ads COUNT
+                    Ads Count
                 </th>
                 <th></th>
             </thead>
             <tbody>
-                @foreach($categories as $category)
+                @foreach($adcategories as $adcategory)
                 <tr>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->classifieds->count()}}</td>
+                    <td>{{ $adcategory->name }}</td>
+                    <td>{{$adcategory->classifieds->count()}}</td>
                     <td>
-                        <a href=" {{ route('adminclassifiedcategory.edit', $category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('adminclassifiedcategory.destroy', $category->id) }}" method="post" class="inline">
+                        <a href=" {{ route('classifiedcategory.edit', $adcategory->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('classifiedcategory.destroy', $adcategory->id) }}" method="post" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>

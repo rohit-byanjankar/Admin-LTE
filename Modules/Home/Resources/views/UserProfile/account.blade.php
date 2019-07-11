@@ -1,7 +1,7 @@
 @extends('layouts.master')
-@section('content')
 <div class="wrapper">
-	<section class="profile-account-setting">
+@section('content')
+		<section class="profile-account-setting">
 		<div class="container">
 			<div class="account-tabs-setting">
 				@auth
@@ -16,23 +16,6 @@
 					</div>
 					@endif
 				</div>
-
-				@if(session()->has('error'))
-				<div class="alert alert-danger text-center alert-dismissible">
-					{{ session()->get('error')}}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				@endif
-				@if(session()->has('success'))
-				<div class="alert alert-success text-center alert-dismissible">
-					{{ session()->get('success')}}
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				@endif
 				@endauth
 				<div class="row">
 					<div class="col-lg-3">

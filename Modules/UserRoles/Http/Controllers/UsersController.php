@@ -42,6 +42,16 @@ class UsersController extends Controller
         return redirect(route('users.index'));
     }
 
+    public function deactivate(User $user)
+    {
+        if ($user->deactivated != 1) {
+            $user->deactivated = 1;
+            $user->save();
+            session()->flash('sucs', 'User is successfully deactivated.');
+            return redirect(route('users.index'));
+        }
+    }
+
     public function verifyUser($id, Request $request)
     {
 
