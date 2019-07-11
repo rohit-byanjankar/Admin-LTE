@@ -7,7 +7,6 @@ use App\User;
 class Classified extends Model
 {
     protected $fillable = ['title', 'description', 'content', 'image','user_id','category_id'];
-    protected $table="advertisements";
     
     public function user()
     {

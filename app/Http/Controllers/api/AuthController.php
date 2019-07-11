@@ -22,6 +22,12 @@ class AuthController extends Controller
         if (!$user){
             return response(['status'=>'error','message'=>'User not found']);
         }
+        if ($user->deactivated == 1){
+            return response(['status'=>'error','message'=>'This user isn\'t activated']);
+        }
+        if ($user->verify == 0){
+            return response(['status'=>'error','message'=>'This user isn\'t verified']);
+        }
 
         if (Hash::check($request->password,$user->password)){
             $http = new Client;

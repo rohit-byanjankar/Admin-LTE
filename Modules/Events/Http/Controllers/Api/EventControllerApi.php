@@ -17,7 +17,11 @@ class EventControllerApi extends Controller
     public function index()
     {
         $event=Event::all();
-        return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully']);
+        if (count($event) > 0){
+            return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully']);
+        }else {
+            return response()->json(['message' => 'No Events found']);
+        }
     }
 
     /**
@@ -61,7 +65,11 @@ class EventControllerApi extends Controller
         $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $event->save();
 
-        return response()->json(['data' => $event ,'message' => 'Events stored succesfully']);
+        if ($event){
+            return response()->json(['data' => $event ,'message' => 'Event stored succesfully']);
+        }else {
+            return response()->json(['message' => 'No Events found']);
+        }
     }
 
     /**
@@ -72,7 +80,11 @@ class EventControllerApi extends Controller
     public function show($id)
     {
         $event=Event::find($id);
-        return response()->json(['data' => $event ,'message' => 'One Event retrieved succesfully']);
+        if ($event){
+            return response()->json(['data' => $event ,'message' => 'One Event retrieved succesfully']);
+        }else {
+            return response()->json(['message' => 'No Event found']);
+        }
     }
 
     /**
@@ -115,7 +127,12 @@ class EventControllerApi extends Controller
             $event->image = $event->image;
         }
         $event->save();
-        return response()->json(['data' => $event ,'message' => 'Event updated succesfully']);
+
+        if ($event){
+            return response()->json(['data' => $event ,'message' => 'Events updated succesfully']);
+        }else {
+            return response()->json(['message' => 'No Event found']);
+        }
     }
 
     /**
@@ -127,6 +144,10 @@ class EventControllerApi extends Controller
     {
         $event=Event::find($id);
         $event->delete();
-        return response()->json(['data' => $event ,'message' => 'Event deleted succesfully']);
+        if ($event){
+            return response()->json(['data' => $event ,'message' => 'Events deleted succesfully']);
+        }else {
+            return response()->json(['message' => 'No Events found']);
+        }
     }
 }

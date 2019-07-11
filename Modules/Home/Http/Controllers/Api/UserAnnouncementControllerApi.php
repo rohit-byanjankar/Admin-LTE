@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Home\Http\Controllers;
+namespace Modules\Home\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Announcement\Entities\Announcement;
 
-class UserAnnouncementController extends Controller
+class UserAnnouncementControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,10 @@ class UserAnnouncementController extends Controller
      */
     public function index()
     {
-        return view('home::announcements.index')->with('announcements',Announcement::orderBy('created_at','desc')->paginate(5))->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $announcements=Announcement::orderBy('created_at','desc')->paginate(5);
+        $limannouncements=Announcement::orderBy('created_at','desc')->limit(4)->get();
+        $data=['announcements' => $announcements , 'limited-announcement' => $limannouncements];
+        return response()->json(['data' => $data , 'message'=> 'announcement retrieved succesfully']);
     }
 
     /**
@@ -45,7 +48,9 @@ class UserAnnouncementController extends Controller
     public function show($id)
     {
         $announcemt = Announcement::find($id);
-        return view('home::announcements.show')->with('announcement',$announcemt)->with('limannouncements',Announcement::orderBy('created_at','desc')->limit(4)->get());
+        $limannouncements=Announcement::orderBy('created_at','desc')->limit(4)->get();
+        $data = ['announcement' => $announcemt , 'limited-announcement' =>$limannouncements];
+        return response()->json(['data' => $data , 'message' => 'One announcement retrieved succesfully']);
     }
 
     /**
@@ -55,7 +60,7 @@ class UserAnnouncementController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('home::edit');
     }
 
     /**

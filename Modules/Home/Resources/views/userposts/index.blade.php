@@ -61,7 +61,6 @@
 							{!! $posts->links(); !!}
 						</div>
 					</div>
-
 					<div class="col-lg-4">
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center">LATEST POSTS</h3>
@@ -81,10 +80,8 @@
 										</div>
 										<!--usr-mg-info end-->
 									</div>
-
 								</li>
 								@endforeach
-
 							</ul>
 							@else
 							<div class="usr-msg-details text-center">
@@ -93,27 +90,18 @@
 								</h3>
 							</div>
 							@endif
-
-
-
 						</div>
-
 						<!-- advertisement -->
 						<div class="widget widget-adver">
 							<img src="http://via.placeholder.com/370x270" alt="">
 						</div>
-
 					</div>
 				</div>
 			</div>
 			<!--forum-questions-sec end-->
-
 		</div>
 	</section>
 	<!--forum-page end-->
-
-
-
 
 	<div class="overview-box" id="question-box">
 		<div class="overview-edit">
@@ -130,7 +118,6 @@
 		<!--overview-edit end-->
 	</div>
 	<!--overview-box end-->
-
 </div>
 <!--theme-layout end-->
 

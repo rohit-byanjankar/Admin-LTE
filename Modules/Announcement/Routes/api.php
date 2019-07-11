@@ -14,5 +14,5 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->group(function() {
-    Route::resource('announcement','api\ApiAnnouncementController');
+    Route::resource('announcement','api\AnnouncementControllerApi');
 });

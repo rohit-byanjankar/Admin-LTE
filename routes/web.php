@@ -20,8 +20,8 @@ Route::middleware('auth')->group(function(){
 });
 
 Route::resource('adminpanel/settings','SettingsController')->middleware('admin');
-Route::get('deactivated','\App\Http\Controllers\Auth\LoginController@userDeactivated')->middleware('auth');
-Route::post('deactivated','\App\Http\Controllers\Auth\LoginController@reActivatedEmail');
+Route::get('deactivated','RegisterController@userDeactivated')->middleware('auth');
+Route::post('deactivated','RegisterController@reActivatedEmail');
 
 //REGISTER
 Auth::routes();

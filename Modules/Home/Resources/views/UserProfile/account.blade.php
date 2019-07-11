@@ -152,7 +152,6 @@
 								<!--acc-setting end-->
 							</div>
 							
-							
 							<div class="tab-pane fade" id="nav-deactivate" role="tabpanel" aria-labelledby="nav-deactivate-tab">
 								<div class="acc-setting">
 									<h3>Deactivate Account</h3>
@@ -165,19 +164,18 @@
 												<i class="fa fa-envelope"></i>
 											</div>
 										</div>
-										<div class="cp-field pb-5">
+										<div class="cp-field">
 											<h5>Password</h5>
 											<div class="cpp-fiel">
 												<input type="password" name="password" placeholder="Password">
 												<i class="fa fa-lock"></i>
 											</div>
 										</div>
-										
-										</div>
-										<div class="save-stngs pd3">
+
+										<div class="save-stngs text-center">
 											<ul>
-												<li><button type="submit" name="remove" value="deactivate">Deactivate Account</button></li>
-												<li><button type="submit" name="remove" value="delete">Delete Account</button></li>
+												<li><button type="submit" name="action" value="deactivate">Deactivate Account</button></li>
+												<li><button type="submit" name="action" value="delete">Delete Account</button></li>
 											</ul>
 										</div>
 										<!--save-stngs end-->

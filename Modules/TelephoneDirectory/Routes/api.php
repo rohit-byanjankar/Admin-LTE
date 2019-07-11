@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/telephonedirectory', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function() {
+    Route::resource('telephonedirectory','api\TelephoneDirectoryControllerApi');
+    Route::resource('telephonecategory','api\TelephoneCategoryControllerApi');
 });

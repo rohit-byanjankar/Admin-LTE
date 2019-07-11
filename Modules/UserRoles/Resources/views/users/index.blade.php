@@ -30,7 +30,7 @@
                                     <form action="{{ route('users.verify-user', $user->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" name="activate" value="verifiedUser" class="btn btn-success btn-sm">
+                                        <button type="submit" name="activate" value="verifyUser" class="btn btn-success btn-sm">
                                             Verify User
                                         </button>
                                     </form>
@@ -39,7 +39,7 @@
                                     <form action="{{ route('users.verify-user', $user->id) }}" method="POST" class="margin">
                                         @csrf
                                         @method('PUT')
-                                        <button type="submit" name="activate" value="activatedUser" class="btn btn-success btn-sm">
+                                        <button type="submit" name="activate" value="activateUser" class="btn btn-success btn-sm">
                                             Activate User
                                         </button>
                                     </form>

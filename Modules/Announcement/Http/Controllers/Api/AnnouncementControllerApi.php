@@ -15,9 +15,12 @@ class AnnouncementControllerApi extends Controller
      */
     public function index()
     {
-        $announcement=Announcement::all();
-        $message=['Announcement' => 'Announcement retrieved succesfully'];
-        return response()->json(['data' => $announcement,'message' => $message]);
+        $announcement = Announcement::all();
+        if (count($announcement) > 0) {
+            return response()->json(['data' => $announcement, 'message' => 'Announcement retrieved succesfully']);
+        } else {
+            return response()->json(['message' => 'No Announcement found']);
+        }
     }
 
     /**
@@ -41,12 +44,17 @@ class AnnouncementControllerApi extends Controller
             'details' => 'required',
             'published_till' => 'required|date',
         ]);
-        $announcement=Announcement::create([       //storing to database
-            'title'=> $request->title,
-            'details'=> $request->details,
-            'published_till'=>$request->published_till
+        $announcement = Announcement::create([       //storing to database
+            'title' => $request->title,
+            'details' => $request->details,
+            'published_till' => $request->published_till
         ]);
-        return response()->json(['data'=>$announcement,'message'=>'Announcement created succesfully']);
+
+        if ($announcement) {
+            return response()->json(['data' => $announcement, 'message' => 'Announcement created succesfully']);
+        } else {
+            return response()->json(['message' => 'No Announcement found']);
+        }
     }
 
     /**
@@ -57,7 +65,11 @@ class AnnouncementControllerApi extends Controller
     public function show($id)
     {
         $announcement = Announcement::find($id);
-        return response()->json(['data' => $announcement,'message' => 'One Announcement retrieved succesfully']);
+        if ($announcement) {
+            return response()->json(['data' => $announcement, 'message' => 'One Announcement retrieved succesfully']);
+        } else {
+            return response()->json(['message' => 'No Announcement found']);
+        }
     }
 
     /**
@@ -67,7 +79,7 @@ class AnnouncementControllerApi extends Controller
      */
     public function edit($id)
     {
-       //
+        //
     }
 
     /**
@@ -83,13 +95,17 @@ class AnnouncementControllerApi extends Controller
             'details' => 'required',
             'published_till' => 'required|date',
         ]);
-        $announcement=Announcement::find($id);
+        $announcement = Announcement::find($id);
         $announcement->title = $request->title;
         $announcement->details = $request->details;
         $announcement->published_till = $request->published_till;
         $announcement->save();
 
-        return response()->json(['data' => $announcement,'message' => 'Announcement updated succesfully']);
+        if ($announcement) {
+            return response()->json(['data' => $announcement, 'message' => 'Announcement updated succesfully']);
+        } else {
+            return response()->json(['message' => 'No Announcement found']);
+        }
     }
 
     /**
@@ -99,9 +115,13 @@ class AnnouncementControllerApi extends Controller
      */
     public function destroy($id)
     {
-        $announcement=Announcement::find($id);
+        $announcement = Announcement::find($id);
         $announcement->forceDelete();
 
-        return response(['data' => $announcement,'message' => 'Announcement deleted succesfully']);
+        if ($announcement) {
+            return response(['data' => $announcement, 'message' => 'Announcement deleted succesfully']);
+        } else {
+            return response()->json(['message' => 'No Announcement found']);
+        }
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
-namespace Modules\Home\Http\Controllers;
+namespace Modules\Home\Http\Controllers\api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\TelephoneDirectory\Entities\PhoneDirectory;
 use Modules\TelephoneDirectory\Entities\PhoneCategory;
+use Modules\TelephoneDirectory\Entities\PhoneDirectory;
 
-class TelephoneController extends Controller
+class TelephoneControllerApi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,7 +31,7 @@ class TelephoneController extends Controller
             if(!isset($groupedContacts[$category->name]["list"])){
                 $groupedContacts[$category->name]["list"]=[];
             }
-          
+
             foreach($contacts as $contact){
                 if($contact->phone_category_id==$category->id){
                     array_push($groupedContacts[$category->name]["list"],$contact);
@@ -39,7 +39,8 @@ class TelephoneController extends Controller
             }
             $i++;
         }
-        return view('home::telephonedir.index',compact("categories","groupedContacts"));
+        $data = ['categories' => $categories , 'groupContacts' => $groupedContacts];
+        return response()->json(['data' => $data , 'message' => 'Contact retrieved succesfully']);
     }
 
     /**
@@ -102,7 +103,7 @@ class TelephoneController extends Controller
         //
     }
 
-    public function telephoneCategory(Request $request,$cat)
+    public function telephoneCategory($cat)
     {
         $msg = PhoneDirectory::find($cat);
         return response()->json(array('msg'=> $msg), 200);

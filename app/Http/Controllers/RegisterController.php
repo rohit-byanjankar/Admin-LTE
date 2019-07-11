@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\userReactivated;
+use App\Notifications\userReactivate;
 use App\Notifications\VerifyUser;
 use Illuminate\Http\Request;
 use App\User;
@@ -31,7 +31,7 @@ class RegisterController extends Controller
         $phone = $request->phoneNumber;
         $address = $request->get('address');
         $image = $request->file('image');
-        $destinationPath = 'uploads/'; 
+        $destinationPath = 'uploads/';
 
         $user = user::create([
             'email' => $email,
@@ -44,29 +44,32 @@ class RegisterController extends Controller
         $user->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $user->save();
 
-        $admin=User::where('role','superadmin')->first();
-        if($admin){
+        $admin = User::where('role', 'superadmin')->first();
+        if ($admin) {
             $admin->notify(new VerifyUser($user));
         }
-        return redirect('/login')->with('success','You have succesfully registered.Please wait for our admin to verify you.');
-
+        return redirect('/login')->with('success', 'You have succesfully registered.Please wait for our admin to verify you.');
     }
 
+    public function userDeactivated(){
+       return view('userDeactivate');
+    }
 
     public function reActivatedEmail(Request $request){
-        $email=$request->email;
-        $password=$request->password;
-        $phone_number=$request->phone_number;
-        if ($email == Auth::user()->email && Hash::check($password,Auth::user()->password) && $phone_number == Auth::user()->phone_number)
+    $email=$request->email;
+    $password=$request->password;
+    $phone_number=$request->phone_number;
+    if ($email == Auth::user()->email && Hash::check($password,Auth::user()->password) && $phone_number == Auth::user()->phone_number)
         {
             $user=Auth::user();
             $admin=User::where('role','superadmin')->first();
             if($admin){
-                $admin->notify(new userReactivated($user));
+                $admin->notify(new userReactivate($user));
             }
-        return redirect()->back()->with('success','Sent notification to admin for re-activation of your account');
+            return redirect()->back()->with('success','Sent notification to admin for re-activation of your account');
         }else{
             return redirect()->back()->with('error','Credentials don\'t match');
         }
     }
 }
+

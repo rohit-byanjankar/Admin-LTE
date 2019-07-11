@@ -34,7 +34,9 @@ class TelephoneCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //validation is done in app\request\createcategoryrequest in rule method 
+        $request->validate([
+            'name' => 'required'
+        ]);
         PhoneCategory::create([  //Category is model(table) and create is a function provided by model class 
             'name'=> $request->name  // the first name is column in database and second name is form name
           ]);
@@ -71,8 +73,10 @@ class TelephoneCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required'
+        ]);
         $phoneCategory=PhoneCategory::find($id);
-       //validation is done in app\request\createcategoryrequest in rule method 
        $phoneCategory->update([  //Category is model(table) and create is a function provided by model class 
         'name'=> $request->name  // the first name is column in database and second name is form name
       ]);
