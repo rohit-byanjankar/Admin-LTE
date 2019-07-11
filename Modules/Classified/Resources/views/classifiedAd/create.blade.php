@@ -6,19 +6,21 @@
 <div class="container">
     <div class="main-section-data">
         <div class="card card-default mr-5 ml-5 mt-5">
+            @include('partials.errors')
             <div class=" card-header text-bold text-center ">
                 Create an ad
             </div>
 
             <div class="card-body">
-                @include('partials.errors')
-                <form action="{{ route('userposts.store') }}" method="POST" enctype="multipart/form-data">
+
+                <form action="{{ route('classified.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
                         <label for="title"> Title </label>
-                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Post">
+                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Ad" required min=5 max=20>
                     </div>
+    
 
                     <div class="form-group">
                         <label for="description"> Description </label>
@@ -26,37 +28,26 @@
                     </textarea>
 
                     </div>
-                    <div class="form-group">
-                        <label for="content"> Content </label>
-                        <textarea name="content" id="content" cols="5" rows="5" class="form-control">
-                    </textarea>
-                    </div>
+                    
+
 
 
                     <div class="form-group">
                         <label for="image"> Image </label>
                         <input type="file" class="form-control" name='image' id='image'>
                     </div>
-
-
-<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/create.blade.php
-
                     <div class="form-group">
-                        <label for="category">Category</label>
+                        <label for="price"> Price </label>
+                        <input type="number" class="form-control" name='price' min=1 required>
+                    </div>
+
+                    @if($categories->count()>0)
+                    <div class="form-group">
+                        <label for="Adcategory">Select a Category:</label>
                         <select name="category" id="category" class="form-control">
                             @foreach($categories as $category)
-                            <option value=" {{ $category->id }} " @if(isset($post)) @if($category->id == $post->category_id)
+                            <option value=" {{ $category->id }} " @if(isset($classified)) @if($category->id == $classified->category_id)
                                 selected
-=======
-                        <div class="form-group">
-                    <label for="Adcategory">Classified Category</label>
-                    <select name="category" id="category" class="form-control">
-                        @foreach($categories as $category)
-                            <option value=" {{ $category->id }} "
-                               @if(isset($classified))
-                                @if($category->id == $classified->category_id)
-                                        selected
->>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/create.blade.php
                                 @endif
                                 @endif
                                 >
@@ -69,40 +60,11 @@
 
                         </select>
                     </div>
-
-
-                    @if($tags->count()>0)
-                    <div class="form-group">
-                        <label for="tags"> Tags </label>
-
-<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/create.blade.php
-                        <select name="tags[]" id="tags" class="form-control tags-selector" multiple>
-                            @foreach($tags as $tag)
-                            <option value="{{ $tag->id }}" @if(isset($post)) @if( $post->hasTag($tag->id ))
-                                selected
-                                @endif
-                                @endif
-                                >
-                                {{ $tag->name }}
-                            </option>
-                            @endforeach
-                        </select>
-                    </div>
                     @endif
-=======
-                        <div class="form-group mt-4">
-                            <button type="submit" class="btn btn-success">
-                                <!-- {{ isset($classified) ? 'EDIT THE POST' : 'CREATE NOW!' }} -->
-                                create
-                            </button>
-                        </div>
->>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/create.blade.php
 
-
-
-                    <div class="form-group">
+                    <div class="form-group mt-4">
                         <button type="submit" class="btn btn-success">
-                            {{ isset($post) ? 'EDIT THE POST' : 'CREATE NOW!' }}
+                            {{ isset($classifieds) ? 'EDIT THE Ad' : 'CREATE NOW!' }}
                         </button>
                     </div>
 
@@ -128,6 +90,19 @@
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+<script type="text/javascript">
+
+  $(function(){
+    changeLanguage("dyn", "fa");
+    $('#language').change(function(){	
+	 lang = $(this).val();
+	 var control = $('#dyn');
+	 control.attr('lang', lang);
+	 var id = control.attr('id');
+	 changeLanguage(id, lang);
+    });
+   });
+  </script>
 
 
 

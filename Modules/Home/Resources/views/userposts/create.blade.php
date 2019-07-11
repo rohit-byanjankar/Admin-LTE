@@ -12,29 +12,41 @@
 
             <div class="card-body">
                 @include('partials.errors')
-                <form action="{{ route('userposts.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ isset($post) ? route('userposts.update', $post->id) : route('userposts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @if(isset($post))
+                    @method('PUT')
+                    @endif
 
                     <div class="form-group">
                         <label for="title"> Title </label>
-                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Post">
+                        <input type="text" class="form-control" name='title' id='title' placeholder="Title of your Post" value="{{ isset($post) ? $post->title : ''}}">
                     </div>
 
                     <div class="form-group">
                         <label for="description"> Description </label>
-                        <textarea name="description" id="description" cols="5" rows="5" class="form-control">
+                        <textarea name="description" cols="1" rows="5" class="form-control">
+                        {{ isset($post) ? $post->description : ''}}
                     </textarea>
 
                     </div>
                     <div class="form-group">
                         <label for="content"> Content </label>
                         <textarea name="content" id="content" cols="5" rows="5" class="form-control">
-                    </textarea>
+                        {{ isset($post) ? $post->content : ''}}
+                        </textarea>
                     </div>
 
-
+                    Image:
+                    @if(isset($post))
                     <div class="form-group">
-                        <label for="image"> Image </label>
+                        <img src="{{ asset($post->image)}}" alt="" width="20%">
+                    </div>
+                    @endif
+                    
+                    
+                    <div class="form-group">
+                        
                         <input type="file" class="form-control" name='image' id='image'>
                     </div>
 

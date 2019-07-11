@@ -19,16 +19,13 @@
         }
     }
     @endphp
-        <form action="{{url('role-permission-save')}}" method="post">
+        <form action="{{url('adminpanel/role-permission-save')}}" method="post">
             {{csrf_field()}}
                 <h2 class="text-bold text-light-blue">Permission for {{$roleName}}</h2>
                 @php
                         $index=0;
                 @endphp
         <div class="container">
-{{--            @dd($permissions);--}}
-{{--            @dd($permission_array);--}}
-{{--                @dd(Auth::user()->custom);--}}
             @foreach($permissions as $model=>$permission)
             <div class="col-md-5">
                 <div class="box-header">

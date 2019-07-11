@@ -12,6 +12,7 @@ use Modules\UserRoles\Entities\Permission;
 use Modules\Classified\Entities\Classified;
 use Modules\Article\Entities\Post;
 
+
 class User extends Authenticatable
 {
     use HasApiTokens, Notifiable;
@@ -68,7 +69,7 @@ class User extends Authenticatable
     public function advertisements()
     {
         
-        return $this->hasMany(Advertisement::class);
+        return $this->hasMany(Classified::class);
     }
 
     public function getPermissions(){

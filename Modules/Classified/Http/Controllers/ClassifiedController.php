@@ -20,7 +20,7 @@ class ClassifiedController extends Controller
 
     public function index()
     {
-        return view('classified::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('userclassifieds',Classified::all());
+        return view('classified::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('userclassifieds',Classified::all())->with('categories',ClassifiedCategory::all());
     }
 
   
@@ -32,28 +32,31 @@ class ClassifiedController extends Controller
    
     public function store(Request $request)
     {
+        $request->validate([
+            'description' => 'required||min:10||max:100'
+        ]);
+
         $image = $request->image;
         $destinationPath = 'uploads/';
         $classified = Classified::create([       //storing to database
             'title' => $request->title,
             'description' => $request->description,
-            'content' => $request->content,
             'image' => '-',
-            'published_at' => $request->published_at,
             'user_id' => auth::user()->id,
-            'category_id' => $request->category 
+            'category_id' => $request->category ,
+            'price' => $request->price
 
         ]);
         $classified->image = Helper::uploadFile($destinationPath, $image); //using helper file
         $classified->save();
-        return redirect()->back()->with('success', 'Ad posted successfully');
+        return redirect()->route('classified.index')->with('success', 'Ad posted successfully');
     }
 
    
     public function show($id)
     {
         $classified = Classified::find($id);
-        return view('classified::classifiedAd.show')->with('classified', $classified)->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get());;
+        return view('classified::classifiedAd.show')->with('classified', $classified)->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('categories',ClassifiedCategory::all());
     }
 
    

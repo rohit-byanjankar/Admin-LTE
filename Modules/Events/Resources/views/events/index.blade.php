@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 
+
 @section('content')
 
     @can('create', \Modules\Events\Entities\Event::class)

@@ -1,36 +1,52 @@
 @extends('layouts.master')
 
-@section('content')
 <div class="wrapper">
+@section('content')
 	<section class="forum-page">
 		<div class="container">
 			<div class="col-lg-3 col-md-4 pd-left-none no-pd">
 				<div class="col-lg-6 col-md-8 no-pd">
-					<div class="main-ws-sec">
-						<div class="post-st">
-							<ul>
 
-								<li>
-									<a class="" href="{{ route('ad.create')}}" title=""> <i class="fa fa-plus"> Advertisement</i></a></li>
-							</ul>
-						</div>
-						<!--classified-st end-->
-					</div>
 				</div>
 			</div>
 			<div class="forum-questions-sec">
 				<div class="row">
-					<div class="col-lg-8">
+					<div class="col-lg-3 tabhead">
+						<div class="card card-header title-wd">
+							Categories
+						</div>
+						@foreach($categories as $category)
+						<div class="card card-body">
+							<a href="{{route('adcat',$category->id)}}">
+								{{ $category->name}} ({{$category->classifieds->count()}})
+							</a>
+						</div>
+						@endforeach
+					</div>
+
+					<div class="col-lg-6 ad-content">
+						<div class="main-ws-sec">
+							<div class="ad-st">
+								<ul>
+
+									<li>
+										<a class="" href="{{ route('classified.create')}}" title=""> <i class="fa fa-plus"> Advertisement</i></a></li>
+								</ul>
+							</div>
+							<!--classified-st end-->
+						</div>
 						@if($classifieds->count()>0)
+						
+						
 						@foreach($classifieds as $classified)
 						<div class="forum-questions  mt-2 mb-2">
 							<div class="usr-question">
-								<div class="usr_img">
+								<div class="ad_img img-rounded">
 									<a href="{{ route('classified.show', $classified->id) }}">
-										<img src="{{ url($classified->image)}}" height="60" alt="">
+										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
 									</a>
 								</div>
-								<div class="usr_quest">
+								<div class="ad_quest">
 
 									<div class="card card-header">
 										<h3> {{ $classified->title }} </h3>
@@ -45,11 +61,7 @@
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($classified->published_at)->format('d D-M Y') }} <br>
 
 									</span>
-<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/index.blade.php
-									<p class="pull-right font-italic"> By :asd<br> Contact:</p> <br>
-=======
 									<p class="pull-right font-italic"> By : {{$classified->user->name}} <br> Contact: {{$classified->user->phone_number}} </p> <br>
->>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/index.blade.php
 									<p class="pull-right font-italic"> </p>
 
 								</div>
@@ -76,9 +88,12 @@
 						</div>
 					</div>
 
-					<div class="col-lg-4">
+					<div class="col-lg-3 tabhead">
 						<div class="widget widget-user">
-							<h3 class="title-wd text-center">Latest classifieds</h3>
+						
+
+								<h3 class="title-wd text-center"> LATEST ADS</h3>
+							
 							<ul>
 								@if($limclassifieds->count()>0)
 								@foreach($limclassifieds as $limclassified)
@@ -90,13 +105,8 @@
 											</a>
 										</div>
 										<div class="usr-mg-info">
-<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/index.blade.php
-											<h2> <b> {{ $limadvertisement->title }} </b></h2>
-
-=======
 											<h2> <b> {{ $limclassified->title }} </b></h2>
-	
->>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/index.blade.php
+
 										</div>
 										<!--usr-mg-info end-->
 									</div>
@@ -108,7 +118,7 @@
 							@else
 							<div class="usr-msg-details text-center">
 								<h3>
-									No Recent classifieds...
+									No Recent Posts...
 								</h3>
 							</div>
 							@endif
@@ -117,47 +127,30 @@
 
 						</div>
 
-<<<<<<< HEAD:Modules/Advertisement/Resources/views/classifiedAd/index.blade.php
+						<!-- advertisement -->
+						<div class="widget widget-adver">
+							<img src="http://via.placeholder.com/370x270" alt="">
+						</div>
 
 						<div class="widget widget-user">
-							@foreach($useradvertisements as $useradvertisement)
-							<h3 class="title-wd text-center">Your advertisements</h3>
+							<h3 class="title-wd text-center">Your classifieds</h3>
+							@foreach($userclassifieds as $userclassified)
 
 							<ul>
 								<li>
 									<div class="usr-msg-details">
 										<div class="usr_img">
-											<a href="{{ route('ad.show',$useradvertisement->id)}}">
-												<img height="60px" width="200px" src="{{ url($useradvertisement->image)}}" alt="">
+											<a href="{{ route('classified.show',$userclassified->id)}}">
+												<img height="60px" width="200px" src="{{ url($userclassified->image)}}" alt="">
 											</a>
 										</div>
 										<div class="usr-mg-info">
-											<h2> <b> {{ $useradvertisement->title }} </b></h2>
+											<h2> <b> {{ $userclassified->title }} </b></h2>
 
-=======
-						
-							<div class="widget widget-user">
-								@foreach($userclassifieds as $userclassified)
-								<h3 class="title-wd text-center">Your classifieds</h3>
-
-								<ul>
-									<li>
-										<div class="usr-msg-details">
-											<div class="usr_img">
-												<a href="{{ route('classified.show',$userclassified->id)}}">
-													<img height="60px" width="200px" src="{{ url($userclassified->image)}}" alt="">
-												</a>
-											</div>
-											<div class="usr-mg-info">
-												<h2> <b> {{ $userclassified->title }} </b></h2>
-
-											</div>
-											<!--usr-mg-info end-->
->>>>>>> 1a032b2de1f1076884c68280284a5ad154c2c19a:Modules/Classified/Resources/views/classifiedAd/index.blade.php
 										</div>
 										<!--usr-mg-info end-->
 									</div>
-
+									<!--usr-mg-info end-->
 								</li>
 							</ul>
 							@endforeach
@@ -165,10 +158,9 @@
 
 
 
+
+
 						<!-- classified -->
-						<div class="widget widget-adver">
-							<img src="http://via.placeholder.com/370x270" alt="">
-						</div>
 
 					</div>
 				</div>

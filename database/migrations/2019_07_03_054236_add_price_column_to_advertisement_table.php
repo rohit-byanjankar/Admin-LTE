@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdCategoriesTable extends Migration
+class AddPriceColumnToAdvertisementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateAdCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('adcategories', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('image')->default(null);
-            $table->timestamps();
+        Schema::table('classifieds', function (Blueprint $table) {
+            $table->integer('price');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateAdCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::table('classifieds', function (Blueprint $table) {
+            $table->integer('price');
+        });
     }
 }

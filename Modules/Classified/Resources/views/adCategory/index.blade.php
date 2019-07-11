@@ -3,7 +3,7 @@
 
 @section('content')
         <div class="d-flex justify-content-end margin">
-            <a href="{{ route('adcategory.create')}}" class="btn btn-success float-right ">
+            <a href="{{ route('adminpanel/classifiedcategory.create')}}" class="btn btn-success float-right ">
                 Add Category
             </a>
         </div>
@@ -24,10 +24,10 @@
                 @foreach($adcategories as $adcategory)
                 <tr>
                     <td>{{ $adcategory->name }}</td>
-                    <td>s</td>
+                    <td>{{$adcategory->classifieds->count()}}</td>
                     <td>
-                        <a href=" {{ route('adcategory.edit', $adcategory->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
-                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('adcategory.destroy', $adcategory->id) }}" method="post" class="inline">
+                        <a href=" {{ route('classifiedcategory.edit', $adcategory->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                        <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('classifiedcategory.destroy', $adcategory->id) }}" method="post" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>

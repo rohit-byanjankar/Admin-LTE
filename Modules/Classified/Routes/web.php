@@ -10,13 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('classified', 'ClassifiedController');
+Route::resource('classifiedcategory', 'ClassifiedCategoryController');
 
-
-Route::prefix('adminpanel')->middleware('auth')->group(function () {
-    Route::resource('classified', 'ClassifiedController');
-    Route::resource('classifiedcategory', 'ClassifiedCategoryController');
-    Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
-});
-
+Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
 
 

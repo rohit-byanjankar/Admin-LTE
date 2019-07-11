@@ -45,6 +45,13 @@
 									</div>
 								</div>
 								<!--tags-sec end-->
+
+								<div class="widget widget-adver">
+									<img src="http://via.placeholder.com/370x270" alt="">
+								</div>
+								<!--ad-sec end-->
+
+
 							</div>
 							<!--main-left-sidebar end-->
 						</div>
@@ -59,7 +66,7 @@
 									<div class="post-st">
 										<ul>
 
-											<li><a class="" href="{{ route('userposts.create')}}" title="">Add a Post</a></li>
+											<li><a class="" href="{{ route('userposts.create')}}" title="">Add an Article </a></li>
 										</ul>
 									</div>
 									<!--post-st end-->
@@ -138,9 +145,17 @@
 									<h3>Community Media</h3>
 									<span>Connect with your Community</span>
 									<div class="sign_link">
-										<h3><a href="{{ route('userposts.create') }}" title="" class="">Create a Post</a></h3>
+										<h3><a href="{{ route('userposts.create') }}" title="" class="">Create an Article</a></h3>
 									</div>
 
+								</div>
+								<!-- advertisement -->
+								<div class="widget widget-adver">
+									<img src="http://via.placeholder.com/370x270" alt="">
+								</div>
+								<!-- advertisement -->
+								<div class="widget widget-adver">
+									<img src="http://via.placeholder.com/370x270" alt="">
 								</div>
 							</div>
 							<!--right-sidebar end-->

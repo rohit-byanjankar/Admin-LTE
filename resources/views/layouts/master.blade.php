@@ -153,6 +153,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
+
 	@yield('css')
 
 </head>
@@ -216,8 +217,10 @@
 				<!-- nav end-->
 
 				<div class="search-bar">
-					<form>
-						<input type="text" name="search" placeholder="Search...">
+					<form action="{{route('search')}}" method="POST" role="search">
+						{{ csrf_field() }}
+
+						<input type="text" name="query" placeholder="Search...">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
 				</div>
@@ -243,14 +246,35 @@
 				</div>
 			</div>
 			<!--header-data end-->
+
 		</div>
 	</header>
 	<!--header end-->
 
 
+	@if(session()->has('error'))
+	<div class="alert alert-danger text-center alert-dismissible col-md-12 mt-5">
+		{{ session()->get('error')}}
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	@endif
 
+	@if(session()->has('success'))
+	<div class="alert alert-info text-center alert-dismissible col-md-12 mt-5">
+		{{ session()->get('success')}}
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	@endif
 
 	<div class="mainbody col-md-12">
+
+
+
+
 		@yield('content')
 	</div>
 	<footer>
@@ -285,5 +309,7 @@
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
+
+
 	@yield('scripts')
 </body>

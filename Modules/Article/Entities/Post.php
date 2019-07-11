@@ -6,8 +6,10 @@ namespace Modules\Article\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\User;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class Post extends Model
+class Post extends Model implements Searchable
 {
     use SoftDeletes;
     protected $fillable = [
@@ -40,5 +42,15 @@ class Post extends Model
     {
         return ["delete", "update", "create","view"];
     }
+    
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('userposts.show', $this->id);
 
+        return new SearchResult(
+            $this,
+            $this->title,
+            $url
+         );
+    }
 } 
