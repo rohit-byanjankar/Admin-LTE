@@ -58,7 +58,7 @@ class ClassifiedCategoryController extends Controller
         $category = ClassifiedCategory::find($id);
         if (!$request->image == null) {
             $old_image = $category->image;
-            if (!$old_image == null) {
+            if (file_exists($old_image)) {
                 unlink($old_image);
             }
 
