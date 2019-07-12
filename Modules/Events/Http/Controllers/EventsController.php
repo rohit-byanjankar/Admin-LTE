@@ -11,6 +11,7 @@ use Illuminate\Routing\Controller;
 use Symfony\Contracts\EventDispatcher\Event as SymfonyEvent;
 use Modules\Events\Entities\Event;
 use Helper;
+use Illuminate\Support\Facades\Storage;
 
 class EventsController extends Controller
 {
@@ -63,7 +64,7 @@ class EventsController extends Controller
         if ($request->image != null) {
             $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
         }
-        
+
         $event->save();
 
         session()->flash('sucs', 'Event Created Successfully');
@@ -112,7 +113,7 @@ class EventsController extends Controller
         $event->published_at = $request->published_at;
         if (!$request->image == null) {
             $old_image = $event->image;
-            if (!$old_image == null) {
+            if (file_exists($old_image)) {
                 unlink($old_image);
             }
             $image = $request->image;
@@ -134,6 +135,10 @@ class EventsController extends Controller
     public function destroy($id)
     {
         $event = Event::where('id', $id);
+        $old_image = $event->image;
+        if (file_exists($old_image)) {
+            unlink($old_image);
+        }
         $event->delete();
         return redirect(route('events.index'));
         session()->flash('err', 'Event deleted Successfully');

@@ -103,6 +103,10 @@ class ClassifiedCategoryController extends Controller
     public function destroy($id)
     {
         $category=ClassifiedCategory::find($id);
+        $old_image = $category->image;
+        if (file_exists($old_image)) {
+            unlink($old_image);
+        }
         $category->delete();
 
         session()->flash('err', 'Deleted Successfully');

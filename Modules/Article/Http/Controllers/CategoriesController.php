@@ -43,8 +43,7 @@ class CategoriesController extends Controller
             'name' => $request->name,
             'image' => '-',
         ]);
-        if(!$request->image==null)
-        {
+        if (!$request->image == null) {
 
             $category->image = Helper::uploadFile($destinationPath, $image); //using helper file
         }
@@ -68,8 +67,7 @@ class CategoriesController extends Controller
     {
         if (!$request->image == null) {
             $old_image = $category->image;
-            if(!$old_image==null)
-            {
+            if (file_exist($old_image)) {
                 unlink($old_image);
             }
             $image = $request->image;
@@ -81,10 +79,9 @@ class CategoriesController extends Controller
 
         if (!$request->name == null) {
             $category->name = $request->name;
-         }
-         else{
-             $category->name = $category->name;
-         }
+        } else {
+            $category->name = $category->name;
+        }
 
         $category->save();
         session()->flash('sucs', 'Category Updated Successfully');
@@ -96,6 +93,10 @@ class CategoriesController extends Controller
         if ($category->posts->count() > 0) {
             session()->flash('err', 'There are posts associated with this category.');
             return redirect()->back();
+        }
+        $old_image = $category->image;
+        if (file_exists($old_image)) {
+            unlink($old_image);
         }
         $category->delete();
 

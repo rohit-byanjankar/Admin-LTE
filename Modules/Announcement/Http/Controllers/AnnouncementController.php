@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Announcement\Entities\Announcement;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
@@ -15,6 +17,14 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
+        $announcements = Announcement::all();
+
+        foreach ($announcements as $announcement) {
+            if ($announcement->published_till < Carbon::now()) {
+                Storage::disk('local')->append('archives/Old Announcement.txt', $announcement);
+                $announcement->delete();
+            }
+        }
         return view('announcement::announcements.index')->with('announcements', Announcement::all());
     }
 
@@ -39,12 +49,12 @@ class AnnouncementController extends Controller
             'details' => 'required',
             'published_till' => 'required|date',
         ]);
-        $announcement=Announcement::create([       //storing to database
-            'title'=> $request->title,
-            'details'=> $request->details,
-            'published_till'=>$request->published_till
+        $announcement = Announcement::create([       //storing to database
+            'title' => $request->title,
+            'details' => $request->details,
+            'published_till' => $request->published_till
         ]);
-        session()->flash('sucs','Announcement created successfully');
+        session()->flash('sucs', 'Announcement created successfully');
         return redirect(route('announcements.index'));
     }
 
@@ -55,8 +65,12 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
+
         $announcement = Announcement::find($id);
-        return view('announcement::announcements.show')->with('announcement',$announcement);    }
+
+
+        return view('announcement::announcements.show')->with('announcement', $announcement);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -65,7 +79,7 @@ class AnnouncementController extends Controller
      */
     public function edit(Announcement $announcement)
     {
-        return view('announcement::announcements.create')->with('announcement',$announcement);
+        return view('announcement::announcements.create')->with('announcement', $announcement);
     }
 
     /**
@@ -83,12 +97,12 @@ class AnnouncementController extends Controller
         ]);
         $announcement->title = $request->title;
         $announcement->details = $request->details;
-        $announcement->published_at = $request->published_at;
+
         $announcement->published_till = $request->published_till;
         $announcement->save();
 
-    session()->flash('sucs','Announcement is updated successfully');
-    return redirect(route('announcements.index'));
+        session()->flash('sucs', 'Announcement is updated successfully');
+        return redirect(route('announcements.index'));
     }
 
     /**
@@ -98,8 +112,9 @@ class AnnouncementController extends Controller
      */
     public function destroy(Announcement $announcement)
     {
+
         $announcement->forceDelete();
-        session()->flash('err','Announcement deleted Successfully');
-        return redirect(route('announcements.index'));  
+        session()->flash('err', 'Announcement deleted Successfully');
+        return redirect(route('announcements.index'));
     }
 }

@@ -35,18 +35,18 @@
 								</div>
 								<!--user-data end-->
 
-								<div class="tags-sec full-width">
-									<ul>
-										<li>Some Content</li>
-									</ul>
-									<div class="cp-sec">
-										<img src="images/logo2.png" alt="">
-										<p><img src="images/cp.png" alt="">Copyright 2018</p>
+								<div class="latestannouncement">
+									<div class="card card-header announcementlatesttitle">
+										Latest announcements
+									</div>
+									<div class="card card-body pull-left announcementmargin">
+
+										<iframe src="{{route('latestannouncements')}}" height="200px" frameborder="0" scrolling="auto" width="100%"></iframe>
 									</div>
 								</div>
-								<!--tags-sec end-->
+								<!--for latest announcements -->
 
-								<div class="widget widget-adver">
+								<div class="widget widget-adver mt-3">
 									<img src="http://via.placeholder.com/370x270" alt="">
 								</div>
 								<!--ad-sec end-->
