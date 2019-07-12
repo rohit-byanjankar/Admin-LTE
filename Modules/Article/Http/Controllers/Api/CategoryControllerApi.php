@@ -57,7 +57,7 @@ class CategoryControllerApi
     public function show($id)
     {
         $category=Category::find($id);
-        if ($category){
+        if ($category->count() > 0){
             return response()->json(['data' => $category,'message ' => 'One Category retrieved succesfully']);
         }else{
             return response()->json(['message ' => 'No category found']);
@@ -108,7 +108,7 @@ class CategoryControllerApi
             return response()->json(['message' => 'Category associated with post']);
         }
         $category->delete();
-        if ($category){
+        if ($category->count() > 0){
             return response()->json(['data' => $category,'message ' => 'Category deleted succesfully']);
         }else{
             return response()->json(['message ' => 'No category found']);

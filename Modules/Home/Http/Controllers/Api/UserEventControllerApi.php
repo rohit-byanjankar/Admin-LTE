@@ -18,7 +18,11 @@ class UserEventControllerApi extends Controller
         $events=Event::orderBy('event_date')->paginate(5);
         $limevents=Event::orderBy('event_date','asc')->limit(4)->get();
         $data = ['event' => $events , 'limited-event' =>$limevents];
-        return response()->json(['data' => $data , 'message' => 'Event retrieved succesfully']);
+        if (count($events) > 0){
+              return response()->json(['data' => $data , 'message' => 'Event retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Events found']);
+        }
     }
 
     /**
@@ -47,10 +51,14 @@ class UserEventControllerApi extends Controller
      */
     public function show($id)
     {
-        $event = Event::find($id);
+        $events = Event::find($id);
         $limevents=Event::orderBy('event_date','asc')->limit(4)->get();
-        $data = ['event' => $event , 'limited-event' =>$limevents];
-        return response()->json(['data' => $data , 'message' => 'One Event retrieved succesfully']);
+        $data = ['event' => $events , 'limited-event' =>$limevents];
+        if (count($limevents) > 0){
+            return response()->json(['data' => $data , 'message' => 'One Event retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Events found']);
+        }
     }
 
     /**

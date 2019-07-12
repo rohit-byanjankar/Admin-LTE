@@ -12,7 +12,7 @@ class PermissionControllerApi extends Controller
 {
     public function selectRole(){
         $roles= Role::all();
-        if ($roles){
+        if (count($roles) > 0){
             return response()->json(['data' => $roles,'message ' => 'Role retrieved succesfully']);
         }else{
             return response()->json(['message' => 'Role not found']);
@@ -29,8 +29,12 @@ class PermissionControllerApi extends Controller
             $permission=$m->getPermissions();
             $permissions[$modelname]=$permission;
         }
-        $data=['Roles' => $roles , 'Permissions' => $permissions , 'RoleName' => $roleName];
-        return response()->json(['data' => $data, 'message ' => 'Permissions of current role retrieved succesfully']);
+        $data=['Permission Available' => $roles , 'Models' => $permissions , 'RoleName' => $roleName];
+        if (count($roles) > 0){
+            return response()->json(['data' => $data, 'message ' => 'Permissions of current role retrieved succesfully']);
+        }else{
+            return response()->json(['message ' => 'No Permissions of current role']);
+        }
     }
 
     public function checkPermissionPost(Request $r){

@@ -39,8 +39,13 @@ class TelephoneControllerApi extends Controller
             }
             $i++;
         }
+
         $data = ['categories' => $categories , 'groupContacts' => $groupedContacts];
-        return response()->json(['data' => $data , 'message' => 'Contact retrieved succesfully']);
+        if (count($categories) > 0){
+            return response()->json(['data' => $data , 'message' => 'Contact retrieved succesfully']);
+        }else{
+            return response()->json(['message' => 'No Contact found']);
+        }
     }
 
     /**

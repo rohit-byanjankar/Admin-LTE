@@ -17,7 +17,7 @@ class FrontControllerApi extends Controller
     public function index()
     {
         $posts=Post::orderBy('updated_at','desc')->paginate(5);
-        if (count($$posts) > 0){
+        if (count($posts) > 0){
             return response()->json(['data' => $posts , 'message' => 'Post retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No Posts found']);
@@ -40,7 +40,7 @@ class FrontControllerApi extends Controller
      */
     public function create()
     {
-        return view('home::create');
+        //
     }
 
     /**

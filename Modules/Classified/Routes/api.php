@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/advertisement', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:api')->group(function() {
+    Route::resource('classified','api\ClassifiedControllerApi');
+    Route::resource('classifiedcategory','api\ClassifiedCategoryControllerApi');
+    Route::put('adminclassified/{ad}/approved', 'ClassifiedController@verifyAd')->name('adminclassified.verify-ad');
 });

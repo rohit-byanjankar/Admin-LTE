@@ -13,7 +13,6 @@ use Modules\Classified\Entities\ClassifiedCategory;
 
 class ClassifiedCategoryController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,34 +20,24 @@ class ClassifiedCategoryController extends Controller
 
     public function index()
     {
-
-       
         return view('classified::adcategory.index')->with('categories', ClassifiedCategory::all());
-       
     }
-
-    
 
     public function create()
     {
         return view('classified::adcategory.create');
     }
 
-    
-
-
     public function store(Request $request)
     {
         $image = $request->image;
         $destinationPath = 'uploads/';
-
 
         $category = ClassifiedCategory::create([
             'name' => $request->name,
             'image' => '-',
         ]);
         if (!$request->image == null) {
-
             $category->image = Helper::uploadFile($destinationPath, $image); //using helper file
         }
 
@@ -56,10 +45,6 @@ class ClassifiedCategoryController extends Controller
         session()->flash('sucs', 'Category added successfully');
         return redirect(route('adminclassifiedcategory.index'));
     }
-
-
-   
-
 
     public function edit($id)
     {
@@ -71,7 +56,6 @@ class ClassifiedCategoryController extends Controller
     public function update(Request $request, $id)
     {
         $category = ClassifiedCategory::find($id);
-
         if (!$request->image == null) {
             $old_image = $category->image;
             if (!$old_image == null) {
@@ -83,7 +67,6 @@ class ClassifiedCategoryController extends Controller
 
             $category->image = Helper::uploadFile($destinationPath, $image); //using helper file
         } else {
-
             $category->image = $category->image;
         }
 
@@ -93,12 +76,10 @@ class ClassifiedCategoryController extends Controller
             $category->name = $category->name;
         }
 
-
         $category->save();
         session()->flash('sucs', 'Category Updated Successfully');
         return redirect(route('adminclassifiedcategory.index'));
     }
-
 
     public function destroy($id)
     {

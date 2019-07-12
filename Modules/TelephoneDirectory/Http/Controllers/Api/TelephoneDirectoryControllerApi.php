@@ -16,7 +16,7 @@ class TelephoneDirectoryControllerApi extends Controller
     public function index()
     {
         $phoneDirectory=PhoneDirectory::all();
-        if ($phoneDirectory){
+        if (count($phoneDirectory) > 0){
             return response()->json(['data' => $phoneDirectory,'message' => 'PhoneDirectory retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneDirectory found']);
@@ -65,7 +65,7 @@ class TelephoneDirectoryControllerApi extends Controller
     public function show($id)
     {
         $phoneDirectory=PhoneDirectory::find($id);
-        if ($phoneDirectory){
+        if ($phoneDirectory->count() > 0){
             return response()->json(['data' => $phoneDirectory,'message' => 'One PhoneDirectory retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneDirectory found']);
@@ -112,7 +112,7 @@ class TelephoneDirectoryControllerApi extends Controller
     {
         $phoneDirectory=PhoneDirectory::find($id);
         $phoneDirectory->delete();
-        if ($phoneDirectory){
+        if ($phoneDirectory->count() > 0){
             return response()->json(['data' => $phoneDirectory,'message' => 'PhoneDirectory deleted succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneDirectory found']);

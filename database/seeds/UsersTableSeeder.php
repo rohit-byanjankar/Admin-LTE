@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-        if (User::all()->count() < 0) {
+        if (User::all()->count() < 1) {
             $users =
                 [
                     [

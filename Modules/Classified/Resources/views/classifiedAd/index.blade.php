@@ -31,6 +31,7 @@
                     </a>
                 </td>
                 <td>
+                    error
                 </td>
                 <td>{{$classified->user->name}}</td>
                 <td>
@@ -46,16 +47,11 @@
                     @else
                     <p class="text-success"> This Classified Ad is approved. </p>
                     @endif
-
                 </td>
-
-                
-
                 <td>
                     @can('view',$classified)
                     <a href=" {{ route('adminclassified.show', $classified->id)}}" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
                     @endcan
-
                     @can('delete',$classified)
                     <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('adminclassified.destroy' ,$classified->id) }}" method="post" style="display:inline">
                         @csrf
@@ -63,17 +59,13 @@
                         <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash-o"></i></button>
                     </form>
-
                     @endcan
                 </td>
-
             </tr>
             @endforeach
         </tbody>
-
     </table>
     @else
-
     <h3 class="text-center">
         Nothing to Show!
     </h3>
