@@ -25,14 +25,14 @@
                             </div>
                         </div>
                             <!--sn-field end-->
-
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
                             <i class="fa fa-lock"></i>
-                                <input id="password-field"  type="password"  value="secret" class="form-control" placeholder="Password" name="password" required>
+                                <input id="password-field"  type="password"  value="secret" class="form-control text-dark" placeholder="Password" name="password" required>
                                 <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password" ></span>
                             </div>
                         </div>
+
                         <div class="col-lg-12 no-pdd">
                             <div class="checky-sec">
                                 <div class="fgt-sec">

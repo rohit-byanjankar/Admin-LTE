@@ -51,7 +51,7 @@ class ClassifiedCategoryControllerApi extends Controller
     public function edit($id)
     {
         $categories = ClassifiedCategory::find($id);
-        if (count($categories) > 0){
+        if ($categories->count() > 0){
             return response()->json(['data' => $categories , 'message' => 'One category retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No categories found']);
@@ -89,7 +89,7 @@ class ClassifiedCategoryControllerApi extends Controller
     {
         $categories=ClassifiedCategory::find($id);
         $categories->delete();
-        if (count($categories) > 0){
+        if ($categories->count() > 0){
             return response()->json(['data' => $categories , 'message' => 'Category deleted succesfully']);
         }else{
             return response()->json(['message' => 'No categories found']);

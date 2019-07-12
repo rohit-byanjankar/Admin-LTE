@@ -54,7 +54,7 @@ class UserAnnouncementControllerApi extends Controller
         $announcement = Announcement::find($id);
         $limannouncements=Announcement::orderBy('created_at','desc')->limit(4)->get();
         $data = ['announcement' => $announcement , 'limited-announcement' =>$limannouncements];
-        if (count($announcement) > 0){
+        if (count($limannouncements) > 0){
             return response()->json(['data' => $data , 'message' => 'One announcement retrieved succesfully']);
         }else{
             return response()->json(['message'=> 'No announcement found']);

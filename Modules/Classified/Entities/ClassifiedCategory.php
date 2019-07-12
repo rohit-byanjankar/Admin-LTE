@@ -8,7 +8,6 @@ use Spatie\Searchable\SearchResult;
 
 class ClassifiedCategory extends Model implements Searchable
 {
-    
     protected $fillable = ['name','image'];
     protected $table = 'adcategories';
     

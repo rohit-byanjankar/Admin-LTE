@@ -57,7 +57,7 @@ class RolesControllerApi extends Controller
     public function show($id)
     {
         $roles=Role::find($id);
-        if (count($roles) > 0){
+        if ($roles->count() > 0){
             return response()->json(['data' => $roles,'message' => 'One Role retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No Roles found']);
@@ -90,7 +90,7 @@ class RolesControllerApi extends Controller
         $roles->name = $request->name;
         $roles->save();
 
-        if (count($roles) > 0){
+        if ($roles->count() > 0){
             return response()->json(['data' => $roles,'message' => 'Role updated succesfully']);
         }else{
             return response()->json(['message' => 'No Role found']);
@@ -107,7 +107,7 @@ class RolesControllerApi extends Controller
         $roles=Role::find($id);
         $roles->delete();
 
-        if (count($roles) > 0){
+        if ($roles->count() > 0){
             return response()->json(['data' => $roles,'message' => 'Role deleted succesfully']);
         }else{
             return response()->json(['message' => 'No Role found']);

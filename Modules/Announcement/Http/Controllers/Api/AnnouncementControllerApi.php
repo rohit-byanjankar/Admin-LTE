@@ -65,7 +65,7 @@ class AnnouncementControllerApi extends Controller
     public function show($id)
     {
         $announcement = Announcement::find($id);
-        if (count($announcement) > 0) {
+        if ($announcement->count() > 0) {
             return response()->json(['data' => $announcement, 'message' => 'One Announcement retrieved succesfully']);
         } else {
             return response()->json(['message' => 'No Announcement found']);
@@ -118,7 +118,7 @@ class AnnouncementControllerApi extends Controller
         $announcement = Announcement::find($id);
         $announcement->forceDelete();
 
-        if (count($announcement) > 0) {
+        if ($announcement->count() > 0) {
             return response(['data' => $announcement, 'message' => 'Announcement deleted succesfully']);
         } else {
             return response()->json(['message' => 'No Announcement found']);

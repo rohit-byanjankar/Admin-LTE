@@ -46,7 +46,7 @@ class TagControllerApi
     public function show($id)
     {
         $tag = Tag::find($id);
-        if (count($tag) > 0) {
+        if ($tag->count() > 0) {
             return response()->json(['data' => $tag, 'message' => 'One Tag retrieved succesfully']);
         } else {
             return response()->json(['message' => 'No Tags found']);
@@ -82,7 +82,7 @@ class TagControllerApi
             return response()->json(['message' => 'Tag associated with post']);
 
         }
-        if (count($tag) > 0) {
+        if ($tag->count() > 0) {
         $tag->delete();
             return response()->json(['data' => $tag, 'message' => 'Tag deleted succesfully']);
         } else {

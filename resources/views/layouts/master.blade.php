@@ -13,14 +13,8 @@
 			-webkit-box-sizing: border-box;
 			-moz-box-sizing: border-box;
 		}
-
-
-
-
 		/* Table Styles */
-
 		.table-wrapper {
-
 			box-shadow: 0px 35px 50px rgba(0, 0, 0, 0.2);
 		}
 
@@ -52,7 +46,6 @@
 			color: #ffffff;
 			background: #4FC3A1;
 		}
-
 
 		.fl-table thead th:nth-child(odd) {
 			color: #ffffff;
@@ -145,19 +138,13 @@
 			}
 		}
 	</style>
-
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
 	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
-
 	@yield('css')
-
 </head>
-
 <body>
 	<header class="fixed-top">
 		<div class="container">
@@ -205,7 +192,6 @@
 								<span><i class="fa fa-ticket" aria-hidden="true"></i>
 								</span>
 								Classifieds </a>
-						
 						</li>
 					</ul>
 				</nav>
@@ -214,7 +200,6 @@
 				<div class="search-bar">
 					<form action="{{route('search')}}" method="POST" role="search">
 						{{ csrf_field() }}
-
 						<input type="text" name="query" placeholder="Search...">
 						<button type="submit"><i class="fa fa-search"></i></button>
 					</form>
@@ -222,7 +207,6 @@
 				<!-- search bar -->
 
 				<div class="user-account">
-
 					<div class="user-info">
 						<img src="{{ url(Auth::user()->image) }}" width=30 height=30 alt="">
 						<a href="#"> {{Auth::user()->name}}</a>
@@ -241,11 +225,9 @@
 				</div>
 			</div>
 			<!--header-data end-->
-
 		</div>
 	</header>
 	<!--header end-->
-
 
 	@if(session()->has('error'))
 	<div class="alert alert-danger text-center alert-dismissible col-md-12 mt-5">
@@ -266,14 +248,8 @@
 	@endif
 
 	<div class="mainbody col-md-12 mt-5">
-
-
-
-
 		@yield('content')
 	</div>
-	
-	
 	<footer>
 		<div class="footy-sec mn no-margin bottom">
 			<div class="container">
@@ -306,8 +282,5 @@
 	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
-	
-
-
 	@yield('scripts')
 </body>

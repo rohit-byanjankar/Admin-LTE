@@ -80,7 +80,7 @@ class EventControllerApi extends Controller
     public function show($id)
     {
         $event=Event::find($id);
-        if (count($event) > 0){
+        if ($event->count() > 0){
             return response()->json(['data' => $event ,'message' => 'One Event retrieved succesfully']);
         }else {
             return response()->json(['message' => 'No Event found']);
@@ -143,7 +143,7 @@ class EventControllerApi extends Controller
     public function destroy($id)
     {
         $event=Event::find($id);
-        if (count($event) > 0){
+        if ($event->count() > 0){
         $event->delete();
             return response()->json(['data' => $event ,'message' => 'Events deleted succesfully']);
         }else {

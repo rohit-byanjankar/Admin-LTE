@@ -47,7 +47,7 @@ class TelephoneCategoryControllerApi extends Controller
     public function show($id)
     {
         $phoneCategory=PhoneCategory::find($id);
-        if (count($phoneCategory) > 0){
+        if ($phoneCategory->count() > 0){
             return response()->json(['data' => $phoneCategory,'message' => 'One phoneCategory retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneCategory found']);
@@ -77,7 +77,7 @@ class TelephoneCategoryControllerApi extends Controller
     {
         $phoneCategory=PhoneCategory::find($id);
         $phoneCategory->delete();
-        if (count($phoneCategory) > 0){
+        if ($phoneCategory->count() > 0){
             return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory deleted succesfully']);
         }else{
             return response()->json(['message' => 'No PhoneCategory found']);

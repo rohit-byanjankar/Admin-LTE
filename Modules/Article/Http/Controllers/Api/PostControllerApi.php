@@ -58,7 +58,7 @@ class PostControllerApi extends Controller
     public function show($id)
     {
         $post=Post::find($id);
-        if (count($post) > 0){
+        if ($post->count() > 0){
             return response()->json(['data' => $post,
                 'message' => 'One Post retrieved succesfully',
             ]);
@@ -103,7 +103,7 @@ class PostControllerApi extends Controller
     {
         $post=Post::find($id);
 
-        if (count($post) > 0){
+        if ($post->count() > 0){
             $post->delete();
             return response()->json(['data' => $post,
                 'message' => 'Post deleted succesfully']);

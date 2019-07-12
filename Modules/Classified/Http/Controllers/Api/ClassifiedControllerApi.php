@@ -61,7 +61,7 @@ class ClassifiedControllerApi extends Controller
         {
             $classified->approved = 1;
             $classified->update();
-            if (count($classified) > 0){
+            if ($classified->count() > 0){
                 return response()->json(['message' => 'Ad  verified succesfully']);
             }else{
                 return response()->json(['message' => 'No Ads found']);
@@ -74,7 +74,7 @@ class ClassifiedControllerApi extends Controller
         $classified = Classified::find($id);
         $categories=ClassifiedCategory::all();
         $data = ['Ad' => $classified , 'Ad Category' => $categories];
-        if (count($classified) > 0){
+        if ($classified->count() > 0){
             return response()->json(['data' => $data,'message' => 'One Ad retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No Ads found']);
@@ -118,7 +118,7 @@ class ClassifiedControllerApi extends Controller
             unlink($old_image);
         }
         $classified-> delete();
-        if (count($classified) > 0){
+        if ($classified->count() > 0){
             return response()->json(['data' => $classified,'message' => 'Ad deleted succesfully']);
         }else{
             return response()->json(['message' => 'No Ads found']);

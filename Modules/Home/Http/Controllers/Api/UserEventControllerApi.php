@@ -54,7 +54,7 @@ class UserEventControllerApi extends Controller
         $events = Event::find($id);
         $limevents=Event::orderBy('event_date','asc')->limit(4)->get();
         $data = ['event' => $events , 'limited-event' =>$limevents];
-        if (count($events) > 0){
+        if (count($limevents) > 0){
             return response()->json(['data' => $data , 'message' => 'One Event retrieved succesfully']);
         }else{
             return response()->json(['message' => 'No Events found']);
