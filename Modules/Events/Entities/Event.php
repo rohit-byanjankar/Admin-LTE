@@ -22,7 +22,7 @@ class Event extends Model implements Searchable
         $url = route('userevents.show', $this->id);
 
         return new SearchResult(
-            $this,
+            $this->image,
             $this->title,
             $url
          );

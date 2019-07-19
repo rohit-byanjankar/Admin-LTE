@@ -1,13 +1,12 @@
 @extends('adminlte::page')
-
 @section('content')
-
-<div class="d-flex justify-content-end margin">
+@can('create',\Modules\Classified\Entities\Classified::class)
+<div class="margin-bottom">
     <a href="{{ route('adminclassified.create')}}" class="btn btn-success ">
         Add Classified Ads
     </a>
 </div>
-
+@endcan
 
 <div class="card card-body panel">
     @if($classifieds->count()>0)
@@ -19,10 +18,9 @@
             <th>Posted By</th>
             <th>Status</th>
             <th></th>
-
         </thead>
-        @foreach($classifieds as $classified)
         <tbody>
+        @foreach($classifieds as $classified)
             <tr>
                 <td>{{ $classified->title}}</td>
                 <td>
@@ -31,7 +29,7 @@
                     </a>
                 </td>
                 <td>
-                    error
+                   {{-- {{$categories[0]->classifiedCategory->name}}--}}
                 </td>
                 <td>{{$classified->user->name}}</td>
                 <td>
@@ -43,7 +41,6 @@
                             Verify Ad Post
                         </button>
                     </form>
-
                     @else
                     <p class="text-success"> This Classified Ad is approved. </p>
                     @endif

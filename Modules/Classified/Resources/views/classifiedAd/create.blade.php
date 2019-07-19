@@ -19,7 +19,7 @@
 
             <div class="form-group">
                 <label for="description"> Description </label>
-                <textarea name="description" id="description" cols="5" rows="5" class="form-control">
+                <textarea name="description" id="description" cols="5" rows="5" class="form-control" required>
                 {{ isset($classified) ? $classified->description : ''}}
                 </textarea>
             </div>
@@ -27,7 +27,7 @@
             Image:
             @if(isset($classified))
             <div class="form-group">
-                <img src="{{ asset($classified->image)}}" alt="" width="20%">
+                <img src="{{ asset($classified->image)}}" alt="" width="20%" aria-required="true">
             </div>
             @endif
 

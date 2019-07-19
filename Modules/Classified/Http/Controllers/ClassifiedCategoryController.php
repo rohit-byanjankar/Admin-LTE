@@ -30,6 +30,10 @@ class ClassifiedCategoryController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'image|size:2048',
+            'name' => 'required'
+        ]);
         $image = $request->image;
         $destinationPath = 'uploads/';
 
@@ -55,6 +59,10 @@ class ClassifiedCategoryController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'image' => 'image|size:2048',
+            'name' => 'required'
+        ]);
         $category = ClassifiedCategory::find($id);
         if (!$request->image == null) {
             $old_image = $category->image;

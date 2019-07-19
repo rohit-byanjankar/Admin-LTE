@@ -11,9 +11,11 @@ use Laravel\Passport\HasApiTokens;
 use Modules\UserRoles\Entities\Permission;
 use Modules\Classified\Entities\Classified;
 use Modules\Article\Entities\Post;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements Searchable
 {
     use HasApiTokens, Notifiable;
 
@@ -24,7 +26,7 @@ class User extends Authenticatable
      */
     //protected $connection='mysql2';
     protected $fillable = [
-        'name', 'email', 'password','about', 'image','role','phone_number','address'
+        'name', 'email', 'password','about', 'image','role','phone_number','address','profession','service_provider',
     ];
 
     /**
@@ -105,6 +107,16 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new resetPassword($token));
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('user-profile', $this->id);
+        return new SearchResult(
+            $this->image,
+            $this->name .' .Profession is '. $this->profession,
+            $url
+        );
     }
 }
 

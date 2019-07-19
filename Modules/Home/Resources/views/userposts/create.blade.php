@@ -1,17 +1,14 @@
 @extends('layouts.master')
-
 @section('content')
-
-
 <div class="container">
     <div class="main-section-data">
         <div class="card card-default mr-5 ml-5 mt-5">
+            @include('partials.errors')
             <div class=" card-header text-bold text-center ">
                 Create a Post
             </div>
 
             <div class="card-body">
-                @include('partials.errors')
                 <form action="{{ isset($post) ? route('userposts.update', $post->id) : route('userposts.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @if(isset($post))
@@ -46,8 +43,7 @@
                     
                     
                     <div class="form-group">
-                        
-                        <input type="file" class="form-control" name='image' id='image'>
+                        <input type="file" class="form-control" name='image' id='image' >
                     </div>
 
 
@@ -62,12 +58,8 @@
                                 @endif
                                 >
                                 {{ $category->name }}
-
-
                             </option>
-
                             @endforeach
-
                         </select>
                     </div>
 

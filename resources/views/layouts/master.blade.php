@@ -28,7 +28,7 @@
 			max-width: 100%;
 			white-space: nowrap;
 			background-color: white;
-			margin-top: 100px;
+			margin-top: 15px;
 		}
 
 		.fl-table td,
@@ -142,6 +142,7 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/jqueryTab.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 	@yield('css')
 </head>
@@ -246,26 +247,20 @@
 		</button>
 	</div>
 	@endif
-
-	<div class="mainbody col-md-12 mt-5">
+	<div class="col-md-12 mt-5">
 		@yield('content')
 	</div>
 	<footer>
-		<div class="footy-sec mn no-margin bottom">
+		<div class="footy-sec mn no-margin">
 			<div class="container">
 				<ul>
-					<li><a href="#" title="">Help Center</a></li>
 					<li><a href="#" title="">Privacy Policy</a></li>
 					<li><a href="#" title="">Community Guidelines</a></li>
-					<li><a href="#" title="">Cookies Policy</a></li>
-					<li><a href="#" title="">Career</a></li>
 					<li><a href="#" title="">Forum</a></li>
 					<li><a href="{{url('aboutUs')}}" title="">About Us</a></li>
-					<li><a href="#" title="">Copyright Policy</a></li>
 					<li> <i class="fa fa-copyright"> Copyright </i> 2018
 					</li>
 				</ul>
-
 			</div>
 		</div>
 	</footer>

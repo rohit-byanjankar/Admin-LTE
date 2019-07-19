@@ -34,3 +34,6 @@ Route::post('deactivated','RegisterController@reActivatedEmail');
 Auth::routes();
 Route::post('register', 'RegisterController@register');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+//extra
+Route::get('aboutUs','HomeController@aboutUs');

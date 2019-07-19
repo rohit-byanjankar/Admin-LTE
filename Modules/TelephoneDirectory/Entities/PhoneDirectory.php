@@ -24,11 +24,10 @@ class PhoneDirectory extends Model implements Searchable
 
     public function getSearchResult(): SearchResult
     {
-        $url = route('telephonedir.show', $this->id);
-
+        $url = route('user-profile', $this->id);
         return new SearchResult(
             $this,
-            $this->first_name,
+            $this->first_name .' Profession is '. $this->profession,
             $url
          );
     }

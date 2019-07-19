@@ -26,7 +26,7 @@ class Classified extends Model implements Searchable
         $url = route('classified.show', $this->id);
 
         return new SearchResult(
-            $this,
+            $this->image,
             $this->title,
             $url
          );

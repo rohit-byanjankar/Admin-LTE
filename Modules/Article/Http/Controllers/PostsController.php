@@ -60,7 +60,6 @@ class PostsController extends Controller
         return redirect(route('posts.index'));
     }
 
-
     public function show(Post $post)
     {
         return view('article::posts.show')->with('post', $post);
@@ -83,8 +82,6 @@ class PostsController extends Controller
 
             $post->image = Helper::uploadFile($destinationPath, $image); //using helper file
             $post->save(); //saving to database
-
-           
         }
 
         if ($request->tags) {

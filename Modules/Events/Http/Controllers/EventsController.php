@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
 use Symfony\Contracts\EventDispatcher\Event as SymfonyEvent;
 use Modules\Events\Entities\Event;
 use Helper;
@@ -45,7 +46,7 @@ class EventsController extends Controller
             'venue' => 'required',
             'event_date' => 'required|date',
             'duration' => 'required|numeric',
-
+            'image' => 'image|size:2048' //value is in kilobytes
         ]);
         $event = Event::create([
             //storing to database
@@ -58,12 +59,14 @@ class EventsController extends Controller
             'image' => '-'
         ]);
         $image = $request->image;
+
+
+        //$image = Image::make($image);
         $destinationPath = 'uploads/';
 
         if ($request->image != null) {
             $event->image = Helper::uploadFile($destinationPath, $image); //using helper file
         }
-        
         $event->save();
 
         session()->flash('sucs', 'Event Created Successfully');
@@ -102,7 +105,7 @@ class EventsController extends Controller
             'venue' => 'required',
             'event_date' => 'required|date',
             'duration' => 'required|numeric',
-
+            'image' => 'max:500000'
         ]);
         $event->title = $request->title;
         $event->details = $request->details;
@@ -112,7 +115,7 @@ class EventsController extends Controller
         $event->published_at = $request->published_at;
         if (!$request->image == null) {
             $old_image = $event->image;
-            if (!$old_image == null) {
+            if (file_exists($old_image)) {
                 unlink($old_image);
             }
             $image = $request->image;

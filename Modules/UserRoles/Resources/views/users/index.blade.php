@@ -3,7 +3,7 @@
 <div class="card card-body panel">
     @if($users->count()>0)
     <table class="table  text-center  table-bordered table-hover panel-body" id="userTable">
-        <thead class="text-bold">
+        <thead>
             <th>Name</th>
             <th>Role</th>
             <th>Image</th>

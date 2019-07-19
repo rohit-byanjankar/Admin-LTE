@@ -1,8 +1,5 @@
 @extends('adminlte::page')
-
-
 @section('content')
-
     @can('create', \Modules\Events\Entities\Event::class)
         <a href="{{ route('events.create')}}" class="btn btn-success float-right ">
             Add Events
@@ -28,7 +25,7 @@
                  <a href=" {{ route('events.edit', $event->id)}}" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> </a>
             @endcan
 
-            @can('delete',$event)
+           @can('delete',$event)
             <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('events.destroy', $event->id) }}" method="post" style="display:inline">
                 @csrf
                 @method('DELETE')

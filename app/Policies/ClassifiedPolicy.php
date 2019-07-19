@@ -17,15 +17,15 @@ class ClassifiedPolicy
      *
      * @return void
      */
-    public function view(User $user, Classified $classified)
+    public function view()
     {
-        if($user->id == $classified->user_id && Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'view') == true)
+        if( Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'view') == true)
         {
             return true;
         }
     }
   
-    public function create(User $user)
+    public function create()
     {
         if(Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'create') == true)
         {
@@ -33,18 +33,17 @@ class ClassifiedPolicy
         }
     }
 
-    public function update(User $user, Classified $classified)
+    public function update()
     {
-        
-        if($user->id == $classified->user_id && Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'update') == true)
+        if( Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'update') == true)
         {
             return true;
         }
     }
 
-    public function delete(User $user, Classified $classified)
+    public function delete()
     {
-        if($user->id == $classified->user_id && Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'delete') == true)
+        if( Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'delete') == true)
         {
             return true;
         }

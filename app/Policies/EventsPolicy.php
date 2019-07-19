@@ -79,7 +79,7 @@ class EventsPolicy
     {
         if(Helper::getPermission(Auth::user()->custom,Event::class,Auth::user()->role,'delete') == true)
         {
-            return false;
+            return true;
         }
     }
 
