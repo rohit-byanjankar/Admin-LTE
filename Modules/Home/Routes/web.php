@@ -25,6 +25,8 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
     Route::resource('userevents', 'UserEventController');
 
     Route::resource('userannouncements', 'UserAnnouncementController');
+    Route::get('latestannouncements', 'UserAnnouncementController@pindex')->name('latestannouncements');
+
 
     Route::resource('telephonedir', 'TelephoneController');
     Route::get('cat/{id}', 'PostCategoryController@getCategory')->name('cat');

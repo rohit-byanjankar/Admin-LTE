@@ -75,7 +75,9 @@ class PostsController extends Controller
     {
         if ($request->hasFile('image')) {
             $old_image = $post->image;
-            unlink($old_image);
+            if (file_exists($old_image)) {
+                unlink($old_image);
+            }
 
             $image = $request->image;
             $destinationPath = 'uploads/';
@@ -103,7 +105,10 @@ class PostsController extends Controller
     {
         $post = Post::withTrashed()->where('id', $id)->firstOrFail();
         if ($post->trashed()) {
-            Storage::delete($post->image);
+            $old_image = $post->image;
+            if (file_exists($old_image)) {
+                unlink($old_image);
+            }
             $post->forceDelete();
             return redirect(route('trashed-posts.index'));
         } else {
