@@ -265,7 +265,7 @@ nav ul li:hover > ul,
 header {
 	float: left;
 	width: 100%;
-	background-color: #666666;
+	background-color: #3d405b;
 }
 .header-data {
 	float: left;
@@ -820,7 +820,7 @@ main {
 .username-dt {
 	float: left;
 	width: 100%;
-	background-color: #717171;
+	background-color: #81b29a;
 	padding-top: 40px;
 }
 .user-data {

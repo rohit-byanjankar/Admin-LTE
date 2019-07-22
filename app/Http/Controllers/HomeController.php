@@ -18,6 +18,7 @@ use Modules\Classified\Entities\Classified;
 use Modules\Classified\Entities\ClassifiedCategory;
 use Modules\TelephoneDirectory\Entities\PhoneCategory;
 use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -47,7 +48,9 @@ class HomeController extends Controller
             ->registerModel(Classified::class, 'title')
             ->registerModel(ClassifiedCategory::class, 'name')
             ->registerModel(Event::class, 'title','venue')
-            ->registerModel(PhoneDirectory::class, 'first_name','middle_name','surname')
+            ->registerModel(PhoneDirectory::class, 'first_name','middle_name','surname','home_number','office_number','mobile_number','profession','city','street')
+            ->registerModel(PhoneCategory::class, 'name')
+
             
             ->perform($searchterm);
 
