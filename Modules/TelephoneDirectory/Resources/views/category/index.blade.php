@@ -1,14 +1,12 @@
 @extends('adminlte::page')
-
-
 @section('content')
-        <div class="d-flex justify-content-end margin">
-            @can('create',\Modules\TelephoneDirectory\Entities\PhoneCategory::class)
-                <a href="{{ route('category.create')}}" class="btn btn-success float-right ">
-                    Add Category
-                </a>
-             @endcan
-        </div>
+    <div class="margin-bottom">
+        @can('create',\Modules\TelephoneDirectory\Entities\PhoneCategory::class)
+            <a href="{{ route('category.create')}}" class="btn btn-success float-right ">
+                Add Category
+            </a>
+         @endcan
+    </div>
 
     <div class="card card-body panel">
     @if($categories->count()>0)

@@ -23,7 +23,9 @@ class ClassifiedController extends Controller
 
     public function index()
     {
-        return view('home::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())->with('userclassifieds', Classified::all())->with('categories', ClassifiedCategory::all());
+        return view('home::classifiedAd.index')->with('classifieds', Classified::orderBy('created_at', 'desc')->paginate(5))
+            ->with('limclassifieds', Classified::orderBy('updated_at', 'desc')->limit(4)->get())
+            ->with('userclassifieds', Classified::all())->with('categories', ClassifiedCategory::all());
     }
 
 
@@ -36,7 +38,8 @@ class ClassifiedController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required||min:10||max:100'
+            'description' => 'required||min:10||max:100',
+            'image' => 'required|image'
         ]);
 
         $image = $request->image;

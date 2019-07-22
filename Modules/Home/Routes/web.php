@@ -13,11 +13,13 @@
 Route::middleware(['auth','checkDeactivate'])->group(function() {
     Route::get('/home', 'FrontController@index');
     Route::get('account', 'FrontController@account')->name('account');
+    Route::get('userProfile/{id}', 'FrontController@show')->name('user-profile');
     Route::post('changepassword', 'PasswordController@change');
     Route::post('profilechange', 'ProfileController@change')->name('profilechange');
     Route::post('deactivate', 'ProfileController@deactivate')->name('deactivate');
 
     Route::resource('userposts', 'UserPostController');
+
     Route::resource('postscategories', 'PostCategoryController');
     Route::get('cat/{id}', 'PostCategoryController@getCategory')->name('cat');
 
@@ -35,8 +37,7 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
     Route::resource('classifiedcategory', 'ClassifiedController');
 
     Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
-    //extra
-    Route::get('aboutUs','HomeController@aboutUs');
+
 });
 
 

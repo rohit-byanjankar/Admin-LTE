@@ -1,7 +1,6 @@
 @extends('adminlte::page')
 
 @section('content')
-
     <div class="card card-default">
         <div class=" card-header text-bold ">
             Edit Setting

@@ -1,23 +1,17 @@
 @extends('adminlte::page')
-
-
 @section('content')
-        <div class="d-flex justify-content-end margin">
-            <a href="{{ route('adminpanel/classifiedcategory.create')}}" class="btn btn-success float-right ">
-                Add Category
-            </a>
-        </div>
+    <div class="margin-bottom">
+        <a href="{{ route('adminpanel/classifiedcategory.create')}}" class="btn btn-success float-right ">
+            Add Category
+        </a>
+    </div>
 
     <div class="card card-body panel">
     @if($adcategories->count()>0)
         <table class="table table-bordered table-hover panel-body" id="category">
             <thead>
-                <th>
-                    Name
-                </th>
-                <th>
-                    Ads Count
-                </th>
+                <th>Name</th>
+                <th>Ads Count</th>
                 <th></th>
             </thead>
             <tbody>

@@ -1,14 +1,10 @@
 @extends('layouts.master')
-
 @section('content')
 <div class="wrapper">
-
 	<section class="forum-page">
-
 			<div class="forum-questions-sec">
 				<div class="row">
 					<div class="col-lg-2 col-md-2 pd-left-none ">
-
 						<div class="main-left-sidebar no-margin">
 							<div class="user-data full-width">
 								<!-- important -->

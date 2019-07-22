@@ -12,12 +12,12 @@
 						@foreach($categories as $category)
 						<div class="card card-body">
 							<a href="{{route('adcat',$category->id)}}">
-								{{ $category->name}} ({{$category->classifieds->count()}})
+								{{ $category->name}} ({{$category->classifieds->where('approved',1)->count()}})
 							</a>
 						</div>
 						@endforeach
 					</div>
-					<div class="col-lg-6 ad-content">
+					<div class="col-lg-6"> {{--ad-content--}}
 						<div class="main-ws-sec">
 							<div class="ad-st">
 								<ul>
@@ -32,13 +32,12 @@
 						@if($classified->approved == 1)
 						<div class="forum-questions  mt-2 mb-2 ">
 							<div class="usr-question">
-								<div class="ad_img img-rounded">
+								<div class="img-rounded"> {{--ad_img--}}
 									<a href="{{ route('classified.show', $classified->id) }}">
 										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
 									</a>
 									<br>
 								</div>
-
 								<div class="ad_quest">
 									@can('update', $classified)
 									<a href="{{route('classified.edit',$classified->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
@@ -69,12 +68,6 @@
 							<!--usr-question end-->
 						</div>
 						<!--forum-questions end-->
-						@else
-						<div class="forum-questions  mt-2 mb-2">
-							<div class="usr-question">
-								<h2> Ad not proved..</h2>
-							</div>
-						</div>
 						@endif
 						@endforeach
 						@else
@@ -88,12 +81,13 @@
 							{!! $classifieds->links(); !!}
 						</div>
 					</div>
-					<div class="col-lg-3 rightad">
+					<div class="col-lg-3"> {{--rightad--}}
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center"> LATEST ADS</h3>
 							<ul>
 								@if($limclassifieds->count()>0)
 								@foreach($limclassifieds as $limclassified)
+								@if($limclassified->approved == 1)
 								<li>
 									<div class="usr-msg-details">
 										<div class="usr_img">
@@ -103,36 +97,25 @@
 										</div>
 										<div class="usr-mg-info">
 											<h2> <b> {{ $limclassified->title }} </b></h2>
-
 										</div>
 										<!--usr-mg-info end-->
 									</div>
-
 								</li>
+								@endif
 								@endforeach
-
-							</ul>
+							</ul>{{--
 							@else
 							<div class="usr-msg-details text-center">
 								<h3>
 									No Recent Posts...
 								</h3>
-							</div>
+							</div>--}}
 							@endif
-
-
-
-						</div>
-
-						<!-- advertisement -->
-						<div class="widget widget-adver">
-							<img src="http://via.placeholder.com/370x270" alt="">
 						</div>
 
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center">Your classifieds</h3>
 							@foreach($userclassifieds as $userclassified)
-
 							<ul>
 								<li>
 									<div class="usr-msg-details">
@@ -143,7 +126,6 @@
 										</div>
 										<div class="usr-mg-info">
 											<h2> <b> {{ $userclassified->title }} </b></h2>
-
 										</div>
 										<!--usr-mg-info end-->
 									</div>
@@ -152,28 +134,23 @@
 							</ul>
 							@endforeach
 						</div>
-
-
-
-
-
 						<!-- classified -->
-
 					</div>
 				</div>
 			</div>
 			<!--forum-questions-sec end-->
-
 		</div>
 	</section>
 	<!--forum-page end-->
-
-
-
-
-
-
 </div>
 <!--theme-layout end-->
+@endsection
 
+@section('scripts')
+	<script>
+		(adsbygoogle = window.adsbygoogle || []).push({
+			google_ad_client: "ca-pub-1183769025334076",
+			enable_page_level_ads: true
+		});
+	</script>
 @endsection

@@ -1,5 +1,4 @@
 <?php
-
 class Helper
 {
     public static function check($permissions,$role,$model,$permission_array)
@@ -21,7 +20,7 @@ class Helper
     {
         $name = time().'.'.$image->getClientOriginalExtension();
         $img = $destinationPath.$name;
-        $image-> move($destinationPath,$name);
+        $image->move($destinationPath,$name);
         return $img;
     }
 }

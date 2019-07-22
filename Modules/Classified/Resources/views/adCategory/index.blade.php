@@ -1,12 +1,12 @@
 @extends('adminlte::page')
-
-
 @section('content')
-        <div class="d-flex justify-content-end margin">
+    @can('create',\Modules\Classified\Entities\ClassifiedCategory::class)
+        <div class="margin-bottom">
             <a href="{{ route('adminclassifiedcategory.create')}}" class="btn btn-success float-right ">
                 Add Category
             </a>
         </div>
+    @endcan
 
     <div class="card card-body panel">
     @if($categories->count()>0)
@@ -26,13 +26,17 @@
                     <td>{{ $category->name }}</td>
                     <td>{{ $category->classifieds->count()}}</td>
                     <td>
+                        @can('update',\Modules\Classified\Entities\ClassifiedCategory::class)
                         <a href=" {{ route('adminclassifiedcategory.edit', $category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+                        @endcan
+                        @can('delete',\Modules\Classified\Entities\ClassifiedCategory::class)
                         <form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('adminclassifiedcategory.destroy', $category->id) }}" method="post" class="inline">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
                             </button>
                         </form>
+                        @endcan
                     </td>
                 </tr>
                 @endforeach

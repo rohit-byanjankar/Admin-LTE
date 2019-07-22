@@ -3,10 +3,10 @@
     <div class="col-lg-6">
         <div class="login-sec" id="tabs">
             <ul class="sign-control">
-                <li data-tab="tab-1" class="current">
+                <li data-tab="tab-1">
                     <a href="#tabs-1">Log In</a>
                 </li>
-                <li data-tab="tab-2" class="current" >
+                <li data-tab="tab-2">
                     <a href="#tabs-2">
                         Register
                     </a>
@@ -28,7 +28,7 @@
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
                             <i class="fa fa-lock"></i>
-                                <input id="password-field"  type="password"  value="secret" class="form-control text-dark" placeholder="Password" name="password" required>
+                                <input id="password-field"  type="password"  class="form-control text-dark" placeholder="Password" name="password" required>
                                 <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password" ></span>
                             </div>
                         </div>
@@ -78,13 +78,6 @@
 
                         <div class="col-lg-12 no-pdd">
                             <div class="sn-field">
-                                <i class="fa fa-image"></i>
-                                <input type="file" class="form-control" name="image" id="image" required>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 no-pdd">
-                            <div class="sn-field">
                                 <i class="fa fa-lock"></i>
                                 <input type="password" class="form-control" name="password" placeholder="Password" id="psw" required>
                                 <p id="p3" class='text-danger small'></p>
@@ -113,6 +106,23 @@
                         </div>
 
                         <div class="col-lg-12 no-pdd">
+                            <div class="sn-field">
+                                <i class="fa fa-briefcase"></i>
+                                <select name="profession" class="form-control text-dark">
+                                    @foreach(config('adminlte.profession') as $profession)
+                                        <option value="{{$profession}}">{{$profession}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 no-pdd">
+                            <div class="sn-field">
+                                <input type="checkbox" name="status" value="yes" class="form-control">Available for Service providing
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 no-pdd">
                             <div class="checky-sec st2">
                                 <div class="fgt-sec">
                                     <input type="checkbox" name="cc" id="c2">
@@ -128,7 +138,7 @@
 
                         <div class="col-lg-6 ml-5 mt-3">
                             <div class="sn-field">
-                                <input type="button" class="btn btn-success pr-5" onclick="validateForm('register_form')" id="validate" value="Sign up" />
+                                <input type="button" class="btn btn-success text-white" onclick="validateForm('register_form')" id="validate" value="Sign up" />
                             </div>
                         </div>
                     </div>

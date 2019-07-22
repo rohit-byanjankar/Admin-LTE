@@ -24,7 +24,8 @@ class CreateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=> 'required|unique:categories'
+            'name'=> 'required|unique:categories',
+            'image' => 'image|size:2048',
           ];
 
     }

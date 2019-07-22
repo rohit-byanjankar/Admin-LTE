@@ -2,9 +2,11 @@
 
 namespace Modules\Home\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
 use Modules\Article\Entities\Post;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,7 +49,11 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-       //
+       $user=User::find($id);
+       $profession=DB::table('users')
+                    ->where('profession','=',$user->profession)
+                    ->whereNotIn('id',[$id])->get();
+       return view('home::UserProfile.userProfile',compact('user','profession'));
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Settings;
+use App\User;
 use Illuminate\Http\Request;
 use Modules\Article\Entities\Post;
 use Modules\Article\Entities\Category;
@@ -43,17 +44,12 @@ class HomeController extends Controller
         $searchterm = $request->input('query');
         $searchResults = (new Search())
             ->registerModel(Post::class, 'title')
-            ->registerModel(Category::class, 'name')
             ->registerModel(Announcement::class, 'title')
             ->registerModel(Classified::class, 'title')
             ->registerModel(ClassifiedCategory::class, 'name')
             ->registerModel(Event::class, 'title','venue')
-            ->registerModel(PhoneDirectory::class, 'first_name','middle_name','surname','home_number','office_number','mobile_number','profession','city','street')
-            ->registerModel(PhoneCategory::class, 'name')
-
-            
+            ->registerModel(User::class, 'name','profession','address')
             ->perform($searchterm);
-
         return view('home::search.index', compact('searchResults','searchterm'));
     }
 

@@ -30,11 +30,13 @@ class ClassifiedController extends Controller
         return view('classified::classifiedAd.create')->with('categories', ClassifiedCategory::all());
     }
 
-
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required||min:10||max:100'
+            'description' => 'required||min:10||max:100',
+            'title' => 'required',
+            'price' => 'required|numeric',
+            'image' => 'required',
         ]);
 
         $image = $request->image;
@@ -80,6 +82,10 @@ class ClassifiedController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'image' => 'image|size:2048',
+            'description' => 'required||min:10||max:100'
+        ]);
         $classified = Classified::find($id);
         if ($request->hasFile('image')) {
             $old_image = $classified->image;
@@ -99,7 +105,7 @@ class ClassifiedController extends Controller
         $classified->price = $request->price;
         $classified->save();
 
-        session()->flash('sucs', 'The Ad is updated successfully');
+        session()->flash('sucs', 'Your Ad is updated successfully');
         return redirect(route('adminclassified.index'));
     }
 

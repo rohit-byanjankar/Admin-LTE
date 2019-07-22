@@ -1,11 +1,11 @@
 @extends('adminlte::page')
-
 @section('content')
     <div class="card">
         <div class="card-header text-bold text-center">
             My Profile
         </div>
     </div>
+
     <div class="card-body ">
         @include('partials.errors')
         <form action="{{ route('users.update-profile')}}" method="POST">

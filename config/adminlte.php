@@ -197,13 +197,18 @@ return [
                 [
                     'text' => 'Classified Ads',
                     'url' => '/adminpanel/adminclassified',
-                    'icon' => 'list',
+                    'icon' => 'adn',
                 ],
                 [
                     'text' => 'Classified Categories',
                     'url' => '/adminpanel/adminclassifiedcategory',
-                    'icon' => 'list',
-                ]
+                    'icon' => 'list-alt',
+                ],
+                [
+                    'text' => 'Google Adsense',
+                    'url' => '/adminpanel/googleadsense',
+                    'icon' => 'google',
+                ],
             ]
         ],
 
@@ -219,11 +224,25 @@ return [
         "Modules\Article\Entities\Tag",
         "Modules\Article\Entities\Category",
         "Modules\Events\Entities\Event",
+        "Modules\Announcement\Entities\Announcement",
         "Modules\TelephoneDirectory\Entities\PhoneCategory",
         "Modules\TelephoneDirectory\Entities\PhoneDirectory",
         "Modules\UserRoles\Entities\Role",
         "App\User",
-        "Modules\Classified\Entities\Classified"
+        "Modules\Classified\Entities\Classified",
+        "Modules\Classified\Entities\ClassifiedCategory",
+        "Modules\Classified\Entities\GoogleAd",
+        "App\Settings"
+    ],
+    'profession' => [
+        "Electrician",
+        "Student",
+        "Doctor",
+        "Engineer",
+        "Officer",
+        "Teacher",
+        "Plumber",
+        "Carpenter",
     ],
 
     /*

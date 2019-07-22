@@ -14,7 +14,7 @@ class PostPolicy
 
     public function view(User $user, Post $post)
     {
-        if($user->id == $post->user_id && Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'view') == true)
+        if($user->id == $post->user_id || Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'view') == true)
         {
             return true;
         }
@@ -30,7 +30,7 @@ class PostPolicy
 
     public function update(User $user, Post $post)
     {
-        if($user->id == $post->user_id && Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'update') == true)
+        if($user->id == $post->user_id || Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'update') == true)
         {
             return true;
         }
@@ -38,7 +38,7 @@ class PostPolicy
 
     public function delete(User $user, Post $post)
     {
-        if($user->id == $post->user_id && Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'delete') == true)
+        if($user->id == $post->user_id || Helper::getPermission(Auth::user()->custom,Post::class,Auth::user()->role,'delete') == true)
         {
             return true;
         }

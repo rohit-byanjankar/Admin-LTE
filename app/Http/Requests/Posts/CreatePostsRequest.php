@@ -27,9 +27,9 @@ class CreatePostsRequest extends FormRequest
         return [  //gets the data from form's name
             'title' => 'required|unique:posts',
             'description' => 'required',
-            'image' => 'required|image',
             'content' => 'required',
-            'category'=> 'required'
+            'category'=> 'required',
+            'image' => 'required|image'
         ];
     }
 }

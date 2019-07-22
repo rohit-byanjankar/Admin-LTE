@@ -30,9 +30,7 @@ class RegisterController extends Controller
         $uname = $request->input('name');
         $phone = $request->phoneNumber;
         $address = $request->get('address');
-        $image = $request->file('image');
-        $destinationPath = 'uploads/';
-
+        $profession = $request->get('profession');
         $user = user::create([
             'email' => $email,
             'password' => $password,
@@ -40,12 +38,13 @@ class RegisterController extends Controller
             'image' => '-',
             'phone_number' => $phone,
             'address' => $address,
+            'profession' => $profession,
         ]);
-        $user->image = Helper::uploadFile($destinationPath, $image); //using helper file
-        $user->save();
+            $user->image = asset('uploads/default.png');
+             $user->save();
 
-        $admin = User::where('role', 'superadmin')->first();
-        if ($admin) {
+        $admins = User::where('role', 'superadmin')->get();
+        foreach ($admins as $admin) {
             $admin->notify(new VerifyUser($user));
         }
         return redirect('/login')->with('success', 'You have succesfully registered.Please wait for our admin to verify you.');

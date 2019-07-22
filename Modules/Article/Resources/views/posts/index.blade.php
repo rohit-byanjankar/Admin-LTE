@@ -2,7 +2,7 @@
 
 @section('content')
     @can('create',\Modules\Article\Entities\Post::class)
-    <div class="d-flex justify-content-end margin">
+    <div class="margin-bottom">
         <a href="{{ route('posts.create')}}" class="btn btn-success ">
             Add Posts
         </a>
@@ -11,7 +11,7 @@
 
     <div class="card card-body panel">
         @if($posts->count()>0)
-            <table class="table table-bordered table-hover panel-body" id="post">
+            <table class="table table-bordered table-hover panel-body" id="postTable">
                 <thead>
                     <th>Title</th>
                     <th>Image</th>
@@ -19,8 +19,8 @@
                     <th></th>
                     <th></th>
                 </thead>
-            @foreach($posts as $post)
             <tbody>
+            @foreach($posts as $post)
                 <tr>
                     <td>{{ $post->title}}</td>
                     <td>
@@ -71,7 +71,7 @@
 @section('scripts')
 <script>
     $(function() {
-        $("#post").DataTable();
+        $("#postTable").DataTable();
     });
 </script>
 @endsection

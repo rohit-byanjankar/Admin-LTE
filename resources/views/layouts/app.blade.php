@@ -22,7 +22,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title></title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -38,7 +37,7 @@
                     <div class="alert alert-danger alert-dismissable col-md-12 text-center">
                         <ul>
                             @foreach ($errors->all() as $error)
-                            <li>{{ $error }}
+                            <li class="mb-2" >{{ $error }}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -56,6 +55,7 @@
                         </button>
                     </div>
                     @endif
+
                     <div class="row">
                         @if(session()->has('error'))
                         <div class="alert alert-danger text-center alert-dismissible col-md-12">
@@ -74,18 +74,6 @@
                             </div>
                         </div>
                         @yield('content')
-                        <div class="footy-sec">
-                            <div class="container ">
-                                <ul>
-                                    <li><a href="#" title="">Privacy Policy</a></li>
-                                    <li><a href="#" title="">Community Guidelines</a></li>
-                                    <li><a href="#" title="">Language</a></li>
-                                    <li><a href="#" title="">Copyright Policy</a></li>
-                                </ul>
-                                <p><img src="images/copy-icon.png" alt="">Copyright 2018</p>
-                            </div>
-                        </div>
-                        <!--footy-sec end-->
                     </div>
                 </div>
             </div>
@@ -99,7 +87,6 @@
         $(function() {
             $("#tabs").tabs();
         });
-
 
         //for password toggle with eye
         $(".toggle-password").click(function() {
@@ -115,5 +102,4 @@
     </script>
     @yield('scripts')
 </body>
-
 </html>

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use Illuminate\Support\Facades\Auth;
 use Helper;
 use Modules\Article\Entities\Tag;
 use Illuminate\Auth\Access\HandlesAuthorization;
@@ -29,12 +29,12 @@ class TagPolicy
      * @param  \App\tag  $tag
      * @return mixed
      */
-    public function view(User $user, tag $tag)
+    public function view()
     {
-        if($user->id == $tag->user_id && Helper::getPermission(Auth::user()->custom,Tag::class,Auth::user()->role,'view') == true)
-        {
-            return true;
-        }
+        if(Helper::getPermission(Auth::user()->custom,Tag::class,Auth::user()->role,'view') == true)
+            {
+                return true;
+            }
     }
 
     /**
@@ -43,9 +43,12 @@ class TagPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(User $user)
+    public function create()
     {
-        //
+        if(Helper::getPermission(Auth::user()->custom,Tag::class,Auth::user()->role,'create') == true)
+            {
+                return true;
+            }
     }
 
     /**
@@ -55,9 +58,12 @@ class TagPolicy
      * @param  \App\tag  $tag
      * @return mixed
      */
-    public function update(User $user, tag $tag)
+    public function update()
     {
-        //
+        if(Helper::getPermission(Auth::user()->custom,Tag::class,Auth::user()->role,'update') == true)
+            {
+                return true;
+            }
     }
 
     /**
@@ -67,9 +73,12 @@ class TagPolicy
      * @param  \App\tag  $tag
      * @return mixed
      */
-    public function delete(User $user, tag $tag)
+    public function delete()
     {
-        //
+        if(Helper::getPermission(Auth::user()->custom,Tag::class,Auth::user()->role,'delete') == true)
+        {
+            return true;
+        }
     }
 
     /**
