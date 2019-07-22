@@ -13,7 +13,8 @@ use Modules\Classified\Entities\Classified;
 use Modules\Article\Entities\Post;
 
 
-class User extends Authenticatable
+
+class User extends Authenticatable 
 {
     use HasApiTokens, Notifiable;
 
@@ -49,6 +50,8 @@ class User extends Authenticatable
     {
         return $this->role == 'superadmin';
     }
+
+    
 
     public function isVerified()
     {

@@ -28,7 +28,6 @@
                                         @foreach($modelSearchResults as $searchResult)
                                         <ul >
                                             <li><a href="{{ $searchResult->url }}">{{ $searchResult->title }}</a></li>
-                                            
                                         </ul>
                                         @endforeach
 

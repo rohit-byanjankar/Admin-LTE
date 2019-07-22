@@ -19,6 +19,7 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
 
     Route::resource('userposts', 'UserPostController');
     Route::resource('postscategories', 'PostCategoryController');
+    Route::get('cat/{id}', 'PostCategoryController@getCategory')->name('cat');
 
     Route::resource('userevents', 'UserEventController');
 
@@ -27,7 +28,8 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
 
 
     Route::resource('telephonedir', 'TelephoneController');
-    Route::get('cat/{id}', 'PostCategoryController@getCategory')->name('cat');
+    Route::get('telephonecategory/{id}', 'TelephoneCategoryController@getCategory')->name('telephonecat');
+
 
     Route::resource('classified', 'ClassifiedController');
     Route::resource('classifiedcategory', 'ClassifiedController');

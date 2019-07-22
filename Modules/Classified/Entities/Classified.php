@@ -27,7 +27,8 @@ class Classified extends Model implements Searchable
 
         return new SearchResult(
             $this,
-            $this->title,
+            $this->title, 
+            $this->user->name,
             $url
          );
     }
