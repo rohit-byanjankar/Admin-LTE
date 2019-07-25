@@ -2,24 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Settings;
+
 use App\User;
 use Illuminate\Http\Request;
 use Modules\Article\Entities\Post;
-use Modules\Article\Entities\Category;
-use Modules\Article\Entities\Tag;
 use Modules\Events\Entities\Event;
-use Illuminate\Support\Facades\Auth;
 use Modules\Announcement\Entities\Announcement;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Session;
-// use Illuminate\Console\Scheduling\Event;
 use Spatie\Searchable\Search;
 use Modules\Classified\Entities\Classified;
 use Modules\Classified\Entities\ClassifiedCategory;
-use Modules\TelephoneDirectory\Entities\PhoneCategory;
-use Modules\TelephoneDirectory\Entities\PhoneDirectory;
-use App\User;
 
 class HomeController extends Controller
 {

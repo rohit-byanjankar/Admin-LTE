@@ -58,35 +58,32 @@
             <form method="post" action="">
                 @csrf
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-4">
                         <div class="form-group">
-                            <label>Bill Number</label>
-                            <input type="number" name="bill_number" class="form-control" placeholder="Enter bill number" value="" required>
+                            <label>Invoice No</label>
+                            <input type="number" name="invoice_no" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label>Biller Name</label>
+                            <input type="text" name="biller" value="{{old('biller')}}" class="form-control" placeholder="Enter biller name" required>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Customer's Name</label>
-                            <input type="text" name="customer_name" value="{{old('customer_name')}}" class="form-control" placeholder="Enter name" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Customer's Contact Number</label>
-                            <input type="number" name="customer_number" value = "{{old('customer_number')}}" class="form-control" placeholder="Enter phone number" required>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="number" name="phone_number" value = "{{old('phone_number')}}" class="form-control" placeholder="Enter phone number" required>
                     </div>
                 </div>
 
-                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Trial Date</label>
-                            <input type="date" name="trial_date" value = "{{old('trial_date')}}" class="form-control">
+                            <label>Date</label>
+                            <input type="date" name="trial_date" value = "{{old('date')}}" class="form-control">
                         </div>
                     </div>
 
