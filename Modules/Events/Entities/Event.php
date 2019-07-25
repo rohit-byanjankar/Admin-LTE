@@ -24,6 +24,7 @@ class Event extends Model implements Searchable
         return new SearchResult(
             $this->image,
             $this->title,
+            $this->venue,
             $url
          );
     }

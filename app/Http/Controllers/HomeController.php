@@ -19,6 +19,7 @@ use Modules\Classified\Entities\Classified;
 use Modules\Classified\Entities\ClassifiedCategory;
 use Modules\TelephoneDirectory\Entities\PhoneCategory;
 use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use App\User;
 
 class HomeController extends Controller
 {

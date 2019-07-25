@@ -52,6 +52,8 @@ class User extends Authenticatable implements Searchable
         return $this->role == 'superadmin';
     }
 
+    
+
     public function isVerified()
     {
         return $this->verify == 1;

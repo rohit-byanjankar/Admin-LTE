@@ -28,9 +28,7 @@
 											<span>{{ Auth::user()-> about}}</span>
 										</li>
 
-										<li>
-											<a href="#" title="">View Profile</a>
-										</li>
+										
 									</ul>
 								</div>
 								<!--user-data end-->

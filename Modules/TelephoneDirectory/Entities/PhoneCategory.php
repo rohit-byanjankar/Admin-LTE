@@ -3,8 +3,10 @@
 namespace Modules\TelephoneDirectory\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
 
-class PhoneCategory extends Model
+class PhoneCategory extends Model implements Searchable
 {
     //
     protected $fillable = ['name'];
@@ -16,5 +18,16 @@ class PhoneCategory extends Model
 
     public function getPermissions(){
         return ["delete", "update", "create", "view"];
+    }
+
+    public function getSearchResult(): SearchResult
+    {
+        $url = route('cat', $this->id);
+
+        return new SearchResult(
+            $this,
+            $this->name,
+            $url
+         );
     }
 }

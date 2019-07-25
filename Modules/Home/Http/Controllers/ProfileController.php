@@ -21,7 +21,7 @@ class ProfileController extends Controller
         $request->validate([
             'name' => 'max:20||min:3||nullable||regex:/^[a-zA-Z ]+$/',
             'phone' => 'nullable||numeric||digits_between:7,10',
-            'about' => 'nullable||regex:/^[a-zA-Z ]+$/'
+            'about' => 'nullable||regex:/^[a-zA-Z.1-100 ]+$/'
         ]);
         $user = Auth::user();
 
