@@ -156,6 +156,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src='/js/loginValidate.js'></script>
-    <script src='/js/registerValidate.js'></script>
+    <script src='js/loginValidate.js'></script>
+    <script src='js/registerValidate.js'></script>
 @endsection
