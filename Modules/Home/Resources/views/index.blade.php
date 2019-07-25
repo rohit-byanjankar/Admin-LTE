@@ -1,5 +1,6 @@
 @extends('layouts.master')
 <div class="wrapper">
+
 	@section('content')
 	<main>
 		<div class="main-section ">
@@ -12,7 +13,7 @@
 									<div class="user-profile">
 										<div class="username-dt">
 											<div class="usr-pic">
-												<img src="{{ asset(Auth::user()->image)}}" height="100" alt="">
+												<img src="{{asset(\Illuminate\Support\Facades\Auth::user()->image)}}" height="100" alt="">
 											</div>
 										</div>
 										<!--username-dt end-->
@@ -56,7 +57,7 @@
 							<div class="main-ws-sec ">
 								<div class="post-topbar">
 									<div class="user-picy">
-										<img src="{{Auth::user()->image}}" height="50px" alt="">
+										<img src="{{asset(\Illuminate\Support\Facades\Auth::user()->image)}}" height="50px" alt="">
 									</div>
 									<div class="post-st">
 										<ul>
@@ -73,7 +74,7 @@
 									<div class="post-bar">
 										<div class="post_topbar">
 											<div class="usy-dt">
-												<img src="{{ $post->user->image }}" height="30" width="30" alt="">
+												<img src="{{$post->user->image}}" height="30" width="30" alt="">
 												<div class="usy-name">
 													<span> {{$post->Category->name}}. </span>
 													<span><i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($post->published_at)->format('d D-M Y') }}</span>

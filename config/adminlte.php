@@ -218,6 +218,11 @@ return [
             'url'  =>  '/adminpanel/settings',
             'icon' =>  'wrench',
         ],
+        [
+            'text' =>  'Meeting',
+            'url'  =>  '/adminpanel/meeting',
+            'icon' =>  'group',
+        ],
     ],
     'models' => [
         "Modules\Article\Entities\Post",

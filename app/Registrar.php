@@ -9,5 +9,4 @@ class Registrar extends Model
     //
     protected $table="clients";
     protected $connection="registrar";
-
 }

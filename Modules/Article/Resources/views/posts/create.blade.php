@@ -1,7 +1,5 @@
 @extends('adminlte::page')
-
 @section('content')
-
 <div class="card card-default">
     <div class=" card-header text-bold ">
         {{ isset($post) ? 'Edit the post' : 'Create a Post' }}
@@ -11,11 +9,9 @@
         @include('partials.errors')
         <form action="{{ isset($post) ? route('posts.update', $post->id) : route('posts.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-
             @if(isset($post))
             @method('PUT')
             @endif
-
             <div class="form-group">
                 <label for="title"> Title </label>
                 <input type="text" class="form-control" name='title' id='title' value="{{ isset($post) ? $post->title : ''}}">
@@ -77,13 +73,11 @@
             </div>
             @endif
 
-
             <div class="form-group">
                 <button type="submit" class="btn btn-success">
                     {{ isset($post) ? 'EDIT THE POST' : 'CREATE NOW!' }}
                 </button>
             </div>
-
         </form>
     </div>
 </div>

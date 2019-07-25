@@ -29,7 +29,7 @@
                     </a>
                 </td>
                 <td>
-                   {{-- {{$categories[0]->classifiedCategory->name}}--}}
+                   {{$classified->classifiedCategory->name}}
                 </td>
                 <td>{{$classified->user->name}}</td>
                 <td>

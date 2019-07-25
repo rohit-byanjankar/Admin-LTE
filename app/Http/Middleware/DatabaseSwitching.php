@@ -23,6 +23,8 @@ class DatabaseSwitching
         $result=Registrar::where("community_url",$request->root())->first();
         $databaseName=$result->database_name;
         Config::set('database.connections.mysql.database',$databaseName);
+        Config::set('database.connections.mysql.username',$result->database_username);
+        Config::set('database.connections.mysql.password',$result->database_password);
         DB::purge();
         DB::connection();
 

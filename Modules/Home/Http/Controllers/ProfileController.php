@@ -58,6 +58,15 @@ class ProfileController extends Controller
             $user->phone_number = $user->phone_number;
         }
 
+        if ($request->service == null)
+        {
+            $user->service_provider = 0;
+        }else{
+            $user->service_provider = 1;
+        }
+
+        $user->from = $request->from;
+        $user->to = $request->to;
         $user->update();
         return redirect()->back()->with("success", "Your info was changed successfully !");
     }

@@ -116,9 +116,16 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-2 no-pdd">
-                            <div class="sn-field">
-                                <input type="checkbox" name="status" value="yes" class="form-control">Available for Service providing
+                        <div class="col-lg-12 no-pdd">
+                            <div class="checky-sec st2">
+                                <div class="fgt-sec">
+                                    <input type="checkbox" name="status" id="c3" value="1">
+                                    <label for="c3">
+                                        <span></span>
+                                    </label>
+                                    <small>Tick if you are available for Service providing </small>
+                                </div>
+                                <!--fgt-sec end-->
                             </div>
                         </div>
 

@@ -24,7 +24,7 @@ class User extends Authenticatable implements Searchable
      *
      * @var array
      */
-    //protected $connection='mysql2';
+
     protected $fillable = [
         'name', 'email', 'password','about', 'image','role','phone_number','address','profession','service_provider',
     ];
