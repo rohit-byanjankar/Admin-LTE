@@ -149,6 +149,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{asset('../Community-Media/resources/js/loginValidate.js')}}"></script>
-    <script src="{{asset('../Community-Media/resources/js/registerValidate.js')}}"></script>
+    <script src='/js/loginValidate.js'></script>
+    <script src='/js/registerValidate.js'></script>
 @endsection
