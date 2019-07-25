@@ -140,9 +140,9 @@
 	</style>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/responsive.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{url('../Community-Media/resources/workwise/jqueryTab.css')}}">
+	<link rel="stylesheet" type="text/css" href='/css/workwise/style.css'>
+	<link rel="stylesheet" type="text/css" href='/css/workwise/responsive.css'>
+	<link rel="stylesheet" type="text/css" href='/css/workwise/jqueryTab.css'>
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 	@yield('css')
 </head>
@@ -265,16 +265,16 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src="{{ url('js/jquery.min.js') }}"></script>
-	<script type="text/javascript" src="{{ url('js/popper.js')}}"></script>
-	<script type="text/javascript" src="{{ url('js/bootstrap.min.js')}}"></script>
-	<script type="text/javascript" src="{{ url('js/jquery.mCustomScrollbar.js')}}"></script>
+	<script type="text/javascript" src='/js/jquery.min.js'></script>
+	<script type="text/javascript" src='/js/popper.js'></script>
+	<script type="text/javascript" src='/js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='/js/jquery.mCustomScrollbar.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- <script type="text/javascript" src="{{ url('js/slick.min.js')}}"></script>
 	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script> -->
-	<script type="text/javascript" src="{{ url('js/script2.js')}}"></script>
+	<script type="text/javascript" src='/js/script2.js'></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
 	@yield('scripts')
