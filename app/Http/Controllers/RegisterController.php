@@ -31,6 +31,7 @@ class RegisterController extends Controller
         $phone = $request->phoneNumber;
         $address = $request->get('address');
         $profession = $request->get('profession');
+        $service = $request->get('status');
         $user = user::create([
             'email' => $email,
             'password' => $password,
@@ -39,6 +40,7 @@ class RegisterController extends Controller
             'phone_number' => $phone,
             'address' => $address,
             'profession' => $profession,
+            'service_provider' => $service,
         ]);
             $user->image = asset('uploads/default.png');
              $user->save();

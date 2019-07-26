@@ -10,9 +10,9 @@ class ClassifiedCategory extends Model implements Searchable
 {
     protected $fillable = ['name','image'];
     protected $table = 'adcategories';
-    
+
     public function classifieds(){
-        return $this->hasMany(Classified::class,'category_id');
+        return $this->hasMany(Classified::class,'adcategories_id');
     }
 
     public function getSearchResult(): SearchResult

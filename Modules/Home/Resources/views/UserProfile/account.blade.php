@@ -67,6 +67,27 @@
 											</div>
 										</div>
 
+										<div class="cp-field">
+											<div class="fgt-sec">
+												<input type="checkbox" name="service" value="{{$user->service_provider}}"
+												   {{$user->service_provider == 1 ? 'checked' : ''}} id="c4">
+												<label for="c4">
+													<span></span>
+												</label>
+													<small>Available for work</small>
+											@if($user->service_provider)
+												<h5>From:</h5>
+												<div class="form-group">
+													<input type="time" value="{{$user->from}}" name="from" />
+												</div>
+
+												<h5>To:</h5>
+												<div class="cpp-fiel">
+													<input type="time" value="{{$user->to}}" name="to" />
+												</div>
+											@endif
+											</div>
+										</div>
 										<div class="save-stngs pd3">
 											<ul>
 												<li><button type="submit">Save Setting</button></li>

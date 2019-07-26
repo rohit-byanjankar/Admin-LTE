@@ -59,13 +59,12 @@ class LoginController extends Controller
             if (Auth::user()->role == 'admin' || Auth::user()->role =='superadmin') {
                 //user is admin
                 return redirect('/adminpanel');
-            }
-            else{
+            } else{
                 //user isn't admin
                 return redirect('/home');
             }
         }else{
-            return redirect('/login')->with('error','Oops Something is wrong!');
+            return redirect('/login')->with('error','Invalid credentials or your account hasn\'t been verified!');
         }
     }
 }

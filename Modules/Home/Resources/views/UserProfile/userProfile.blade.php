@@ -32,9 +32,13 @@
                                         <div class="post-bar">
                                             <div class="job_descp">
                                                 <h3>USER DETAIL</h3>
-                                                <ul class="job-dt">
-                                                    <li><a href="">Available Time</a></li>
-                                                    <li>1:00 AM - 5:00AM</li>
+                                                <ul class="job-dt text-white">
+                                                    <li><a>Available Time</a></li>
+                                                    @if($user->from)
+                                                        <li><a>{{$user->from}} - {{$user->to}}</a></li>
+                                                    @else
+                                                        <li><a>Currently not available</a></li>
+                                                    @endif
                                                 </ul>
                                                 <p>{{$user->about}}<br>My email is {{ $user->email}}.You can request my contact info if u
                                                     need any help related to my profession.</p>
@@ -54,7 +58,7 @@
                                     @foreach($profession as $prof)
                                             <div class="usr-msg-details mt-3 ml-3 mb-3">
                                                 <div class="usr_img">
-                                                    <a href="{{ route('classified.show',$prof->id)}}">
+                                                    <a href="{{ route('user-profile',$prof->id)}}">
                                                         <img height="60px" width="200px" src="{{ url($prof->image)}}" alt="">
                                                     </a>
                                                 </div>

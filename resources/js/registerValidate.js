@@ -1,8 +1,6 @@
 
 	function validateForm(form) {
 		e=$("#"+form);
-
-
 		// Initializing Variables With Form Element Values
 		var nameReg = /^[A-Za-z]+$/;
 		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
@@ -47,6 +45,7 @@
 		}else{
 			$('#p5').hide();
 		}
+
 		if(valid)
 		e.submit();
 	}
