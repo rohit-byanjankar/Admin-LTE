@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
-use Intervention\Image\ImageManagerStatic as Image;
 use Symfony\Contracts\EventDispatcher\Event as SymfonyEvent;
 use Modules\Events\Entities\Event;
 use Helper;
