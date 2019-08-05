@@ -37,7 +37,7 @@ class ClassifiedCategoryController extends Controller
 
     public function getCategory($Category_id)
     {
-        $classifieds=Classified::where("category_id",$Category_id)->paginate(5);
+        $classifieds=Classified::where("adcategories_id",$Category_id)->paginate(5);
         return view('home::classifiedAd.index',['classifieds' => $classifieds])->with('limclassifieds',Classified::orderBy('updated_at','desc')->limit(4)->get())->with('userclassifieds',Classified::all())->with('categories',ClassifiedCategory::all());
     }
 

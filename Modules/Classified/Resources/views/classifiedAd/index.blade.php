@@ -29,7 +29,6 @@
                     </a>
                 </td>
                 <td>
-                   {{$classified->classifiedCategory->name}}
                 </td>
                 <td>{{$classified->user->name}}</td>
                 <td>

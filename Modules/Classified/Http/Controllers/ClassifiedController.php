@@ -46,7 +46,7 @@ class ClassifiedController extends Controller
             'description' => $request->description,
             'image' => '-',
             'user_id' => auth::user()->id,
-            'category_id' => $request->category,
+            'adcategories_id' => $request->category,
             'price' => $request->price
         ]);
 
@@ -103,6 +103,7 @@ class ClassifiedController extends Controller
         $classified->title = $request->title;
         $classified->description = $request->description;
         $classified->price = $request->price;
+        $classified->adcategories_id = $request->category;
         $classified->save();
 
         session()->flash('sucs', 'Your Ad is updated successfully');

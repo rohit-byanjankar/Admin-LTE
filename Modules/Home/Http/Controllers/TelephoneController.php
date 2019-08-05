@@ -16,30 +16,9 @@ class TelephoneController extends Controller
      */
     public function index()
     {
-        $categories=PhoneCategory::all();
-        $i=0;
-        $contacts=PhoneDirectory::all();
-        $groupedContacts=array();
-        foreach($categories as $category){
-            if(!isset($groupedContacts[$category->name])){
-                $groupedContacts[$category->name]=[];
-            }
-            if(!isset($groupedContacts[$category->name]["id"])){
-                $groupedContacts[$category->name]["id"]=$category->id;
-            }
-
-            if(!isset($groupedContacts[$category->name]["list"])){
-                $groupedContacts[$category->name]["list"]=[];
-            }
-          
-            foreach($contacts as $contact){
-                if($contact->phone_category_id==$category->id){
-                    array_push($groupedContacts[$category->name]["list"],$contact);
-                }
-            }
-            $i++;
-        }
-        return view('home::telephonedir.index',compact("categories","groupedContacts"));
+        $directories=PhoneDirectory::all();
+        $categories = PhoneCategory::all();
+        return view('home::telephonedir.index',compact("directories","categories"));
     }
 
     /**

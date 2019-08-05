@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{asset('../Community-Media/resources/workwise/style.css')}}">
+    <link rel="stylesheet" type="text/css" href='css/workwise/style.css'>
 
 </head>
 
@@ -25,7 +25,7 @@
                 <li>
                     <div class="announcementtitle">
 
-                        <h3> <a target='_blank' class="text-aqua" href="{{ route('userannouncements.show', $announcement->id) }}">{{ $announcement->title }} </a>
+                        <h3> <a target='_blank' class="text-aqua" href="{{ route('userannouncements.index') }}">{{ $announcement->title }} </a>
                         </h3>
 
                     </div>

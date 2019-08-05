@@ -59,37 +59,19 @@
 										</div>
 									</li>
 								</ul>
-
-
 								<hr>
 								<p>{{$event->description}}</p>
-
-
-
-
-
-
-
 								<p class="card-text"><small class="text-muted">Duration: {{$event->duration}} hours </small></p>
 							</div>
-
-
-
 						</div>
-
-
 					</div>
-
-
 					@endforeach
 
 
 					@else
 					<div class="forum-questions mt-2 mb-2">
 						<div class="usr-question ">
-
-
-							<h3> No Events Available..</h3>
+								<h3> No Events Available..</h3>
 						</div>
 					</div>
 					@endif
@@ -141,26 +123,8 @@
 
 
 
-<div class="overview-box" id="question-box">
-	<div class="overview-edit">
-		<h3>Ask a Question</h3>
-		<form>
-			<input type="text" name="question" placeholder="Type Question Here">
-			<input type="text" name="tags" placeholder="Tags">
-			<textarea placeholder="Description"></textarea>
-			<button type="submit" class="save">Submit</button>
-			<button type="submit" class="cancel">Cancel</button>
-		</form>
-		<a href="#" title="" class="close-box"><i class="la la-close"></i></a>
-	</div>
-	<!--overview-edit end-->
-</div>
-<!--overview-box end-->
 
-</div>
-<!--theme-layout end-->
 
-</main>
-</div>
+
 
 @endsection

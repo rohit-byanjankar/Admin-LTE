@@ -4,10 +4,10 @@
         <div class="login-sec" id="tabs">
             <ul class="sign-control">
                 <li data-tab="tab-1">
-                    <a href="#tabs-1">Log In</a>
+                    <a href="#tabs-1" class='logInTab'>Log In</a>
                 </li>
                 <li data-tab="tab-2">
-                    <a href="#tabs-2">
+                    <a href="#tabs-2" class='logInTab'>
                         Register
                     </a>
                 </li>
@@ -156,6 +156,6 @@
     </div>
 @endsection
 @section('scripts')
-    <script src='/js/loginValidate.js'></script>
-    <script src='/js/registerValidate.js'></script>
+    <script src='js/loginValidate.js'></script>
+    <script src='js/registerValidate.js'></script>
 @endsection
