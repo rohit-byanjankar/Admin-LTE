@@ -16,7 +16,8 @@ class TelephoneCategoryController extends Controller
      */
     public function getCategory($Category_id)
     {
-        $directories= PhoneDirectory::where("category_id",$Category_id)->paginate(5);
-        return view('home::telephonedir.index',['grouped' => $posts])->with('limposts',Post::orderBy('updated_at','desc')->limit(4)->get());
+        $categories = PhoneCategory::all();
+        $directories=PhoneDirectory::where("phone_category_id",$Category_id)->paginate(5);
+        return view('home::telephonedir.index',compact('directories','categories'));
     }
 }

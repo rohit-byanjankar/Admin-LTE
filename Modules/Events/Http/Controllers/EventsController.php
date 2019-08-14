@@ -42,6 +42,7 @@ class EventsController extends Controller
             'event_date' => 'required|date',
             'duration' => 'required|numeric',
             'image' => 'image' //value is in kilobytes
+
         ]);
         $event = Event::create([
             //storing to database
@@ -130,9 +131,8 @@ class EventsController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        $event = Event::where('id', $id);
         $old_image = $event->image;
         if (file_exists($old_image)) {
             unlink($old_image);

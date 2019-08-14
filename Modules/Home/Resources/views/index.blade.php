@@ -28,7 +28,7 @@
 											<span>{{ Auth::user()-> about}}</span>
 										</li>
 
-										
+
 									</ul>
 								</div>
 								<!--user-data end-->
@@ -57,12 +57,13 @@
 									<div class="user-picy">
 										<img src="{{asset(\Illuminate\Support\Facades\Auth::user()->image)}}" height="50px" alt="">
 									</div>
-									<div class="post-st">
+
+									<div class="home-page-box">
 										<ul>
 											<li><a class="" href="{{ route('userposts.create')}}" title="">Add an Article </a></li>
 										</ul>
 									</div>
-									<!--post-st end-->
+									<!--home-page-box end-->
 								</div>
 								<!--post-topbar end-->
 								<!--post-st end-->
@@ -79,11 +80,11 @@
 													<span class="skill-tags mt-3">
 														<i class="fa fa-tag"></i>
 														@if($post->tags->count()>0)
-															@foreach($post->tags as $tag)
-																{{ $tag->name}}
-															@endforeach
+														@foreach($post->tags as $tag)
+														{{ $tag->name}}
+														@endforeach
 														@else
-															No Tags..
+														No Tags..
 														@endif
 													</span>
 												</div>
@@ -94,7 +95,9 @@
 												<h3>{{$post->title}}</h3>
 											</a>
 											<p>{{$post->description}} </p>
-											<img src="{{ $post->image }}"  width="90%" alt="" class="img-thumbnail">
+											<a href="{{route('userposts.show',$post->id)}}">
+												<img src="{{ $post->image }}" width="90%" alt="" class="img-thumbnail">
+											</a>
 
 										</div>
 									</div>
