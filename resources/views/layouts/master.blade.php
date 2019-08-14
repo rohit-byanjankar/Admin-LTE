@@ -7,12 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	
+
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href='css/workwise/style.css'>
-	<link rel="stylesheet" type="text/css" href='css/workwise/responsive.css'>
-	<link rel="stylesheet" type="text/css" href='css/workwise/jqueryTab.css'>
+	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jqueryTab.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
@@ -120,8 +120,10 @@
 		</button>
 	</div>
 	@endif
-	<div class="col-md-12 mt-5">
-		@yield('content')
+	<div class="container">
+		<div class="col-md-12 mt-5 main-content">
+			@yield('content')
+		</div>
 	</div>
 	<footer>
 		<div class="footy-sec mn no-margin">
@@ -138,16 +140,13 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src='js/jquery.min.js'></script>
-	<script type="text/javascript" src='js/popper.js'></script>
-	<script type="text/javascript" src='js/bootstrap.min.js'></script>
-	<script type="text/javascript" src='js/jquery.mCustomScrollbar.js'></script>
+	<script type="text/javascript" src="{{asset('js/jquery.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/jquery.mCustomScrollbar.js')}}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<!-- <script type="text/javascript" src="{{ url('js/slick.min.js')}}"></script>
-	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script> -->
-	<script type="text/javascript" src='js/script2.js'></script>
 	<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 

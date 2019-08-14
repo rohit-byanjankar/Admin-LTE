@@ -32,7 +32,7 @@
 									<a href="#" rel="modal:close"><i class='fa fa-chevron-left'>Go Back</i></a>
 								</div>
 								<a href="#mod" rel="modal:open" title="view" class="btn btn-sm btn-success">View Details</a>
-								
+
 								<hr>
 
 								<p class="card-text"><small class="text-muted">Published Till: {{$announcement->published_till}} </small></p>
@@ -60,8 +60,9 @@
 
 			<div class="col-lg-3 pd-right-none no-pd pull-right">
 				<div class="widget widget-user">
-					<h3 class="title-wd text-center">UPCOMING announcements</h3>
+					<h3 class="title-wd text-center">UPCOMING ANNOUNCEMENTS</h3>
 					<ul>
+						@if($announcements->count()>0)
 						@foreach($limannouncements as $limannouncement)
 						<li>
 							<div class="usr-msg-details">
@@ -75,7 +76,18 @@
 							</div>
 						</li>
 						@endforeach
+						@else
+						<li>
+							<div class="usr-msg-details">
+								<div class="usr-mg-info">
+									<h2> <b> No Recent Announcements </b></h2>
+								</div>
+								<!--usr-mg-info end-->
+							</div>
+						</li>
+						@endif
 					</ul>
+
 				</div>
 				<!--widget-user end-->
 

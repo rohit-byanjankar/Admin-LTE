@@ -13,10 +13,7 @@
 
 <body>
 
-    <div class="wrapper">
-
-
-
+        @if($announcements->count()>0)
         @foreach($announcements as $announcement)
 
         <div class="mainannouncement ml-4 mt-2">
@@ -39,13 +36,23 @@
 
 
         @endforeach
+        @else
+        <div class="mainannouncement ml-4 mt-2">
+
+            <ul class="card card-body mr-4">
+                <li>
+                    <h2>No Announcements available..</h2>
+                </li>
+
+            </ul>
+        </div>
+
+        @endif
 
         <div class="text-center">
             {!! $announcements->links(); !!}
         </div>
 
-
-    </div>
 </body>
 
 </html>

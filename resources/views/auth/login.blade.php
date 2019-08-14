@@ -29,7 +29,7 @@
                             <div class="sn-field">
                             <i class="fa fa-lock"></i>
                                 <input id="password-field"  type="password"  class="form-control text-dark" placeholder="Password" name="password" required>
-                                <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password" ></span>
+                                <span toggle="#password-field"  class="fa fa-eye-slash field-icon toggle-password" ></span>
                             </div>
                         </div>
 

@@ -71,7 +71,7 @@
 					@else
 					<div class="forum-questions mt-2 mb-2">
 						<div class="usr-question ">
-								<h3> No Events Available..</h3>
+							<h3> No Events Available..</h3>
 						</div>
 					</div>
 					@endif
@@ -88,6 +88,7 @@
 				<div class="widget widget-user">
 					<h3 class="title-wd text-center">UPCOMING EVENTS</h3>
 					<ul>
+						@if($events->count()>0)
 						@foreach($limevents as $limevent)
 						<li>
 							<div class="usr-msg-details">
@@ -103,6 +104,17 @@
 							</div>
 						</li>
 						@endforeach
+						@else
+						<li>
+							<div class="usr-msg-details">
+								<div class="usr-mg-info">
+									<h2 class="text-center">No Upcoming Events</h2>
+								</div>
+								<!--usr-mg-info end-->
+							</div>
+						</li>
+
+						@endif
 					</ul>
 				</div>
 				<!--widget-user end-->
