@@ -5,8 +5,10 @@ namespace Modules\Accounting\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Accounting\Entities\Ledger;
 use Modules\Accounting\Entities\Purchase;
+use Modules\Accounting\Entities\purchaseDetail;
 
 class PurchaseController extends Controller
 {
@@ -38,10 +40,18 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'taxable_amount' => 'required',
+            'invoice_no' => 'required',
+            'total' => 'required',
+            'vat' => 'required',
             'ledger_id' => 'required',
             'address' => 'required',
-            'pan_number' => 'numeric',
             'phone_number' => 'numeric||digits_between:7,10',
+            'pan_number' => 'numeric',
+            'particular' => 'required',
+            'quantity' => 'required',
+            'rate' => 'required',
+            'amount' => 'required',
         ]);
 
         $biller_name=Ledger::where('id',$request->ledger_id)->pluck('ledger_name');
@@ -51,7 +61,25 @@ class PurchaseController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phone_number,
             'pan_number' => $request->pan_number,
+            'date' => $request->date,
+            'invoice_no' => $request->invoice_no,
+            'taxable_amount' => $request->taxable_amount,
+            'vat' => $request->vat,
+            'total' => $request->total,
+            'updated_by' => Auth::user()->id,
         ]);
+
+        $size=sizeof($request->particular);
+        for ($i=0;$i<$size;$i++){
+            purchaseDetail::create([
+                'particular' => $request->particular[$i],
+                'quantity' => $request->quantity[$i],
+                'rate' => $request->rate[$i],
+                'amount' => $request->amount[$i],
+                'purchase_id' => $request->ledger_id,
+            ]);
+        }
+
         return redirect(route('purchase.index'))->with('sucs', 'Bill Created Succesfully');
     }
 
@@ -87,6 +115,9 @@ class PurchaseController extends Controller
     {
         $request->validate([
             'address' => 'required',
+            'taxable_amount' => 'required',
+            'total_amount' => 'required',
+            'vat' => 'required',
             'pan_number' => 'numeric',
             'phone_number' => 'numeric||digits_between:7,10',
         ]);

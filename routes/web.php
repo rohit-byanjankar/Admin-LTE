@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('adminpanel/settings','SettingsController')->middleware('admin');
+Route::resource('adminpanel/registrar','RegistrarController')->middleware('admin');
 Route::get('deactivated','RegisterController@userDeactivated')->middleware('auth');
 Route::post('deactivated','RegisterController@reActivatedEmail');
 

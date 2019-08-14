@@ -20,5 +20,6 @@ Route::middleware('auth:api')->group(function() {
     });
     Route::resource('settings','api\SettingsControllerApi');
 });
+
     Route::post('/login','api\AuthController@login');
     Route::post('/register','api\AuthController@register');

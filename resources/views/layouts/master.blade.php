@@ -140,9 +140,9 @@
 	</style>
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href='/css/workwise/style.css'>
-	<link rel="stylesheet" type="text/css" href='/css/workwise/responsive.css'>
-	<link rel="stylesheet" type="text/css" href='/css/workwise/jqueryTab.css'>
+	<link rel="stylesheet" type="text/css" href='css/workwise/style.css'>
+	<link rel="stylesheet" type="text/css" href='css/workwise/responsive.css'>
+	<link rel="stylesheet" type="text/css" href='css/workwise/jqueryTab.css'>
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 	@yield('css')
 </head>
@@ -254,9 +254,7 @@
 		<div class="footy-sec mn no-margin">
 			<div class="container">
 				<ul>
-					<li><a href="#" title="">Privacy Policy</a></li>
 					<li><a href="#" title="">Community Guidelines</a></li>
-					<li><a href="#" title="">Forum</a></li>
 					<li><a href="{{url('aboutUs')}}" title="">About Us</a></li>
 					<li> <i class="fa fa-copyright"> Copyright </i> 2018
 					</li>
@@ -265,16 +263,15 @@
 		</div>
 	</footer>
 
-	<script type="text/javascript" src='/js/jquery.min.js'></script>
-	<script type="text/javascript" src='/js/popper.js'></script>
-	<script type="text/javascript" src='/js/bootstrap.min.js'></script>
-	<script type="text/javascript" src='/js/jquery.mCustomScrollbar.js'></script>
+	<script type="text/javascript" src='js/jquery.min.js'></script>
+	<script type="text/javascript" src='js/popper.js'></script>
+	<script type="text/javascript" src='js/bootstrap.min.js'></script>
+	<script type="text/javascript" src='js/jquery.mCustomScrollbar.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<!-- <script type="text/javascript" src="{{ url('js/slick.min.js')}}"></script>
-	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script> -->
-	<script type="text/javascript" src='/js/script2.js'></script>
+	<script type="text/javascript" src="{{ url('js/scrollbar.js')}}"></script>
+	<script type="text/javascript" src='js/script2.js'></script>
 	<script src="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.js"></script>
 	<!--jquery tabs -->
 	@yield('scripts')

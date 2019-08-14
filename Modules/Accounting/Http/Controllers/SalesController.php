@@ -5,8 +5,10 @@ namespace Modules\Accounting\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Accounting\Entities\Ledger;
 use Modules\Accounting\Entities\Sales;
+use Modules\Accounting\Entities\salesDetail;
 
 class SalesController extends Controller
 {
@@ -38,10 +40,18 @@ class SalesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'taxable_amount' => 'required',
+            'invoice_no' => 'required',
+            'total' => 'required',
+            'vat' => 'required',
             'ledger_id' => 'required',
             'address' => 'required',
             'pan_number' => 'numeric',
             'phone_number' => 'numeric||digits_between:7,10',
+            'particular' => 'required',
+            'quantity' => 'required',
+            'rate' => 'required',
+            'amount' => 'required',
         ]);
 
         $seller_name=Ledger::where('id',$request->ledger_id)->pluck('ledger_name');
@@ -51,7 +61,25 @@ class SalesController extends Controller
             'address' => $request->address,
             'phone_number' => $request->phone_number,
             'pan_number' => $request->pan_number,
+            'invoice_no' => $request->invoice_no,
+            'date' => $request->date,
+            'taxable_amount' => $request->taxable_amount,
+            'vat' => $request->vat,
+            'total' => $request->total,
+            'updated_by' => Auth::user()->id,
         ]);
+
+        $size=sizeof($request->particular);
+        for ($i=0;$i<$size;$i++){
+            salesDetail::create([
+                'particular' => $request->particular[$i],
+                'quantity' => $request->quantity[$i],
+                'rate' => $request->rate[$i],
+                'amount' => $request->amount[$i],
+                'sales_id' =>$request->ledger_id,
+            ]);
+        }
+
         return redirect(route('sales.index'))->with('sucs', 'Sales Bill Created Succesfully');
     }
 

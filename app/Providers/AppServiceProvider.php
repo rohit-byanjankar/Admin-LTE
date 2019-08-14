@@ -26,5 +26,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $this->loadViewsFrom(__DIR__.'/path/to/views', 'Home');
+        if($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }

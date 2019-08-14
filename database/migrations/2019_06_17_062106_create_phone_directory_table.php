@@ -16,14 +16,14 @@ class CreatePhoneDirectoryTable extends Migration
         Schema::create('phone_directory', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
-            $table->string('middle_name');
+            $table->string('middle_name')->nullable();
             $table->string('surname');
             $table->string('city');
             $table->string('street');
             $table->string('home_number');
-            $table->string('mobile_number');
-            $table->string('office_number');
-            $table->string('profession');
+            $table->string('mobile_number')->nullable();
+            $table->string('office_number')->nullable();
+            $table->string('profession')->nullable();
              $table->integer('phone_category_id')->nullable();
 
             $table->timestamps();

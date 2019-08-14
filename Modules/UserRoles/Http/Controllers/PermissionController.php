@@ -18,18 +18,18 @@ class PermissionController extends Controller
         return view('userroles::rolePermission.selectRole',compact('roles'));
     }
 
-    public function getPermission($roleName){
-
+    public function getPermission($roleName)
+    {
         $roles=Permission::where("role",$roleName)->get();
         $models=config("adminlte.models"); //["App\Post","App\Tag","App\Category","App\User"];
         
         $permissions=[];
-        
         foreach($models as $modelname){
             $m=new $modelname;
             $permission=$m->getPermissions();
             $permissions[$modelname]=$permission;
         }
+
         return view('userroles::rolePermission.permission',compact('permissions','roles','roleName'));
     }
 
