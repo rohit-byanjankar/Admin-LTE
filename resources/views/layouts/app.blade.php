@@ -13,6 +13,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
+
     <link rel="stylesheet" type="text/css" href="{{url('css/workwise/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}>
     <!-- Styles -->

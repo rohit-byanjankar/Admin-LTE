@@ -2,26 +2,15 @@
 
 @section('content')
     <div class="container">
-    <div class="col-md-10 blogShort">
-         <h1>{{$event->title}}</h1>
-         <i>  {{\Carbon\Carbon::parse($event->event_date)->format('d D-M Y')}}</i> <br>
-         <h3> <i> {{ $event->venue}} </i> </h3>
-         <article>
-             <p>
-            <h2> <b> {{ $event->details }}</b> </h2>
-             </p>
-         </article>
+        <div class="col-md-10 blogShort">
+             <h1 class="text-info">{{$event->title}}</h1>
+             <h3>On :<i> {{\Carbon\Carbon::parse($event->event_date)->format('d D-M Y')}}</i></h3>
+             <h3>Location : <i> {{ $event->venue}} </i> </h3>
+            <h3><b>Description :</b> <i> {{ $event->description}} </i> </h3>
+            <img src="{{asset($event->image)}}">
+                 <p class=" text-bold">
+                    {{ $event->details }}
+                 </p>
+        </div>
     </div>
-    </div>
-
-	
-
-
-  
-
- 
-
- 
-               
-
 @endsection

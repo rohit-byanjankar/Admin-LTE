@@ -37,14 +37,10 @@ class TelephoneDirectoryController extends Controller
     {
         $request ->validate([
             'fname' => 'required',
-            'mname' => 'required',
             'lname' => 'required',
             'city' => 'required',
             'street' => 'required',
             'home_number' => 'required||numeric||digits_between:7,10',
-            'mobile_number' => 'required||numeric||digits_between:10,14',
-            'office_number' => 'required||numeric||digits_between:7,10',
-            'profession' => 'required',
         ]);
 
         PhoneDirectory::create([       //storing to database
