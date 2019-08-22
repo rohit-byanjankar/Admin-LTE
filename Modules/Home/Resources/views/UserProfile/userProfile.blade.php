@@ -1,83 +1,140 @@
 @extends('layouts.master')
 @section('content')
-    <main>
-        <div class="main-section ">
-            <div class="container ">
-                <div class="main-section-data">
-                    <div class="row ">
-                        <div class="col-lg-3">
-                            <div class="main-left-sidebar">
-                                <div class="user_profile">
-                                    <div class="user-pro-img mt-3">
-                                        <img src="{{asset($user->image)}}" alt="" height="250px" width="200px">
-                                    </div><!--user-pro-img end-->
-                                    <div class="user_pro_status">
-                                        <ul class="flw-hr">
-                                            <li><a href="#" title="" class="hre">Request Contact Info</a></li>
-                                        </ul>
-                                    </div><!--user_pro_status end-->
-                                </div><!--user_profile end-->
-                            </div><!--main-left-sidebar end-->
+<main>
+    <div class="main-section ">
+        <div class="container ">
+            <div class="main-section-data">
+                <div class="row ">
+                    <div class="col-lg-3">
+                        <div class="main-left-sidebar">
+                            <div class="user_profile">
+                                <div class="user-pro-img mt-3">
+                                    <img src="{{asset($user->image)}}" alt="" height="250px" width="200px">
+                                </div>
+                                <!--user-pro-img end-->
+                                <div class="user_pro_status">
+                                    <ul class="flw-hr">
+                                        <li><a href="#" title="" class="hre">Request Contact Info</a></li>
+                                    </ul>
+                                </div>
+                                <!--user_pro_status end-->
+                            </div>
+                            <!--user_profile end-->
                         </div>
-                        <div class="col-lg-6">
-                            <div class="main-ws-sec">
-                                <div class="user-tab-sec">
+                        <!--main-left-sidebar end-->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="main-ws-sec">
+                            <div class="user-tab-sec">
+                                <div class="card card-header">
                                     <h3 class="text-info">{{$user->name}}</h3>
-                                    <div class="star-descp">
-                                        <span>{{$user->profession}}</span>
-                                    </div><!--star-descp end-->
-                                </div><!--user-tab-sec end-->
-                                <div class="product-feed-tab current">
-                                    <div class="posts-section">
-                                        <div class="post-bar">
-                                            <div class="job_descp">
-                                                <h3>USER DETAIL</h3>
-                                                <ul class="job-dt text-white">
-                                                    <li><a>Available Time</a></li>
-                                                    @if($user->from)
-                                                        <li><a>{{$user->from}} - {{$user->to}}</a></li>
-                                                    @else
-                                                        <li><a>Currently not available</a></li>
-                                                    @endif
-                                                </ul>
-                                                <p>{{$user->about}}<br>My email is {{ $user->email}}.You can request my contact info if u
-                                                    need any help related to my profession.</p>
-                                            </div>
-                                        </div><!--post-bar end-->
-                                    </div><!--posts-section end-->
-                                </div><!--product-feed-tab end-->
-                            </div><!--main-ws-sec end-->
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="right-sidebar">
-                                <div class="widget widget-portfolio">
-                                    <div class="wd-heady">
-                                        <h3>Other {{$user->profession}}'s</h3>
+                                    @if($user->profession)
+                                    <div class="star-descp ml-1 mt-2">
+                                        <span style='text-transform:capitalize'>{{$user->profession}}</span>
                                     </div>
-                                    @if($profession)
-                                    @foreach($profession as $prof)
-                                            <div class="usr-msg-details mt-3 ml-3 mb-3">
-                                                <div class="usr_img">
-                                                    <a href="{{ route('user-profile',$prof->id)}}">
-                                                        <img height="60px" width="200px" src="{{ url($prof->image)}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="usr-mg-info mt-3">
-                                                    {{ $prof->name }}<br>
-                                                    <h2>{{ $prof->profession }}</h2>
+                                    @else
+                                    <div class="star-descp ml-1 mt-2">
+                                        <span>No Profession</span>
+                                    </div>
+                                    @endif
+                                </div>
+
+                                <!--star-descp end-->
+                            </div>
+                            <!--user-tab-sec end-->
+                            <div class="card card-body">
+
+                                <h1 style='font-size:150%'>About</h1>
+
+                                <p><br>My email is "{{ $user->email}}". You can request my contact info if you
+                                    need any help related to my profession. My address is {{$user->address}}.</p>
+
+                            </div>
+                            <!--product-feed-tab end-->
+                        </div>
+                        <!--main-ws-sec end-->
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="right-sidebar">
+                            <div class="widget widget-user">
+                                <h3 class="title-wd text-center">Recent Articles</h3>
+                                <ul>
+                                    @if($user->posts()->count()>0)
+                                    @foreach($posts as $post)
+                                    <li>
+                                        <div class="usr-msg-details">
+                                            <img src="{{url($post->image)}}" width="40" height="60" alt="">
+                                            <div class="usr-mg-info">
+                                                <a href="{{route('userposts.show', $post->id)}}">
+                                                    <h2> <b> {{ $post->title }} </b></h2>
+                                                </a>
+
+                                            </div>
+                                            <!--usr-mg-info end-->
+                                        </div>
+                                    </li>
+                                    @endforeach
+                                    @else
+                                    <div class="usr-msg-details">
+                                        <li>
+                                            <div class="usr-msg-details">
+                                                <div class="usr-mg-info">
+                                                    <h2 class="text-center">No recent articles from {{$user->name}}..</h2>
                                                 </div>
                                                 <!--usr-mg-info end-->
                                             </div>
+                                        </li>
+                                    </div>
+                                    @endif
+                                </ul>
+
+                            </div>
+                            <!--widget-portfolio end-->
+
+                            <div class="widget widget-user">
+                                <h3 class="title-wd text-center">Recent Advertisements</h3>
+                                <ul>
+                                    @if($user->advertisements()->count()>0)
+                                    @foreach($classifieds as $classified)
+                                  
+                                    <li>
+                                        <div class="usr-msg-details">
+                                            <img src="{{url($classified->image)}}" width="40" height="60" alt="">
+                                            <div class="usr-mg-info">
+                                                <a href="{{route('classified.show', $classified->id)}}">
+                                                    <h2> <b> {{ $classified->title }} </b></h2>
+                                                </a>
+
+                                            </div>
+                                            <!--usr-mg-info end-->
+                                        </div>
+                                    </li>
+                                   
                                     @endforeach
                                     @else
-                                        <div>NO OTHER PROFESSION OF SAME TYPE</div>
+                                    <div class="usr-msg-details">
+                                        <li>
+                                            <div class="usr-msg-details">
+                                                <div class="usr-mg-info">
+                                                    <h2 class="text-center">No recent advertisements from {{$user->name}}..</h2>
+                                                </div>
+                                                <!--usr-mg-info end-->
+                                            </div>
+                                        </li>
+                                    </div>
                                     @endif
-                                </div><!--widget-portfolio end-->
-                            </div><!--right-sidebar end-->
+                                </ul>
+
+
+                            </div>
+                            <!--widget-portfolio end-->
+
                         </div>
+                        <!--right-sidebar end-->
                     </div>
-                </div><!-- main-section-data end-->
-            </div>
+                </div>
+            </div><!-- main-section-data end-->
         </div>
-    </main>
+    </div>
+</main>
 @endsection

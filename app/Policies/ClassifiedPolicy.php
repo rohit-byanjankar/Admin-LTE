@@ -33,17 +33,17 @@ class ClassifiedPolicy
         }
     }
 
-    public function update()
+    public function update(User $user, Classified $classified)
     {
-        if( Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'update') == true)
+        if($classified->user_id == $user->id || Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'update') == true)
         {
             return true;
         }
     }
 
-    public function delete()
+    public function delete(User $user, Classified $classified)
     {
-        if( Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'delete') == true)
+        if( $classified->user_id == $user->id || Helper::getPermission(Auth::user()->custom,Classified::class,Auth::user()->role,'delete') == true)
         {
             return true;
         }
