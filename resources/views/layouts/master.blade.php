@@ -10,20 +10,10 @@
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<<<<<<< HEAD
-	<link rel="stylesheet" type="text/css" href='css/workwise/style.css'>
-	<link rel="stylesheet" type="text/css" href='css/workwise/responsive.css'>
-	<link rel="stylesheet" type="text/css" href='css/workwise/jqueryTab.css'>
-	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
-=======
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jqueryTab.css')}}">
-	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/slick.css')}}">
-	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-
->>>>>>> 34e68b7cc5d3d65cf9ab8ccc1d360126edb5ea7a
+	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 	@yield('css')
 </head>
 
