@@ -13,8 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jqueryTab.css')}}">
-	<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
 	@yield('css')
 </head>
 
@@ -86,9 +85,8 @@
 					</div>
 					<div class="user-account-settingss">
 						<ul class="us-links">
+							<li><a href="{{ route('user-profile',Auth::user()->id) }}" title="">Profile</a></li>
 							<li><a href="{{ route('account') }}" title="">Account Setting</a></li>
-							<li><a href="#" title="">Privacy</a></li>
-							<li><a href="#" title="">Faqs</a></li>
 							<li><a href="#" title="">Terms & Conditions</a></li>
 							<i class="fa fa-power-off"></i>
 							<a href="logout" class="text-center">Logout</a>
@@ -142,6 +140,7 @@
 	<script type="text/javascript" src="{{asset('js/popper.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('js/jquery.mCustomScrollbar.js')}}"></script>
+	<script type="text/javascript" src="{{asset('js/script2.js')}}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

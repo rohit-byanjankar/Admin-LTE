@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Modules\Article\Entities\Post;
 use Illuminate\Support\Facades\Auth;
+use Modules\Classified\Entities\Classified;
 
 class FrontController extends Controller
 {
@@ -51,10 +52,10 @@ class FrontController extends Controller
     public function show($id)
     {
        $user=User::find($id);
-       $profession=DB::table('users')
-                    ->where('profession','=',$user->profession)
-                    ->whereNotIn('id',[$id])->get();
-       return view('home::UserProfile.userProfile',compact('user','profession'));
+       $posts = Post::orderBy('published_at', 'desc')->limit(4)->get()->where('user_id',$user->id);
+       $classifieds = Classified::orderBy('updated_at', 'desc')->limit(4)->get()->where('user_id',$user->id)->where('approved',1);
+      
+       return view('home::UserProfile.userProfile',compact('user','posts','classifieds'));
     }
 
     /**

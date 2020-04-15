@@ -45,7 +45,7 @@
 									@endcan
 
 									@can('delete',$classified)
-									<form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('classified.destroy' ,$classified->id) }}" method="classified" style="display:inline">
+									<form onsubmit="return confirm('Are you sure you want to delete?')" action="{{ route('classified.destroy' ,$classified->id) }}" method="post" style="display:inline">
 										@csrf
 										@method('DELETE')
 										<button class="btn btn-danger btn-sm">
@@ -93,7 +93,7 @@
 									<div class="usr-msg-details">
 										<img src="{{url($limclassified->image)}}" width="40" height="60" alt="">
 										<div class="usr-mg-info">
-											<a href="{{route('userposts.show', $classified->id)}}">
+											<a href="{{route('classified.show', $classified->id)}}">
 												<h2> <b> {{ $limclassified->title }} </b></h2>
 											</a>
 
@@ -106,7 +106,7 @@
 								<li>
 									<div class="usr-msg-details">
 										<div class="usr-mg-info">
-											<h2 class="text-center">No Upcoming Events</h2>
+											<h2 class="text-center">No Ads..</h2>
 										</div>
 										<!--usr-mg-info end-->
 									</div>
