@@ -37,6 +37,8 @@ Route::middleware(['auth','checkDeactivate'])->group(function() {
     Route::resource('classifiedcategory', 'ClassifiedController');
     Route::get('adcat/{id}', 'ClassifiedCategoryController@getCategory')->name('adcat');
 
+    Route::get('request/{id}','FrontController@requestContactNumber')->name('request');
+
 });
 
 

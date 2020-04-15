@@ -159,7 +159,6 @@
                                 <th>Mobile Number</th>
                                 <th>Office Number</th>
                                 <th>Profession</th>
-                                <th>Category</th>
                             </tr>
                             </thead>
                                 <tbody>
@@ -172,10 +171,6 @@
                                         <td>{{$list->mobile_number}}</td>
                                         <td>{{$list->office_number}}</td>
                                         <td>{{$list->profession}}</td>
-                                        <td>
-                                            {{(isset($list->phoneCategory->name) ?  $list->phoneCategory->name : '')}}
-                                        </td>
-                                        
                                     </tr>
                                  @endforeach
                                 </tbody>

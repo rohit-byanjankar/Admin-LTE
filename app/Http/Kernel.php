@@ -24,8 +24,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \App\Http\Middleware\TrustProxies::class,
+        \App\Http\Middleware\Cors::class,
     ];
-
+    
     /**
      * The application's route middleware groups.
      *
@@ -41,15 +42,14 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
-
         ],
-
+        
         'api' => [
             'throttle:60,1',
             'bindings',
         ],
     ];
-
+    
     /**
      * The application's route middleware.
      *
@@ -69,7 +69,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifyCategoryCount' => VerifyCategoriesCount::class,
         'admin' => VerifyIsAdmin::class,
-        'checkDeactivate' => CheckDeactivate::class
+        'checkDeactivate' => CheckDeactivate::class,
+        
     ];
 
 

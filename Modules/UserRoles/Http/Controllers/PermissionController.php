@@ -49,6 +49,5 @@ class PermissionController extends Controller
         session()->flash("sucs","Successfully Updated permissions");
 
         return redirect()->back();
-      
     }
 }

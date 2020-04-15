@@ -13,7 +13,7 @@
                                     </div><!--user-pro-img end-->
                                     <div class="user_pro_status">
                                         <ul class="flw-hr">
-                                            <li><a href="#" title="" class="hre">Request Contact Info</a></li>
+                                            <li><a href="{{route('request',$user->id)}}" title="" class="hre">Request Contact Info</a></li>
                                         </ul>
                                     </div><!--user_pro_status end-->
                                 </div><!--user_profile end-->
@@ -54,7 +54,7 @@
                                     <div class="wd-heady">
                                         <h3>Other {{$user->profession}}'s</h3>
                                     </div>
-                                    @if($profession)
+                                    @if(count($profession) > 0)
                                     @foreach($profession as $prof)
                                             <div class="usr-msg-details mt-3 ml-3 mb-3">
                                                 <div class="usr_img">
@@ -70,7 +70,7 @@
                                             </div>
                                     @endforeach
                                     @else
-                                        <div>NO OTHER PROFESSION OF SAME TYPE</div>
+                                        <div class="card card-body text-primary">NO OTHER PROFESSION OF SAME TYPE</div>
                                     @endif
                                 </div><!--widget-portfolio end-->
                             </div><!--right-sidebar end-->

@@ -2,6 +2,7 @@
 
 namespace Modules\Home\Http\Controllers;
 
+use App\Notifications\requestContactNumber;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -85,5 +86,12 @@ class FrontController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function requestContactNumber($id)
+    {
+        $user=User::find($id);
+        $user->notify(new requestContactNumber());
+        return redirect()->back()->with('success','Requested Contact Number.Please wait for him to reply u back on your mail');
     }
 }
