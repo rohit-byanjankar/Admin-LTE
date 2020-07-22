@@ -17,6 +17,7 @@
 						</div>
 						@endforeach
 					</div>
+
 					<div class="col-lg-6"> {{--ad-content--}}
 						<div class="main-ws-sec">
 							<div class="ad-st">
@@ -81,60 +82,47 @@
 							{!! $classifieds->links(); !!}
 						</div>
 					</div>
-					<div class="col-lg-3"> {{--rightad--}}
+
+					<div class="col-lg-3 rightad pd-right-none no-pd pull-right">
 						<div class="widget widget-user">
 							<h3 class="title-wd text-center"> LATEST ADS</h3>
 							<ul>
-								@if($limclassifieds->count()>0)
+								@if($classifieds->count()>0)
 								@foreach($limclassifieds as $limclassified)
-								@if($limclassified->approved == 1)
 								<li>
 									<div class="usr-msg-details">
-										<div class="usr_img">
-											<a href="{{ route('classified.show',$limclassified->id)}}">
-												<img height="60px" width="200px" src="{{ url($limclassified->image)}}" alt="">
-											</a>
-										</div>
+										<img src="{{url($limclassified->image)}}" width="40" height="60" alt="">
 										<div class="usr-mg-info">
-											<h2> <b> {{ $limclassified->title }} </b></h2>
-										</div>
-										<!--usr-mg-info end-->
-									</div>
-								</li>
-								@endif
-								@endforeach
-							</ul>{{--
-							@else
-							<div class="usr-msg-details text-center">
-								<h3>
-									No Recent Posts...
-								</h3>
-							</div>--}}
-							@endif
-						</div>
+											<a href="{{route('classified.show', $classified->id)}}">
+												<h2> <b> {{ $limclassified->title }} </b></h2>
+											</a>
 
-						<div class="widget widget-user">
-							<h3 class="title-wd text-center">Your classifieds</h3>
-							@foreach($userclassifieds as $userclassified)
-							<ul>
-								<li>
-									<div class="usr-msg-details">
-										<div class="usr_img">
-											<a href="{{ route('classified.show',$userclassified->id)}}">
-												<img height="60px" width="200px" src="{{ url($userclassified->image)}}" alt="">
-											</a>
-										</div>
-										<div class="usr-mg-info">
-											<h2> <b> {{ $userclassified->title }} </b></h2>
 										</div>
 										<!--usr-mg-info end-->
 									</div>
-									<!--usr-mg-info end-->
 								</li>
+								@endforeach
+								@else
+								<li>
+									<div class="usr-msg-details">
+										<div class="usr-mg-info">
+											<h2 class="text-center">No Ads..</h2>
+										</div>
+										<!--usr-mg-info end-->
+									</div>
+								</li>
+
+								@endif
 							</ul>
-							@endforeach
 						</div>
-						<!-- classified -->
+						<!--widget-user end-->
+
+
+						<div class="widget widget-adver">
+							<img src="http://via.placeholder.com/370x270" alt="">
+						</div>
+						<!--for advertisement-->
+
 					</div>
 				</div>
 			</div>
@@ -147,10 +135,10 @@
 @endsection
 
 @section('scripts')
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-1183769025334076",
-			enable_page_level_ads: true
-		});
-	</script>
+<script>
+	(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-1183769025334076",
+		enable_page_level_ads: true
+	});
+</script>
 @endsection

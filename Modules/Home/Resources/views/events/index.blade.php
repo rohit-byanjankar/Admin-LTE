@@ -59,36 +59,18 @@
 										</div>
 									</li>
 								</ul>
-
-
 								<hr>
 								<p>{{$event->description}}</p>
-
-
-
-
-
-
-
 								<p class="card-text"><small class="text-muted">Duration: {{$event->duration}} hours </small></p>
 							</div>
-
-
-
 						</div>
-
-
 					</div>
-
-
 					@endforeach
 
 
 					@else
 					<div class="forum-questions mt-2 mb-2">
 						<div class="usr-question ">
-
-
 							<h3> No Events Available..</h3>
 						</div>
 					</div>
@@ -106,6 +88,7 @@
 				<div class="widget widget-user">
 					<h3 class="title-wd text-center">UPCOMING EVENTS</h3>
 					<ul>
+						@if($events->count()>0)
 						@foreach($limevents as $limevent)
 						<li>
 							<div class="usr-msg-details">
@@ -121,6 +104,17 @@
 							</div>
 						</li>
 						@endforeach
+						@else
+						<li>
+							<div class="usr-msg-details">
+								<div class="usr-mg-info">
+									<h2 class="text-center">No Upcoming Events</h2>
+								</div>
+								<!--usr-mg-info end-->
+							</div>
+						</li>
+
+						@endif
 					</ul>
 				</div>
 				<!--widget-user end-->
@@ -141,26 +135,8 @@
 
 
 
-<div class="overview-box" id="question-box">
-	<div class="overview-edit">
-		<h3>Ask a Question</h3>
-		<form>
-			<input type="text" name="question" placeholder="Type Question Here">
-			<input type="text" name="tags" placeholder="Tags">
-			<textarea placeholder="Description"></textarea>
-			<button type="submit" class="save">Submit</button>
-			<button type="submit" class="cancel">Cancel</button>
-		</form>
-		<a href="#" title="" class="close-box"><i class="la la-close"></i></a>
-	</div>
-	<!--overview-edit end-->
-</div>
-<!--overview-box end-->
 
-</div>
-<!--theme-layout end-->
 
-</main>
-</div>
+
 
 @endsection

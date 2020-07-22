@@ -1,22 +1,21 @@
 @extends('adminlte::page')
-
 @section('content')
 <h1 class="text-dark text-center text-bold">MANAGE PERMISSIONS</h1>
 @php
 $permission_array=[];
 foreach ($roles as $permission){
-{
-$role=$permission->role;
-if(!isset($permission_array[$role])){
-$permission_array[$role]=[];
-}
-$model=$permission->model;
-if(!isset($permission_array[$role][$model])){
-$permission_array[$role][$model]=[];
-}
-$permission_granted=$permission->permission_granted;
-array_push($permission_array[$role][$model],$permission_granted);
-}
+    {
+        $role=$permission->role;
+        if(!isset($permission_array[$role])){
+        $permission_array[$role]=[];
+        }
+        $model=$permission->model;
+        if(!isset($permission_array[$role][$model])){
+        $permission_array[$role][$model]=[];
+        }
+        $permission_granted=$permission->permission_granted;
+        array_push($permission_array[$role][$model],$permission_granted);
+    }
 }
 @endphp
 <form action="{{url('adminpanel/role-permission-save')}}" method="post">
@@ -26,9 +25,6 @@ array_push($permission_array[$role][$model],$permission_granted);
     $index=0;
     @endphp
     <div class="container">
-        {{-- @dd($permissions);--}}
-        {{-- @dd($permission_array);--}}
-        {{-- @dd(Auth::user()->custom);--}}
         @foreach($permissions as $model=>$permission)
         <div class="col-md-5">
             <div class="box-header">
@@ -41,7 +37,8 @@ array_push($permission_array[$role][$model],$permission_granted);
             <div class="box-body">
                 @foreach($permission as $permission_granted)
                 <div class="checkbox no-margin no-padding">
-                    <label><input type="checkbox" value="{{$index++}}" name="checked[]" class="{{$cname}}" {{Helper::check($permission_granted,$roleName,$model,$permission_array)== true ? 'checked' :''}}>{{$permission_granted}}</label>
+                    <label><input type="checkbox" value="{{$index++}}" name="checked[]" class="{{$cname}}"
+                    {{Helper::check($permission_granted,$roleName,$model,$permission_array)== true ? 'checked' :''}}>{{$permission_granted}}</label>
                     <input type="hidden" value="{{$roleName}}" name="role[]">
                     <input type="hidden" value="{{$permission_granted}}" name="permission_granted[]">
                     <input type="hidden" value="{{$model}}" name="model[]">
@@ -58,19 +55,11 @@ array_push($permission_array[$role][$model],$permission_granted);
 
 <script>
     function selectAll(ob, cn) {
-
         if ($(ob).prop("checked")) {
-
             $("." + cn).prop('checked', true);
         } else {
             $("." + cn).prop('checked', false);
-
         }
-
-       
     }
-
-      
-    
 </script>
 @endsection

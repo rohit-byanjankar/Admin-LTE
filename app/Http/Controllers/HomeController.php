@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Notifications\requestContactNumber;
 use App\User;
 use Illuminate\Http\Request;
 use Modules\Article\Entities\Post;
@@ -54,4 +55,5 @@ class HomeController extends Controller
     {
         return view('aboutUs');
     }
+
 }

@@ -21,7 +21,7 @@
 
             <div class="form-group col-md-4">
                 <label for="mname" >Middle Name:</label>
-                <input type="text" name="mname" id="mname"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->middle_name : ''}}" required>
+                <input type="text" name="mname" id="mname"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->middle_name : ''}}" >
             </div>
             <div class="form-group col-md-4">
                 <label for="lname" >Last Name:</label>
@@ -48,17 +48,17 @@
         <div class="container-fluid">
             <div class="form-group col-md-4">
                 <label for="mnumber" >Mobile Number:</label>
-                <input type="text" class="form-control" maxlength="14" name='mobile_number' id='mnumber' value="{{ isset($phoneDirectory) ? $phoneDirectory->mobile_number : ''}}" required>
+                <input type="text" class="form-control" maxlength="14" name='mobile_number' id='mnumber' value="{{ isset($phoneDirectory) ? $phoneDirectory->mobile_number : ''}}" >
             </div>
 
             <div class="form-group col-md-4">
                 <label for="onumber" >Office Number:</label>
-                <input type="text" name="office_number" id="onumber" maxlength="10" class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->office_number : ''}}" required>
+                <input type="text" name="office_number" id="onumber" maxlength="10" class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->office_number : ''}}" >
             </div>
 
             <div class="form-group col-md-4">
                 <label for="profession" >Profession:</label>
-                <input type="text" name="profession" id="profession"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->profession : ''}}" required>
+                <input type="text" name="profession" id="profession"  class="form-control" value="{{ isset($phoneDirectory) ? $phoneDirectory->profession : ''}}" >
             </div>
 
             @if($categories->count()>0)

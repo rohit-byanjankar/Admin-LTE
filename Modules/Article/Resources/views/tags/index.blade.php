@@ -42,7 +42,6 @@
             <h3 class="text-center"> No Tags Yet. </h3>
             @endif
     </div>
-</div>
 @endsection
 
 @section('scripts')

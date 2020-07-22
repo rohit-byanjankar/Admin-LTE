@@ -14,7 +14,7 @@ class AddServiceProviderToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('service_provider')->nullable(0);
+            $table->boolean('service_provider')->nullable()->default(0);
         });
     }
 

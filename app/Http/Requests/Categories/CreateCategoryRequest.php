@@ -25,7 +25,7 @@ class CreateCategoryRequest extends FormRequest
     {
         return [
             'name'=> 'required|unique:categories',
-            'image' => 'image|size:2048',
+            'image' => 'image',
           ];
 
     }

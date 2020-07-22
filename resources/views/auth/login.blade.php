@@ -4,10 +4,10 @@
         <div class="login-sec" id="tabs">
             <ul class="sign-control">
                 <li data-tab="tab-1">
-                    <a href="#tabs-1">Log In</a>
+                    <a href="#tabs-1" class='logInTab'>Log In</a>
                 </li>
                 <li data-tab="tab-2">
-                    <a href="#tabs-2">
+                    <a href="#tabs-2" class='logInTab'>
                         Register
                     </a>
                 </li>
@@ -29,7 +29,7 @@
                             <div class="sn-field">
                             <i class="fa fa-lock"></i>
                                 <input id="password-field"  type="password"  class="form-control text-dark" placeholder="Password" name="password" required>
-                                <span toggle="#password-field"  class="fa fa-fw fa-eye field-icon toggle-password" ></span>
+                                <span toggle="#password-field"  class="fa fa-eye-slash field-icon toggle-password" ></span>
                             </div>
                         </div>
 

@@ -187,9 +187,6 @@ return [
             'url' => '/adminpanel/announcements',
             'icon' => 'bullhorn'
         ],
-
-
-
         [
             'text' => 'Classified Ads',
             'icon' => 'list',
@@ -222,6 +219,22 @@ return [
             'text' =>  'Meeting',
             'url'  =>  '/adminpanel/meeting',
             'icon' =>  'group',
+        ],
+        [
+            'text' => 'Accounting',
+            'icon' => 'line-chart',
+            'submenu' => [
+                [
+                    'text' => 'Purchase Bill',
+                    'url' => '/adminpanel/purchase',
+                    'icon' => 'rupee',
+                ],
+                [
+                    'text' => 'Sales Bill',
+                    'url' => '/adminpanel/sales',
+                    'icon' => 'rupee',
+                ],
+            ],
         ],
     ],
     'models' => [
