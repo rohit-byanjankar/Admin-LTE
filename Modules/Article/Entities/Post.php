@@ -13,7 +13,7 @@ class Post extends Model implements Searchable
 {
     use SoftDeletes;
     protected $fillable = [
-        'title', 'description', 'content', 'image', 'published_at','category_id','user_id'
+        'title', 'description', 'content', 'image', 'published_at','category_id','user_id','status'
     ];
 
     public function category()
