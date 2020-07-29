@@ -33,12 +33,6 @@
 						@if($classified->approved == 1)
 						<div class="forum-questions  mt-2 mb-2 ">
 							<div class="usr-question">
-								<div class="img-rounded"> {{--ad_img--}}
-									<a href="{{ route('classified.show', $classified->id) }}">
-										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
-									</a>
-									<br>
-								</div>
 								<div class="ad_quest">
 									@can('update', $classified)
 									<a href="{{route('classified.edit',$classified->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
@@ -56,7 +50,13 @@
 										<h3> {{ $classified->title }} </h3>
 									</div>
 									<div class="card card-body">
-										<p> {{ $classified->description }}</p>
+										<p> <div class="img-rounded">
+									<a href="{{ route('classified.show', $classified->id) }}">
+										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
+									</a>
+									<br>
+								</div>
+								 {{ $classified->description }}</p>
 									</div>
 									<span class="posted_time">
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($classified->published_at)->format('d D-M Y') }} <br>
