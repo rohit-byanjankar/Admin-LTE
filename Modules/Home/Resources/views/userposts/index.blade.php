@@ -106,7 +106,17 @@
 
 
 				<div class="widget widget-adver">
-					<img src="http://via.placeholder.com/370x270" alt="">
+					<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+					<!-- Community4 -->
+					<ins class="adsbygoogle"
+					     style="display:block"
+					     data-ad-client="ca-pub-1233158957061590"
+					     data-ad-slot="4133398193"
+					     data-ad-format="auto"
+					     data-full-width-responsive="true"></ins>
+					<script>
+					     (adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
 				</div>
 				<!--for advertisement-->
 
