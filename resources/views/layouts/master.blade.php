@@ -15,6 +15,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jqueryTab.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
+	<script data-ad-client="ca-pub-1233158957061590" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	@yield('css')
 </head>
 
