@@ -85,11 +85,11 @@ return [
 
             'registrar' => [
                 'driver' => 'mysql',
-                'host' => env('DB_HOST', 'localhost'),
+                'host' => env('DB_HOST', 'pdb2.awardspace.com'),
                 'port' => env('DB_EXT_PORT', '3306'),
                 'database' =>'subein_registrar',
-                'username' => 'root',
-                'password' =>  '',
+                'username' => 'subein_registrar',
+                'password' =>  'Registrar12#',
                 'unix_socket' => env('DB_SOCKET', ''),
                 'charset' => 'utf8mb4',
                 'collation' => 'utf8mb4_unicode_ci',
