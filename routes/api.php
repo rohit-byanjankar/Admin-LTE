@@ -18,7 +18,9 @@ Route::middleware('auth:api')->group(function() {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::post('/logout','api\AuthController@logout');
     Route::resource('settings','api\SettingsControllerApi');
+    Route::post('user/update','api\AuthController@updateUser');
 });
 
     Route::post('/login','api\AuthController@login');

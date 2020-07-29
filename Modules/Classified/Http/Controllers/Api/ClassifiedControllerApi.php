@@ -20,11 +20,12 @@ class ClassifiedControllerApi extends Controller
     {
         $classifieds=Classified::all();
         $categories=ClassifiedCategory::all();
-        $data = ['Ad' => $classifieds , 'Ad Category' => $categories];
+        $data = ['ads' => $classifieds , 'ad_category' => $categories];
         if (count($classifieds) > 0){
-             return response()->json(['data' => $data,'message' => 'All Ads retrieved succesfully']);
+             return response()->json(['data' => $data,'message' => 'All Ads retrieved succesfully',200]);
         }else{
-            return response()->json(['message' => 'No Ads found']);
+        	$data = ['ads' => [] , 'ad_category' => []];
+            return response()->json(['data'=>$data, 'message' => 'No Ads found'],201);
         }
     }
 
