@@ -41,7 +41,24 @@
 								<table>
 									<tr>
 										<th>
+											Title:
+										</th>
+										<td>
+											{{$classified->title}}
+										</td>
+									</tr>
 
+									<tr>
+										<th>
+											Description:
+										</th>
+										<td>
+											{{$classified->description}}
+										</td>
+									</tr>
+
+									<tr>
+										<th>
 											Ad Post Date:
 										</th>
 										<td>
