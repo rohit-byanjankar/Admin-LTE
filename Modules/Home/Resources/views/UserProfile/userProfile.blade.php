@@ -32,19 +32,6 @@
                                     <div class="star-descp ml-1 mt-2">
                                         <span style='text-transform:capitalize'>{{$user->profession}}</span>
                                     </div>
-<<<<<<< HEAD
-                                    @if(count($profession) > 0)
-                                    @foreach($profession as $prof)
-                                            <div class="usr-msg-details mt-3 ml-3 mb-3">
-                                                <div class="usr_img">
-                                                    <a href="{{ route('user-profile',$prof->id)}}">
-                                                        <img height="60px" width="200px" src="{{ url($prof->image)}}" alt="">
-                                                    </a>
-                                                </div>
-                                                <div class="usr-mg-info mt-3">
-                                                    {{ $prof->name }}<br>
-                                                    <h2>{{ $prof->profession }}</h2>
-=======
                                     @else
                                     <div class="star-descp ml-1 mt-2">
                                         <span>No Profession</span>
@@ -93,7 +80,6 @@
                                             <div class="usr-msg-details">
                                                 <div class="usr-mg-info">
                                                     <h2 class="text-center">No recent articles from {{$user->name}}..</h2>
->>>>>>> ee83069b11b656ea791f252aedb03957bf8060c1
                                                 </div>
                                                 <!--usr-mg-info end-->
                                             </div>
@@ -126,9 +112,7 @@
                                    
                                     @endforeach
                                     @else
-<<<<<<< HEAD
                                         <div class="card card-body text-primary">NO OTHER PROFESSION OF SAME TYPE</div>
-=======
                                     <div class="usr-msg-details">
                                         <li>
                                             <div class="usr-msg-details">
@@ -139,7 +123,6 @@
                                             </div>
                                         </li>
                                     </div>
->>>>>>> ee83069b11b656ea791f252aedb03957bf8060c1
                                     @endif
                                 </ul>
 
