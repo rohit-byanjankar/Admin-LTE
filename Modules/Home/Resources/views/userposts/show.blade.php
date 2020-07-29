@@ -9,7 +9,7 @@
 					<div class="col-lg-9">
 						<div class="forum-post-view">
 							<div class="usr-question">
-								<img src="{{url( $post->image )}}" width="85%" height="75%" alt="">
+								<img src="{{url( $post->image )}}" width="85%" alt="">
 								<ul class="quest-tags">
 									@foreach($post->tags as $tag)
 									<li><a href="#" title="">{{ $tag->name}}</a></li>
