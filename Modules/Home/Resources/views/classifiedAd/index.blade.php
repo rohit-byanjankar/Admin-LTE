@@ -52,7 +52,7 @@
 									<div class="card card-body">
 										<p> <div class="img-rounded">
 									<a href="{{ route('classified.show', $classified->id) }}">
-										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
+										<img src="{{ url($classified->image)}}" height="110"alt="">
 									</a>
 									<br>
 								</div>
