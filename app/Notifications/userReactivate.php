@@ -42,7 +42,6 @@ class userReactivate extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('chyasal-online@test.com',config("basic_settings.CM_title"))
                     ->line($this->new_user->email.' wants to re-activate his account.')
                     ->action('Click to activate', route('users.index'));
     }

@@ -129,7 +129,7 @@
 				<ul>
 					<li><a href="#" title="">Community Guidelines</a></li>
 					<li><a href="{{url('aboutUs')}}" title="">About Us</a></li>
-					<li> <i class="fa fa-copyright"> Copyright </i> 2018
+					<li> <i class="fa fa-copyright"> Copyright </i> 2020
 					</li>
 				</ul>
 			</div>

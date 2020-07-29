@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mt-3">
-                <div class="card-header">This is Admin Panel</div>
+                <div class="card-header">Super Admin Dashboard</div>
             </div>
         </div>
     </div>
