@@ -15,7 +15,7 @@
 
 
     <link rel="stylesheet" type="text/css" href="{{url('css/workwise/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}>
+    <link rel="stylesheet" type="text/css" href="{{url('css/workwise/responsive.css')}}">
     <!-- Styles -->
 
     <meta charset="utf-8">

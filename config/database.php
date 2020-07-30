@@ -46,9 +46,9 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'chyasal'),
+            'host' => env('DB_HOST', 'community_chyasal'),
             'port' => env('DB_PORT', '3306'),
-            'database' =>'cms_chyasal',
+            'database' =>'community_chyasal',
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),

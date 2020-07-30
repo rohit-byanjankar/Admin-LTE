@@ -41,7 +41,6 @@ class emailActivated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('chyasal-online@test.com',config("basic_settings.CM_title"))
                     ->line('Your email has been succesfully activated.')
                     ->action('Click to login', url('/'));
     }

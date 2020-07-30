@@ -42,7 +42,6 @@ class VerifiedUser extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->from('chyasal@test.com', config('basic_settings.CM_title'))
                     ->line('Your email has now been verified')
                     ->action('Click to login', url('/'))
                     ->line('Thank you for using our application!');

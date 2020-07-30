@@ -33,12 +33,6 @@
 						@if($classified->approved == 1)
 						<div class="forum-questions  mt-2 mb-2 ">
 							<div class="usr-question">
-								<div class="img-rounded"> {{--ad_img--}}
-									<a href="{{ route('classified.show', $classified->id) }}">
-										<img src="{{ url($classified->image)}}" height="110" width="100" alt="">
-									</a>
-									<br>
-								</div>
 								<div class="ad_quest">
 									@can('update', $classified)
 									<a href="{{route('classified.edit',$classified->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
@@ -56,7 +50,13 @@
 										<h3> {{ $classified->title }} </h3>
 									</div>
 									<div class="card card-body">
-										<p> {{ $classified->description }}</p>
+										<p> <div class="img-rounded">
+									<a href="{{ route('classified.show', $classified->id) }}">
+										<img src="{{ url($classified->image)}}" height="110"alt="">
+									</a>
+									<br>
+								</div>
+								 {{ $classified->description }}</p>
 									</div>
 									<span class="posted_time">
 										<i class="fa fa-clock-o"></i> {{ \carbon\carbon::parse($classified->published_at)->format('d D-M Y') }} <br>
@@ -119,7 +119,17 @@
 
 
 						<div class="widget widget-adver">
-							<img src="http://via.placeholder.com/370x270" alt="">
+							<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+							<!-- CommunityAd1 -->
+							<ins class="adsbygoogle"
+							     style="display:block"
+							     data-ad-client="ca-pub-1233158957061590"
+							     data-ad-slot="3330618269"
+							     data-ad-format="auto"
+							     data-full-width-responsive="true"></ins>
+							<script>
+							     (adsbygoogle = window.adsbygoogle || []).push({});
+							</script>
 						</div>
 						<!--for advertisement-->
 

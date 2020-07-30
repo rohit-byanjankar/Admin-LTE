@@ -10,10 +10,12 @@
 
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/responsive.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/workwise/jqueryTab.css')}}">
 	<link rel="stylesheet" href="//cdn.datatables.net/v/bs/dt-1.10.18/datatables.min.css">
+	<script data-ad-client="ca-pub-1233158957061590" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	@yield('css')
 </head>
 
@@ -128,7 +130,7 @@
 				<ul>
 					<li><a href="#" title="">Community Guidelines</a></li>
 					<li><a href="{{url('aboutUs')}}" title="">About Us</a></li>
-					<li> <i class="fa fa-copyright"> Copyright </i> 2018
+					<li> <i class="fa fa-copyright"> Copyright </i> 2020
 					</li>
 				</ul>
 			</div>
