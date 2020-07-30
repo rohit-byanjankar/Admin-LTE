@@ -16,15 +16,19 @@ class ClassifiedControllerApi extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $classifieds=Classified::with('user')->paginate();
+        $query=Classified::with('user');
+        if(isset($request->category_id)){
+        	$query->where('adcategories_id',$request->category_id);
+        }
+        $classifieds=$query->paginate();
         $categories=ClassifiedCategory::get();
         $data = ['ads' => $classifieds , 'ad_category' => $categories];
         if (count($classifieds) > 0){
              return response()->json(['data' => $data,'message' => 'All Ads retrieved succesfully',200]);
         }else{
-        	$data = ['ads' => [] , 'ad_category' => []];
+        	$data = ['ads' => [] , 'ad_category' => $categories];
             return response()->json(['data'=>$data, 'message' => 'No Ads found'],201);
         }
     }
