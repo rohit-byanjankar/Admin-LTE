@@ -18,7 +18,7 @@ class ClassifiedControllerApi extends Controller
      */
     public function index()
     {
-        $classifieds=Classified::all();
+        $classifieds=Classified::with('user')->all();
         $categories=ClassifiedCategory::all();
         $data = ['ads' => $classifieds , 'ad_category' => $categories];
         if (count($classifieds) > 0){
