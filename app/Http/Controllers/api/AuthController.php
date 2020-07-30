@@ -143,7 +143,6 @@ class AuthController extends Controller
 
     public function logout(Request $request) {
         $token = $request->user()->token();
-        dd($token);
         $token->revoke();
         $response = ['message' => 'You have logged out!'];
         return response($response, 200);
