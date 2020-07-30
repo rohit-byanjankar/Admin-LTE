@@ -3,9 +3,9 @@
 namespace App\Policies;
 
 use Illuminate\Support\Facades\Auth;
+use Modules\Announcement\Entities\Announcement;
 use Helper;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Modules\Announcement\Entities\Announcement;
 
 class AnnouncementPolicy
 {

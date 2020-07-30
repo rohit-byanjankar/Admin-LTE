@@ -82,24 +82,23 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
-            'registrar' => [
-                'driver' => 'mysql',
-                'host' => env('DB_HOST', 'pdb2.awardspace.com'),
-                'port' => env('DB_EXT_PORT', '3306'),
-                'database' =>'subein_registrar',
-                'username' => 'subein_registrar',
-                'password' =>  'Registrar12#',
-                'unix_socket' => env('DB_SOCKET', ''),
-                'charset' => 'utf8mb4',
-                'collation' => 'utf8mb4_unicode_ci',
-                'prefix' => '',
-                'prefix_indexes' => true,
-                'strict' => true,
-                'engine' => null,
-                'options' => extension_loaded('pdo_mysql') ? array_filter([
-                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
-                ]) : [],
+        'registrar' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_EXT_PORT', '3306'),
+            'database' =>'community_registrar',
+            'username' => 'root',
+            'password' =>  '',
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
         ],
 
         'pgsql' => [
