@@ -14,7 +14,9 @@
                                 <!--user-pro-img end-->
                                 <div class="user_pro_status">
                                     <ul class="flw-hr">
-                                        <li><a href="#" title="" class="hre">Request Contact Info</a></li>
+                                    @if(Auth::id() != $user->id)
+                                        <li><a href="{{route('request',$user->id)}}" title="" class="hre">Request Contact Info</a></li>
+                                    @endif
                                     </ul>
                                 </div>
                                 <!--user_pro_status end-->

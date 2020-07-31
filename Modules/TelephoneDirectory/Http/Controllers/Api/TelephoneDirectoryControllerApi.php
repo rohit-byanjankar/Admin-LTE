@@ -15,11 +15,11 @@ class TelephoneDirectoryControllerApi extends Controller
      */
     public function index()
     {
-        $phoneDirectory=PhoneDirectory::all();
+        $phoneDirectory=PhoneDirectory::paginate();
         if (count($phoneDirectory) > 0){
-            return response()->json(['data' => $phoneDirectory,'message' => 'PhoneDirectory retrieved succesfully']);
+            return response()->json(['data' => $phoneDirectory,'message' => 'PhoneDirectory retrieved succesfully'],200);
         }else{
-            return response()->json(['message' => 'No PhoneDirectory found']);
+            return response()->json(['message' => 'No PhoneDirectory found'],201);
         }
     }
 

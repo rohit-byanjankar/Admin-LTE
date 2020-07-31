@@ -15,11 +15,11 @@ class TelephoneCategoryControllerApi extends Controller
      */
     public function index()
     {
-        $phoneCategory=PhoneCategory::all();
+        $phoneCategory=PhoneCategory::paginate();
         if (count($phoneCategory) > 0){
-            return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory retrieved succesfully']);
+            return response()->json(['data' => $phoneCategory,'message' => 'phoneCategory retrieved succesfully'],200);
         }else{
-            return response()->json(['message' => 'No PhoneCategory found']);
+            return response()->json(['message' => 'No PhoneCategory found'],201);
         }
     }
 

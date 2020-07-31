@@ -14,12 +14,12 @@ class PostControllerApi extends Controller
 {
     public function index()
     {
-        $post = Post::all();
+        $post = Post::with('category','user')->paginate();
         if (count($post) > 0) {
             return response()->json(['data' => $post,
-                'message' => 'Post retrieved succesfully']);
+                'message' => 'Post retrieved succesfully'],200);
         } else {
-            return response()->json(['message' => 'No posts']);
+            return response()->json(['message' => 'No posts'],201);
         }
     }
 
