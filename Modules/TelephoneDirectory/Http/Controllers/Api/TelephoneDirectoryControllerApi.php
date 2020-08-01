@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\TelephoneDirectory\Entities\PhoneDirectory;
+use Modules\TelephoneDirectory\Entities\PhoneCategory;
 
 class TelephoneDirectoryControllerApi extends Controller
 {
@@ -13,13 +14,20 @@ class TelephoneDirectoryControllerApi extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $phoneDirectory=PhoneDirectory::all();
+        if(isset($request->category_id) && $request->category_id!=0){
+        $phoneDirectory=PhoneDirectory::where('phone_category_id',$request->category_id)->paginate();
+        }
+        else{
+        $phoneDirectory=PhoneDirectory::paginate();    
+        }
+        
+        $categories=PhoneCategory::get();
         if (count($phoneDirectory) > 0){
-            return response()->json(['data' => $phoneDirectory,'message' => 'PhoneDirectory retrieved succesfully']);
+            return response()->json(['data' => $phoneDirectory,'categories'=>$categories,'message' => 'PhoneDirectory retrieved succesfully'],200);
         }else{
-            return response()->json(['message' => 'No PhoneDirectory found']);
+            return response()->json(['categories'=>$categories,'message' => 'No PhoneDirectory found'],201);
         }
     }
 

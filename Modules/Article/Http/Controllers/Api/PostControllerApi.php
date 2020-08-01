@@ -8,18 +8,28 @@ use DB;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use Modules\Article\Entities\Post;
+use Modules\Article\Entities\Category;
 use Auth;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class PostControllerApi extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $post = Post::all();
-        if (count($post) > 0) {
-            return response()->json(['data' => $post,
-                'message' => 'Post retrieved succesfully']);
-        } else {
-            return response()->json(['message' => 'No posts']);
+        if(isset($request->category_id) && $request->category_id!=0){
+        $post=Post::where('category_id',$request->category_id)->with('user','category')->paginate();
+        }
+        else{
+        $post=Post::with('user','category')->paginate();    
+        }
+
+        $categories=Category::get();
+        if (count($post) > 0){
+            return response()->json(['data' => $post,'categories'=>$categories,'message' => 'Posts retrieved succesfully'],200);
+        }else{
+            return response()->json(['categories'=>$categories,'message' => 'No Posts found'],201);
         }
     }
 
