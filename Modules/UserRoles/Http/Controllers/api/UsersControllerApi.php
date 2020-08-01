@@ -19,11 +19,11 @@ class UsersControllerApi extends Controller
      */
     public function index()
     {
-        $users=User::all();
+        $users=User::paginate();
         if (count($users) > 0){
-            return response()->json(['data' => $users,'message ' => 'Users retrieved succesfully']);
+            return response()->json(['data' => $users,'message ' => 'Users retrieved succesfully'],200);
         }else{
-            return response()->json(['message' => 'User not found']);
+            return response()->json(['message' => 'User not found'],201);
         }
     }
 

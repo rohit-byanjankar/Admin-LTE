@@ -16,11 +16,11 @@ class EventControllerApi extends Controller
      */
     public function index()
     {
-        $event=Event::all();
+        $event=Event::paginate();
         if (count($event) > 0){
-            return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully']);
+            return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully'],200);
         }else {
-            return response()->json(['message' => 'No Events found']);
+            return response()->json(['message' => 'No Events found'],201);
         }
     }
 

@@ -18,6 +18,7 @@ class PostControllerApi extends Controller
 {
     public function index(Request $request)
     {
+
         if(isset($request->category_id) && $request->category_id!=0){
         $post=Post::where('category_id',$request->category_id)->with('user','category')->paginate();
         }

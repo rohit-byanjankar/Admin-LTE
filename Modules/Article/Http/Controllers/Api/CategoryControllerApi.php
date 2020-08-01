@@ -13,11 +13,11 @@ class CategoryControllerApi
 {
     public function index()
     {
-        $category=Category::all();
+        $category=Category::paginate();
         if (count($category) > 0){
-            return response()->json(['data' => $category,'message ' => 'Category retrieved succesfully']);
+            return response()->json(['data' => $category,'message ' => 'Category retrieved succesfully'],200);
         }else{
-            return response()->json(['message ' => 'No category found']);
+            return response()->json(['message ' => 'No category found'],201);
         }
     }
 

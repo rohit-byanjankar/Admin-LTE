@@ -17,9 +17,9 @@ class AnnouncementControllerApi extends Controller
     {
         $announcement = Announcement::all();
         if (count($announcement) > 0) {
-            return response()->json(['data' => $announcement, 'message' => 'Announcement retrieved succesfully']);
+            return response()->json(['data' => $announcement, 'message' => 'Announcement retrieved succesfully'],200);
         } else {
-            return response()->json(['message' => 'No Announcement found']);
+            return response()->json(['message' => 'No Announcement found'],201);
         }
     }
 

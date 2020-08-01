@@ -12,11 +12,11 @@ class TagControllerApi
 {
     public function index()
     {
-        $tag = Tag::all();
+        $tag = Tag::paginate();
         if (count($tag) > 0) {
-            return response()->json(['data' => $tag, 'message' => 'Tag retrieved succesfully']);
+            return response()->json(['data' => $tag, 'message' => 'Tag retrieved succesfully'],200);
         } else {
-            return response()->json(['message' => 'No Tags found']);
+            return response()->json(['message' => 'No Tags found'],201);
         }
     }
 

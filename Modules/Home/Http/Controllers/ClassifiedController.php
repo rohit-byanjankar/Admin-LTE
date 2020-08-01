@@ -39,7 +39,9 @@ class ClassifiedController extends Controller
     {
         $request->validate([
             'description' => 'required||min:10||max:100',
-            'image' => 'required|image'
+            'image' => 'required|image',
+            'title' => 'required',
+            'price' => 'required|numeric'
         ]);
 
         $image = $request->image;
@@ -81,6 +83,13 @@ class ClassifiedController extends Controller
 
     public function update(Request $request, Classified $classified)
     {
+        $request->validate([
+            'description' => 'required||min:10||max:100',
+            'image' => 'required|image',
+            'title' => 'required',
+            'price' => 'required|numeric'
+        ]);
+        
         if ($request->hasFile('image')) {
             $old_image = $classified->image;
             if (file_exists($old_image)) {
