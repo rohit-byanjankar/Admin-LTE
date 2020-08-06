@@ -14,8 +14,12 @@ class EventControllerApi extends Controller
      * Display a listing of the resource.
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if(isset($request->start)){
+            return $this->getEvents($request);
+        }
+
         $event=Event::paginate();
         if (count($event) > 0){
             return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully'],200);
@@ -23,6 +27,22 @@ class EventControllerApi extends Controller
             return response()->json(['message' => 'No Events found'],201);
         }
     }
+
+    /**
+     * Display a listing of the resource from start to end date
+     * @return Response
+     */
+    public function getEvents(Request $request){
+        $start=$request->start;
+        $end=$request->end;
+         $event=Event::whereBetween("event_date",array($start,$end))->get();
+        if (count($event) > 0){
+            return response()->json(['data' => $event ,'message' => 'Events retrieved succesfully'],200);
+        }else {
+            return response()->json(['message' => 'No Events found'],201);
+        }
+    }
+
 
     /**
      * Show the form for creating a new resource.

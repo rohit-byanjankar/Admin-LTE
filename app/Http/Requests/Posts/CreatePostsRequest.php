@@ -25,11 +25,10 @@ class CreatePostsRequest extends FormRequest
     public function rules()
     {
         return [  //gets the data from form's name
-            'title' => 'required|unique:posts',
+            'title' => 'required',
             'description' => 'required',
             'content' => 'required',
-            'category'=> 'required',
-            'image' => 'required|image'
+            'category_id'=> 'required',
         ];
     }
 }

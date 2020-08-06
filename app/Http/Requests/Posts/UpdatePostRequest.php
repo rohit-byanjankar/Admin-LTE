@@ -23,11 +23,11 @@ class UpdatePostRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+         return [  //gets the data from form's name
             'title' => 'required',
             'description' => 'required',
-            'content' => 'required' ,
-            'category' => 'required',
+            'content' => 'required',
+            'category_id'=> 'required',
         ];
     }
 }

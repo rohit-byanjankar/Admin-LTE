@@ -16,7 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->group(function() {
     Route::resource('tag','Api\TagControllerApi');
     Route::resource('category','Api\CategoryControllerApi');
-    Route::resource('post','Api\PostControllerApi');
+    Route::apiResource('post','Api\PostControllerApi');
+    Route::post('post/{id}','Api\PostControllerApi@update');
+     
 });
 
 

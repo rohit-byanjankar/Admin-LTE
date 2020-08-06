@@ -22,7 +22,7 @@ class ClassifiedControllerApi extends Controller
         if(isset($request->category_id)){
         	$query->where('adcategories_id',$request->category_id);
         }
-        $classifieds=$query->paginate();
+        $classifieds=$query->paginate($request->per_page);
         $categories=ClassifiedCategory::get();
         $data = ['ads' => $classifieds , 'ad_category' => $categories];
         if (count($classifieds) > 0){
@@ -41,7 +41,7 @@ class ClassifiedControllerApi extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description' => 'required||min:10||max:100'
+            'description' => 'required'
         ]);
 
         $image = $request->image;
@@ -50,11 +50,13 @@ class ClassifiedControllerApi extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'image' => '-',
-            'user_id' => auth::user()->id,
-            'category_id' => $request->category,
+            'user_id' => $request->user_id,
+            'adcategories_id' => $request->category_id,
             'price' => $request->price
         ]);
+        if($image!=null){
         $classified->image = Helper::uploadFile($destinationPath, $image); //using helper file
+        }
         $classified->save();
         return response()->json(['data' => $classified , 'message' =>'Ad stored succesfully']);
     }
@@ -76,13 +78,13 @@ class ClassifiedControllerApi extends Controller
 
     public function show($id)
     {
-        $classified = Classified::find($id);
+        $classified = Classified::where('id',$id)->with('user','classifiedCategory')->first();
         $categories=ClassifiedCategory::all();
-        $data = ['Ad' => $classified , 'Ad Category' => $categories];
-        if ($classified->count() > 0){
-            return response()->json(['data' => $data,'message' => 'One Ad retrieved succesfully']);
+        $data = ['Ad' => $classified , 'ad_category' => $categories];
+        if ($classified){
+            return response()->json(['data' => $data,'message' => 'One Ad retrieved succesfully'],200);
         }else{
-            return response()->json(['message' => 'No Ads found']);
+            return response()->json(['message' => 'No Ads found'],201);
         }
     }
 
@@ -94,7 +96,7 @@ class ClassifiedControllerApi extends Controller
     public function update(Request $request, $id)
     {
         $classified = Classified::find($id);
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image') && $request->image!=null) {
             $old_image = $classified->image;
             if (file_exists($old_image)) {
                 unlink($old_image);
@@ -110,6 +112,7 @@ class ClassifiedControllerApi extends Controller
         $classified->title = $request->title;
         $classified->description = $request->description;
         $classified->price = $request->price;
+        $classified->adcategories_id = $request->category_id;
         $classified->save();
 
        return response()->json(['data' => $classified , 'message' => 'Ad updated succesfully']);

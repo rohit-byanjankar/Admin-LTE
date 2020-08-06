@@ -18,7 +18,7 @@ class Classified extends Model implements Searchable
 
     public function classifiedCategory()
     {
-        return $this->belongsTo(ClassifiedCategory::class);
+        return $this->belongsTo(ClassifiedCategory::class,'adcategories_id','id');
     }
 
     public function getSearchResult(): SearchResult

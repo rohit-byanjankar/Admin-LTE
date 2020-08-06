@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->group(function() {
-    Route::resource('classified','api\ClassifiedControllerApi');
+    Route::apiResource('classified','api\ClassifiedControllerApi');
+    Route::post('classified/{id}','api\ClassifiedControllerApi@update');
     Route::resource('classifiedcategory','api\ClassifiedCategoryControllerApi');
     Route::put('adminclassified/{ad}/approved', 'ClassifiedController@verifyAd')->name('adminclassified.verify-ad');
 });

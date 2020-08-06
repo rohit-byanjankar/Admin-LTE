@@ -20,7 +20,7 @@ class PostControllerApi extends Controller
     {
 
         if(isset($request->category_id) && $request->category_id!=0){
-        $post=Post::where('category_id',$request->category_id)->with('user','category')->paginate();
+        $post=Post::where('category_id',$request->category_id)->with('user','category')->paginate($request->per_page);
         }
         else{
         $post=Post::with('user','category')->paginate();    
@@ -43,14 +43,14 @@ class PostControllerApi extends Controller
     {
         $image = $request->image;
         $destinationPath = 'uploads/';
-        $contents = strip_tags($request->content);
+        $contents = $request->content;
         $post = Post::create([       //storing to database
             'title' => $request->title,
             'description' => $request->description,
             'content' => $contents,
             'image' => '-',
             'published_at' => $request->published_at,
-            'category_id' => $request->category,
+            'category_id' => $request->category_id,
             'user_id' => auth::user()->id,
         ]);
 
@@ -68,7 +68,7 @@ class PostControllerApi extends Controller
 
     public function show($id)
     {
-        $post=Post::find($id);
+        $post=Post::where('id',$id)->with('user','category')->first();
         if ($post->count() > 0){
             return response()->json(['data' => $post,
                 'message' => 'One Post retrieved succesfully',
@@ -83,11 +83,12 @@ class PostControllerApi extends Controller
         //
     }
 
-    public function update(UpdatePostRequest $request, $id)
+    public function update($id,UpdatePostRequest $request)
     {
         $post = Post::find($id);
         if ($request->hasFile('image')) {
             $old_image = $post->image;
+            if(!$old_image=="-" || $old_image=="")
             unlink($old_image);
             $image = $request->image;
             $destinationPath = 'uploads/';
@@ -101,7 +102,7 @@ class PostControllerApi extends Controller
         //updating to database
         $post->title = $request->title;
         $post->description = $request->description;
-        $contents = strip_tags($request->content);
+        $contents = $request->content;
         $post->content = $contents;
         $post->published_at = $request->published_at;
         $post->save();

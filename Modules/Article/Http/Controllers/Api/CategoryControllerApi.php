@@ -13,7 +13,7 @@ class CategoryControllerApi
 {
     public function index()
     {
-        $category=Category::paginate();
+        $category=Category::all();
         if (count($category) > 0){
             return response()->json(['data' => $category,'message ' => 'Category retrieved succesfully'],200);
         }else{
